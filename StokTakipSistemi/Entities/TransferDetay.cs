@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace StokTakipSistemi.Entities
 {
-    internal class Urun
+    internal class TransferDetay
     {
-        public int id { get; set; }
-        public int urun_kodu { get; set; }
-        public string urun_adi { get; set; }
-        public decimal birim { get; set; }
-
+        public int id {  get; set; }
+        public string transfer_id { get; set; }
+        public string urun_id { get; set; }
+        public decimal miktar {  get; set; }
         public DateTime olusturulma_zamani { get; set; }
-
 
     }
 }
