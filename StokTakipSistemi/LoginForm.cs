@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StokTakipSistemi.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,21 +18,57 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
-            
-            
+
+
         }
+
+        private void BtnKayitOl_Click(object sender, EventArgs e)
+        {
+            KayitForm kayitForm = new KayitForm();
+            kayitForm.ShowDialog();
+
+        }
+
+        private void BtnGiris_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtGirisKulAd.Text) || string.IsNullOrWhiteSpace(txtGirisSifre.Text))
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurun!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var kullaniciService = new KullaniciService();
+
+
+            bool basariliMi = kullaniciService.GirisYap(
+                txtGirisKulAd.Text.Trim(),
+                txtGirisSifre.Text.Trim(),
+                out string gelenMesaj
+            );
+
+
+            if (basariliMi)
+            {
+                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AnaForm anaForm = new AnaForm();
+                anaForm.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+        }
+
+        
     }
 }

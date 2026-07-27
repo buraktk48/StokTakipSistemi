@@ -28,65 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtGirisKulAd = new TextBox();
+            txtGirisSifre = new TextBox();
             label1 = new Label();
             label2 = new Label();
             BtnGiris = new Button();
             BtnKayitOl = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // txtGirisKulAd
             // 
-            textBox1.Location = new Point(284, 129);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            txtGirisKulAd.Location = new Point(338, 79);
+            txtGirisKulAd.Name = "txtGirisKulAd";
+            txtGirisKulAd.Size = new Size(125, 27);
+            txtGirisKulAd.TabIndex = 0;
             // 
-            // textBox2
+            // txtGirisSifre
             // 
-            textBox2.Location = new Point(284, 196);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 1;
+            txtGirisSifre.Location = new Point(338, 160);
+            txtGirisSifre.Name = "txtGirisSifre";
+            txtGirisSifre.Size = new Size(125, 27);
+            txtGirisSifre.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(172, 132);
+            label1.Location = new Point(179, 82);
+            label1.Margin = new Padding(5);
             label1.Name = "label1";
             label1.Size = new Size(92, 20);
             label1.TabIndex = 2;
             label1.Text = "Kullanıcı Adı";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(193, 199);
+            label2.Location = new Point(179, 160);
+            label2.Margin = new Padding(5);
             label2.Name = "label2";
             label2.Size = new Size(39, 20);
             label2.TabIndex = 3;
             label2.Text = "Şifre";
-            label2.Click += label2_Click;
             // 
             // BtnGiris
             // 
-            BtnGiris.Location = new Point(222, 266);
+            BtnGiris.Location = new Point(179, 227);
             BtnGiris.Name = "BtnGiris";
             BtnGiris.Size = new Size(94, 29);
             BtnGiris.TabIndex = 4;
             BtnGiris.Text = "Giriş Yap";
             BtnGiris.UseVisualStyleBackColor = true;
+            BtnGiris.Click += BtnGiris_Click;
             // 
             // BtnKayitOl
             // 
-            BtnKayitOl.Location = new Point(349, 266);
+            BtnKayitOl.Location = new Point(358, 227);
             BtnKayitOl.Name = "BtnKayitOl";
-            BtnKayitOl.Size = new Size(94, 29);
+            BtnKayitOl.Size = new Size(105, 29);
             BtnKayitOl.TabIndex = 5;
             BtnKayitOl.Text = "Kayıt Ol";
             BtnKayitOl.UseVisualStyleBackColor = true;
+            BtnKayitOl.Click += BtnKayitOl_Click;
             // 
             // LoginForm
             // 
@@ -94,14 +96,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtGirisSifre);
+            Controls.Add(label1);
+            Controls.Add(txtGirisKulAd);
+            Controls.Add(label2);
             Controls.Add(BtnKayitOl);
             Controls.Add(BtnGiris);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Name = "LoginForm";
-            Text = "LoginForm";
+            Text = "Giriş Yap";
             Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -109,8 +111,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtGirisKulAd;
+        private TextBox txtGirisSifre;
         private Label label1;
         private Label label2;
         private Button BtnGiris;

@@ -30,6 +30,7 @@ namespace StokTakipSistemi
                 string.IsNullOrWhiteSpace(SifTxtBox.Text) || string.IsNullOrWhiteSpace(SoyadTxtBox.Text))
             {
                 MessageBox.Show("Lütfen tüm alanları doldurun!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             var kullaniciService = new KullaniciService();
@@ -55,6 +56,11 @@ namespace StokTakipSistemi
 
 
 
+        }
+
+        private void chkSifreGoster_CheckedChanged(object sender, EventArgs e)
+        {
+             SifTxtBox.UseSystemPasswordChar = !chkSifreGoster.Checked;
         }
     }
 }

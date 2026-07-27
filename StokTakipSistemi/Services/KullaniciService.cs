@@ -15,8 +15,16 @@ namespace StokTakipSistemi.Services
         {
             using (var context = new AppDbContext())
             {
-                // 1. Kullanıcı adı kontrolü
-                bool varMi = context.Kullanicilar.Any(u => u.kullanici_adi == kullaniciAdi);
+                // 2.Güvenlik Kontrolü
+                if (string.IsNullOrWhiteSpace(kullaniciAdi) || string.IsNullOrWhiteSpace(soyad) ||
+                    string.IsNullOrWhiteSpace(sifre) || string.IsNullOrWhiteSpace(ad))
+                {
+                    mesaj = "Kullanıcı bilgileri boş olamaz!";
+                    return false; // Veritabanına kayıt işlemini başlamadan durdurmak için
+                }
+
+                    // 1. Kullanıcı adı kontrolü
+                    bool varMi = context.Kullanicilar.Any(u => u.kullanici_adi == kullaniciAdi);
                 if (varMi)
                 {
                     mesaj = "Bu kullanıcı adı zaten kullanılıyor!";
@@ -29,6 +37,7 @@ namespace StokTakipSistemi.Services
                     kullanici_adi = kullaniciAdi,
                     sifre = sifre,
                     ad = ad,
+                    soyad = soyad,
                     rol_id = 2, // Personel
                     kullanici_durum = true
                 };
@@ -40,6 +49,56 @@ namespace StokTakipSistemi.Services
                 mesaj = "Kayıt başarıyla oluşturuldu!";
                 return true;
             }
+        }
+
+        public bool GirisYap(string kullaniciAdi, string sifre, out string mesaj)
+        {
+
+
+            using (var context = new AppDbContext())
+            {
+                //2.Güvenlik Kontrolü
+
+                if (string.IsNullOrWhiteSpace(kullaniciAdi) || string.IsNullOrEmpty(sifre))
+                {
+                    mesaj = "Kullanıcı bilgileri boş olamaz!";
+                    return false;
+
+                }
+
+                var kullanici = context.Kullanicilar.FirstOrDefault(u => u.kullanici_adi == kullaniciAdi && u.sifre == sifre);
+
+
+                if (kullanici == null)
+                {
+                    mesaj = "Kullanıcı Adı veya Şifre Yanlış!";
+                    return false;
+
+                }
+
+
+
+                if (kullanici.kullanici_durum == false)
+                {
+                    mesaj = "Bu hesap artık aktif değildir.! Lütfen yöneticinizle iletişime geçin.";
+                    return false;
+                }
+
+
+
+                mesaj = "Giriş Başarılı!";
+                return true;
+
+
+            }
+            
+
+
+
+
+
+
+
         }
 
 

@@ -37,12 +37,13 @@
             KulAdTxtBox = new TextBox();
             SifTxtBox = new TextBox();
             BtnKayitOnayla = new Button();
+            chkSifreGoster = new CheckBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.WhiteSmoke;
+            label1.BackColor = Color.Chartreuse;
             label1.ForeColor = Color.Black;
             label1.Location = new Point(72, 76);
             label1.Name = "label1";
@@ -53,7 +54,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.WhiteSmoke;
+            label2.BackColor = Color.Chartreuse;
             label2.ForeColor = Color.Black;
             label2.Location = new Point(72, 122);
             label2.Name = "label2";
@@ -64,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.WhiteSmoke;
+            label3.BackColor = Color.Chartreuse;
             label3.ForeColor = Color.Black;
             label3.Location = new Point(72, 166);
             label3.Name = "label3";
@@ -75,7 +76,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.WhiteSmoke;
+            label4.BackColor = Color.Chartreuse;
             label4.ForeColor = Color.Black;
             label4.Location = new Point(72, 216);
             label4.Name = "label4";
@@ -111,23 +112,38 @@
             SifTxtBox.Name = "SifTxtBox";
             SifTxtBox.Size = new Size(153, 27);
             SifTxtBox.TabIndex = 7;
+            SifTxtBox.UseSystemPasswordChar = true;
             // 
             // BtnKayitOnayla
             // 
+            BtnKayitOnayla.BackColor = Color.Cyan;
             BtnKayitOnayla.Location = new Point(72, 284);
             BtnKayitOnayla.Name = "BtnKayitOnayla";
             BtnKayitOnayla.Size = new Size(94, 29);
             BtnKayitOnayla.TabIndex = 8;
             BtnKayitOnayla.Text = "Kayıt Ol";
-            BtnKayitOnayla.UseVisualStyleBackColor = true;
+            BtnKayitOnayla.UseVisualStyleBackColor = false;
             BtnKayitOnayla.Click += BtnKayitOnayla_Click;
+            // 
+            // chkSifreGoster
+            // 
+            chkSifreGoster.AutoSize = true;
+            chkSifreGoster.BackColor = Color.Cyan;
+            chkSifreGoster.Location = new Point(203, 242);
+            chkSifreGoster.Name = "chkSifreGoster";
+            chkSifreGoster.Size = new Size(158, 24);
+            chkSifreGoster.TabIndex = 9;
+            chkSifreGoster.Text = "Şifreyi Göster/Gizle";
+            chkSifreGoster.UseVisualStyleBackColor = false;
+            chkSifreGoster.CheckedChanged += chkSifreGoster_CheckedChanged;
             // 
             // KayitForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.Yellow;
             ClientSize = new Size(800, 450);
+            Controls.Add(chkSifreGoster);
             Controls.Add(BtnKayitOnayla);
             Controls.Add(SifTxtBox);
             Controls.Add(KulAdTxtBox);
@@ -138,7 +154,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "KayitForm";
-            Text = "KayitForm";
+            Text = "Kayıt Ol";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -154,5 +170,6 @@
         private TextBox KulAdTxtBox;
         private TextBox SifTxtBox;
         private Button BtnKayitOnayla;
+        private CheckBox chkSifreGoster;
     }
 }
