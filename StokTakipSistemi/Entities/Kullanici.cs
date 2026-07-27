@@ -16,7 +16,7 @@ namespace StokTakipSistemi.Entities
         public string sifre { get; set; }
         public bool kullanici_durum { get; set; }
         public int rol_id { get; set; }
-        public DateTime olusturulma_zamani { get; set; }
+        public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
 
     }
 }

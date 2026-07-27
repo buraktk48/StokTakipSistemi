@@ -13,7 +13,7 @@ namespace StokTakipSistemi.Entities
         public string urun_adi { get; set; }
         public decimal birim { get; set; }
 
-        public DateTime olusturulma_zamani { get; set; }
+        public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
 
 
     }

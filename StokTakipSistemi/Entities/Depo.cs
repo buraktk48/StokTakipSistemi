@@ -10,7 +10,7 @@ namespace StokTakipSistemi.Entities
     {
         public int id { get; set; }
         public string ad { get; set; }
-        public DateTime olusturulma_zamani { get; set; }
+        public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
 
         public string lokasyon {  get; set; }
 

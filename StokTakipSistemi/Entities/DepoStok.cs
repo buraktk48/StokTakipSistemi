@@ -12,7 +12,7 @@ namespace StokTakipSistemi.Entities
         public int depo_id { get; set; }
         public int urun_id { get; set; }
         public decimal miktar {  get; set; }
-        public DateTime olusturulma_zamani { get; set; }
+        public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
 
     }
 }
