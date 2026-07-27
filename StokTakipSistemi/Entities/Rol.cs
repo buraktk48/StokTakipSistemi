@@ -8,7 +8,7 @@ namespace StokTakipSistemi.Entities
 {
     internal class Rol
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string adi { get; set; }
 
         public DateTime olusturulma_zamani { get; set; }

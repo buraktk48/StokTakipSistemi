@@ -21,8 +21,52 @@ namespace StokTakipSistemi.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=StokTakipDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=StokTakipDb;Trusted_Connection=True;TrustServerCertificate=True");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Decimal Uyarisi Icin Precision Ayarları
+            modelBuilder.Entity<Urun>().Property(u => u.birim).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<TransferDetay>().Property(u => u.miktar).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<DepoStok>().Property(u => u.miktar).HasColumnType("decimal(18,2)");
+
+
+            //Seed Data( Başlangıç Verileri)
+
+            modelBuilder.Entity<Rol>().HasData(
+                new Rol { id = 1, adi = "Admin" },
+                new Rol { id = 2, adi = "Personel" }
+            );
+
+            modelBuilder.Entity<Kullanici>().HasData(
+                new Kullanici
+                {
+                    id = 1,
+                    ad = "Yonetici",
+                    soyad ="Hesap",
+                    kullanici_durum = true,
+                    kullanici_adi = "admin",
+                    sifre = "123456",
+                    rol_id = 1 
+                }
+            );
+
+            modelBuilder.Entity<Depo>().HasData(
+                new Depo { id = 1, ad = "Ana Depo", lokasyon = "Merkez" }
+            );
+
+
+
+
+
+
+        }
+
+
+
     }
 
 }
