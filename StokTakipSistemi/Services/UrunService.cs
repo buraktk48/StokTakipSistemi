@@ -10,9 +10,9 @@ namespace StokTakipSistemi.Services
 {
     internal class UrunService
     {
-        //Ürün Girme
+        //Ürün Ekleme
 
-        public bool ManuelUrunGiris(string urunkodu,string urunadi,string urunbirim,decimal urunkdv,out string mesaj)
+        public bool ManuelUrunGiris(string urunkodu, string urunadi, string urunbirim, int ekleyenkullaniciid,decimal urunkdv , out string mesaj)
         {
             using (var context = new AppDbContext())
             {
@@ -41,28 +41,35 @@ namespace StokTakipSistemi.Services
                     return false;
                 }
 
-                
+
 
                 // Ürün nesnesi
                 var yeni_urun = new Urun
                 {
                     urun_kodu = urunkodu,
                     urun_adi = urunadi,
-                    birim= urunbirim,
+                    birim = urunbirim,
                     kdv = urunkdv,
-                    
+                    ekleyen_kullanici_id = ekleyenkullaniciid
+
                 };
 
 
 
+                context.Urunler.Add(yeni_urun);
+                context.SaveChanges();
 
+
+
+                mesaj = "Ürün Girişi Başarıyla Gerçekleşmiştir!";
+
+                return true;
 
 
 
             }
-                
 
-                return true;
+            
         }
     }
 }

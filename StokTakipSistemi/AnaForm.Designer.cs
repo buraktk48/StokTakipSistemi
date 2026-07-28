@@ -35,6 +35,10 @@
             btnUrunSil = new Button();
             btnTransferGiris = new Button();
             btnTransferRapor = new Button();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -67,7 +71,7 @@
             // 
             // btnGuncelle
             // 
-            btnGuncelle.Location = new Point(291, 145);
+            btnGuncelle.Location = new Point(24, 365);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(207, 40);
             btnGuncelle.TabIndex = 3;
@@ -76,7 +80,7 @@
             // 
             // btnUrunSil
             // 
-            btnUrunSil.Location = new Point(291, 215);
+            btnUrunSil.Location = new Point(24, 431);
             btnUrunSil.Name = "btnUrunSil";
             btnUrunSil.Size = new Size(207, 40);
             btnUrunSil.TabIndex = 4;
@@ -85,7 +89,7 @@
             // 
             // btnTransferGiris
             // 
-            btnTransferGiris.Location = new Point(536, 145);
+            btnTransferGiris.Location = new Point(609, 145);
             btnTransferGiris.Name = "btnTransferGiris";
             btnTransferGiris.Size = new Size(207, 40);
             btnTransferGiris.TabIndex = 5;
@@ -94,18 +98,58 @@
             // 
             // btnTransferRapor
             // 
-            btnTransferRapor.Location = new Point(536, 215);
+            btnTransferRapor.Location = new Point(609, 215);
             btnTransferRapor.Name = "btnTransferRapor";
             btnTransferRapor.Size = new Size(207, 40);
             btnTransferRapor.TabIndex = 6;
             btnTransferRapor.Text = "Transfer Raporu Çıkart";
             btnTransferRapor.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(24, 295);
+            button1.Name = "button1";
+            button1.Size = new Size(207, 40);
+            button1.TabIndex = 7;
+            button1.Text = "Ürünleri Listele";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(314, 145);
+            button2.Name = "button2";
+            button2.Size = new Size(207, 40);
+            button2.TabIndex = 8;
+            button2.Text = "Depo Ekle";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(314, 221);
+            button3.Name = "button3";
+            button3.Size = new Size(207, 40);
+            button3.TabIndex = 9;
+            button3.Text = "Depo Bilgisi Güncelle";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(314, 295);
+            button4.Name = "button4";
+            button4.Size = new Size(207, 40);
+            button4.TabIndex = 10;
+            button4.Text = "Depo Kaydı Sil";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // AnaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(854, 497);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(btnTransferRapor);
             Controls.Add(btnTransferGiris);
             Controls.Add(btnUrunSil);
@@ -129,5 +173,9 @@
         private Button btnUrunSil;
         private Button btnTransferGiris;
         private Button btnTransferRapor;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }

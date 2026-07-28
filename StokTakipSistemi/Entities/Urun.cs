@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,13 @@ namespace StokTakipSistemi.Entities
         public decimal kdv { get; set; }
 
         public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
+
+        public int ekleyen_kullanici_id { get; set; }
+
+        [ForeignKey("ekleyen_kullanici_id")]
+        public virtual Kullanici ekleyen_kullanici { get; set; }
+
+
 
 
     }

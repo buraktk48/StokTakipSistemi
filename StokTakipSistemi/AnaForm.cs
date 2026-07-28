@@ -21,7 +21,7 @@ namespace StokTakipSistemi
 
         private void btnManuelUrunGiris_Click(object sender, EventArgs e)
         {
-            FormManuelUrunGiris formManuelUrunGiris = new FormManuelUrunGiris();
+            FormManuelUrunGiris formManuelUrunGiris = new FormManuelUrunGiris(_aktifKullanici);
             formManuelUrunGiris.ShowDialog();
         }
     }

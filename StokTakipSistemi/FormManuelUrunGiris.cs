@@ -1,4 +1,5 @@
-﻿using StokTakipSistemi.Services;
+﻿using StokTakipSistemi.Entities;
+using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,10 @@ namespace StokTakipSistemi
 {
     public partial class FormManuelUrunGiris : Form
     {
-        public FormManuelUrunGiris()
+        private Kullanici giren_kullanici;
+        public FormManuelUrunGiris(Kullanici kullanici)
         {
+            giren_kullanici = kullanici;
             InitializeComponent();
         }
 
@@ -32,7 +35,7 @@ namespace StokTakipSistemi
 
             if (!decimal.TryParse(txtKdv.Text.Trim(), out decimal kdv_decimal))
             {
-                MessageBox.Show("Lütfen ürün kodunu sadece sayılardan oluşacak şekilde girin!", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen KDV'yi sadece sayılardan oluşacak şekilde girin!", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
 
             }
@@ -41,14 +44,20 @@ namespace StokTakipSistemi
                 TxtUrunKodu.Text.Trim(),
                 TxtUrunAdi.Text.Trim(),
                 TxtBirim.Text.Trim(),
+                giren_kullanici.id,
                 kdv_decimal,
-                out string gelenmesaj);
+
+                out string gelenMesaj);
 
             if (basariliMi)
-            { 
-            
-            
-            
+            {
+                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            else
+            {
+                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
