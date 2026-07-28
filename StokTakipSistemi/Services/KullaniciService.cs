@@ -51,9 +51,9 @@ namespace StokTakipSistemi.Services
             }
         }
 
-        public bool GirisYap(string kullaniciAdi, string sifre, out string mesaj)
+        public bool GirisYap(string kullaniciAdi, string sifre, out string mesaj,out Kullanici giris_yapan_kullanici)
         {
-
+            giris_yapan_kullanici = null;
 
             using (var context = new AppDbContext())
             {
@@ -87,13 +87,19 @@ namespace StokTakipSistemi.Services
 
 
                 mesaj = "Giriş Başarılı!";
+
+                giris_yapan_kullanici = kullanici;
                 return true;
 
 
+                
+
+
+
             }
+
+
             
-
-
 
 
 

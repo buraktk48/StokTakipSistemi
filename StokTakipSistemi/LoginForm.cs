@@ -1,4 +1,5 @@
-﻿using StokTakipSistemi.Services;
+﻿using StokTakipSistemi.Entities;
+using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,14 +47,15 @@ namespace StokTakipSistemi
             bool basariliMi = kullaniciService.GirisYap(
                 txtGirisKulAd.Text.Trim(),
                 txtGirisSifre.Text.Trim(),
-                out string gelenMesaj
+                out string gelenMesaj,
+                out Kullanici giris_yapan_kullanici
             );
 
 
             if (basariliMi)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AnaForm anaForm = new AnaForm();
+                AnaForm anaForm = new AnaForm(giris_yapan_kullanici);
                 anaForm.Show();
                 this.Hide();
 
@@ -69,6 +71,9 @@ namespace StokTakipSistemi
 
         }
 
-        
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtGirisSifre.UseSystemPasswordChar = !checkBox1.Checked;
+        }
     }
 }

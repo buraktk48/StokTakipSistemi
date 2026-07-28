@@ -34,21 +34,23 @@
             label2 = new Label();
             BtnGiris = new Button();
             BtnKayitOl = new Button();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // txtGirisKulAd
             // 
             txtGirisKulAd.Location = new Point(338, 79);
             txtGirisKulAd.Name = "txtGirisKulAd";
-            txtGirisKulAd.Size = new Size(125, 27);
+            txtGirisKulAd.Size = new Size(138, 27);
             txtGirisKulAd.TabIndex = 0;
             // 
             // txtGirisSifre
             // 
             txtGirisSifre.Location = new Point(338, 160);
             txtGirisSifre.Name = "txtGirisSifre";
-            txtGirisSifre.Size = new Size(125, 27);
+            txtGirisSifre.Size = new Size(138, 27);
             txtGirisSifre.TabIndex = 1;
+            txtGirisSifre.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -72,9 +74,9 @@
             // 
             // BtnGiris
             // 
-            BtnGiris.Location = new Point(179, 227);
+            BtnGiris.Location = new Point(195, 245);
             BtnGiris.Name = "BtnGiris";
-            BtnGiris.Size = new Size(94, 29);
+            BtnGiris.Size = new Size(105, 29);
             BtnGiris.TabIndex = 4;
             BtnGiris.Text = "Giriş Yap";
             BtnGiris.UseVisualStyleBackColor = true;
@@ -82,7 +84,7 @@
             // 
             // BtnKayitOl
             // 
-            BtnKayitOl.Location = new Point(358, 227);
+            BtnKayitOl.Location = new Point(371, 245);
             BtnKayitOl.Name = "BtnKayitOl";
             BtnKayitOl.Size = new Size(105, 29);
             BtnKayitOl.TabIndex = 5;
@@ -90,12 +92,24 @@
             BtnKayitOl.UseVisualStyleBackColor = true;
             BtnKayitOl.Click += BtnKayitOl_Click;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(338, 205);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(158, 24);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "Şifreyi Göster/Gizle";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
+            Controls.Add(checkBox1);
             Controls.Add(txtGirisSifre);
             Controls.Add(label1);
             Controls.Add(txtGirisKulAd);
@@ -117,5 +131,6 @@
         private Label label2;
         private Button BtnGiris;
         private Button BtnKayitOl;
+        private CheckBox checkBox1;
     }
 }

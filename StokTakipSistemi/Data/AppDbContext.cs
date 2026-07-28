@@ -29,9 +29,9 @@ namespace StokTakipSistemi.Data
             base.OnModelCreating(modelBuilder);
 
             // Decimal Uyarisi Icin Precision Ayarları
-            modelBuilder.Entity<Urun>().Property(u => u.birim).HasColumnType("decimal(18,2)");
             modelBuilder.Entity<TransferDetay>().Property(u => u.miktar).HasColumnType("decimal(18,2)");
             modelBuilder.Entity<DepoStok>().Property(u => u.miktar).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<Urun>().Property(u => u.kdv).HasColumnType("decimal(18,2)");
 
 
             //Seed Data( Başlangıç Verileri)
