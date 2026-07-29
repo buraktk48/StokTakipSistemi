@@ -41,10 +41,6 @@ namespace StokTakipSistemi.Data
                 .HasForeignKey(u => u.rol_id)        // 3. Bu bağ 'rol_id' sayısal sütunu üzerinden kurulur!
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Kullanici>()
-                .HasOne()
-
-
 
             //Seed Data( Başlangıç Verileri)
 
