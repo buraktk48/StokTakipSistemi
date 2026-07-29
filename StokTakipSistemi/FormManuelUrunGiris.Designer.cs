@@ -129,6 +129,7 @@
             Controls.Add(TxtUrunKodu);
             Name = "FormManuelUrunGiris";
             Text = "Manuel Ürün Giriş ";
+            Load += FormManuelUrunGiris_Load;
             ResumeLayout(false);
             PerformLayout();
         }

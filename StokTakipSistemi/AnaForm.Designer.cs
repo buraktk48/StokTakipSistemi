@@ -35,18 +35,21 @@
             btnUrunSil = new Button();
             btnTransferGiris = new Button();
             btnTransferRapor = new Button();
-            btnUrunListele = new Button();
+            btnUrunPanel = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(249, 41);
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.Location = new Point(314, 41);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(59, 23);
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
@@ -105,15 +108,15 @@
             btnTransferRapor.Text = "Transfer Raporu Çıkart";
             btnTransferRapor.UseVisualStyleBackColor = true;
             // 
-            // btnUrunListele
+            // btnUrunPanel
             // 
-            btnUrunListele.Location = new Point(24, 295);
-            btnUrunListele.Name = "btnUrunListele";
-            btnUrunListele.Size = new Size(207, 40);
-            btnUrunListele.TabIndex = 7;
-            btnUrunListele.Text = "Ürünleri Listele";
-            btnUrunListele.UseVisualStyleBackColor = true;
-            btnUrunListele.Click += btnUrunListele_Click;
+            btnUrunPanel.Location = new Point(24, 295);
+            btnUrunPanel.Name = "btnUrunPanel";
+            btnUrunPanel.Size = new Size(207, 40);
+            btnUrunPanel.TabIndex = 7;
+            btnUrunPanel.Text = "Ürün Paneli";
+            btnUrunPanel.UseVisualStyleBackColor = true;
+            btnUrunPanel.Click += btnUrunPanel_Click;
             // 
             // button2
             // 
@@ -142,27 +145,37 @@
             button4.Text = "Depo Kaydı Sil";
             button4.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1190, 97);
+            panel1.TabIndex = 11;
+            // 
             // AnaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(854, 497);
+            ClientSize = new Size(1188, 593);
+            Controls.Add(panel1);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(btnUrunListele);
+            Controls.Add(btnUrunPanel);
             Controls.Add(btnTransferRapor);
             Controls.Add(btnTransferGiris);
             Controls.Add(btnUrunSil);
             Controls.Add(btnUrunGuncelle);
             Controls.Add(btnExcelUrunGiris);
             Controls.Add(btnManuelUrunGiris);
-            Controls.Add(label1);
             Name = "AnaForm";
             Text = "Ana Sayfa";
             Load += AnaForm_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -174,9 +187,10 @@
         private Button btnUrunSil;
         private Button btnTransferGiris;
         private Button btnTransferRapor;
-        private Button btnUrunListele;
+        private Button btnUrunPanel;
         private Button button2;
         private Button button3;
         private Button button4;
+        private Panel panel1;
     }
 }

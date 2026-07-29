@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             txtGirisKulAd = new TextBox();
             txtGirisSifre = new TextBox();
             label1 = new Label();
@@ -35,18 +36,23 @@
             BtnGiris = new Button();
             BtnKayitOl = new Button();
             checkBox1 = new CheckBox();
+            panel1 = new Panel();
+            label3 = new Label();
+            groupBox1 = new GroupBox();
+            panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // txtGirisKulAd
             // 
-            txtGirisKulAd.Location = new Point(338, 79);
+            txtGirisKulAd.Location = new Point(228, 77);
             txtGirisKulAd.Name = "txtGirisKulAd";
             txtGirisKulAd.Size = new Size(138, 27);
             txtGirisKulAd.TabIndex = 0;
             // 
             // txtGirisSifre
             // 
-            txtGirisSifre.Location = new Point(338, 160);
+            txtGirisSifre.Location = new Point(228, 158);
             txtGirisSifre.Name = "txtGirisSifre";
             txtGirisSifre.Size = new Size(138, 27);
             txtGirisSifre.TabIndex = 1;
@@ -55,72 +61,116 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(179, 82);
+            label1.Font = new Font("Segoe UI", 10.2F);
+            label1.Location = new Point(69, 80);
             label1.Margin = new Padding(5);
             label1.Name = "label1";
-            label1.Size = new Size(92, 20);
+            label1.Size = new Size(103, 23);
             label1.TabIndex = 2;
             label1.Text = "Kullanıcı Adı";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(179, 160);
+            label2.Font = new Font("Segoe UI", 10.2F);
+            label2.Location = new Point(69, 158);
             label2.Margin = new Padding(5);
             label2.Name = "label2";
-            label2.Size = new Size(39, 20);
+            label2.Size = new Size(43, 23);
             label2.TabIndex = 3;
             label2.Text = "Şifre";
             // 
             // BtnGiris
             // 
-            BtnGiris.Location = new Point(195, 245);
+            BtnGiris.BackColor = SystemColors.ControlLight;
+            BtnGiris.FlatStyle = FlatStyle.Flat;
+            BtnGiris.Image = (Image)resources.GetObject("BtnGiris.Image");
+            BtnGiris.ImageAlign = ContentAlignment.TopLeft;
+            BtnGiris.Location = new Point(112, 253);
             BtnGiris.Name = "BtnGiris";
             BtnGiris.Size = new Size(105, 29);
             BtnGiris.TabIndex = 4;
             BtnGiris.Text = "Giriş Yap";
-            BtnGiris.UseVisualStyleBackColor = true;
+            BtnGiris.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnGiris.UseVisualStyleBackColor = false;
             BtnGiris.Click += BtnGiris_Click;
             // 
             // BtnKayitOl
             // 
-            BtnKayitOl.Location = new Point(371, 245);
+            BtnKayitOl.BackColor = SystemColors.ControlLight;
+            BtnKayitOl.FlatStyle = FlatStyle.Flat;
+            BtnKayitOl.Image = (Image)resources.GetObject("BtnKayitOl.Image");
+            BtnKayitOl.Location = new Point(261, 253);
             BtnKayitOl.Name = "BtnKayitOl";
             BtnKayitOl.Size = new Size(105, 29);
             BtnKayitOl.TabIndex = 5;
             BtnKayitOl.Text = "Kayıt Ol";
-            BtnKayitOl.UseVisualStyleBackColor = true;
+            BtnKayitOl.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnKayitOl.UseVisualStyleBackColor = false;
             BtnKayitOl.Click += BtnKayitOl_Click;
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(338, 205);
+            checkBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            checkBox1.Location = new Point(228, 203);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(158, 24);
+            checkBox1.Size = new Size(176, 27);
             checkBox1.TabIndex = 6;
             checkBox1.Text = "Şifreyi Göster/Gizle";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(964, 90);
+            panel1.TabIndex = 7;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.Location = new Point(369, 22);
+            label3.Name = "label3";
+            label3.Size = new Size(214, 41);
+            label3.TabIndex = 0;
+            label3.Text = "GİRİŞ EKRANI";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(BtnGiris);
+            groupBox1.Controls.Add(checkBox1);
+            groupBox1.Controls.Add(BtnKayitOl);
+            groupBox1.Controls.Add(txtGirisSifre);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(txtGirisKulAd);
+            groupBox1.Location = new Point(216, 124);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(462, 342);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(800, 450);
-            Controls.Add(checkBox1);
-            Controls.Add(txtGirisSifre);
-            Controls.Add(label1);
-            Controls.Add(txtGirisKulAd);
-            Controls.Add(label2);
-            Controls.Add(BtnKayitOl);
-            Controls.Add(BtnGiris);
+            ClientSize = new Size(961, 518);
+            Controls.Add(groupBox1);
+            Controls.Add(panel1);
             Name = "LoginForm";
             Text = "Giriş Yap";
             Load += LoginForm_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -132,5 +182,8 @@
         private Button BtnGiris;
         private Button BtnKayitOl;
         private CheckBox checkBox1;
+        private Panel panel1;
+        private Label label3;
+        private GroupBox groupBox1;
     }
 }

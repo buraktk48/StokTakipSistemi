@@ -61,5 +61,10 @@ namespace StokTakipSistemi
             }
 
         }
+
+        private void FormManuelUrunGiris_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
