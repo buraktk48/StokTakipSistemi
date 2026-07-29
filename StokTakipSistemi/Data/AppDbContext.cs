@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Entities;
 using System;
 using System.Collections.Generic;
@@ -39,6 +39,18 @@ namespace StokTakipSistemi.Data
                 .HasOne(u => u.rol)                  // 1. Kullanıcı'nın BİR TANE 'rol' Nesnesi vardır.
                 .WithMany()                          // 2. Bir Rol'ün ÇOKÇA Kullanıcısı olabilir.
                 .HasForeignKey(u => u.rol_id)        // 3. Bu bağ 'rol_id' sayısal sütunu üzerinden kurulur!
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transfer>()
+                .HasOne(t => t.cikis_depo)
+                .WithMany()
+                .HasForeignKey(t => t.cikis_depo_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transfer>()
+                .HasOne(t => t.varis_depo)
+                .WithMany()
+                .HasForeignKey(t => t.varis_depo_id)
                 .OnDelete(DeleteBehavior.Restrict);
 
 

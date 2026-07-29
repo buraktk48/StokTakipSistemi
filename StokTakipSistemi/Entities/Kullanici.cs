@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace StokTakipSistemi.Entities
         public int rol_id { get; set; }
         public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
 
+        [ForeignKey("rol_id")]
         public virtual Rol rol { get; set; }
 
     }
