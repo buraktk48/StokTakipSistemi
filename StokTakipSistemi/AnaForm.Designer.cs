@@ -30,12 +30,12 @@
         {
             label1 = new Label();
             btnManuelUrunGiris = new Button();
-            btnExcelGiris = new Button();
-            btnGuncelle = new Button();
+            btnExcelUrunGiris = new Button();
+            btnUrunGuncelle = new Button();
             btnUrunSil = new Button();
             btnTransferGiris = new Button();
             btnTransferRapor = new Button();
-            button1 = new Button();
+            btnUrunListele = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -60,23 +60,23 @@
             btnManuelUrunGiris.UseVisualStyleBackColor = true;
             btnManuelUrunGiris.Click += btnManuelUrunGiris_Click;
             // 
-            // btnExcelGiris
+            // btnExcelUrunGiris
             // 
-            btnExcelGiris.Location = new Point(24, 209);
-            btnExcelGiris.Name = "btnExcelGiris";
-            btnExcelGiris.Size = new Size(207, 52);
-            btnExcelGiris.TabIndex = 2;
-            btnExcelGiris.Text = "Excel Dosyasından Ürün Girişi";
-            btnExcelGiris.UseVisualStyleBackColor = true;
+            btnExcelUrunGiris.Location = new Point(24, 209);
+            btnExcelUrunGiris.Name = "btnExcelUrunGiris";
+            btnExcelUrunGiris.Size = new Size(207, 52);
+            btnExcelUrunGiris.TabIndex = 2;
+            btnExcelUrunGiris.Text = "Excel Dosyasından Ürün Girişi";
+            btnExcelUrunGiris.UseVisualStyleBackColor = true;
             // 
-            // btnGuncelle
+            // btnUrunGuncelle
             // 
-            btnGuncelle.Location = new Point(24, 365);
-            btnGuncelle.Name = "btnGuncelle";
-            btnGuncelle.Size = new Size(207, 40);
-            btnGuncelle.TabIndex = 3;
-            btnGuncelle.Text = "Ürün Güncelle";
-            btnGuncelle.UseVisualStyleBackColor = true;
+            btnUrunGuncelle.Location = new Point(24, 365);
+            btnUrunGuncelle.Name = "btnUrunGuncelle";
+            btnUrunGuncelle.Size = new Size(207, 40);
+            btnUrunGuncelle.TabIndex = 3;
+            btnUrunGuncelle.Text = "Ürün Güncelle";
+            btnUrunGuncelle.UseVisualStyleBackColor = true;
             // 
             // btnUrunSil
             // 
@@ -105,14 +105,15 @@
             btnTransferRapor.Text = "Transfer Raporu Çıkart";
             btnTransferRapor.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnUrunListele
             // 
-            button1.Location = new Point(24, 295);
-            button1.Name = "button1";
-            button1.Size = new Size(207, 40);
-            button1.TabIndex = 7;
-            button1.Text = "Ürünleri Listele";
-            button1.UseVisualStyleBackColor = true;
+            btnUrunListele.Location = new Point(24, 295);
+            btnUrunListele.Name = "btnUrunListele";
+            btnUrunListele.Size = new Size(207, 40);
+            btnUrunListele.TabIndex = 7;
+            btnUrunListele.Text = "Ürünleri Listele";
+            btnUrunListele.UseVisualStyleBackColor = true;
+            btnUrunListele.Click += btnUrunListele_Click;
             // 
             // button2
             // 
@@ -149,12 +150,12 @@
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnUrunListele);
             Controls.Add(btnTransferRapor);
             Controls.Add(btnTransferGiris);
             Controls.Add(btnUrunSil);
-            Controls.Add(btnGuncelle);
-            Controls.Add(btnExcelGiris);
+            Controls.Add(btnUrunGuncelle);
+            Controls.Add(btnExcelUrunGiris);
             Controls.Add(btnManuelUrunGiris);
             Controls.Add(label1);
             Name = "AnaForm";
@@ -168,12 +169,12 @@
 
         private Label label1;
         private Button btnManuelUrunGiris;
-        private Button btnExcelGiris;
-        private Button btnGuncelle;
+        private Button btnExcelUrunGiris;
+        private Button btnUrunGuncelle;
         private Button btnUrunSil;
         private Button btnTransferGiris;
         private Button btnTransferRapor;
-        private Button button1;
+        private Button btnUrunListele;
         private Button button2;
         private Button button3;
         private Button button4;

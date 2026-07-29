@@ -34,6 +34,18 @@ namespace StokTakipSistemi.Data
             modelBuilder.Entity<Urun>().Property(u => u.kdv).HasColumnType("decimal(18,2)");
 
 
+
+            modelBuilder.Entity<Kullanici>()
+                .HasOne(u => u.rol)                  // 1. Kullanıcı'nın BİR TANE 'rol' Nesnesi vardır.
+                .WithMany()                          // 2. Bir Rol'ün ÇOKÇA Kullanıcısı olabilir.
+                .HasForeignKey(u => u.rol_id)        // 3. Bu bağ 'rol_id' sayısal sütunu üzerinden kurulur!
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Kullanici>()
+                .HasOne()
+
+
+
             //Seed Data( Başlangıç Verileri)
 
             modelBuilder.Entity<Rol>().HasData(

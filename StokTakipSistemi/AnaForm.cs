@@ -24,5 +24,10 @@ namespace StokTakipSistemi
             FormManuelUrunGiris formManuelUrunGiris = new FormManuelUrunGiris(_aktifKullanici);
             formManuelUrunGiris.ShowDialog();
         }
+
+        private void btnUrunListele_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

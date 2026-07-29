@@ -18,5 +18,7 @@ namespace StokTakipSistemi.Entities
         public int rol_id { get; set; }
         public DateTime olusturulma_zamani { get; set; } = DateTime.Now;
 
+        public virtual Rol rol { get; set; }
+
     }
 }

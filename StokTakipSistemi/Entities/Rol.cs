@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StokTakipSistemi.Entities
 {
-    internal class Rol
+    public class Rol
     {
         public int id { get; set; }
         public string adi { get; set; }
