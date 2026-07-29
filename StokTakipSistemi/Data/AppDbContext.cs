@@ -54,6 +54,16 @@ namespace StokTakipSistemi.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
 
+            modelBuilder.Entity<DepoStok>()
+                .HasOne(t => t.olusturan_kullanici)
+                .WithMany()
+                .HasForeignKey(t => t.olusturan_kullanici_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+
+
+
             //Seed Data( Başlangıç Verileri)
 
             modelBuilder.Entity<Rol>().HasData(
@@ -74,10 +84,7 @@ namespace StokTakipSistemi.Data
                 }
             );
 
-            modelBuilder.Entity<Depo>().HasData(
-                new Depo { id = 1, ad = "Ana Depo", lokasyon = "Merkez" }
-            );
-
+          
 
 
 
