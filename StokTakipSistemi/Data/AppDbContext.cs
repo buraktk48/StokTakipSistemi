@@ -60,6 +60,18 @@ namespace StokTakipSistemi.Data
                 .HasForeignKey(t => t.olusturan_kullanici_id)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Urun>()
+                .HasOne(u => u.ekleyen_kullanici)
+                .WithMany()
+                .HasForeignKey(u => u.ekleyen_kullanici_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Depo>()
+                .HasOne(d => d.olusturan_kullanici)
+                .WithMany()
+                .HasForeignKey(d => d.olusturan_kullanici_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
 
 

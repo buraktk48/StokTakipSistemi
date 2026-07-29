@@ -38,17 +38,12 @@ namespace StokTakipSistemi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("olusturan_kullanici_id")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("olusturulma_zamani")
                         .HasColumnType("datetime2");
 
                     b.HasKey("id");
 
-                    b.HasIndex("olusturan_kullanici_id");
-
-                    b.ToTable("Depolar");
+                    b.ToTable("Depolar", (string)null);
 
                     b.HasData(
                         new
@@ -56,8 +51,7 @@ namespace StokTakipSistemi.Migrations
                             id = 1,
                             ad = "Ana Depo",
                             lokasyon = "Merkez",
-                            olusturan_kullanici_id = 0,
-                            olusturulma_zamani = new DateTime(2026, 7, 29, 12, 14, 36, 403, DateTimeKind.Local).AddTicks(4882)
+                            olusturulma_zamani = new DateTime(2026, 7, 29, 10, 24, 37, 455, DateTimeKind.Local).AddTicks(4897)
                         });
                 });
 
@@ -75,9 +69,6 @@ namespace StokTakipSistemi.Migrations
                     b.Property<decimal>("miktar")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("olusturan_kullanici_id")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("olusturulma_zamani")
                         .HasColumnType("datetime2");
 
@@ -86,13 +77,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("depo_id");
-
-                    b.HasIndex("olusturan_kullanici_id");
-
-                    b.HasIndex("urun_id");
-
-                    b.ToTable("DepoStoklari");
+                    b.ToTable("DepoStoklari", (string)null);
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Kullanici", b =>
@@ -132,7 +117,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("rol_id");
 
-                    b.ToTable("Kullanicilar");
+                    b.ToTable("Kullanicilar", (string)null);
 
                     b.HasData(
                         new
@@ -141,7 +126,7 @@ namespace StokTakipSistemi.Migrations
                             ad = "Yonetici",
                             kullanici_adi = "admin",
                             kullanici_durum = true,
-                            olusturulma_zamani = new DateTime(2026, 7, 29, 12, 14, 36, 403, DateTimeKind.Local).AddTicks(4865),
+                            olusturulma_zamani = new DateTime(2026, 7, 29, 10, 24, 37, 455, DateTimeKind.Local).AddTicks(4880),
                             rol_id = 1,
                             sifre = "123456",
                             soyad = "Hesap"
@@ -165,20 +150,20 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Roller");
+                    b.ToTable("Roller", (string)null);
 
                     b.HasData(
                         new
                         {
                             id = 1,
                             adi = "Admin",
-                            olusturulma_zamani = new DateTime(2026, 7, 29, 12, 14, 36, 403, DateTimeKind.Local).AddTicks(4763)
+                            olusturulma_zamani = new DateTime(2026, 7, 29, 10, 24, 37, 455, DateTimeKind.Local).AddTicks(4794)
                         },
                         new
                         {
                             id = 2,
                             adi = "Personel",
-                            olusturulma_zamani = new DateTime(2026, 7, 29, 12, 14, 36, 403, DateTimeKind.Local).AddTicks(4772)
+                            olusturulma_zamani = new DateTime(2026, 7, 29, 10, 24, 37, 455, DateTimeKind.Local).AddTicks(4806)
                         });
                 });
 
@@ -208,13 +193,9 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("cikis_depo_id");
-
                     b.HasIndex("transfer_kullanici_id");
 
-                    b.HasIndex("varis_depo_id");
-
-                    b.ToTable("Transferler");
+                    b.ToTable("Transferler", (string)null);
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.TransferDetay", b =>
@@ -231,19 +212,17 @@ namespace StokTakipSistemi.Migrations
                     b.Property<DateTime>("olusturulma_zamani")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("transfer_id")
-                        .HasColumnType("int");
+                    b.Property<string>("transfer_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("urun_id")
-                        .HasColumnType("int");
+                    b.Property<string>("urun_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
-                    b.HasIndex("transfer_id");
-
-                    b.HasIndex("urun_id");
-
-                    b.ToTable("TransferDetaylari");
+                    b.ToTable("TransferDetaylari", (string)null);
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Urun", b =>
@@ -279,45 +258,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("ekleyen_kullanici_id");
 
-                    b.ToTable("Urunler");
-                });
-
-            modelBuilder.Entity("StokTakipSistemi.Entities.Depo", b =>
-                {
-                    b.HasOne("StokTakipSistemi.Entities.Kullanici", "olusturan_kullanici")
-                        .WithMany()
-                        .HasForeignKey("olusturan_kullanici_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("olusturan_kullanici");
-                });
-
-            modelBuilder.Entity("StokTakipSistemi.Entities.DepoStok", b =>
-                {
-                    b.HasOne("StokTakipSistemi.Entities.Depo", "depo")
-                        .WithMany()
-                        .HasForeignKey("depo_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StokTakipSistemi.Entities.Kullanici", "olusturan_kullanici")
-                        .WithMany()
-                        .HasForeignKey("olusturan_kullanici_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StokTakipSistemi.Entities.Urun", "urun")
-                        .WithMany()
-                        .HasForeignKey("urun_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("depo");
-
-                    b.Navigation("olusturan_kullanici");
-
-                    b.Navigation("urun");
+                    b.ToTable("Urunler", (string)null);
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Kullanici", b =>
@@ -333,48 +274,13 @@ namespace StokTakipSistemi.Migrations
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Transfer", b =>
                 {
-                    b.HasOne("StokTakipSistemi.Entities.Depo", "cikis_depo")
-                        .WithMany()
-                        .HasForeignKey("cikis_depo_id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("StokTakipSistemi.Entities.Kullanici", "transfer_kullanici")
                         .WithMany()
                         .HasForeignKey("transfer_kullanici_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StokTakipSistemi.Entities.Depo", "varis_depo")
-                        .WithMany()
-                        .HasForeignKey("varis_depo_id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("cikis_depo");
-
                     b.Navigation("transfer_kullanici");
-
-                    b.Navigation("varis_depo");
-                });
-
-            modelBuilder.Entity("StokTakipSistemi.Entities.TransferDetay", b =>
-                {
-                    b.HasOne("StokTakipSistemi.Entities.Transfer", "transfer")
-                        .WithMany()
-                        .HasForeignKey("transfer_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StokTakipSistemi.Entities.Urun", "urun")
-                        .WithMany()
-                        .HasForeignKey("urun_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("transfer");
-
-                    b.Navigation("urun");
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Urun", b =>
