@@ -194,7 +194,7 @@
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "KayitForm";
-            Text = "Kayıt Ol";
+            Text = "Stok Takip Sistemi - Kayıt Ol";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);

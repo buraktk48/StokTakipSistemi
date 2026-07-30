@@ -1,5 +1,7 @@
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
+using StokTakipSistemi.Migrations;
+using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +23,13 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        private void UrunListele()
+        private void UrunListele(string aranan)
         {
             using (var context = new AppDbContext())
             {
+
                 dgvUrunler.DataSource = context.Urunler
+                    .Where(r => r.urun_adi.Contains(aranan) || r.urun_kodu.Contains(aranan))
                     .Select(u => new
                     {
                         ID = u.id,
@@ -44,20 +48,12 @@ namespace StokTakipSistemi
 
         private void FormUrunListe_Load(object sender, EventArgs e)
         {
-            UrunListele();
+            UrunListele("");
         }
 
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
-            using (var context = new AppDbContext())
-            {
-                string aranan = txtAra.Text.Trim();
-
-                var sonuc = context.Urunler.Where(r => r.urun_adi.Contains(aranan) || r.urun_kodu.Contains(aranan)).ToList();
-
-                dgvUrunler.DataSource = sonuc;
-
-            }
+            UrunListele(txtAra.Text.Trim());
         }
 
         private void btnUrunEkle_Click(object sender, EventArgs e)
@@ -69,7 +65,56 @@ namespace StokTakipSistemi
         private void btnYenile_Click(object sender, EventArgs e)
         {
             txtAra.Clear();
-            UrunListele();
+            UrunListele("");
+        }
+
+        private void btnUrunGuncelle_Click(object sender, EventArgs e)
+        {
+            if (dgvUrunler.CurrentRow == null)
+            {
+                MessageBox.Show("Lütfen güncellemek istediğiniz ürünü tablodan seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["ID"].Value?.ToString() ?? "0");
+            string urunKodu = dgvUrunler.CurrentRow.Cells["Ürün_Kodu"].Value?.ToString() ?? "";
+            string urunAdi = dgvUrunler.CurrentRow.Cells["Ürün_Adı"].Value?.ToString() ?? "";
+            string birim = dgvUrunler.CurrentRow.Cells["Birim"].Value?.ToString() ?? "";
+            decimal kdv = Convert.ToDecimal(dgvUrunler.CurrentRow.Cells["KDV"].Value?.ToString() ?? "0");
+
+            FormUrunGuncelle formGuncelle = new FormUrunGuncelle(urunId, urunKodu, urunAdi, birim, kdv);
+            formGuncelle.ShowDialog();
+
+
+        }
+
+        private void btnUrunSil_Click(object sender, EventArgs e)
+        {
+            int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["ID"].Value?.ToString() ?? "0");
+
+            DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?","Onay",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            if (sonuc == DialogResult.No)
+                return;
+
+            var urunservice = new UrunService();
+
+            bool gelen = urunservice.UrunSilme(urunId,out string gelenMesaj);
+
+
+            if (gelen)
+            {
+                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+
+            }
+            else
+            {
+                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
     }
 }

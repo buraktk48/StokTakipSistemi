@@ -37,18 +37,23 @@
             txtKdv = new TextBox();
             label4 = new Label();
             btnUrunGiris = new Button();
+            groupBox1 = new GroupBox();
+            panel1 = new Panel();
+            label5 = new Label();
+            groupBox1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // TxtUrunKodu
             // 
-            TxtUrunKodu.Location = new Point(162, 42);
+            TxtUrunKodu.Location = new Point(180, 37);
             TxtUrunKodu.Name = "TxtUrunKodu";
             TxtUrunKodu.Size = new Size(125, 27);
             TxtUrunKodu.TabIndex = 0;
             // 
             // TxtUrunAdi
             // 
-            TxtUrunAdi.Location = new Point(162, 97);
+            TxtUrunAdi.Location = new Point(180, 92);
             TxtUrunAdi.Name = "TxtUrunAdi";
             TxtUrunAdi.Size = new Size(125, 27);
             TxtUrunAdi.TabIndex = 1;
@@ -56,24 +61,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(54, 45);
+            label1.Font = new Font("Segoe UI", 10.2F);
+            label1.Location = new Point(50, 41);
             label1.Name = "label1";
-            label1.Size = new Size(79, 20);
+            label1.Size = new Size(93, 23);
             label1.TabIndex = 2;
             label1.Text = "Ürün Kodu";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(54, 104);
+            label2.Font = new Font("Segoe UI", 10.2F);
+            label2.Location = new Point(50, 100);
             label2.Name = "label2";
-            label2.Size = new Size(67, 20);
+            label2.Size = new Size(78, 23);
             label2.TabIndex = 3;
             label2.Text = "Ürün Adı";
             // 
             // TxtBirim
             // 
-            TxtBirim.Location = new Point(162, 156);
+            TxtBirim.Location = new Point(180, 151);
             TxtBirim.Name = "TxtBirim";
             TxtBirim.Size = new Size(125, 27);
             TxtBirim.TabIndex = 4;
@@ -81,15 +88,16 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(54, 163);
+            label3.Font = new Font("Segoe UI", 10.2F);
+            label3.Location = new Point(50, 159);
             label3.Name = "label3";
-            label3.Size = new Size(44, 20);
+            label3.Size = new Size(49, 23);
             label3.TabIndex = 5;
             label3.Text = "Birim";
             // 
             // txtKdv
             // 
-            txtKdv.Location = new Point(162, 219);
+            txtKdv.Location = new Point(180, 214);
             txtKdv.Name = "txtKdv";
             txtKdv.Size = new Size(125, 27);
             txtKdv.TabIndex = 6;
@@ -97,41 +105,75 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(55, 226);
+            label4.Font = new Font("Segoe UI", 10.2F);
+            label4.Location = new Point(51, 222);
             label4.Name = "label4";
-            label4.Size = new Size(78, 20);
+            label4.Size = new Size(90, 23);
             label4.TabIndex = 7;
             label4.Text = "KDV Oranı";
             // 
             // btnUrunGiris
             // 
-            btnUrunGiris.Location = new Point(151, 274);
+            btnUrunGiris.FlatStyle = FlatStyle.Flat;
+            btnUrunGiris.Location = new Point(169, 269);
             btnUrunGiris.Name = "btnUrunGiris";
-            btnUrunGiris.Size = new Size(136, 29);
+            btnUrunGiris.Size = new Size(136, 34);
             btnUrunGiris.TabIndex = 8;
             btnUrunGiris.Text = "Ürün Girişi Yap";
             btnUrunGiris.UseVisualStyleBackColor = true;
             btnUrunGiris.Click += btnUrunGiris_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(btnUrunGiris);
+            groupBox1.Controls.Add(TxtUrunKodu);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(TxtUrunAdi);
+            groupBox1.Controls.Add(txtKdv);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(TxtBirim);
+            groupBox1.Location = new Point(48, 95);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(470, 357);
+            groupBox1.TabIndex = 9;
+            groupBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(label5);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(920, 77);
+            panel1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label5.Location = new Point(333, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(202, 41);
+            label5.TabIndex = 11;
+            label5.Text = "ÜRÜN GİRİŞİ";
+            // 
             // FormManuelUrunGiris
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnUrunGiris);
-            Controls.Add(label4);
-            Controls.Add(txtKdv);
-            Controls.Add(label3);
-            Controls.Add(TxtBirim);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(TxtUrunAdi);
-            Controls.Add(TxtUrunKodu);
+            ClientSize = new Size(919, 495);
+            Controls.Add(panel1);
+            Controls.Add(groupBox1);
             Name = "FormManuelUrunGiris";
-            Text = "Manuel Ürün Giriş ";
+            Text = "Stok Takip Sistemi - Manuel Ürün Giriş";
             Load += FormManuelUrunGiris_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -145,5 +187,8 @@
         private TextBox txtKdv;
         private Label label4;
         private Button btnUrunGiris;
+        private GroupBox groupBox1;
+        private Panel panel1;
+        private Label label5;
     }
 }

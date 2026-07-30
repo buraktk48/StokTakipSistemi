@@ -30,5 +30,16 @@ namespace StokTakipSistemi
             FormUrunPanel FormUrunListe = new FormUrunPanel(_aktifKullanici);
             FormUrunListe.ShowDialog();
         }
+
+        private void btnUrunGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDepoPanel_Click(object sender, EventArgs e)
+        {
+            FormDepoPanel FormDepoPanel = new FormDepoPanel(_aktifKullanici);
+            FormDepoPanel.ShowDialog();
+        }
     }
 }

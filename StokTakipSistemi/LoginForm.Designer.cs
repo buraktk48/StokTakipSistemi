@@ -164,7 +164,7 @@
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "LoginForm";
-            Text = "Giriş Yap";
+            Text = "Stok Takip Sistemi - Giriş Yap";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

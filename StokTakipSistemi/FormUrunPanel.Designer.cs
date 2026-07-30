@@ -28,15 +28,16 @@ namespace StokTakipSistemi
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUrunPanel));
             dgvUrunler = new DataGridView();
             label1 = new Label();
             txtAra = new TextBox();
             panel1 = new Panel();
             label2 = new Label();
             groupBox1 = new GroupBox();
-            btnYenile = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            btnUrunYenile = new Button();
+            btnUrunSil = new Button();
+            btnUrunGuncelle = new Button();
             btnUrunEkle = new Button();
             groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dgvUrunler).BeginInit();
@@ -95,9 +96,9 @@ namespace StokTakipSistemi
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnYenile);
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(btnUrunYenile);
+            groupBox1.Controls.Add(btnUrunSil);
+            groupBox1.Controls.Add(btnUrunGuncelle);
             groupBox1.Controls.Add(btnUrunEkle);
             groupBox1.Location = new Point(0, 622);
             groupBox1.Name = "groupBox1";
@@ -106,49 +107,59 @@ namespace StokTakipSistemi
             groupBox1.TabStop = false;
             groupBox1.Text = "İşlemler";
             // 
-            // btnYenile
+            // btnUrunYenile
             // 
-            btnYenile.BackColor = SystemColors.Control;
-            btnYenile.FlatStyle = FlatStyle.Flat;
-            btnYenile.Location = new Point(1023, 26);
-            btnYenile.Name = "btnYenile";
-            btnYenile.Size = new Size(206, 50);
-            btnYenile.TabIndex = 3;
-            btnYenile.Text = "Yenile";
-            btnYenile.UseVisualStyleBackColor = false;
-            btnYenile.Click += btnYenile_Click;
+            btnUrunYenile.BackColor = SystemColors.Control;
+            btnUrunYenile.FlatStyle = FlatStyle.Flat;
+            btnUrunYenile.Image = (Image)resources.GetObject("btnUrunYenile.Image");
+            btnUrunYenile.Location = new Point(1023, 26);
+            btnUrunYenile.Name = "btnUrunYenile";
+            btnUrunYenile.Size = new Size(206, 50);
+            btnUrunYenile.TabIndex = 3;
+            btnUrunYenile.Text = " Yenile";
+            btnUrunYenile.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUrunYenile.UseVisualStyleBackColor = false;
+            btnUrunYenile.Click += btnYenile_Click;
             // 
-            // button3
+            // btnUrunSil
             // 
-            button3.BackColor = SystemColors.Control;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(712, 26);
-            button3.Name = "button3";
-            button3.Size = new Size(206, 50);
-            button3.TabIndex = 2;
-            button3.Text = "Sil";
-            button3.UseVisualStyleBackColor = false;
+            btnUrunSil.BackColor = SystemColors.Control;
+            btnUrunSil.FlatStyle = FlatStyle.Flat;
+            btnUrunSil.Image = (Image)resources.GetObject("btnUrunSil.Image");
+            btnUrunSil.Location = new Point(712, 26);
+            btnUrunSil.Name = "btnUrunSil";
+            btnUrunSil.Size = new Size(206, 50);
+            btnUrunSil.TabIndex = 2;
+            btnUrunSil.Text = "   Sil";
+            btnUrunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUrunSil.UseVisualStyleBackColor = false;
+            btnUrunSil.Click += btnUrunSil_Click;
             // 
-            // button2
+            // btnUrunGuncelle
             // 
-            button2.BackColor = SystemColors.Control;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(418, 26);
-            button2.Name = "button2";
-            button2.Size = new Size(206, 50);
-            button2.TabIndex = 1;
-            button2.Text = "Güncelle";
-            button2.UseVisualStyleBackColor = false;
+            btnUrunGuncelle.BackColor = SystemColors.Control;
+            btnUrunGuncelle.FlatStyle = FlatStyle.Flat;
+            btnUrunGuncelle.Image = (Image)resources.GetObject("btnUrunGuncelle.Image");
+            btnUrunGuncelle.Location = new Point(418, 26);
+            btnUrunGuncelle.Name = "btnUrunGuncelle";
+            btnUrunGuncelle.Size = new Size(206, 50);
+            btnUrunGuncelle.TabIndex = 1;
+            btnUrunGuncelle.Text = "Güncelle";
+            btnUrunGuncelle.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUrunGuncelle.UseVisualStyleBackColor = false;
+            btnUrunGuncelle.Click += btnUrunGuncelle_Click;
             // 
             // btnUrunEkle
             // 
             btnUrunEkle.BackColor = SystemColors.Control;
             btnUrunEkle.FlatStyle = FlatStyle.Flat;
+            btnUrunEkle.Image = (Image)resources.GetObject("btnUrunEkle.Image");
             btnUrunEkle.Location = new Point(116, 26);
             btnUrunEkle.Name = "btnUrunEkle";
             btnUrunEkle.Size = new Size(206, 50);
             btnUrunEkle.TabIndex = 0;
-            btnUrunEkle.Text = "Ekle";
+            btnUrunEkle.Text = " Ekle";
+            btnUrunEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUrunEkle.UseVisualStyleBackColor = false;
             btnUrunEkle.Click += btnUrunEkle_Click;
             // 
@@ -171,8 +182,9 @@ namespace StokTakipSistemi
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Controls.Add(dgvUrunler);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormUrunPanel";
-            Text = "Ürün Paneli";
+            Text = " Stok Takip Sistemi - Ürün Paneli";
             Load += FormUrunListe_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUrunler).EndInit();
             panel1.ResumeLayout(false);
@@ -191,10 +203,10 @@ namespace StokTakipSistemi
         private Panel panel1;
         private Label label2;
         private GroupBox groupBox1;
-        private Button button3;
-        private Button button2;
+        private Button btnUrunSil;
+        private Button btnUrunGuncelle;
         private Button btnUrunEkle;
-        private Button btnYenile;
+        private Button btnUrunYenile;
         private GroupBox groupBox2;
     }
 }
