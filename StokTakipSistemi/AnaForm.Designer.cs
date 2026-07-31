@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            btnExcelUrunGiris = new Button();
             btnTransferGiris = new Button();
             btnTransferRapor = new Button();
             btnUrunPanel = new Button();
@@ -48,18 +47,9 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // btnExcelUrunGiris
-            // 
-            btnExcelUrunGiris.Location = new Point(24, 209);
-            btnExcelUrunGiris.Name = "btnExcelUrunGiris";
-            btnExcelUrunGiris.Size = new Size(207, 52);
-            btnExcelUrunGiris.TabIndex = 2;
-            btnExcelUrunGiris.Text = "Excel Dosyasından Ürün Girişi";
-            btnExcelUrunGiris.UseVisualStyleBackColor = true;
-            // 
             // btnTransferGiris
             // 
-            btnTransferGiris.Location = new Point(609, 145);
+            btnTransferGiris.Location = new Point(947, 186);
             btnTransferGiris.Name = "btnTransferGiris";
             btnTransferGiris.Size = new Size(207, 40);
             btnTransferGiris.TabIndex = 5;
@@ -68,7 +58,7 @@
             // 
             // btnTransferRapor
             // 
-            btnTransferRapor.Location = new Point(609, 215);
+            btnTransferRapor.Location = new Point(947, 265);
             btnTransferRapor.Name = "btnTransferRapor";
             btnTransferRapor.Size = new Size(207, 40);
             btnTransferRapor.TabIndex = 6;
@@ -77,9 +67,10 @@
             // 
             // btnUrunPanel
             // 
-            btnUrunPanel.Location = new Point(349, 221);
+            btnUrunPanel.FlatStyle = FlatStyle.Flat;
+            btnUrunPanel.Location = new Point(85, 167);
             btnUrunPanel.Name = "btnUrunPanel";
-            btnUrunPanel.Size = new Size(207, 40);
+            btnUrunPanel.Size = new Size(507, 78);
             btnUrunPanel.TabIndex = 7;
             btnUrunPanel.Text = "Ürün Paneli";
             btnUrunPanel.UseVisualStyleBackColor = true;
@@ -87,9 +78,10 @@
             // 
             // btnDepoPanel
             // 
-            btnDepoPanel.Location = new Point(349, 325);
+            btnDepoPanel.FlatStyle = FlatStyle.Flat;
+            btnDepoPanel.Location = new Point(85, 280);
             btnDepoPanel.Name = "btnDepoPanel";
-            btnDepoPanel.Size = new Size(207, 40);
+            btnDepoPanel.Size = new Size(507, 78);
             btnDepoPanel.TabIndex = 8;
             btnDepoPanel.Text = "Depo Paneli";
             btnDepoPanel.UseVisualStyleBackColor = true;
@@ -114,7 +106,6 @@
             Controls.Add(btnUrunPanel);
             Controls.Add(btnTransferRapor);
             Controls.Add(btnTransferGiris);
-            Controls.Add(btnExcelUrunGiris);
             Name = "AnaForm";
             Text = "Stok Takip Sistemi - Ana Sayfa";
             Load += AnaForm_Load;
@@ -126,7 +117,6 @@
         #endregion
 
         private Label label1;
-        private Button btnExcelUrunGiris;
         private Button btnTransferGiris;
         private Button btnTransferRapor;
         private Button btnUrunPanel;

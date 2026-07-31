@@ -1,5 +1,6 @@
 ﻿using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
+using StokTakipSistemi.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,14 +45,7 @@ namespace StokTakipSistemi.Services
                 context.SaveChanges();
 
 
-
-
-
             }
-           
-
-
-
 
             mesaj = "Depo Girişi Başarılı";
             return true;
@@ -59,6 +53,64 @@ namespace StokTakipSistemi.Services
 
         }
         
+        public bool DepoGuncelle(int depoid,string depoad, string lokasyon,out string mesaj)
+        {
+            using (var context = new AppDbContext())
+            {
+
+                var depo = context.Depolar.FirstOrDefault(u => u.id == depoid);
+                if (depo == null)
+                {
+                    mesaj = "Güncellenecek depo bulunamadı!";
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(depoad) || string.IsNullOrWhiteSpace(lokasyon))
+                {
+                    mesaj = "Depo bilgileri boş olamaz!";
+                    return false;
+                }
+
+                depo.ad = depoad;
+                depo.lokasyon = lokasyon;
+
+                context.SaveChanges();
+
+                mesaj = "Depo bilgileri başarıyla güncellendi!";
+                return true;
+
+
+            }
+            
+        }
+
+        public bool DepoSil(int urunid,out string gelenMesaj)
+        {
+            using (var context = new AppDbContext())
+            {
+                var sonuc = context.Depolar.Find(urunid);
+
+                if (sonuc!=null)
+                {
+                    context.Depolar.Remove(sonuc);
+                    context.SaveChanges();
+                }
+            }
+
+            gelenMesaj = "Silme İşlemi Başarılı!";
+            return true;
+        }
+
+
+
+
+
+
         
     }
+
+
+
+
+
 }

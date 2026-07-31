@@ -1,5 +1,6 @@
 ﻿using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
+using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,52 @@ namespace StokTakipSistemi
         private void btnDepoYenile_Click(object sender, EventArgs e)
         {
             DepoListele("");
+        }
+
+        private void btnDepoGuncelle_Click(object sender, EventArgs e)
+        {
+            if (dgvDepolar.CurrentRow == null)
+            {
+                MessageBox.Show("Lütfen güncellemek istediğiniz depoyu tablodan seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int depoId = Convert.ToInt32(dgvDepolar.CurrentRow.Cells["Depo_id"].Value?.ToString() ?? "0");
+            string depoad = dgvDepolar.CurrentRow.Cells["Depo_Adi"].Value?.ToString() ?? "";
+            string lokasyon = dgvDepolar.CurrentRow.Cells["Lokasyonu"].Value?.ToString() ?? "";
+
+            FormDepoGuncelle formDepoGuncelle = new FormDepoGuncelle(depoId, depoad, lokasyon);
+            formDepoGuncelle.ShowDialog();
+        }
+
+        private void btnDepoSil_Click(object sender, EventArgs e)
+        {
+            int urunId = Convert.ToInt32(dgvDepolar.CurrentRow.Cells["Depo_id"].Value?.ToString() ?? "0");
+
+            DialogResult sonuc = MessageBox.Show("Bu depoyu silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (sonuc == DialogResult.No)
+                return;
+
+            var depoService = new DepoService();
+
+            bool basariliMi = depoService.DepoSil(urunId, out string gelenMesaj);
+
+            if (basariliMi)
+            {
+                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void txtDepoAra_TextChanged(object sender, EventArgs e)
+        {
+            DepoListele(txtDepoAra.Text.Trim());
         }
     }
 }

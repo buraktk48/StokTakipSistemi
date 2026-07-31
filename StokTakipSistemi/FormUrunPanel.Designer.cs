@@ -35,6 +35,7 @@ namespace StokTakipSistemi
             panel1 = new Panel();
             label2 = new Label();
             groupBox1 = new GroupBox();
+            btnExcelEkle = new Button();
             btnUrunYenile = new Button();
             btnUrunSil = new Button();
             btnUrunGuncelle = new Button();
@@ -90,22 +91,37 @@ namespace StokTakipSistemi
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.Location = new Point(536, 19);
             label2.Name = "label2";
-            label2.Size = new Size(217, 41);
+            label2.Size = new Size(261, 41);
             label2.TabIndex = 4;
-            label2.Text = "ÜRÜN LİSTESİ";
+            label2.Text = "ÜRÜN YÖNETİMİ";
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnExcelEkle);
             groupBox1.Controls.Add(btnUrunYenile);
             groupBox1.Controls.Add(btnUrunSil);
             groupBox1.Controls.Add(btnUrunGuncelle);
             groupBox1.Controls.Add(btnUrunEkle);
-            groupBox1.Location = new Point(0, 622);
+            groupBox1.Location = new Point(12, 622);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1331, 97);
+            groupBox1.Size = new Size(1307, 150);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "İşlemler";
+            // 
+            // btnExcelEkle
+            // 
+            btnExcelEkle.BackColor = SystemColors.Control;
+            btnExcelEkle.FlatStyle = FlatStyle.Flat;
+            btnExcelEkle.Image = (Image)resources.GetObject("btnExcelEkle.Image");
+            btnExcelEkle.Location = new Point(116, 94);
+            btnExcelEkle.Name = "btnExcelEkle";
+            btnExcelEkle.Size = new Size(206, 50);
+            btnExcelEkle.TabIndex = 4;
+            btnExcelEkle.Text = " Excel Üzerinden Ekle";
+            btnExcelEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnExcelEkle.UseVisualStyleBackColor = false;
+            btnExcelEkle.Click += btnExcelEkle_Click;
             // 
             // btnUrunYenile
             // 
@@ -208,5 +224,6 @@ namespace StokTakipSistemi
         private Button btnUrunEkle;
         private Button btnUrunYenile;
         private GroupBox groupBox2;
+        private Button btnExcelEkle;
     }
 }

@@ -1,3 +1,4 @@
+using ClosedXML.Excel;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Migrations;
@@ -32,13 +33,13 @@ namespace StokTakipSistemi
                     .Where(r => r.urun_adi.Contains(aranan) || r.urun_kodu.Contains(aranan))
                     .Select(u => new
                     {
-                        ID = u.id,
-                        Ürün_Kodu = u.urun_kodu,
-                        Ürün_Adı = u.urun_adi,
+                        id = u.id,
+                        Urun_Kodu = u.urun_kodu,
+                        Urun_Adi = u.urun_adi,
                         Birim = u.birim,
                         KDV = u.kdv,
                         Tarih = u.olusturulma_zamani,
-                        Ekleyen_Kullanıcı = u.ekleyen_kullanici != null
+                        Ekleyen_Kullanici = u.ekleyen_kullanici != null
                             ? u.ekleyen_kullanici.ad + " " + u.ekleyen_kullanici.soyad
                             : "-"
                     })
@@ -76,9 +77,9 @@ namespace StokTakipSistemi
                 return;
             }
 
-            int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["ID"].Value?.ToString() ?? "0");
-            string urunKodu = dgvUrunler.CurrentRow.Cells["Ürün_Kodu"].Value?.ToString() ?? "";
-            string urunAdi = dgvUrunler.CurrentRow.Cells["Ürün_Adı"].Value?.ToString() ?? "";
+            int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
+            string urunKodu = dgvUrunler.CurrentRow.Cells["Urun_Kodu"].Value?.ToString() ?? "";
+            string urunAdi = dgvUrunler.CurrentRow.Cells["Urun_Adi"].Value?.ToString() ?? "";
             string birim = dgvUrunler.CurrentRow.Cells["Birim"].Value?.ToString() ?? "";
             decimal kdv = Convert.ToDecimal(dgvUrunler.CurrentRow.Cells["KDV"].Value?.ToString() ?? "0");
 
@@ -92,20 +93,20 @@ namespace StokTakipSistemi
         {
             int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["ID"].Value?.ToString() ?? "0");
 
-            DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?","Onay",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (sonuc == DialogResult.No)
                 return;
 
             var urunservice = new UrunService();
 
-            bool gelen = urunservice.UrunSilme(urunId,out string gelenMesaj);
+            bool gelen = urunservice.UrunSilme(urunId, out string gelenMesaj);
 
 
             if (gelen)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
 
             }
             else
@@ -113,6 +114,19 @@ namespace StokTakipSistemi
                 MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+
+        }
+
+        private void btnExcelEkle_Click(object sender, EventArgs e)
+        {
+            FormExcelUrunEkle formExcelUrunEkle = new FormExcelUrunEkle(_aktifKullanici);
+            formExcelUrunEkle.ShowDialog();
+
+
+            
+
+            
 
 
         }
