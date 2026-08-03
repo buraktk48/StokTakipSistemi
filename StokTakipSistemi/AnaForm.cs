@@ -38,11 +38,11 @@ namespace StokTakipSistemi
             {
                 Session.OturumuKapat();
 
-                
+
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
 
-                
+
                 this.Close();
 
             }
@@ -50,16 +50,22 @@ namespace StokTakipSistemi
 
         private void AnaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
             if (Session.OturumAcikMi)
             {
                 Application.Exit();
             }
         }
 
+        private void btnStok_Click(object sender, EventArgs e)
+        {
+            FormStokPanel formStokPanel = new FormStokPanel();
+            formStokPanel.ShowDialog();
+        }
 
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

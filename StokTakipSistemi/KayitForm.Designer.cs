@@ -172,14 +172,15 @@
             panel1.Controls.Add(label5);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 69);
+            panel1.Size = new Size(938, 79);
             panel1.TabIndex = 11;
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label5.Location = new Point(275, 9);
+            label5.Location = new Point(338, 20);
             label5.Name = "label5";
             label5.Size = new Size(220, 41);
             label5.TabIndex = 0;
@@ -190,7 +191,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Yellow;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(938, 554);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "KayitForm";

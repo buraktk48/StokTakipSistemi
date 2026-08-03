@@ -56,9 +56,10 @@ namespace StokTakipSistemi
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.Location = new Point(226, 22);
+            label1.Location = new Point(264, 22);
             label1.Name = "label1";
             label1.Size = new Size(307, 41);
             label1.TabIndex = 0;

@@ -19,5 +19,8 @@ namespace StokTakipSistemi.Entities
         [ForeignKey("olusturan_kullanici_id")]
         public Kullanici? olusturan_kullanici { get; set; }
 
+        [NotMapped]
+        public string depo_bilgisi => $"{ad} - {lokasyon}";
+
     }
 }

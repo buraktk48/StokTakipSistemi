@@ -23,6 +23,9 @@ namespace StokTakipSistemi.Entities
         [ForeignKey("ekleyen_kullanici_id")]
         public virtual Kullanici ekleyen_kullanici { get; set; }
 
+        [NotMapped]
+        public string urun_bilgisi => $"{urun_kodu} - {urun_adi} - {birim}";
+
 
 
 
