@@ -15,10 +15,9 @@ namespace StokTakipSistemi
 {
     public partial class FormDepoPanel : Form
     {
-        private Kullanici _aktifKullanici;
-        public FormDepoPanel(Kullanici _kullanici)
+        public FormDepoPanel()
         {
-            _aktifKullanici = _kullanici;
+            
             InitializeComponent();
         }
 
@@ -56,7 +55,7 @@ namespace StokTakipSistemi
 
         private void btnDepoEkle_Click(object sender, EventArgs e)
         {
-            FormDepoEkle formDepoEkle = new FormDepoEkle(_aktifKullanici);
+            FormDepoEkle formDepoEkle = new FormDepoEkle();
             formDepoEkle.ShowDialog();
 
         }

@@ -1,5 +1,6 @@
-﻿using ClosedXML.Excel;
+using ClosedXML.Excel;
 using StokTakipSistemi.Entities;
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,11 @@ namespace StokTakipSistemi
 {
     public partial class FormExcelUrunEkle : Form
     {
-        private Kullanici _aktifKullanici;
+        
 
-        public FormExcelUrunEkle(Kullanici _kullanici)
+        public FormExcelUrunEkle()
         {
-            _aktifKullanici = _kullanici;
+            
             InitializeComponent();
         }
         private void ExcelVerileriniGrideYukle(string dosyaYolu)
@@ -104,7 +105,7 @@ namespace StokTakipSistemi
 
             foreach (DataRow row in dt.Rows)
             {
-                string kod = row["urun_kodu"]?.ToString(); // Excel'deki sütun adlarıyla BİREBİR aynı olmalı
+                string kod = row["urun_kodu"]?.ToString(); // Excel'deki sütun adlarıyla birebir aynı olmalı
                 string ad = row["urun_adi"]?.ToString();
                 string birim = row["birim"]?.ToString();
                 string kdvStr = row["kdv"]?.ToString().Replace('.', ',');
@@ -119,7 +120,7 @@ namespace StokTakipSistemi
                     kod,
                     ad,
                     birim,
-                    _aktifKullanici.id, // 👈 Giriş yapan kullanıcının ID'si otomatik ekleniyor
+                    Session.AktifKullanici.id, //  Giriş yapan kullanıcının ID'si otomatik ekleniyor
                     kdvDecimal,
                     out string mesaj
                 );

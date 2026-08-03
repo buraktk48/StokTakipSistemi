@@ -1,4 +1,5 @@
 ﻿using StokTakipSistemi.Entities;
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace StokTakipSistemi
 {
     public partial class FormDepoEkle : Form
     {
-        private Kullanici giren_kullanici;
-        public FormDepoEkle(Kullanici _kullanici)
+        
+        public FormDepoEkle()
         {
-            giren_kullanici = _kullanici;
+            
             InitializeComponent();
         }
 
@@ -36,7 +37,7 @@ namespace StokTakipSistemi
 
             var depoService = new DepoService();
 
-            bool gelen = depoService.DepoEkle(txtDepoAd.Text.Trim(), txtDepoLok.Text.Trim(),giren_kullanici.id,out string gelenMesaj);
+            bool gelen = depoService.DepoEkle(txtDepoAd.Text.Trim(), txtDepoLok.Text.Trim(),Session.AktifKullanici.id,out string gelenMesaj);
 
             if (gelen)
             {

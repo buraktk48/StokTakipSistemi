@@ -1,4 +1,5 @@
 ﻿using StokTakipSistemi.Entities;
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace StokTakipSistemi
 {
     public partial class FormManuelUrunGiris : Form
     {
-        private Kullanici giren_kullanici;
-        public FormManuelUrunGiris(Kullanici kullanici)
+        
+        public FormManuelUrunGiris()
         {
-            giren_kullanici = kullanici;
+            
             InitializeComponent();
         }
 
@@ -44,7 +45,7 @@ namespace StokTakipSistemi
                 TxtUrunKodu.Text.Trim(),
                 TxtUrunAdi.Text.Trim(),
                 TxtBirim.Text.Trim(),
-                giren_kullanici.id,
+                Session.AktifKullanici.id,
                 kdv_decimal,
 
                 out string gelenMesaj);

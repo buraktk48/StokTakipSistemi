@@ -123,11 +123,12 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(label3);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(964, 90);
+            panel1.Size = new Size(1114, 90);
             panel1.TabIndex = 7;
             // 
             // label3
@@ -149,7 +150,7 @@
             groupBox1.Controls.Add(txtGirisSifre);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtGirisKulAd);
-            groupBox1.Location = new Point(216, 124);
+            groupBox1.Location = new Point(256, 125);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(462, 342);
             groupBox1.TabIndex = 8;
@@ -160,7 +161,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(961, 518);
+            ClientSize = new Size(1111, 574);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "LoginForm";

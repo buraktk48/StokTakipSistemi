@@ -34,6 +34,7 @@
             btnUrunPanel = new Button();
             btnDepoPanel = new Button();
             panel1 = new Panel();
+            btnCikisYap = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -96,11 +97,23 @@
             panel1.Size = new Size(1190, 97);
             panel1.TabIndex = 11;
             // 
+            // btnCikisYap
+            // 
+            btnCikisYap.FlatStyle = FlatStyle.Flat;
+            btnCikisYap.Location = new Point(85, 404);
+            btnCikisYap.Name = "btnCikisYap";
+            btnCikisYap.Size = new Size(507, 78);
+            btnCikisYap.TabIndex = 12;
+            btnCikisYap.Text = "Çıkış Yap";
+            btnCikisYap.UseVisualStyleBackColor = true;
+            btnCikisYap.Click += btnCikisYap_Click;
+            // 
             // AnaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1188, 593);
+            Controls.Add(btnCikisYap);
             Controls.Add(panel1);
             Controls.Add(btnDepoPanel);
             Controls.Add(btnUrunPanel);
@@ -122,5 +135,6 @@
         private Button btnUrunPanel;
         private Button btnDepoPanel;
         private Panel panel1;
+        private Button btnCikisYap;
     }
 }

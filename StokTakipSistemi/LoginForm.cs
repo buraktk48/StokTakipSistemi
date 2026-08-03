@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using StokTakipSistemi.Helpers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,9 +56,12 @@ namespace StokTakipSistemi
             if (basariliMi)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AnaForm anaForm = new AnaForm(giris_yapan_kullanici);
-                anaForm.Show();
+
+                Session.AktifKullanici = giris_yapan_kullanici;
                 this.Hide();
+                AnaForm anaForm = new AnaForm();
+                anaForm.ShowDialog();
+                this.Close();
 
             }
             else

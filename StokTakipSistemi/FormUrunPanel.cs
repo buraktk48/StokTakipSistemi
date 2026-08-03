@@ -17,10 +17,10 @@ namespace StokTakipSistemi
 {
     public partial class FormUrunPanel : Form
     {
-        private Kullanici _aktifKullanici;
-        public FormUrunPanel(Kullanici _kullanici)
+        
+        public FormUrunPanel()
         {
-            _aktifKullanici = _kullanici;
+            
             InitializeComponent();
         }
 
@@ -59,7 +59,7 @@ namespace StokTakipSistemi
 
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
-            FormManuelUrunGiris formManuelUrunGiris = new FormManuelUrunGiris(_aktifKullanici);
+            FormManuelUrunGiris formManuelUrunGiris = new FormManuelUrunGiris();
             formManuelUrunGiris.ShowDialog();
         }
 
@@ -120,7 +120,7 @@ namespace StokTakipSistemi
 
         private void btnExcelEkle_Click(object sender, EventArgs e)
         {
-            FormExcelUrunEkle formExcelUrunEkle = new FormExcelUrunEkle(_aktifKullanici);
+            FormExcelUrunEkle formExcelUrunEkle = new FormExcelUrunEkle();
             formExcelUrunEkle.ShowDialog();
 
 
