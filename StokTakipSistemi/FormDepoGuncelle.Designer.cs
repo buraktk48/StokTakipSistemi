@@ -50,7 +50,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 107);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(652, 302);
+            groupBox1.Size = new Size(616, 286);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             // 

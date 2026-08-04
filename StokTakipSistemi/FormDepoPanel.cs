@@ -21,7 +21,7 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        private void DepoListele(string aranan)
+        public void DepoListele(string aranan)
         {
             using (var context = new AppDbContext())
             {
@@ -32,11 +32,10 @@ namespace StokTakipSistemi
                         Depo_id = u.id,
                         Depo_Adi = u.ad,
                         Lokasyonu = u.lokasyon,
-                        Olusturulma_Zamani = u.olusturulma_zamani,
                         Ekleyen_Kullanici = u.olusturan_kullanici != null
                             ? u.olusturan_kullanici.ad + " " + u.olusturan_kullanici.soyad
-                            : "-"
-
+                            : "-",
+                        Olusturulma_Zamani = u.olusturulma_zamani,
 
 
 

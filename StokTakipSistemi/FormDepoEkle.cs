@@ -15,7 +15,11 @@ namespace StokTakipSistemi
 {
     public partial class FormDepoEkle : Form
     {
-        
+        private void FormTemizle()
+        {
+            txtDepoAd.Clear();
+            txtDepoLok.Clear();
+        }
         public FormDepoEkle()
         {
             
@@ -42,7 +46,10 @@ namespace StokTakipSistemi
             if (gelen)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormDepoPanel form = Application.OpenForms["FormDepoPanel"] as FormDepoPanel;
 
+                if (form != null) { form.DepoListele(""); }
+                FormTemizle();
 
             }
             else

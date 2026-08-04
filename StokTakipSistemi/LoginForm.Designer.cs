@@ -45,16 +45,18 @@
             // 
             // txtGirisKulAd
             // 
+            txtGirisKulAd.Font = new Font("Segoe UI", 10.2F);
             txtGirisKulAd.Location = new Point(228, 77);
             txtGirisKulAd.Name = "txtGirisKulAd";
-            txtGirisKulAd.Size = new Size(138, 27);
+            txtGirisKulAd.Size = new Size(138, 30);
             txtGirisKulAd.TabIndex = 0;
             // 
             // txtGirisSifre
             // 
-            txtGirisSifre.Location = new Point(228, 158);
+            txtGirisSifre.Font = new Font("Segoe UI", 10.2F);
+            txtGirisSifre.Location = new Point(228, 151);
             txtGirisSifre.Name = "txtGirisSifre";
-            txtGirisSifre.Size = new Size(138, 27);
+            txtGirisSifre.Size = new Size(138, 30);
             txtGirisSifre.TabIndex = 1;
             txtGirisSifre.UseSystemPasswordChar = true;
             // 
@@ -84,11 +86,12 @@
             // 
             BtnGiris.BackColor = SystemColors.ControlLight;
             BtnGiris.FlatStyle = FlatStyle.Flat;
+            BtnGiris.Font = new Font("Segoe UI", 10.2F);
             BtnGiris.Image = (Image)resources.GetObject("BtnGiris.Image");
             BtnGiris.ImageAlign = ContentAlignment.TopLeft;
-            BtnGiris.Location = new Point(112, 253);
+            BtnGiris.Location = new Point(82, 247);
             BtnGiris.Name = "BtnGiris";
-            BtnGiris.Size = new Size(105, 29);
+            BtnGiris.Size = new Size(158, 40);
             BtnGiris.TabIndex = 4;
             BtnGiris.Text = "Giriş Yap";
             BtnGiris.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -99,10 +102,11 @@
             // 
             BtnKayitOl.BackColor = SystemColors.ControlLight;
             BtnKayitOl.FlatStyle = FlatStyle.Flat;
+            BtnKayitOl.Font = new Font("Segoe UI", 10.2F);
             BtnKayitOl.Image = (Image)resources.GetObject("BtnKayitOl.Image");
-            BtnKayitOl.Location = new Point(261, 253);
+            BtnKayitOl.Location = new Point(305, 247);
             BtnKayitOl.Name = "BtnKayitOl";
-            BtnKayitOl.Size = new Size(105, 29);
+            BtnKayitOl.Size = new Size(158, 40);
             BtnKayitOl.TabIndex = 5;
             BtnKayitOl.Text = "Kayıt Ol";
             BtnKayitOl.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -136,7 +140,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(369, 22);
+            label3.Location = new Point(446, 22);
             label3.Name = "label3";
             label3.Size = new Size(214, 41);
             label3.TabIndex = 0;
@@ -153,7 +157,7 @@
             groupBox1.Controls.Add(txtGirisKulAd);
             groupBox1.Location = new Point(256, 125);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(462, 342);
+            groupBox1.Size = new Size(578, 384);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 

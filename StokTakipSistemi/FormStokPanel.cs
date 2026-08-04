@@ -21,6 +21,15 @@ namespace StokTakipSistemi
             InitializeComponent();
             
         }
+        private void FormTemizle()
+        {
+            txtArama.Clear();
+            numericUpDown1.Value = 0;
+            cboxDepo.SelectedIndex = -1;
+            cboxUrun.SelectedIndex = -1;
+            rbtnStokEkle.Checked = false;
+            rbtnStokDus.Checked = false;
+        }
 
         private void StokListele(string aranan)
         {
@@ -37,10 +46,10 @@ namespace StokTakipSistemi
                         Miktar = u.miktar,
                         Birim = u.urun.birim,
                         Kdv = u.urun.kdv,
-                        Tarih = u.olusturulma_zamani,
                         Ekleyen_Kullanici = u.olusturan_kullanici != null
                             ? u.olusturan_kullanici.ad + " " + u.olusturan_kullanici.soyad
-                            : "-"
+                            : "-",
+                        Olusturulma_Zamani = u.olusturulma_zamani
                     })
                     .ToList();
             }
@@ -69,17 +78,17 @@ namespace StokTakipSistemi
         {
             if (cboxDepo.SelectedValue == null || cboxUrun.SelectedValue == null)
             {
-                MessageBox.Show("Lütfen bir depo ve ürün seçiniz!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("LÃ¼tfen bir depo ve Ã¼rÃ¼n seÃ§iniz!", "Uyarï¿½", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (numericUpDown1.Value <= 0)
             {
-                MessageBox.Show("Miktar 0'dan büyük olmalýdýr!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Miktar 0'dan bÃ¼yÃ¼k olmalÄ±dÄ±r!", "UyarÄ±", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (!rbtnStokEkle.Checked && !rbtnStokDus.Checked)
             {
-                MessageBox.Show("Lütfen yapýlacak iþlemi seçiniz (Stok Ekle / Stok Düþ)!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("LÃ¼tfen yapÄ±lacak iÅŸlemi seÃ§iniz (Stok Ekle / Stok DÃ¼ÅŸ)!", "UyarÄ±", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -103,7 +112,7 @@ namespace StokTakipSistemi
             
             if (basarili)
             {
-                MessageBox.Show(mesaj, "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(mesaj, "BaÅŸarÄ±lÄ±", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 StokListele(""); 
                 numericUpDown1.Value = 0; 
             }
@@ -117,11 +126,13 @@ namespace StokTakipSistemi
 
         private void btnTemizle_Click(object sender, EventArgs e)
         {
-
+            FormTemizle();
+            
         }
 
         private void btnYenile_Click(object sender, EventArgs e)
         {
+            StokListele("");
 
         }
 

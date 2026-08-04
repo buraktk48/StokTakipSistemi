@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StokTakipSistemi.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,86 @@ namespace StokTakipSistemi
         public FormTransferPanel()
         {
             InitializeComponent();
+        }
+
+        public void TransferListele(string aranan)
+        {
+            using (var context = new AppDbContext())
+            {
+                dgvTransferler.DataSource = context.Transferler
+                    .Where(r => r.fis_numarasi.Contains(aranan))
+                    .Select(u => new
+                    {
+                        id = u.id,
+                        Cikis_Depo = u.cikis_depo.id,
+                        Varis_Depo = u.varis_depo.id,
+                        Fis_Numarasi = u.fis_numarasi,
+                        Transfer_Yapan_Kullanici = u.transfer_kullanici != null
+                        ? u.transfer_kullanici.ad + " " + u.transfer_kullanici.soyad : "",
+                        Olusturulma_Zamani = u.olusturulma_zamani,
+
+
+                    })
+                    .ToList();
+
+            }
+        }
+
+        private void TransferDetayListele(string aranan)
+        {
+            using (var context = new AppDbContext())
+            {
+                dgvTransferDetay.DataSource = context.TransferDetaylari
+                    .Select(u=> new
+                    {
+                        id = u.id,
+                        Fis_Numarasi = u.transfer.fis_numarasi,
+                        Urun_Adi = u.urun.urun_adi,
+                        Miktar = u.miktar,
+                        Olusturulma_Zamani = u.olusturulma_zamani
+                        
+                    })
+                    .ToList();
+
+
+            }
+        }
+
+        private void btnTransferGirisi_Click(object sender, EventArgs e)
+        {
+            FormTransferGiris formTransferGiris = new FormTransferGiris();
+            formTransferGiris.ShowDialog();
+        }
+
+        private void btnTransferYenile_Click(object sender, EventArgs e)
+        {
+            TransferListele("");
+
+        }
+
+        private void FormTransferPanel_Load(object sender, EventArgs e)
+        {
+
+            TransferListele("");
+            TransferDetayListele("");
+
+            using (var context = new AppDbContext())
+            {
+                cboxCikisDepo.DataSource = context.Depolar.ToList();
+                cboxVarisDepo.DataSource = context.Depolar.ToList();
+
+                cboxCikisDepo.DisplayMember = "depo_bilgisi";
+                cboxCikisDepo.ValueMember = "id";
+
+                cboxVarisDepo.DisplayMember = "depo_bilgisi";
+                cboxVarisDepo.ValueMember= "id";
+
+            }
+        }
+
+        private void txtFisNoAra_TextChanged(object sender, EventArgs e)
+        {
+            TransferListele(txtFisNoAra.Text.Trim());
         }
     }
 }

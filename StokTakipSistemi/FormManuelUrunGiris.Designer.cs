@@ -46,16 +46,18 @@
             // 
             // TxtUrunKodu
             // 
+            TxtUrunKodu.Font = new Font("Segoe UI", 10.2F);
             TxtUrunKodu.Location = new Point(180, 37);
             TxtUrunKodu.Name = "TxtUrunKodu";
-            TxtUrunKodu.Size = new Size(125, 27);
+            TxtUrunKodu.Size = new Size(138, 30);
             TxtUrunKodu.TabIndex = 0;
             // 
             // TxtUrunAdi
             // 
+            TxtUrunAdi.Font = new Font("Segoe UI", 10.2F);
             TxtUrunAdi.Location = new Point(180, 92);
             TxtUrunAdi.Name = "TxtUrunAdi";
-            TxtUrunAdi.Size = new Size(125, 27);
+            TxtUrunAdi.Size = new Size(138, 30);
             TxtUrunAdi.TabIndex = 1;
             // 
             // label1
@@ -80,9 +82,10 @@
             // 
             // TxtBirim
             // 
-            TxtBirim.Location = new Point(180, 151);
+            TxtBirim.Font = new Font("Segoe UI", 10.2F);
+            TxtBirim.Location = new Point(180, 152);
             TxtBirim.Name = "TxtBirim";
-            TxtBirim.Size = new Size(125, 27);
+            TxtBirim.Size = new Size(138, 30);
             TxtBirim.TabIndex = 4;
             // 
             // label3
@@ -97,9 +100,10 @@
             // 
             // txtKdv
             // 
+            txtKdv.Font = new Font("Segoe UI", 10.2F);
             txtKdv.Location = new Point(180, 214);
             txtKdv.Name = "txtKdv";
-            txtKdv.Size = new Size(125, 27);
+            txtKdv.Size = new Size(138, 30);
             txtKdv.TabIndex = 6;
             // 
             // label4
@@ -115,7 +119,7 @@
             // btnUrunGiris
             // 
             btnUrunGiris.FlatStyle = FlatStyle.Flat;
-            btnUrunGiris.Location = new Point(169, 269);
+            btnUrunGiris.Location = new Point(180, 271);
             btnUrunGiris.Name = "btnUrunGiris";
             btnUrunGiris.Size = new Size(136, 34);
             btnUrunGiris.TabIndex = 8;

@@ -69,9 +69,10 @@ namespace StokTakipSistemi
             // 
             // txtAra
             // 
+            txtAra.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtAra.Location = new Point(445, 59);
             txtAra.Name = "txtAra";
-            txtAra.Size = new Size(312, 27);
+            txtAra.Size = new Size(312, 30);
             txtAra.TabIndex = 2;
             txtAra.TextChanged += txtAra_TextChanged;
             // 

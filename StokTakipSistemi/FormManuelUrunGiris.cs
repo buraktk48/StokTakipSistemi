@@ -22,6 +22,14 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
+        private void FormTemizle()
+        {
+            txtKdv.Clear();
+            TxtUrunAdi.Clear();
+            TxtUrunKodu.Clear();
+            TxtBirim.Clear();
+        }
+
         private void btnUrunGiris_Click(object sender, EventArgs e)
         {
 
@@ -53,6 +61,11 @@ namespace StokTakipSistemi
             if (basariliMi)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormUrunPanel form = Application.OpenForms["FormUrunPanel"] as FormUrunPanel;
+
+                if (form != null) { form.UrunListele(""); }
+                FormTemizle();
+                
 
 
             }

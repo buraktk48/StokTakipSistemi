@@ -166,9 +166,10 @@
             // 
             // txtDepoAra
             // 
+            txtDepoAra.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtDepoAra.Location = new Point(445, 59);
             txtDepoAra.Name = "txtDepoAra";
-            txtDepoAra.Size = new Size(312, 27);
+            txtDepoAra.Size = new Size(312, 30);
             txtDepoAra.TabIndex = 2;
             txtDepoAra.TextChanged += txtDepoAra_TextChanged;
             // 

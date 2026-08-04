@@ -96,30 +96,34 @@
             // 
             // AdTxtBox
             // 
+            AdTxtBox.Font = new Font("Segoe UI", 10.2F);
             AdTxtBox.Location = new Point(202, 38);
             AdTxtBox.Name = "AdTxtBox";
-            AdTxtBox.Size = new Size(153, 27);
+            AdTxtBox.Size = new Size(153, 30);
             AdTxtBox.TabIndex = 4;
             // 
             // SoyadTxtBox
             // 
+            SoyadTxtBox.Font = new Font("Segoe UI", 10.2F);
             SoyadTxtBox.Location = new Point(202, 84);
             SoyadTxtBox.Name = "SoyadTxtBox";
-            SoyadTxtBox.Size = new Size(153, 27);
+            SoyadTxtBox.Size = new Size(153, 30);
             SoyadTxtBox.TabIndex = 5;
             // 
             // KulAdTxtBox
             // 
+            KulAdTxtBox.Font = new Font("Segoe UI", 10.2F);
             KulAdTxtBox.Location = new Point(202, 128);
             KulAdTxtBox.Name = "KulAdTxtBox";
-            KulAdTxtBox.Size = new Size(153, 27);
+            KulAdTxtBox.Size = new Size(153, 30);
             KulAdTxtBox.TabIndex = 6;
             // 
             // SifTxtBox
             // 
+            SifTxtBox.Font = new Font("Segoe UI", 10.2F);
             SifTxtBox.Location = new Point(202, 175);
             SifTxtBox.Name = "SifTxtBox";
-            SifTxtBox.Size = new Size(153, 27);
+            SifTxtBox.Size = new Size(153, 30);
             SifTxtBox.TabIndex = 7;
             SifTxtBox.UseSystemPasswordChar = true;
             // 
@@ -139,7 +143,7 @@
             chkSifreGoster.AutoSize = true;
             chkSifreGoster.BackColor = Color.Cyan;
             chkSifreGoster.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            chkSifreGoster.Location = new Point(214, 221);
+            chkSifreGoster.Location = new Point(202, 230);
             chkSifreGoster.Name = "chkSifreGoster";
             chkSifreGoster.Size = new Size(176, 27);
             chkSifreGoster.TabIndex = 9;

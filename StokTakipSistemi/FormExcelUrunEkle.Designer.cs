@@ -51,9 +51,10 @@
             // 
             // txtDosyaYolu
             // 
+            txtDosyaYolu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtDosyaYolu.Location = new Point(284, 113);
             txtDosyaYolu.Name = "txtDosyaYolu";
-            txtDosyaYolu.Size = new Size(185, 27);
+            txtDosyaYolu.Size = new Size(185, 30);
             txtDosyaYolu.TabIndex = 1;
             // 
             // dgvExcel

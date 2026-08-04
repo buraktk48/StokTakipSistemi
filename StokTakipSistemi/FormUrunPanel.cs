@@ -24,7 +24,7 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        private void UrunListele(string aranan)
+        public void UrunListele(string aranan)
         {
             using (var context = new AppDbContext())
             {
@@ -38,10 +38,10 @@ namespace StokTakipSistemi
                         Urun_Adi = u.urun_adi,
                         Birim = u.birim,
                         KDV = u.kdv,
-                        Tarih = u.olusturulma_zamani,
                         Ekleyen_Kullanici = u.ekleyen_kullanici != null
                             ? u.ekleyen_kullanici.ad + " " + u.ekleyen_kullanici.soyad
-                            : "-"
+                            : "-",
+                        Olusturulma_Zamani = u.olusturulma_zamani
                     })
                     .ToList();
             }

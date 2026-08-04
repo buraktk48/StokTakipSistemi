@@ -105,9 +105,10 @@ namespace StokTakipSistemi
             // 
             // txtGUrunKodu
             // 
+            txtGUrunKodu.Font = new Font("Segoe UI", 10.2F);
             txtGUrunKodu.Location = new Point(167, 26);
             txtGUrunKodu.Name = "txtGUrunKodu";
-            txtGUrunKodu.Size = new Size(125, 27);
+            txtGUrunKodu.Size = new Size(134, 30);
             txtGUrunKodu.TabIndex = 9;
             // 
             // label4
@@ -122,16 +123,18 @@ namespace StokTakipSistemi
             // 
             // txtGUrunAdi
             // 
+            txtGUrunAdi.Font = new Font("Segoe UI", 10.2F);
             txtGUrunAdi.Location = new Point(167, 81);
             txtGUrunAdi.Name = "txtGUrunAdi";
-            txtGUrunAdi.Size = new Size(125, 27);
+            txtGUrunAdi.Size = new Size(134, 30);
             txtGUrunAdi.TabIndex = 10;
             // 
             // txtGKdv
             // 
+            txtGKdv.Font = new Font("Segoe UI", 10.2F);
             txtGKdv.Location = new Point(167, 203);
             txtGKdv.Name = "txtGKdv";
-            txtGKdv.Size = new Size(125, 27);
+            txtGKdv.Size = new Size(134, 30);
             txtGKdv.TabIndex = 15;
             // 
             // label3
@@ -156,9 +159,10 @@ namespace StokTakipSistemi
             // 
             // txtGBirim
             // 
+            txtGBirim.Font = new Font("Segoe UI", 10.2F);
             txtGBirim.Location = new Point(167, 140);
             txtGBirim.Name = "txtGBirim";
-            txtGBirim.Size = new Size(125, 27);
+            txtGBirim.Size = new Size(134, 30);
             txtGBirim.TabIndex = 13;
             // 
             // FormUrunGuncelle

@@ -256,9 +256,10 @@
             // 
             // txtArama
             // 
+            txtArama.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtArama.Location = new Point(518, 58);
             txtArama.Name = "txtArama";
-            txtArama.Size = new Size(312, 27);
+            txtArama.Size = new Size(312, 30);
             txtArama.TabIndex = 2;
             txtArama.TextChanged += txtArama_TextChanged;
             // 
