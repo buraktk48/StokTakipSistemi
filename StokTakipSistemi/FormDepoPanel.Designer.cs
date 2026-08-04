@@ -48,6 +48,7 @@
             // 
             // dgvDepolar
             // 
+            dgvDepolar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvDepolar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDepolar.Location = new Point(54, 198);
             dgvDepolar.Name = "dgvDepolar";
@@ -57,6 +58,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(label2);
             panel1.Location = new Point(0, 0);
@@ -66,6 +68,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.Location = new Point(524, 18);
@@ -102,6 +105,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnDepoSil);
             groupBox1.Controls.Add(btnDepoGuncelle);
             groupBox1.Controls.Add(btnDepoYenile);
@@ -141,6 +145,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(txtDepoAra);
             groupBox2.Location = new Point(54, 84);

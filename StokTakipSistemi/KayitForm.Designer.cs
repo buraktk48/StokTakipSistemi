@@ -161,7 +161,7 @@
             groupBox1.Controls.Add(SoyadTxtBox);
             groupBox1.Location = new Point(47, 95);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(553, 334);
+            groupBox1.Size = new Size(602, 356);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             // 
@@ -172,7 +172,7 @@
             panel1.Controls.Add(label5);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(938, 79);
+            panel1.Size = new Size(975, 79);
             panel1.TabIndex = 11;
             // 
             // label5
@@ -191,7 +191,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Yellow;
-            ClientSize = new Size(938, 554);
+            ClientSize = new Size(975, 557);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "KayitForm";

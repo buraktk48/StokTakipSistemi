@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            btnTransferGiris = new Button();
-            btnTransferRapor = new Button();
             btnUrunPanel = new Button();
             btnDepoPanel = new Button();
             panel1 = new Panel();
             btnCikisYap = new Button();
             btnStok = new Button();
-            btnTransfer = new Button();
+            btnTransferPanel = new Button();
+            btnTransferRaporuCikart = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,26 +50,9 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // btnTransferGiris
-            // 
-            btnTransferGiris.Location = new Point(341, 521);
-            btnTransferGiris.Name = "btnTransferGiris";
-            btnTransferGiris.Size = new Size(207, 40);
-            btnTransferGiris.TabIndex = 5;
-            btnTransferGiris.Text = "Transfer Girişi";
-            btnTransferGiris.UseVisualStyleBackColor = true;
-            // 
-            // btnTransferRapor
-            // 
-            btnTransferRapor.Location = new Point(594, 521);
-            btnTransferRapor.Name = "btnTransferRapor";
-            btnTransferRapor.Size = new Size(207, 40);
-            btnTransferRapor.TabIndex = 6;
-            btnTransferRapor.Text = "Transfer Raporu Çıkart";
-            btnTransferRapor.UseVisualStyleBackColor = true;
-            // 
             // btnUrunPanel
             // 
+            btnUrunPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnUrunPanel.FlatStyle = FlatStyle.Flat;
             btnUrunPanel.Location = new Point(56, 167);
             btnUrunPanel.Name = "btnUrunPanel";
@@ -82,6 +64,7 @@
             // 
             // btnDepoPanel
             // 
+            btnDepoPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnDepoPanel.FlatStyle = FlatStyle.Flat;
             btnDepoPanel.Location = new Point(56, 279);
             btnDepoPanel.Name = "btnDepoPanel";
@@ -103,6 +86,7 @@
             // 
             // btnCikisYap
             // 
+            btnCikisYap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnCikisYap.FlatStyle = FlatStyle.Flat;
             btnCikisYap.Location = new Point(56, 405);
             btnCikisYap.Name = "btnCikisYap";
@@ -114,6 +98,7 @@
             // 
             // btnStok
             // 
+            btnStok.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnStok.FlatStyle = FlatStyle.Flat;
             btnStok.Location = new Point(624, 167);
             btnStok.Name = "btnStok";
@@ -123,30 +108,41 @@
             btnStok.UseVisualStyleBackColor = true;
             btnStok.Click += btnStok_Click;
             // 
-            // btnTransfer
+            // btnTransferPanel
             // 
-            btnTransfer.FlatStyle = FlatStyle.Flat;
-            btnTransfer.Location = new Point(624, 279);
-            btnTransfer.Name = "btnTransfer";
-            btnTransfer.Size = new Size(507, 78);
-            btnTransfer.TabIndex = 14;
-            btnTransfer.Text = "Transfer Paneli";
-            btnTransfer.UseVisualStyleBackColor = true;
-            btnTransfer.Click += btnTransfer_Click;
+            btnTransferPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnTransferPanel.FlatStyle = FlatStyle.Flat;
+            btnTransferPanel.Location = new Point(624, 279);
+            btnTransferPanel.Name = "btnTransferPanel";
+            btnTransferPanel.Size = new Size(507, 78);
+            btnTransferPanel.TabIndex = 14;
+            btnTransferPanel.Text = "Transfer Paneli";
+            btnTransferPanel.UseVisualStyleBackColor = true;
+            btnTransferPanel.Click += btnTransferPanel_Click;
+            // 
+            // btnTransferRaporuCikart
+            // 
+            btnTransferRaporuCikart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnTransferRaporuCikart.FlatStyle = FlatStyle.Flat;
+            btnTransferRaporuCikart.Location = new Point(624, 405);
+            btnTransferRaporuCikart.Name = "btnTransferRaporuCikart";
+            btnTransferRaporuCikart.Size = new Size(507, 78);
+            btnTransferRaporuCikart.TabIndex = 15;
+            btnTransferRaporuCikart.Text = "Transfer Raporu Çıkart";
+            btnTransferRaporuCikart.UseVisualStyleBackColor = true;
             // 
             // AnaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1188, 593);
-            Controls.Add(btnTransfer);
+            Controls.Add(btnTransferRaporuCikart);
+            Controls.Add(btnTransferPanel);
             Controls.Add(btnStok);
             Controls.Add(btnCikisYap);
             Controls.Add(panel1);
             Controls.Add(btnDepoPanel);
             Controls.Add(btnUrunPanel);
-            Controls.Add(btnTransferRapor);
-            Controls.Add(btnTransferGiris);
             Name = "AnaForm";
             Text = "Stok Takip Sistemi - Ana Sayfa";
             Load += AnaForm_Load;
@@ -165,6 +161,8 @@
         private Panel panel1;
         private Button btnCikisYap;
         private Button btnStok;
-        private Button btnTransfer;
+        private Button btnTransferPanel;
+        private Button btnTransferRaporuCikart;
+        private Button btntransferknk;
     }
 }

@@ -63,8 +63,10 @@ namespace StokTakipSistemi
             formStokPanel.ShowDialog();
         }
 
-        private void btnTransfer_Click(object sender, EventArgs e)
+        private void btnTransferPanel_Click(object sender, EventArgs e)
         {
+            FormTransferPanel formTransferPanel = new FormTransferPanel();
+            formTransferPanel.ShowDialog();
 
         }
     }

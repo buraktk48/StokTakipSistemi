@@ -98,6 +98,7 @@ namespace StokTakipSistemi
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnExcelEkle);
             groupBox1.Controls.Add(btnUrunYenile);
             groupBox1.Controls.Add(btnUrunSil);

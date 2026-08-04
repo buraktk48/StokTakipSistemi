@@ -58,6 +58,7 @@
             // 
             // dgvExcel
             // 
+            dgvExcel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvExcel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvExcel.Location = new Point(37, 170);
             dgvExcel.Name = "dgvExcel";

@@ -184,6 +184,7 @@
             // 
             // dgvDepoStok
             // 
+            dgvDepoStok.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDepoStok.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDepoStok.Location = new Point(18, 550);
             dgvDepoStok.Name = "dgvDepoStok";
