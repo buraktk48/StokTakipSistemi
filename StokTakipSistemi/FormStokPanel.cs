@@ -78,7 +78,7 @@ namespace StokTakipSistemi
         {
             if (cboxDepo.SelectedValue == null || cboxUrun.SelectedValue == null)
             {
-                MessageBox.Show("Lütfen bir depo ve ürün seçiniz!", "Uyar�", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen bir depo ve ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (numericUpDown1.Value <= 0)

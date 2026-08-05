@@ -32,6 +32,8 @@
             panel1 = new Panel();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            label6 = new Label();
+            txtFisNum = new TextBox();
             cboxVarisDepo = new ComboBox();
             cboxCikisDepo = new ComboBox();
             label4 = new Label();
@@ -42,13 +44,13 @@
             numericUpDown1 = new NumericUpDown();
             cboxUrun = new ComboBox();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvListe = new DataGridView();
             btnTransferiKaydet = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListe).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -74,6 +76,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(txtFisNum);
             groupBox1.Controls.Add(cboxVarisDepo);
             groupBox1.Controls.Add(cboxCikisDepo);
             groupBox1.Controls.Add(label4);
@@ -84,15 +88,33 @@
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label6.Location = new Point(764, 41);
+            label6.Name = "label6";
+            label6.Size = new Size(116, 23);
+            label6.TabIndex = 20;
+            label6.Text = "Fiş Numarası: ";
+            // 
+            // txtFisNum
+            // 
+            txtFisNum.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtFisNum.Location = new Point(886, 36);
+            txtFisNum.Name = "txtFisNum";
+            txtFisNum.Size = new Size(211, 30);
+            txtFisNum.TabIndex = 19;
+            // 
             // cboxVarisDepo
             // 
             cboxVarisDepo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboxVarisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboxVarisDepo.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             cboxVarisDepo.FormattingEnabled = true;
-            cboxVarisDepo.Location = new Point(724, 38);
+            cboxVarisDepo.Location = new Point(503, 40);
             cboxVarisDepo.Name = "cboxVarisDepo";
-            cboxVarisDepo.Size = new Size(178, 31);
+            cboxVarisDepo.Size = new Size(203, 31);
             cboxVarisDepo.TabIndex = 13;
             // 
             // cboxCikisDepo
@@ -101,7 +123,7 @@
             cboxCikisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboxCikisDepo.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             cboxCikisDepo.FormattingEnabled = true;
-            cboxCikisDepo.Location = new Point(258, 38);
+            cboxCikisDepo.Location = new Point(134, 38);
             cboxCikisDepo.Name = "cboxCikisDepo";
             cboxCikisDepo.Size = new Size(203, 31);
             cboxCikisDepo.TabIndex = 11;
@@ -110,7 +132,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label4.Location = new Point(609, 39);
+            label4.Location = new Point(390, 40);
             label4.Name = "label4";
             label4.Size = new Size(96, 23);
             label4.TabIndex = 12;
@@ -120,7 +142,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.Location = new Point(130, 39);
+            label3.Location = new Point(14, 41);
             label3.Name = "label3";
             label3.Size = new Size(94, 23);
             label3.TabIndex = 10;
@@ -151,6 +173,7 @@
             btnListeyeEkle.Text = "Listeye Ekle";
             btnListeyeEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnListeyeEkle.UseVisualStyleBackColor = false;
+            btnListeyeEkle.Click += btnListeyeEkle_Click;
             // 
             // label5
             // 
@@ -176,7 +199,7 @@
             cboxUrun.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboxUrun.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             cboxUrun.FormattingEnabled = true;
-            cboxUrun.Location = new Point(181, 39);
+            cboxUrun.Location = new Point(163, 33);
             cboxUrun.Name = "cboxUrun";
             cboxUrun.Size = new Size(203, 31);
             cboxUrun.TabIndex = 15;
@@ -185,20 +208,20 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.Location = new Point(47, 42);
+            label2.Location = new Point(14, 41);
             label2.Name = "label2";
             label2.Size = new Size(128, 23);
             label2.TabIndex = 14;
             label2.Text = "Taşınacak Ürün:";
             // 
-            // dataGridView1
+            // dgvListe
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 348);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1162, 354);
-            dataGridView1.TabIndex = 15;
+            dgvListe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvListe.Location = new Point(12, 348);
+            dgvListe.Name = "dgvListe";
+            dgvListe.RowHeadersWidth = 51;
+            dgvListe.Size = new Size(1162, 354);
+            dgvListe.TabIndex = 15;
             // 
             // btnTransferiKaydet
             // 
@@ -212,6 +235,7 @@
             btnTransferiKaydet.Text = "Transferi Kaydet";
             btnTransferiKaydet.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnTransferiKaydet.UseVisualStyleBackColor = false;
+            btnTransferiKaydet.Click += btnTransferiKaydet_Click;
             // 
             // FormTransferGiris
             // 
@@ -219,7 +243,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1201, 784);
             Controls.Add(btnTransferiKaydet);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvListe);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
@@ -233,7 +257,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListe).EndInit();
             ResumeLayout(false);
         }
 
@@ -252,7 +276,9 @@
         private Label label5;
         private NumericUpDown numericUpDown1;
         private Button btnListeyeEkle;
-        private DataGridView dataGridView1;
+        private DataGridView dgvListe;
         private Button btnTransferiKaydet;
+        private Label label6;
+        private TextBox txtFisNum;
     }
 }

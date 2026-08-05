@@ -9,6 +9,7 @@ namespace StokTakipSistemi.Entities
 {
     internal class TransferDetay
     {
+        //Ürün-Transfer N-N
         public int id {  get; set; }
         public int transfer_id { get; set; }
         public int urun_id { get; set; }
