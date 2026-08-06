@@ -81,7 +81,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1190, 97);
+            panel1.Size = new Size(1186, 97);
             panel1.TabIndex = 11;
             // 
             // btnCikisYap
@@ -154,8 +154,6 @@
         #endregion
 
         private Label label1;
-        private Button btnTransferGiris;
-        private Button btnTransferRapor;
         private Button btnUrunPanel;
         private Button btnDepoPanel;
         private Panel panel1;
@@ -163,6 +161,5 @@
         private Button btnStok;
         private Button btnTransferPanel;
         private Button btnTransferRaporuCikart;
-        private Button btntransferknk;
     }
 }

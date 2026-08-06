@@ -59,9 +59,17 @@ namespace StokTakipSistemi
 
                 Session.AktifKullanici = giris_yapan_kullanici;
                 this.Hide();
+
                 AnaForm anaForm = new AnaForm();
                 anaForm.ShowDialog();
-                this.Close();
+
+                this.Show();
+
+                txtGirisKulAd.Clear();
+                txtGirisSifre.Clear();
+
+
+
 
             }
             else

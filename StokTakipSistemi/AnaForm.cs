@@ -8,12 +8,13 @@ namespace StokTakipSistemi
     {
         public AnaForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
         }
 
         private void AnaForm_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Stok Takip Sistemi - Hoş Geldin, {Session.AktifKullanici.ad} {Session.AktifKullanici.soyad}";
+            label1.Text = $"Stok Takip Sistemi | Hoş Geldin, {Session.AktifKullanici.ad} {Session.AktifKullanici.soyad}";
 
         }
 
@@ -37,11 +38,6 @@ namespace StokTakipSistemi
             if (onay == DialogResult.Yes)
             {
                 Session.OturumuKapat();
-
-
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
-
 
                 this.Close();
 

@@ -69,7 +69,8 @@ namespace StokTakipSistemi
                 return;
             }
 
-            if (cboxCikisDepo.SelectedValue == cboxVarisDepo.SelectedValue)
+            
+            if ((int)cboxCikisDepo.SelectedValue == (int)cboxVarisDepo.SelectedValue)
             {
                 MessageBox.Show("Çıkış deposu ile Varış deposu aynı olamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -129,6 +130,20 @@ namespace StokTakipSistemi
             if (basariliMi)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                _sepet.Clear();
+                txtFisNum.Clear();
+
+                dgvListe.DataSource = null;
+
+                cboxCikisDepo.Enabled = true;
+                cboxVarisDepo.Enabled = true;
+                
+                FormTransferPanel form = Application.OpenForms["FormTransferPanel"] as FormTransferPanel;
+                if (form != null)
+                {
+                    form.TransferListele("");
+                }
             }
             else
             {
@@ -138,8 +153,7 @@ namespace StokTakipSistemi
 
 
 
-            cboxCikisDepo.Enabled = true;
-            cboxVarisDepo.Enabled = true;
+            
             
         }
     }
