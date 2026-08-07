@@ -57,5 +57,10 @@ namespace StokTakipSistemi
 
 
         }
+
+        private void FormDepoGuncelle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

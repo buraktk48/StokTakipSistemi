@@ -1,4 +1,4 @@
-﻿using StokTakipSistemi.Entities;
+using StokTakipSistemi.Entities;
 using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;

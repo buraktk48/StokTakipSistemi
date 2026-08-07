@@ -131,7 +131,7 @@
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "FormDepoEkle";
-            Text = "Stok Takip Programı - Depo Ekle";
+            Text = "Stok Takip Sistemi | Depo Ekle";
             Load += FormDepoEkle_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

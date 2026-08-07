@@ -110,7 +110,7 @@
             Controls.Add(txtDosyaYolu);
             Controls.Add(btnDosyaSec);
             Name = "FormExcelUrunEkle";
-            Text = "Stok Takip Sistemi - Excelden İçeri Aktar";
+            Text = "Stok Takip Sistemi | Excelden İçeri Aktar";
             ((System.ComponentModel.ISupportInitialize)dgvExcel).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

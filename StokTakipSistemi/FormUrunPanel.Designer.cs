@@ -203,7 +203,7 @@ namespace StokTakipSistemi
             Controls.Add(dgvUrunler);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormUrunPanel";
-            Text = " Stok Takip Sistemi - Ürün Paneli";
+            Text = " Stok Takip Sistemi | Ürün Paneli";
             Load += FormUrunListe_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUrunler).EndInit();
             panel1.ResumeLayout(false);

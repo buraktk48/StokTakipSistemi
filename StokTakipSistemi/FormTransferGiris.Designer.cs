@@ -46,6 +46,7 @@
             label2 = new Label();
             dgvListe = new DataGridView();
             btnTransferiKaydet = new Button();
+            btnTransferSil = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -60,7 +61,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1201, 86);
+            panel1.Size = new Size(1222, 86);
             panel1.TabIndex = 5;
             // 
             // label1
@@ -237,18 +238,33 @@
             btnTransferiKaydet.UseVisualStyleBackColor = false;
             btnTransferiKaydet.Click += btnTransferiKaydet_Click;
             // 
+            // btnTransferSil
+            // 
+            btnTransferSil.BackColor = SystemColors.Control;
+            btnTransferSil.FlatStyle = FlatStyle.Flat;
+            btnTransferSil.Image = (Image)resources.GetObject("btnTransferSil.Image");
+            btnTransferSil.Location = new Point(577, 722);
+            btnTransferSil.Name = "btnTransferSil";
+            btnTransferSil.Size = new Size(206, 50);
+            btnTransferSil.TabIndex = 19;
+            btnTransferSil.Text = "   Sil";
+            btnTransferSil.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTransferSil.UseVisualStyleBackColor = false;
+            btnTransferSil.Click += btnTransferSil_Click;
+            // 
             // FormTransferGiris
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1201, 784);
+            ClientSize = new Size(1222, 807);
+            Controls.Add(btnTransferSil);
             Controls.Add(btnTransferiKaydet);
             Controls.Add(dgvListe);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "FormTransferGiris";
-            Text = "Stok Takip Sistemi - Transfer Girişi";
+            Text = "Stok Takip Sistemi | Transfer Girişi";
             Load += FormTransferGiris_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -280,5 +296,6 @@
         private Button btnTransferiKaydet;
         private Label label6;
         private TextBox txtFisNum;
+        private Button btnTransferSil;
     }
 }

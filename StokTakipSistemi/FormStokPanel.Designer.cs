@@ -273,7 +273,7 @@
             Controls.Add(dgvDepoStok);
             Controls.Add(panel1);
             Name = "FormStokPanel";
-            Text = "Stok Takip Sistemi - Depo-Stok Paneli";
+            Text = "Stok Takip Sistemi | Depo-Stok Paneli";
             Load += FormStokPanel_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

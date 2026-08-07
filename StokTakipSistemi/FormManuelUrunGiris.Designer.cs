@@ -173,7 +173,7 @@
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "FormManuelUrunGiris";
-            Text = "Stok Takip Sistemi - Manuel Ürün Giriş";
+            Text = "Stok Takip Sistemi | Manuel Ürün Giriş";
             Load += FormManuelUrunGiris_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

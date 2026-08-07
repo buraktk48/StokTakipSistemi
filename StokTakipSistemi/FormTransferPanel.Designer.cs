@@ -220,7 +220,7 @@
             Controls.Add(groupBox2);
             Controls.Add(panel1);
             Name = "FormTransferPanel";
-            Text = "Stok Takip Sistemi - Transfer Paneli";
+            Text = "Stok Takip Sistemi | Transfer Paneli";
             Load += FormTransferPanel_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -117,7 +117,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(221, 22);
+            label3.Location = new Point(262, 22);
             label3.Name = "label3";
             label3.Size = new Size(298, 41);
             label3.TabIndex = 0;
@@ -131,7 +131,8 @@
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "FormDepoGuncelle";
-            Text = "Stok Takip Sistemi - Depo Güncelle";
+            Text = "Stok Takip Sistemi | Depo Güncelle";
+            Load += FormDepoGuncelle_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);

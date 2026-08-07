@@ -184,7 +184,7 @@
             Controls.Add(dgvDepolar);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormDepoPanel";
-            Text = "Stok Takip Sistemi - Depo Paneli";
+            Text = "Stok Takip Sistemi | Depo Paneli";
             Load += FormDepoPanel_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDepolar).EndInit();
             panel1.ResumeLayout(false);

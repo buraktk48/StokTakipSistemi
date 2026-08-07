@@ -69,7 +69,7 @@ namespace StokTakipSistemi
                 return;
             }
 
-            
+
             if ((int)cboxCikisDepo.SelectedValue == (int)cboxVarisDepo.SelectedValue)
             {
                 MessageBox.Show("Çıkış deposu ile Varış deposu aynı olamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -121,7 +121,7 @@ namespace StokTakipSistemi
             var transferService = new TransferService();
             int kullanici_id = Session.AktifKullanici.id;
 
-            bool basariliMi = transferService.TransferEkle(_sepet,kullanici_id,
+            bool basariliMi = transferService.TransferEkle(_sepet, kullanici_id,
                 out string gelenMesaj);
 
 
@@ -138,7 +138,7 @@ namespace StokTakipSistemi
 
                 cboxCikisDepo.Enabled = true;
                 cboxVarisDepo.Enabled = true;
-                
+
                 FormTransferPanel form = Application.OpenForms["FormTransferPanel"] as FormTransferPanel;
                 if (form != null)
                 {
@@ -153,8 +153,36 @@ namespace StokTakipSistemi
 
 
 
-            
-            
+
+
+        }
+
+        private void btnTransferSil_Click(object sender, EventArgs e)
+        {
+            int TransferId = Convert.ToInt32(dgvListe.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
+
+            DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (sonuc == DialogResult.No)
+                return;
+
+            var transferService = new TransferService();
+
+            bool gelen =  transferService.TransferSil(TransferId,out string gelenMesaj);
+
+            if (gelen)
+            {
+                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            else
+            {
+                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
     }
 }

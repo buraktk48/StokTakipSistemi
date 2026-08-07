@@ -173,7 +173,7 @@ namespace StokTakipSistemi
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "FormUrunGuncelle";
-            Text = "Stok Takip Sistemi - Ürün Güncelle";
+            Text = "Stok Takip Sistemi | Ürün Güncelle";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
