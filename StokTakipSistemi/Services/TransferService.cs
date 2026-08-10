@@ -109,26 +109,7 @@ namespace StokTakipSistemi.Services
             return true;
         }
 
-        public bool TransferSil(int TransferId,out string gelenmesaj)
-        {
-            using (var context = new AppDbContext())
-            {
-               var sonuc = context.Transferler.Find(TransferId);
-
-                if (sonuc!=null)
-                {
-                    context.Transferler.Remove(sonuc);
-
-                    context.SaveChanges();
-                }
-
-
-            }
-
-            gelenmesaj = "Silme İşlemi Başarılı!";
-            return true;
-        }
-
+        
         
 
     }

@@ -37,7 +37,6 @@
             cboxCikisDepo = new ComboBox();
             label3 = new Label();
             btnTransferYenile = new Button();
-            button1 = new Button();
             btnTransferGirisi = new Button();
             label2 = new Label();
             txtFisNoAra = new TextBox();
@@ -78,7 +77,6 @@
             groupBox2.Controls.Add(cboxCikisDepo);
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(btnTransferYenile);
-            groupBox2.Controls.Add(button1);
             groupBox2.Controls.Add(btnTransferGirisi);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(txtFisNoAra);
@@ -135,7 +133,7 @@
             btnTransferYenile.BackColor = SystemColors.Control;
             btnTransferYenile.FlatStyle = FlatStyle.Flat;
             btnTransferYenile.Image = (Image)resources.GetObject("btnTransferYenile.Image");
-            btnTransferYenile.Location = new Point(1031, 105);
+            btnTransferYenile.Location = new Point(658, 105);
             btnTransferYenile.Name = "btnTransferYenile";
             btnTransferYenile.Size = new Size(206, 50);
             btnTransferYenile.TabIndex = 5;
@@ -144,25 +142,12 @@
             btnTransferYenile.UseVisualStyleBackColor = false;
             btnTransferYenile.Click += btnTransferYenile_Click;
             // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.Control;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(574, 105);
-            button1.Name = "button1";
-            button1.Size = new Size(206, 50);
-            button1.TabIndex = 4;
-            button1.Text = " PDF Rapor Al";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
-            // 
             // btnTransferGirisi
             // 
             btnTransferGirisi.BackColor = SystemColors.Control;
             btnTransferGirisi.FlatStyle = FlatStyle.Flat;
             btnTransferGirisi.Image = (Image)resources.GetObject("btnTransferGirisi.Image");
-            btnTransferGirisi.Location = new Point(98, 106);
+            btnTransferGirisi.Location = new Point(397, 105);
             btnTransferGirisi.Name = "btnTransferGirisi";
             btnTransferGirisi.Size = new Size(206, 50);
             btnTransferGirisi.TabIndex = 3;
@@ -199,6 +184,7 @@
             dgvTransferler.RowHeadersWidth = 51;
             dgvTransferler.Size = new Size(1371, 286);
             dgvTransferler.TabIndex = 9;
+            dgvTransferler.CellClick += dgvTransferler_CellClick;
             // 
             // dgvTransferDetay
             // 
@@ -240,7 +226,6 @@
         private TextBox txtFisNoAra;
         private DataGridView dgvTransferler;
         private DataGridView dgvTransferDetay;
-        private Button button1;
         private Button btnTransferGirisi;
         private Button btnTransferYenile;
         private Label label3;

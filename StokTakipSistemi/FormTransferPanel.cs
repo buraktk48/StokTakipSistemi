@@ -46,19 +46,46 @@ namespace StokTakipSistemi
             using (var context = new AppDbContext())
             {
                 dgvTransferDetay.DataSource = context.TransferDetaylari
-                    .Select(u=> new
+                    .Select(u => new
                     {
                         id = u.id,
                         Fis_Numarasi = u.transfer.fis_numarasi,
                         Urun_Adi = u.urun.urun_adi,
                         Miktar = u.miktar,
                         Olusturulma_Zamani = u.olusturulma_zamani
-                        
+
                     })
                     .ToList();
 
 
             }
+        }
+
+        private void TransferDetayFiltre(string FisNo)
+        {
+
+            using (var context = new AppDbContext())
+            {
+                var query = context.TransferDetaylari.AsQueryable();
+                
+                if (!string.IsNullOrWhiteSpace(FisNo))
+                {
+                    query = query.Where(u => u.transfer.fis_numarasi == FisNo);
+                }
+
+                dgvTransferDetay.DataSource = query
+                   .Select(u => new
+                   {
+                       id = u.id,
+                       Fis_Numarasi = u.transfer.fis_numarasi,
+                       Urun_Adi = u.urun.urun_adi,
+                       Miktar = u.miktar,
+                       Olusturulma_Zamani = u.olusturulma_zamani
+                   })
+                   .ToList();
+
+            }
+
         }
 
         private void btnTransferGirisi_Click(object sender, EventArgs e)
@@ -70,6 +97,7 @@ namespace StokTakipSistemi
         private void btnTransferYenile_Click(object sender, EventArgs e)
         {
             TransferListele("");
+            TransferDetayListele("");
 
         }
 
@@ -88,7 +116,7 @@ namespace StokTakipSistemi
                 cboxCikisDepo.ValueMember = "id";
 
                 cboxVarisDepo.DisplayMember = "depo_bilgisi";
-                cboxVarisDepo.ValueMember= "id";
+                cboxVarisDepo.ValueMember = "id";
 
             }
         }
@@ -97,5 +125,14 @@ namespace StokTakipSistemi
         {
             TransferListele(txtFisNoAra.Text.Trim());
         }
-    }
+
+        private void dgvTransferler_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTransferler.CurrentRow != null && e.RowIndex >= 0)
+            {
+
+                string secilenFisNo = dgvTransferler.CurrentRow.Cells["Fis_Numarasi"].Value?.ToString() ?? "";
+                TransferDetayFiltre(secilenFisNo);
+            }
+    }   }
 }

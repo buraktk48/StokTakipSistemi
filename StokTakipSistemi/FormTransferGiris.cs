@@ -56,6 +56,9 @@ namespace StokTakipSistemi
                 MessageBox.Show("Lütfen çıkış-varış depolarını ve ürünü seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+
+
             //CS 8600 uyarı kontrolü
             if (cboxCikisDepo.SelectedItem is not Depo cikisdepo || cboxVarisDepo.SelectedItem is not Depo varisdepo
                 || cboxUrun.SelectedItem is not Urun secilenurun)
@@ -159,27 +162,41 @@ namespace StokTakipSistemi
 
         private void btnTransferSil_Click(object sender, EventArgs e)
         {
-            int TransferId = Convert.ToInt32(dgvListe.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
+            if (dgvListe.CurrentRow == null)
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz ürünü seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            
 
             DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (sonuc == DialogResult.No)
                 return;
 
-            var transferService = new TransferService();
-
-            bool gelen =  transferService.TransferSil(TransferId,out string gelenMesaj);
-
-            if (gelen)
+            else if (sonuc == DialogResult.Yes)
             {
-                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var SecilenEleman = dgvListe.CurrentRow.DataBoundItem as TransferListe;
+                //Null Reference Exception hatası vermemesi için
+                if (SecilenEleman != null)
+                {
+                    _sepet.Remove(SecilenEleman);
+
+                    dgvListe.DataSource = null;
+                    dgvListe.DataSource = _sepet;
+
+                    if (_sepet.Count == 0)
+                    {
+                        cboxCikisDepo.Enabled = true;
+                        cboxVarisDepo.Enabled = true;
+                    }
 
 
-            }
-            else
-            {
-                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                    MessageBox.Show("Seçilen Transfer Listeden Başarıyla Silindi","Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }   }
+
 
 
 
