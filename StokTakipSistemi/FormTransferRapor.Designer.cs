@@ -75,7 +75,7 @@ namespace StokTakipSistemi
             // 
             cboxCikisDepo.Font = new Font("Segoe UI", 10.2F);
             cboxCikisDepo.FormattingEnabled = true;
-            cboxCikisDepo.Location = new Point(46, 138);
+            cboxCikisDepo.Location = new Point(24, 138);
             cboxCikisDepo.Name = "cboxCikisDepo";
             cboxCikisDepo.Size = new Size(236, 31);
             cboxCikisDepo.TabIndex = 6;
@@ -84,7 +84,7 @@ namespace StokTakipSistemi
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F);
-            label2.Location = new Point(105, 112);
+            label2.Location = new Point(79, 112);
             label2.Name = "label2";
             label2.Size = new Size(112, 23);
             label2.TabIndex = 7;
@@ -94,7 +94,7 @@ namespace StokTakipSistemi
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F);
-            label3.Location = new Point(403, 110);
+            label3.Location = new Point(397, 112);
             label3.Name = "label3";
             label3.Size = new Size(109, 23);
             label3.TabIndex = 8;
@@ -104,7 +104,7 @@ namespace StokTakipSistemi
             // 
             cboxVarisDepo.Font = new Font("Segoe UI", 10.2F);
             cboxVarisDepo.FormattingEnabled = true;
-            cboxVarisDepo.Location = new Point(345, 136);
+            cboxVarisDepo.Location = new Point(339, 138);
             cboxVarisDepo.Name = "cboxVarisDepo";
             cboxVarisDepo.Size = new Size(236, 31);
             cboxVarisDepo.TabIndex = 9;
@@ -120,7 +120,7 @@ namespace StokTakipSistemi
             // dtpBitis
             // 
             dtpBitis.CalendarFont = new Font("Segoe UI", 10.2F);
-            dtpBitis.Location = new Point(403, 247);
+            dtpBitis.Location = new Point(397, 247);
             dtpBitis.Name = "dtpBitis";
             dtpBitis.Size = new Size(250, 27);
             dtpBitis.TabIndex = 11;
@@ -139,7 +139,7 @@ namespace StokTakipSistemi
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F);
-            label5.Location = new Point(473, 221);
+            label5.Location = new Point(467, 221);
             label5.Name = "label5";
             label5.Size = new Size(86, 23);
             label5.TabIndex = 13;
@@ -169,7 +169,7 @@ namespace StokTakipSistemi
             btnPdfRapor.BackColor = SystemColors.Control;
             btnPdfRapor.FlatStyle = FlatStyle.Flat;
             btnPdfRapor.Image = (Image)resources.GetObject("btnPdfRapor.Image");
-            btnPdfRapor.Location = new Point(1007, 234);
+            btnPdfRapor.Location = new Point(977, 237);
             btnPdfRapor.Name = "btnPdfRapor";
             btnPdfRapor.Size = new Size(206, 50);
             btnPdfRapor.TabIndex = 16;
@@ -190,7 +190,7 @@ namespace StokTakipSistemi
             // btnListele
             // 
             btnListele.FlatStyle = FlatStyle.Flat;
-            btnListele.Location = new Point(770, 234);
+            btnListele.Location = new Point(731, 237);
             btnListele.Name = "btnListele";
             btnListele.Size = new Size(206, 50);
             btnListele.TabIndex = 18;

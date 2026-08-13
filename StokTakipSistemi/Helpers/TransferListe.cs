@@ -22,6 +22,8 @@ namespace StokTakipSistemi.Helpers
         public string Cikis_Depo_Adi { get; set; }
         public string Varis_Depo_Adi { get; set; }
         public decimal miktar { get; set; }
+        
+        public string birim {  get; set; }
 
 
 

@@ -32,6 +32,7 @@
             panel1 = new Panel();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            btnSifirla = new Button();
             cboxVarisDepo = new ComboBox();
             label4 = new Label();
             cboxCikisDepo = new ComboBox();
@@ -72,6 +73,7 @@
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(btnSifirla);
             groupBox2.Controls.Add(cboxVarisDepo);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(cboxCikisDepo);
@@ -86,6 +88,17 @@
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             // 
+            // btnSifirla
+            // 
+            btnSifirla.FlatStyle = FlatStyle.Flat;
+            btnSifirla.Location = new Point(817, 105);
+            btnSifirla.Name = "btnSifirla";
+            btnSifirla.Size = new Size(206, 50);
+            btnSifirla.TabIndex = 22;
+            btnSifirla.Text = "Sıfırla";
+            btnSifirla.UseVisualStyleBackColor = true;
+            btnSifirla.Click += btnSifirla_Click;
+            // 
             // cboxVarisDepo
             // 
             cboxVarisDepo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -96,6 +109,7 @@
             cboxVarisDepo.Name = "cboxVarisDepo";
             cboxVarisDepo.Size = new Size(257, 31);
             cboxVarisDepo.TabIndex = 9;
+            cboxVarisDepo.SelectedIndexChanged += cboxVarisDepo_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -117,6 +131,7 @@
             cboxCikisDepo.Name = "cboxCikisDepo";
             cboxCikisDepo.Size = new Size(257, 31);
             cboxCikisDepo.TabIndex = 7;
+            cboxCikisDepo.SelectedIndexChanged += cboxCikisDepo_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -133,7 +148,7 @@
             btnTransferYenile.BackColor = SystemColors.Control;
             btnTransferYenile.FlatStyle = FlatStyle.Flat;
             btnTransferYenile.Image = (Image)resources.GetObject("btnTransferYenile.Image");
-            btnTransferYenile.Location = new Point(658, 105);
+            btnTransferYenile.Location = new Point(566, 105);
             btnTransferYenile.Name = "btnTransferYenile";
             btnTransferYenile.Size = new Size(206, 50);
             btnTransferYenile.TabIndex = 5;
@@ -147,7 +162,7 @@
             btnTransferGirisi.BackColor = SystemColors.Control;
             btnTransferGirisi.FlatStyle = FlatStyle.Flat;
             btnTransferGirisi.Image = (Image)resources.GetObject("btnTransferGirisi.Image");
-            btnTransferGirisi.Location = new Point(397, 105);
+            btnTransferGirisi.Location = new Point(302, 105);
             btnTransferGirisi.Name = "btnTransferGirisi";
             btnTransferGirisi.Size = new Size(206, 50);
             btnTransferGirisi.TabIndex = 3;
@@ -232,5 +247,6 @@
         private ComboBox cboxVarisDepo;
         private Label label4;
         private ComboBox cboxCikisDepo;
+        private Button btnSifirla;
     }
 }

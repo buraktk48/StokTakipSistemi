@@ -229,7 +229,7 @@
             btnTransferiKaydet.BackColor = SystemColors.Control;
             btnTransferiKaydet.FlatStyle = FlatStyle.Flat;
             btnTransferiKaydet.Image = (Image)resources.GetObject("btnTransferiKaydet.Image");
-            btnTransferiKaydet.Location = new Point(879, 722);
+            btnTransferiKaydet.Location = new Point(620, 722);
             btnTransferiKaydet.Name = "btnTransferiKaydet";
             btnTransferiKaydet.Size = new Size(206, 50);
             btnTransferiKaydet.TabIndex = 18;
@@ -243,7 +243,7 @@
             btnTransferSil.BackColor = SystemColors.Control;
             btnTransferSil.FlatStyle = FlatStyle.Flat;
             btnTransferSil.Image = (Image)resources.GetObject("btnTransferSil.Image");
-            btnTransferSil.Location = new Point(577, 722);
+            btnTransferSil.Location = new Point(349, 722);
             btnTransferSil.Name = "btnTransferSil";
             btnTransferSil.Size = new Size(206, 50);
             btnTransferSil.TabIndex = 19;

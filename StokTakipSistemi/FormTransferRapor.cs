@@ -52,14 +52,14 @@ namespace StokTakipSistemi
         }
 
 
-        private void RaporFiltre(int? CikisDepoId,int? VarisDepoId,string? FisNumarasi,
-            int? UrunId,DateTime BaslangicTarihi,DateTime BitisTarihi)
+        private void RaporFiltre(int? CikisDepoId, int? VarisDepoId, string? FisNumarasi,
+            int? UrunId, DateTime BaslangicTarihi, DateTime BitisTarihi)
         {
             using (var context = new AppDbContext())
             {
                 var sorgu = context.TransferDetaylari.AsQueryable();
 
-                if (CikisDepoId!=null)
+                if (CikisDepoId != null)
                 {
                     sorgu = sorgu.Where(u => u.transfer.cikis_depo_id == CikisDepoId);
                 }
@@ -79,7 +79,25 @@ namespace StokTakipSistemi
                     sorgu = sorgu.Where(u => u.urun_id == UrunId);
                 }
 
-                    
+                sorgu = sorgu.Where(u => u.olusturulma_zamani > BaslangicTarihi && u.olusturulma_zamani < BitisTarihi);
+
+                dgvRapor.DataSource = sorgu.Select(u => new
+                {
+                    Transfer_Fisi = u.transfer.fis_numarasi,
+                    Urun_Ismi = u.urun.urun_adi,
+                    Birimi = u.urun.birim,
+                    KDV_Orani = u.urun.kdv,
+                    Cikis_Deposu = u.transfer.cikis_depo.ad,
+                    Varis_Deposu = u.transfer.varis_depo.ad,
+                    Miktar = u.miktar,
+                    Transferi_Yapan_Kullanici = u.transfer.transfer_kullanici.ad,
+                    Transfer_Tarihi = u.olusturulma_zamani,
+
+
+
+                })
+                .ToList();
+
 
             }
 
@@ -94,18 +112,20 @@ namespace StokTakipSistemi
 
         private void btnListele_Click(object sender, EventArgs e)
         {
-            int cikisDepoId = (int)cboxCikisDepo.SelectedValue;
-            int varisDepoId = (int)cboxVarisDepo.SelectedValue;
+            int? cikisDepoId = cboxCikisDepo.SelectedValue as int?;
+            int? varisDepoId = cboxVarisDepo.SelectedValue as int?;
 
-            int urunId = (int)cboxUrun.SelectedValue;
+            int? urunId = cboxUrun.SelectedValue as int?;
 
             DateTime baslangicTarihi = dtpBaslangic.Value;
             DateTime bitisTarihi = dtpBitis.Value;
 
             string fisNumarasi = txtFisNum.Text.Trim();
 
-            RaporFiltre(cikisDepoId, varisDepoId, fisNumarasi,urunId, baslangicTarihi, bitisTarihi);
+            RaporFiltre(cikisDepoId, varisDepoId, fisNumarasi, urunId, baslangicTarihi, bitisTarihi);
 
         }
+
+      
     }
 }

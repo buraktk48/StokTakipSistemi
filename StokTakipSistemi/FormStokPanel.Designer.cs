@@ -130,6 +130,7 @@
             // 
             numericUpDown1.Font = new Font("Segoe UI", 10.2F);
             numericUpDown1.Location = new Point(225, 156);
+            numericUpDown1.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(282, 30);
             numericUpDown1.TabIndex = 7;

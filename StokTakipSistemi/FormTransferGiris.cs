@@ -94,6 +94,7 @@ namespace StokTakipSistemi
                 Fis_Numarasi = txtFisNum.Text.Trim(),
                 urun_id = secilenurun.id,
                 Urun_Adi = secilenurun.urun_adi,
+                birim = secilenurun.birim,
 
                 cikis_depo_id = cikisdepo.id,
                 Cikis_Depo_Adi = cikisdepo.ad,
