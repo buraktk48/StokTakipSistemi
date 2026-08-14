@@ -29,6 +29,7 @@ namespace StokTakipSistemi
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransferRapor));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             cboxCikisDepo = new ComboBox();
@@ -46,8 +47,11 @@ namespace StokTakipSistemi
             btnListele = new Button();
             txtFisNum = new TextBox();
             label7 = new Label();
+            btnSifirla = new Button();
+            groupBox1 = new GroupBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRapor).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -75,7 +79,7 @@ namespace StokTakipSistemi
             // 
             cboxCikisDepo.Font = new Font("Segoe UI", 10.2F);
             cboxCikisDepo.FormattingEnabled = true;
-            cboxCikisDepo.Location = new Point(24, 138);
+            cboxCikisDepo.Location = new Point(31, 54);
             cboxCikisDepo.Name = "cboxCikisDepo";
             cboxCikisDepo.Size = new Size(236, 31);
             cboxCikisDepo.TabIndex = 6;
@@ -84,7 +88,7 @@ namespace StokTakipSistemi
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F);
-            label2.Location = new Point(79, 112);
+            label2.Location = new Point(86, 28);
             label2.Name = "label2";
             label2.Size = new Size(112, 23);
             label2.TabIndex = 7;
@@ -94,7 +98,7 @@ namespace StokTakipSistemi
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F);
-            label3.Location = new Point(397, 112);
+            label3.Location = new Point(407, 28);
             label3.Name = "label3";
             label3.Size = new Size(109, 23);
             label3.TabIndex = 8;
@@ -104,7 +108,7 @@ namespace StokTakipSistemi
             // 
             cboxVarisDepo.Font = new Font("Segoe UI", 10.2F);
             cboxVarisDepo.FormattingEnabled = true;
-            cboxVarisDepo.Location = new Point(339, 138);
+            cboxVarisDepo.Location = new Point(349, 54);
             cboxVarisDepo.Name = "cboxVarisDepo";
             cboxVarisDepo.Size = new Size(236, 31);
             cboxVarisDepo.TabIndex = 9;
@@ -112,7 +116,7 @@ namespace StokTakipSistemi
             // dtpBaslangic
             // 
             dtpBaslangic.CalendarFont = new Font("Segoe UI", 10.2F);
-            dtpBaslangic.Location = new Point(46, 247);
+            dtpBaslangic.Location = new Point(9, 163);
             dtpBaslangic.Name = "dtpBaslangic";
             dtpBaslangic.Size = new Size(250, 27);
             dtpBaslangic.TabIndex = 10;
@@ -120,7 +124,7 @@ namespace StokTakipSistemi
             // dtpBitis
             // 
             dtpBitis.CalendarFont = new Font("Segoe UI", 10.2F);
-            dtpBitis.Location = new Point(397, 247);
+            dtpBitis.Location = new Point(283, 163);
             dtpBitis.Name = "dtpBitis";
             dtpBitis.Size = new Size(250, 27);
             dtpBitis.TabIndex = 11;
@@ -129,7 +133,7 @@ namespace StokTakipSistemi
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.2F);
-            label4.Location = new Point(105, 221);
+            label4.Location = new Point(68, 137);
             label4.Name = "label4";
             label4.Size = new Size(126, 23);
             label4.TabIndex = 12;
@@ -139,7 +143,7 @@ namespace StokTakipSistemi
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F);
-            label5.Location = new Point(467, 221);
+            label5.Location = new Point(353, 137);
             label5.Name = "label5";
             label5.Size = new Size(86, 23);
             label5.TabIndex = 13;
@@ -149,7 +153,7 @@ namespace StokTakipSistemi
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F);
-            label6.Location = new Point(1063, 112);
+            label6.Location = new Point(1041, 28);
             label6.Name = "label6";
             label6.Size = new Size(48, 23);
             label6.TabIndex = 14;
@@ -159,7 +163,7 @@ namespace StokTakipSistemi
             // 
             cboxUrun.Font = new Font("Segoe UI", 10.2F);
             cboxUrun.FormattingEnabled = true;
-            cboxUrun.Location = new Point(977, 138);
+            cboxUrun.Location = new Point(955, 54);
             cboxUrun.Name = "cboxUrun";
             cboxUrun.Size = new Size(236, 31);
             cboxUrun.TabIndex = 15;
@@ -169,7 +173,7 @@ namespace StokTakipSistemi
             btnPdfRapor.BackColor = SystemColors.Control;
             btnPdfRapor.FlatStyle = FlatStyle.Flat;
             btnPdfRapor.Image = (Image)resources.GetObject("btnPdfRapor.Image");
-            btnPdfRapor.Location = new Point(977, 237);
+            btnPdfRapor.Location = new Point(1003, 140);
             btnPdfRapor.Name = "btnPdfRapor";
             btnPdfRapor.Size = new Size(206, 50);
             btnPdfRapor.TabIndex = 16;
@@ -180,17 +184,23 @@ namespace StokTakipSistemi
             // 
             // dgvRapor
             // 
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
+            dgvRapor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dgvRapor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvRapor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRapor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRapor.Location = new Point(46, 338);
             dgvRapor.Name = "dgvRapor";
+            dgvRapor.ReadOnly = true;
             dgvRapor.RowHeadersWidth = 51;
+            dgvRapor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvRapor.Size = new Size(1167, 437);
             dgvRapor.TabIndex = 17;
             // 
             // btnListele
             // 
             btnListele.FlatStyle = FlatStyle.Flat;
-            btnListele.Location = new Point(731, 237);
+            btnListele.Location = new Point(779, 140);
             btnListele.Name = "btnListele";
             btnListele.Size = new Size(206, 50);
             btnListele.TabIndex = 18;
@@ -200,7 +210,7 @@ namespace StokTakipSistemi
             // 
             // txtFisNum
             // 
-            txtFisNum.Location = new Point(672, 138);
+            txtFisNum.Location = new Point(650, 54);
             txtFisNum.Name = "txtFisNum";
             txtFisNum.Size = new Size(236, 27);
             txtFisNum.TabIndex = 19;
@@ -209,32 +219,54 @@ namespace StokTakipSistemi
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.2F);
-            label7.Location = new Point(731, 112);
+            label7.Location = new Point(709, 28);
             label7.Name = "label7";
             label7.Size = new Size(107, 23);
             label7.TabIndex = 20;
             label7.Text = "Fiş Numarası";
+            // 
+            // btnSifirla
+            // 
+            btnSifirla.FlatStyle = FlatStyle.Flat;
+            btnSifirla.Location = new Point(554, 140);
+            btnSifirla.Name = "btnSifirla";
+            btnSifirla.Size = new Size(206, 50);
+            btnSifirla.TabIndex = 21;
+            btnSifirla.Text = "Sıfırla";
+            btnSifirla.UseVisualStyleBackColor = true;
+            btnSifirla.Click += btnSifirla_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(txtFisNum);
+            groupBox1.Controls.Add(btnSifirla);
+            groupBox1.Controls.Add(cboxCikisDepo);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(btnListele);
+            groupBox1.Controls.Add(cboxVarisDepo);
+            groupBox1.Controls.Add(dtpBaslangic);
+            groupBox1.Controls.Add(btnPdfRapor);
+            groupBox1.Controls.Add(dtpBitis);
+            groupBox1.Controls.Add(cboxUrun);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Location = new Point(11, 108);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1232, 212);
+            groupBox1.TabIndex = 22;
+            groupBox1.TabStop = false;
             // 
             // FormTransferRapor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1255, 798);
-            Controls.Add(label7);
-            Controls.Add(txtFisNum);
-            Controls.Add(btnListele);
+            Controls.Add(groupBox1);
             Controls.Add(dgvRapor);
-            Controls.Add(btnPdfRapor);
-            Controls.Add(cboxUrun);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(dtpBitis);
-            Controls.Add(dtpBaslangic);
-            Controls.Add(cboxVarisDepo);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(cboxCikisDepo);
             Controls.Add(panel1);
             Name = "FormTransferRapor";
             Text = "Stok Takip Sistemi | Transfer Rapor Paneli";
@@ -242,8 +274,9 @@ namespace StokTakipSistemi
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRapor).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -265,5 +298,7 @@ namespace StokTakipSistemi
         private Button btnListele;
         private TextBox txtFisNum;
         private Label label7;
+        private Button btnSifirla;
+        private GroupBox groupBox1;
     }
 }

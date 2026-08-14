@@ -28,6 +28,7 @@ namespace StokTakipSistemi
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUrunPanel));
             dgvUrunler = new DataGridView();
             label1 = new Label();
@@ -49,10 +50,13 @@ namespace StokTakipSistemi
             // 
             // dgvUrunler
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvUrunler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvUrunler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUrunler.Location = new Point(21, 192);
             dgvUrunler.Name = "dgvUrunler";
+            dgvUrunler.ReadOnly = true;
             dgvUrunler.RowHeadersWidth = 51;
             dgvUrunler.Size = new Size(1236, 379);
             dgvUrunler.TabIndex = 0;

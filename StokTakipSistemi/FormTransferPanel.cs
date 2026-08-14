@@ -1,4 +1,5 @@
-﻿using StokTakipSistemi.Data;
+using Microsoft.EntityFrameworkCore;
+using StokTakipSistemi.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,13 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        public void TransferListele(string aranan="",int? CikisDepoId= null,int? VarisDepoId = null)
+        public async void TransferListele(string aranan="",int? CikisDepoId= null,int? VarisDepoId = null)
         {
+            try
+            {   
             using (var context = new AppDbContext())
             {
-                var sorgu = context.Transferler.AsQueryable();
+                var sorgu = context.Transferler.AsNoTracking().AsQueryable();
 
                 if (!string.IsNullOrWhiteSpace(aranan))
                 {
@@ -40,7 +43,7 @@ namespace StokTakipSistemi
                 }
 
 
-                dgvTransferler.DataSource = sorgu
+                dgvTransferler.DataSource =  await sorgu
                     .Select(u => new
                     {
                         id = u.id,
@@ -53,16 +56,24 @@ namespace StokTakipSistemi
 
 
                     })
-                    .ToList();
+                    .ToListAsync();
 
             }
         }
-
-        private void TransferDetayListele(string aranan)
+        catch (Exception ex)
         {
+            MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        }
+
+        private async void TransferDetayListele(string aranan)
+        {
+            try
+            {
             using (var context = new AppDbContext())
             {
-                dgvTransferDetay.DataSource = context.TransferDetaylari
+                dgvTransferDetay.DataSource =  await context.TransferDetaylari
+                    .AsNoTracking()
                     .Select(u => new
                     {
                         id = u.id,
@@ -72,9 +83,14 @@ namespace StokTakipSistemi
                         Olusturulma_Zamani = u.olusturulma_zamani
 
                     })
-                    .ToList();
+                    .ToListAsync();
 
 
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -91,19 +107,21 @@ namespace StokTakipSistemi
 
 
 
-        private void TransferDetayFiltre(string FisNo)
+        private async void TransferDetayFiltre(string FisNo)
         {
+            try
+            {   
 
             using (var context = new AppDbContext())
             {
-                var query = context.TransferDetaylari.AsQueryable();
+                var query = context.TransferDetaylari.AsNoTracking().AsQueryable();
 
                 if (!string.IsNullOrWhiteSpace(FisNo))
                 {
                     query = query.Where(u => u.transfer.fis_numarasi == FisNo);
                 }
 
-                dgvTransferDetay.DataSource = query
+                dgvTransferDetay.DataSource = await query
                    .Select(u => new
                    {
                        id = u.id,
@@ -112,8 +130,13 @@ namespace StokTakipSistemi
                        Miktar = u.miktar,
                        Olusturulma_Zamani = u.olusturulma_zamani
                    })
-                   .ToList();
+                   .ToListAsync();
 
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -139,8 +162,8 @@ namespace StokTakipSistemi
 
             using (var context = new AppDbContext())
             {
-                cboxCikisDepo.DataSource = context.Depolar.ToList();
-                cboxVarisDepo.DataSource = context.Depolar.ToList();
+                cboxCikisDepo.DataSource = context.Depolar.AsNoTracking().ToList();
+                cboxVarisDepo.DataSource = context.Depolar.AsNoTracking().ToList();
 
                 cboxCikisDepo.DisplayMember = "depo_bilgisi";
                 cboxCikisDepo.ValueMember = "id";

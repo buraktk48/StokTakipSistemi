@@ -1,4 +1,5 @@
 using ClosedXML.Excel;
+using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Migrations;
@@ -24,12 +25,15 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        public void UrunListele(string aranan)
+        public async void UrunListele(string aranan)
         {
+            try
+            {
             using (var context = new AppDbContext())
             {
 
-                dgvUrunler.DataSource = context.Urunler
+                dgvUrunler.DataSource = await context.Urunler
+                    .AsNoTracking()
                     .Where(r => r.urun_adi.Contains(aranan) || r.urun_kodu.Contains(aranan))
                     .Select(u => new
                     {
@@ -43,7 +47,12 @@ namespace StokTakipSistemi
                             : "-",
                         Olusturulma_Zamani = u.olusturulma_zamani
                     })
-                    .ToList();
+                    .ToListAsync();
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using StokTakipSistemi.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Migrations;
 using System;
@@ -26,7 +27,7 @@ namespace StokTakipSistemi.Services
                 }
 
                 //Aynı depodan var mı
-                bool varMi = context.Depolar.Any(u => u.ad == depoad);
+                bool varMi = context.Depolar.AsNoTracking().Any(u => u.ad == depoad);
                 if (varMi)
                 {
                     mesaj = "Bu depo zaten listede var!";

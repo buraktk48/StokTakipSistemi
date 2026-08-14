@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label5 = new Label();
             label1 = new Label();
@@ -185,10 +186,13 @@
             // 
             // dgvDepoStok
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvDepoStok.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvDepoStok.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDepoStok.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDepoStok.Location = new Point(18, 550);
             dgvDepoStok.Name = "dgvDepoStok";
+            dgvDepoStok.ReadOnly = true;
             dgvDepoStok.RowHeadersWidth = 51;
             dgvDepoStok.Size = new Size(1316, 453);
             dgvDepoStok.TabIndex = 13;

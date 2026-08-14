@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             btnDosyaSec = new Button();
             txtDosyaYolu = new TextBox();
             dgvExcel = new DataGridView();
@@ -59,10 +60,13 @@
             // 
             // dgvExcel
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvExcel.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvExcel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvExcel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvExcel.Location = new Point(37, 170);
             dgvExcel.Name = "dgvExcel";
+            dgvExcel.ReadOnly = true;
             dgvExcel.RowHeadersWidth = 51;
             dgvExcel.Size = new Size(899, 285);
             dgvExcel.TabIndex = 2;

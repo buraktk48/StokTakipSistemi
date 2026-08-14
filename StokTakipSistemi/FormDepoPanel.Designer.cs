@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepoPanel));
             dgvDepolar = new DataGridView();
             panel1 = new Panel();
@@ -48,10 +49,13 @@
             // 
             // dgvDepolar
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvDepolar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvDepolar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvDepolar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDepolar.Location = new Point(54, 198);
             dgvDepolar.Name = "dgvDepolar";
+            dgvDepolar.ReadOnly = true;
             dgvDepolar.RowHeadersWidth = 51;
             dgvDepolar.Size = new Size(1236, 379);
             dgvDepolar.TabIndex = 0;

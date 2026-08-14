@@ -1,4 +1,5 @@
-﻿using StokTakipSistemi.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Services;
 using System;
@@ -21,12 +22,15 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        public void DepoListele(string aranan)
+        public async void DepoListele(string aranan)
         {
+            try
+            {
             using (var context = new AppDbContext())
             {
-                dgvDepolar.DataSource = context.Depolar.
-                    Where(r => r.ad.Contains(aranan))
+                dgvDepolar.DataSource = await context.Depolar
+                    .AsNoTracking()
+                    .Where(r => r.ad.Contains(aranan))
                     .Select(u => new
                     {
                         Depo_id = u.id,
@@ -40,7 +44,12 @@ namespace StokTakipSistemi
 
 
                     }
-                    ).ToList();
+                    ).ToListAsync();
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 

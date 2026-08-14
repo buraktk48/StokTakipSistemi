@@ -14,19 +14,23 @@ namespace StokTakipSistemi
 
         }
 
-        private void IstatistikleriGetir()
+        private async void IstatistikleriGetir()
         {
+            try
+            {
             using (var context = new AppDbContext())
             {
-                int toplamDepo = context.Depolar.Count();
-                int toplamStok = context.DepoStoklari.Count();
+                int toplamDepo = await context.Depolar.AsNoTracking().CountAsync();
+                int toplamStok = await context.DepoStoklari.AsNoTracking().CountAsync();
 
-                var sonKayit = context.Transferler.OrderByDescending(x => x.id).FirstOrDefault();
-                var sonDepolar = context.Transferler
+                var sonKayit = await context.Transferler.AsNoTracking().OrderByDescending(x => x.id).FirstOrDefaultAsync();
+                
+                var sonDepolar = await context.Transferler
+                    .AsNoTracking()
                     .Include(x => x.cikis_depo)
                     .Include(x=>x.varis_depo)
                     .OrderByDescending(x => x.id)
-                    .FirstOrDefault();
+                    .FirstOrDefaultAsync();
 
                 if (sonDepolar !=null)
                 {
@@ -40,6 +44,11 @@ namespace StokTakipSistemi
                 lblSonTransfer.Text = sonKayit.olusturulma_zamani.ToString();
 
 
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

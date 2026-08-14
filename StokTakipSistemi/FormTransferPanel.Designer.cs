@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransferPanel));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             groupBox2 = new GroupBox();
@@ -192,10 +194,13 @@
             // 
             // dgvTransferler
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvTransferler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvTransferler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvTransferler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransferler.Location = new Point(12, 305);
             dgvTransferler.Name = "dgvTransferler";
+            dgvTransferler.ReadOnly = true;
             dgvTransferler.RowHeadersWidth = 51;
             dgvTransferler.Size = new Size(1371, 286);
             dgvTransferler.TabIndex = 9;
@@ -203,10 +208,13 @@
             // 
             // dgvTransferDetay
             // 
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
+            dgvTransferDetay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvTransferDetay.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvTransferDetay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransferDetay.Location = new Point(12, 665);
             dgvTransferDetay.Name = "dgvTransferDetay";
+            dgvTransferDetay.ReadOnly = true;
             dgvTransferDetay.RowHeadersWidth = 51;
             dgvTransferDetay.Size = new Size(1371, 326);
             dgvTransferDetay.TabIndex = 10;

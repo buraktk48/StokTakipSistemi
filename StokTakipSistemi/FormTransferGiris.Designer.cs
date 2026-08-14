@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransferGiris));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -217,9 +218,12 @@
             // 
             // dgvListe
             // 
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvListe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvListe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvListe.Location = new Point(12, 348);
             dgvListe.Name = "dgvListe";
+            dgvListe.ReadOnly = true;
             dgvListe.RowHeadersWidth = 51;
             dgvListe.Size = new Size(1162, 354);
             dgvListe.TabIndex = 15;

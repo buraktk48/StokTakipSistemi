@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using System;
 using System.Collections.Generic;
@@ -21,21 +22,23 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        private void FormTransferRapor_Load(object sender, EventArgs e)
+        private async void FormTransferRapor_Load(object sender, EventArgs e)
         {
+            try
+            {
             using (var context = new AppDbContext())
             {
-                cboxCikisDepo.DataSource = context.Depolar.ToList();
+                cboxCikisDepo.DataSource = await context.Depolar.AsNoTracking().ToListAsync();
 
                 cboxCikisDepo.DisplayMember = "depo_bilgisi";
                 cboxCikisDepo.ValueMember = "id";
 
-                cboxVarisDepo.DataSource = context.Depolar.ToList();
+                cboxVarisDepo.DataSource = await context.Depolar.AsNoTracking().ToListAsync();
 
                 cboxVarisDepo.DisplayMember = "depo_bilgisi";
                 cboxVarisDepo.ValueMember = "id";
 
-                cboxUrun.DataSource = context.Urunler.ToList();
+                cboxUrun.DataSource = await context.Urunler.AsNoTracking().ToListAsync();
 
                 cboxUrun.DisplayMember = "urun_bilgisi";
                 cboxUrun.ValueMember = "id";
@@ -47,17 +50,24 @@ namespace StokTakipSistemi
             cboxCikisDepo.SelectedIndex = -1;
             cboxVarisDepo.SelectedIndex = -1;
             cboxUrun.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
         }
 
 
-        private void RaporFiltre(int? CikisDepoId, int? VarisDepoId, string? FisNumarasi,
+        private async void RaporFiltre(int? CikisDepoId, int? VarisDepoId, string? FisNumarasi,
             int? UrunId, DateTime BaslangicTarihi, DateTime BitisTarihi)
         {
+            try
+            {
             using (var context = new AppDbContext())
             {
-                var sorgu = context.TransferDetaylari.AsQueryable();
+                var sorgu = context.TransferDetaylari.AsNoTracking().AsQueryable();
 
                 if (CikisDepoId != null)
                 {
@@ -79,9 +89,9 @@ namespace StokTakipSistemi
                     sorgu = sorgu.Where(u => u.urun_id == UrunId);
                 }
 
-                sorgu = sorgu.Where(u => u.olusturulma_zamani > BaslangicTarihi && u.olusturulma_zamani < BitisTarihi);
+                sorgu = sorgu.Where(u => u.olusturulma_zamani >= BaslangicTarihi && u.olusturulma_zamani <= BitisTarihi);
 
-                dgvRapor.DataSource = sorgu.Select(u => new
+                dgvRapor.DataSource = await sorgu.Select(u => new
                 {
                     Transfer_Fisi = u.transfer.fis_numarasi,
                     Urun_Ismi = u.urun.urun_adi,
@@ -96,9 +106,14 @@ namespace StokTakipSistemi
 
 
                 })
-                .ToList();
+                .ToListAsync();
 
 
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -120,12 +135,22 @@ namespace StokTakipSistemi
             DateTime baslangicTarihi = dtpBaslangic.Value;
             DateTime bitisTarihi = dtpBitis.Value;
 
+            bitisTarihi = bitisTarihi.Date.AddDays(1).AddTicks(-1);
+
             string fisNumarasi = txtFisNum.Text.Trim();
 
             RaporFiltre(cikisDepoId, varisDepoId, fisNumarasi, urunId, baslangicTarihi, bitisTarihi);
 
         }
 
-      
+        private void btnSifirla_Click(object sender, EventArgs e)
+        {
+            cboxCikisDepo.SelectedIndex = -1;
+            cboxVarisDepo.SelectedIndex = -1;
+
+            cboxUrun.SelectedIndex = -1;
+
+            txtFisNum.Clear();
+        }
     }
 }

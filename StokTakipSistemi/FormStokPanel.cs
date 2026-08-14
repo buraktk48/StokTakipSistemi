@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Helpers;
@@ -31,12 +32,15 @@ namespace StokTakipSistemi
             rbtnStokDus.Checked = false;
         }
 
-        private void StokListele(string aranan)
+        private async void StokListele(string aranan)
         {
+            try
+            {
             using (var context = new AppDbContext())
             {
 
-                dgvDepoStok.DataSource = context.DepoStoklari
+                dgvDepoStok.DataSource = await context.DepoStoklari
+                    .AsNoTracking()
                     .Where(r => r.depo.ad.Contains(aranan) || r.urun.urun_adi.Contains(aranan))
                     .Select(u => new
                     {
@@ -51,26 +55,43 @@ namespace StokTakipSistemi
                             : "-",
                         Olusturulma_Zamani = u.olusturulma_zamani
                     })
-                    .ToList();
+                    .ToListAsync();
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
-        private void FormStokPanel_Load(object sender, EventArgs e)
+        private async void FormStokPanel_Load(object sender, EventArgs e)
         {
+            try
+            {
+
             StokListele("");
 
             using (var context = new AppDbContext())
             {
-                cboxUrun.DataSource = context.Urunler.ToList();
+                cboxUrun.DataSource = await context.Urunler
+                .AsNoTracking()
+                .ToListAsync();
 
                 cboxUrun.DisplayMember = "urun_bilgisi";
                 cboxUrun.ValueMember = "id";
 
-                cboxDepo.DataSource = context.Depolar.ToList();
+                cboxDepo.DataSource = await context.Depolar
+                .AsNoTracking()
+                .ToListAsync();
 
                 cboxDepo.DisplayMember = "depo_bilgisi";
                 cboxDepo.ValueMember = "id";
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
