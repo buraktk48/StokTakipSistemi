@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StokTakipSistemi.Data;
 
@@ -11,9 +12,11 @@ using StokTakipSistemi.Data;
 namespace StokTakipSistemi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260817110535_FixSeedData")]
+    partial class FixSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("olusturan_kullanici_id");
 
-                    b.ToTable("Depolar", (string)null);
+                    b.ToTable("Depolar");
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.DepoStok", b =>
@@ -82,7 +85,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("urun_id");
 
-                    b.ToTable("DepoStoklari", (string)null);
+                    b.ToTable("DepoStoklari");
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Kullanici", b =>
@@ -122,7 +125,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("rol_id");
 
-                    b.ToTable("Kullanicilar", (string)null);
+                    b.ToTable("Kullanicilar");
 
                     b.HasData(
                         new
@@ -155,7 +158,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Roller", (string)null);
+                    b.ToTable("Roller");
 
                     b.HasData(
                         new
@@ -204,7 +207,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("varis_depo_id");
 
-                    b.ToTable("Transferler", (string)null);
+                    b.ToTable("Transferler");
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.TransferDetay", b =>
@@ -233,7 +236,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("urun_id");
 
-                    b.ToTable("TransferDetaylari", (string)null);
+                    b.ToTable("TransferDetaylari");
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Urun", b =>
@@ -269,7 +272,7 @@ namespace StokTakipSistemi.Migrations
 
                     b.HasIndex("ekleyen_kullanici_id");
 
-                    b.ToTable("Urunler", (string)null);
+                    b.ToTable("Urunler");
                 });
 
             modelBuilder.Entity("StokTakipSistemi.Entities.Depo", b =>

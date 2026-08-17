@@ -135,8 +135,6 @@ namespace StokTakipSistemi
             DateTime baslangicTarihi = dtpBaslangic.Value;
             DateTime bitisTarihi = dtpBitis.Value;
 
-            bitisTarihi = bitisTarihi.Date.AddDays(1).AddTicks(-1);
-
             string fisNumarasi = txtFisNum.Text.Trim();
 
             RaporFiltre(cikisDepoId, varisDepoId, fisNumarasi, urunId, baslangicTarihi, bitisTarihi);
@@ -151,6 +149,6 @@ namespace StokTakipSistemi
             cboxUrun.SelectedIndex = -1;
 
             txtFisNum.Clear();
-        }
+        } 
     }
 }

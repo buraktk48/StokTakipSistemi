@@ -79,8 +79,8 @@ namespace StokTakipSistemi.Data
             //Seed Data( Başlangıç Verileri)
 
             modelBuilder.Entity<Rol>().HasData(
-                new Rol { id = 1, adi = "Admin" },
-                new Rol { id = 2, adi = "Personel" }
+                new Rol { id = 1, adi = "Admin", olusturulma_zamani = new DateTime(2026, 1, 1) },
+                new Rol { id = 2, adi = "Personel", olusturulma_zamani = new DateTime(2026, 1, 1) }
             );
 
             modelBuilder.Entity<Kullanici>().HasData(
@@ -88,11 +88,12 @@ namespace StokTakipSistemi.Data
                 {
                     id = 1,
                     ad = "Yonetici",
-                    soyad ="Hesap",
+                    soyad = "Hesap",
                     kullanici_durum = true,
                     kullanici_adi = "admin",
                     sifre = "123456",
-                    rol_id = 1 
+                    rol_id = 1,
+                    olusturulma_zamani = new DateTime(2026, 1, 1)
                 }
             );
 
