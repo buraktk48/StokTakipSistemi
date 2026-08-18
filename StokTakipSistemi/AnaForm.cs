@@ -18,33 +18,53 @@ namespace StokTakipSistemi
         {
             try
             {
-            using (var context = new AppDbContext())
-            {
-                int toplamDepo = await context.Depolar.AsNoTracking().CountAsync();
-                int toplamStok = await context.DepoStoklari.AsNoTracking().CountAsync();
-
-                var sonKayit = await context.Transferler.AsNoTracking().OrderByDescending(x => x.id).FirstOrDefaultAsync();
-                
-                var sonDepolar = await context.Transferler
-                    .AsNoTracking()
-                    .Include(x => x.cikis_depo)
-                    .Include(x=>x.varis_depo)
-                    .OrderByDescending(x => x.id)
-                    .FirstOrDefaultAsync();
-
-                if (sonDepolar !=null)
+                using (var context = new AppDbContext())
                 {
-                    lblTransferDepo.Text = $"{sonDepolar.cikis_depo.ad}-{sonDepolar.varis_depo.ad}";
+                    int toplamDepo = await context.Depolar.AsNoTracking().CountAsync();
+                    int toplamStok = await context.DepoStoklari.AsNoTracking().CountAsync();
+
+                    var sonKayit = await context.Transferler.AsNoTracking().OrderByDescending(x => x.id).FirstOrDefaultAsync();
+
+                    var sonDepolar = await context.Transferler
+                        .AsNoTracking()
+                        .Include(x => x.cikis_depo)
+                        .Include(x => x.varis_depo)
+                        .OrderByDescending(x => x.id)
+                        .FirstOrDefaultAsync();
+
+                    if (sonDepolar != null)
+                    {
+                        lblTransferDepo.Text = $"{sonDepolar.cikis_depo.ad}-{sonDepolar.varis_depo.ad}";
+
+                    }
+
+                    else
+                    {
+                        lblTransferDepo.Text = "Son Transfer Bulunamadı";
+                    }
+
+
+                    lblToplamDepo.Text = toplamDepo.ToString();
+                    lblStokluUrun.Text = toplamStok.ToString();
+
+                    if (sonKayit != null)
+                    {
+                        lblSonTransfer.Text = sonKayit.olusturulma_zamani.ToString();
+                    }
+
+                    else
+                    {
+                        lblSonTransfer.Text = "Son Transfer Bulunamadı";
+                    }
+
+
+
+
+
+
+
 
                 }
-
-
-                lblToplamDepo.Text = toplamDepo.ToString();
-                lblStokluUrun.Text = toplamStok.ToString();
-                lblSonTransfer.Text = sonKayit.olusturulma_zamani.ToString();
-
-
-            }
             }
             catch (Exception ex)
             {

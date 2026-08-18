@@ -1,4 +1,4 @@
-namespace StokTakipSistemi
+﻿namespace StokTakipSistemi
 {
     partial class AnaForm
     {
@@ -55,24 +55,25 @@ namespace StokTakipSistemi
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.Location = new Point(279, 33);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(104, 41);
+            label1.Size = new Size(1475, 73);
             label1.TabIndex = 0;
             label1.Text = "label1";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnUrunPanel
             // 
             btnUrunPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnUrunPanel.FlatStyle = FlatStyle.Flat;
-            btnUrunPanel.Font = new Font("Segoe UI", 10.2F);
+            btnUrunPanel.Font = new Font("Segoe UI", 14.25F);
             btnUrunPanel.Image = (Image)resources.GetObject("btnUrunPanel.Image");
-            btnUrunPanel.Location = new Point(121, 354);
+            btnUrunPanel.Location = new Point(204, 340);
+            btnUrunPanel.Margin = new Padding(3, 2, 3, 2);
             btnUrunPanel.Name = "btnUrunPanel";
-            btnUrunPanel.Size = new Size(449, 80);
+            btnUrunPanel.Size = new Size(427, 69);
             btnUrunPanel.TabIndex = 7;
             btnUrunPanel.Text = "           Ürün Paneli";
             btnUrunPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -83,11 +84,12 @@ namespace StokTakipSistemi
             // 
             btnDepoPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnDepoPanel.FlatStyle = FlatStyle.Flat;
-            btnDepoPanel.Font = new Font("Segoe UI", 10.2F);
+            btnDepoPanel.Font = new Font("Segoe UI", 14.25F);
             btnDepoPanel.Image = (Image)resources.GetObject("btnDepoPanel.Image");
-            btnDepoPanel.Location = new Point(121, 466);
+            btnDepoPanel.Location = new Point(204, 433);
+            btnDepoPanel.Margin = new Padding(3, 2, 3, 2);
             btnDepoPanel.Name = "btnDepoPanel";
-            btnDepoPanel.Size = new Size(449, 80);
+            btnDepoPanel.Size = new Size(427, 69);
             btnDepoPanel.TabIndex = 8;
             btnDepoPanel.Text = "           Depo Paneli";
             btnDepoPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -96,23 +98,25 @@ namespace StokTakipSistemi
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1335, 97);
+            panel1.Size = new Size(1475, 73);
             panel1.TabIndex = 11;
             // 
             // btnCikisYap
             // 
             btnCikisYap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCikisYap.FlatStyle = FlatStyle.Flat;
-            btnCikisYap.Font = new Font("Segoe UI", 10.2F);
+            btnCikisYap.Font = new Font("Segoe UI", 14.25F);
             btnCikisYap.Image = (Image)resources.GetObject("btnCikisYap.Image");
-            btnCikisYap.Location = new Point(689, 592);
+            btnCikisYap.Location = new Point(758, 527);
+            btnCikisYap.Margin = new Padding(3, 2, 3, 2);
             btnCikisYap.Name = "btnCikisYap";
-            btnCikisYap.Size = new Size(449, 80);
+            btnCikisYap.Size = new Size(427, 69);
             btnCikisYap.TabIndex = 12;
             btnCikisYap.Text = "            Çıkış Yap";
             btnCikisYap.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -123,11 +127,12 @@ namespace StokTakipSistemi
             // 
             btnStok.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnStok.FlatStyle = FlatStyle.Flat;
-            btnStok.Font = new Font("Segoe UI", 10.2F);
+            btnStok.Font = new Font("Segoe UI", 14.25F);
             btnStok.Image = (Image)resources.GetObject("btnStok.Image");
-            btnStok.Location = new Point(121, 592);
+            btnStok.Location = new Point(204, 527);
+            btnStok.Margin = new Padding(3, 2, 3, 2);
             btnStok.Name = "btnStok";
-            btnStok.Size = new Size(449, 80);
+            btnStok.Size = new Size(427, 69);
             btnStok.TabIndex = 13;
             btnStok.Text = "          Stok Paneli";
             btnStok.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -138,11 +143,12 @@ namespace StokTakipSistemi
             // 
             btnTransferPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnTransferPanel.FlatStyle = FlatStyle.Flat;
-            btnTransferPanel.Font = new Font("Segoe UI", 10.2F);
+            btnTransferPanel.Font = new Font("Segoe UI", 14.25F);
             btnTransferPanel.Image = (Image)resources.GetObject("btnTransferPanel.Image");
-            btnTransferPanel.Location = new Point(689, 354);
+            btnTransferPanel.Location = new Point(758, 340);
+            btnTransferPanel.Margin = new Padding(3, 2, 3, 2);
             btnTransferPanel.Name = "btnTransferPanel";
-            btnTransferPanel.Size = new Size(449, 80);
+            btnTransferPanel.Size = new Size(427, 69);
             btnTransferPanel.TabIndex = 14;
             btnTransferPanel.Text = "           Transfer Paneli";
             btnTransferPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -153,11 +159,12 @@ namespace StokTakipSistemi
             // 
             btnTransferRaporuCikart.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnTransferRaporuCikart.FlatStyle = FlatStyle.Flat;
-            btnTransferRaporuCikart.Font = new Font("Segoe UI", 10.2F);
+            btnTransferRaporuCikart.Font = new Font("Segoe UI", 14.25F);
             btnTransferRaporuCikart.Image = (Image)resources.GetObject("btnTransferRaporuCikart.Image");
-            btnTransferRaporuCikart.Location = new Point(689, 466);
+            btnTransferRaporuCikart.Location = new Point(758, 433);
+            btnTransferRaporuCikart.Margin = new Padding(3, 2, 3, 2);
             btnTransferRaporuCikart.Name = "btnTransferRaporuCikart";
-            btnTransferRaporuCikart.Size = new Size(449, 80);
+            btnTransferRaporuCikart.Size = new Size(427, 69);
             btnTransferRaporuCikart.TabIndex = 15;
             btnTransferRaporuCikart.Text = "      Transfer Raporu Çıkart";
             btnTransferRaporuCikart.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -169,28 +176,30 @@ namespace StokTakipSistemi
             panel2.BackColor = Color.Transparent;
             panel2.Controls.Add(lblToplamDepo);
             panel2.Controls.Add(label2);
-            panel2.Location = new Point(81, 119);
+            panel2.Font = new Font("Segoe UI", 12F);
+            panel2.Location = new Point(131, 103);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(302, 169);
+            panel2.Size = new Size(306, 127);
             panel2.TabIndex = 16;
             // 
             // lblToplamDepo
             // 
             lblToplamDepo.AutoSize = true;
-            lblToplamDepo.Font = new Font("Segoe UI", 10.2F);
-            lblToplamDepo.Location = new Point(125, 107);
+            lblToplamDepo.Font = new Font("Segoe UI", 14.25F);
+            lblToplamDepo.Location = new Point(109, 80);
             lblToplamDepo.Name = "lblToplamDepo";
-            lblToplamDepo.Size = new Size(19, 23);
+            lblToplamDepo.Size = new Size(22, 25);
             lblToplamDepo.TabIndex = 1;
             lblToplamDepo.Text = "T";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.2F);
-            label2.Location = new Point(74, 32);
+            label2.Font = new Font("Segoe UI", 14.25F);
+            label2.Location = new Point(65, 24);
             label2.Name = "label2";
-            label2.Size = new Size(157, 23);
+            label2.Size = new Size(175, 25);
             label2.TabIndex = 0;
             label2.Text = "Toplam Depo Sayısı";
             // 
@@ -199,28 +208,30 @@ namespace StokTakipSistemi
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(lblStokluUrun);
             panel3.Controls.Add(label5);
-            panel3.Location = new Point(505, 119);
+            panel3.Font = new Font("Segoe UI", 12F);
+            panel3.Location = new Point(575, 103);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(302, 169);
+            panel3.Size = new Size(329, 127);
             panel3.TabIndex = 17;
             // 
             // lblStokluUrun
             // 
             lblStokluUrun.AutoSize = true;
-            lblStokluUrun.Font = new Font("Segoe UI", 10.2F);
-            lblStokluUrun.Location = new Point(138, 107);
+            lblStokluUrun.Font = new Font("Segoe UI", 14.25F);
+            lblStokluUrun.Location = new Point(121, 80);
             lblStokluUrun.Name = "lblStokluUrun";
-            lblStokluUrun.Size = new Size(19, 23);
+            lblStokluUrun.Size = new Size(22, 25);
             lblStokluUrun.TabIndex = 1;
             lblStokluUrun.Text = "T";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10.2F);
-            label5.Location = new Point(49, 32);
+            label5.Font = new Font("Segoe UI", 14.25F);
+            label5.Location = new Point(50, 24);
             label5.Name = "label5";
-            label5.Size = new Size(205, 23);
+            label5.Size = new Size(228, 25);
             label5.TabIndex = 0;
             label5.Text = "Toplam Stoklu Ürün Sayısı";
             // 
@@ -230,46 +241,48 @@ namespace StokTakipSistemi
             panel4.Controls.Add(lblTransferDepo);
             panel4.Controls.Add(lblSonTransfer);
             panel4.Controls.Add(label7);
-            panel4.Location = new Point(936, 119);
+            panel4.Font = new Font("Segoe UI", 12F);
+            panel4.Location = new Point(1031, 103);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(302, 169);
+            panel4.Size = new Size(312, 127);
             panel4.TabIndex = 18;
             // 
             // lblTransferDepo
             // 
             lblTransferDepo.AutoSize = true;
-            lblTransferDepo.Font = new Font("Segoe UI", 10.2F);
-            lblTransferDepo.Location = new Point(73, 121);
+            lblTransferDepo.Font = new Font("Segoe UI", 14.25F);
+            lblTransferDepo.Location = new Point(64, 91);
             lblTransferDepo.Name = "lblTransferDepo";
-            lblTransferDepo.Size = new Size(19, 23);
+            lblTransferDepo.Size = new Size(22, 25);
             lblTransferDepo.TabIndex = 2;
             lblTransferDepo.Text = "T";
             // 
             // lblSonTransfer
             // 
             lblSonTransfer.AutoSize = true;
-            lblSonTransfer.Font = new Font("Segoe UI", 10.2F);
-            lblSonTransfer.Location = new Point(82, 87);
+            lblSonTransfer.Font = new Font("Segoe UI", 14.25F);
+            lblSonTransfer.Location = new Point(72, 65);
             lblSonTransfer.Name = "lblSonTransfer";
-            lblSonTransfer.Size = new Size(19, 23);
+            lblSonTransfer.Size = new Size(22, 25);
             lblSonTransfer.TabIndex = 1;
             lblSonTransfer.Text = "T";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 10.2F);
-            label7.Location = new Point(100, 32);
+            label7.Font = new Font("Segoe UI", 14.25F);
+            label7.Location = new Point(96, 21);
             label7.Name = "label7";
-            label7.Size = new Size(104, 23);
+            label7.Size = new Size(116, 25);
             label7.TabIndex = 0;
             label7.Text = "Son Transfer";
             // 
             // AnaForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1337, 736);
+            ClientSize = new Size(1475, 661);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -280,11 +293,12 @@ namespace StokTakipSistemi
             Controls.Add(panel1);
             Controls.Add(btnDepoPanel);
             Controls.Add(btnUrunPanel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AnaForm";
             Text = "Stok Takip Sistemi | Ana Sayfa";
             Load += AnaForm_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
@@ -316,3 +330,4 @@ namespace StokTakipSistemi
         private Label lblTransferDepo;
     }
 }
+

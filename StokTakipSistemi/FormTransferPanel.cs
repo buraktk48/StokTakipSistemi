@@ -19,74 +19,46 @@ namespace StokTakipSistemi
             InitializeComponent();
         }
 
-        public async void TransferListele(string aranan="",int? CikisDepoId= null,int? VarisDepoId = null)
-        {
-            try
-            {   
-            using (var context = new AppDbContext())
-            {
-                var sorgu = context.Transferler.AsNoTracking().AsQueryable();
-
-                if (!string.IsNullOrWhiteSpace(aranan))
-                {
-                    sorgu = sorgu.Where(r => r.fis_numarasi.Contains(aranan));
-                }
-
-                if (CikisDepoId.HasValue && CikisDepoId > 0)
-                {
-                    sorgu = sorgu.Where(r => r.cikis_depo_id == CikisDepoId);
-                }
-
-                if (VarisDepoId.HasValue && VarisDepoId > 0)
-                {
-                    sorgu = sorgu.Where(r => r.varis_depo_id == VarisDepoId);
-                }
-
-
-                dgvTransferler.DataSource =  await sorgu
-                    .Select(u => new
-                    {
-                        id = u.id,
-                        Cikis_Depo = u.cikis_depo.ad,
-                        Varis_Depo = u.varis_depo.ad,
-                        Fis_Numarasi = u.fis_numarasi,
-                        Transfer_Yapan_Kullanici = u.transfer_kullanici != null
-                        ? u.transfer_kullanici.ad + " " + u.transfer_kullanici.soyad : "",
-                        Olusturulma_Zamani = u.olusturulma_zamani,
-
-
-                    })
-                    .ToListAsync();
-
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        }
-
-        private async void TransferDetayListele(string aranan)
+        public async void TransferListele(string aranan = "", int? CikisDepoId = null, int? VarisDepoId = null)
         {
             try
             {
-            using (var context = new AppDbContext())
-            {
-                dgvTransferDetay.DataSource =  await context.TransferDetaylari
-                    .AsNoTracking()
-                    .Select(u => new
+                using (var context = new AppDbContext())
+                {
+                    var sorgu = context.Transferler.AsNoTracking().AsQueryable();
+
+                    if (!string.IsNullOrWhiteSpace(aranan))
                     {
-                        id = u.id,
-                        Fis_Numarasi = u.transfer.fis_numarasi,
-                        Urun_Adi = u.urun.urun_adi,
-                        Miktar = u.miktar,
-                        Olusturulma_Zamani = u.olusturulma_zamani
+                        sorgu = sorgu.Where(r => r.fis_numarasi.Contains(aranan));
+                    }
 
-                    })
-                    .ToListAsync();
+                    if (CikisDepoId.HasValue && CikisDepoId > 0)
+                    {
+                        sorgu = sorgu.Where(r => r.cikis_depo_id == CikisDepoId);
+                    }
+
+                    if (VarisDepoId.HasValue && VarisDepoId > 0)
+                    {
+                        sorgu = sorgu.Where(r => r.varis_depo_id == VarisDepoId);
+                    }
 
 
-            }
+                    dgvTransferler.DataSource = await sorgu
+                        .Select(u => new
+                        {
+                            id = u.id,
+                            Cikis_Depo = u.cikis_depo.ad,
+                            Varis_Depo = u.varis_depo.ad,
+                            Fis_Numarasi = u.fis_numarasi,
+                            Transfer_Yapan_Kullanici = u.transfer_kullanici != null
+                            ? u.transfer_kullanici.ad + " " + u.transfer_kullanici.soyad : "",
+                            Olusturulma_Zamani = u.olusturulma_zamani,
+
+
+                        })
+                        .ToListAsync();
+
+                }
             }
             catch (Exception ex)
             {
@@ -94,14 +66,42 @@ namespace StokTakipSistemi
             }
         }
 
-        
+        private async void TransferDetayListele(string aranan)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    dgvTransferDetay.DataSource = await context.TransferDetaylari
+                        .AsNoTracking()
+                        .Select(u => new
+                        {
+                            id = u.id,
+                            Fis_Numarasi = u.transfer.fis_numarasi,
+                            Urun_Adi = u.urun.urun_adi,
+                            Miktar = u.miktar,
+                            Olusturulma_Zamani = u.olusturulma_zamani
+
+                        })
+                        .ToListAsync();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         private void TransferFiltrele()
         {
-            string arananFisNo = txtFisNoAra.Text.Trim(); 
-            int? cikisDepoId = cboxCikisDepo.SelectedValue as int?; 
-            int? varisDepoId = cboxVarisDepo.SelectedValue as int?; 
+            string arananFisNo = txtFisNoAra.Text.Trim();
+            int? cikisDepoId = cboxCikisDepo.SelectedValue as int?;
+            int? varisDepoId = cboxVarisDepo.SelectedValue as int?;
 
-            
+
             TransferListele(arananFisNo, cikisDepoId, varisDepoId);
         }
 
@@ -110,29 +110,29 @@ namespace StokTakipSistemi
         private async void TransferDetayFiltre(string FisNo)
         {
             try
-            {   
-
-            using (var context = new AppDbContext())
             {
-                var query = context.TransferDetaylari.AsNoTracking().AsQueryable();
 
-                if (!string.IsNullOrWhiteSpace(FisNo))
+                using (var context = new AppDbContext())
                 {
-                    query = query.Where(u => u.transfer.fis_numarasi == FisNo);
+                    var query = context.TransferDetaylari.AsNoTracking().AsQueryable();
+
+                    if (!string.IsNullOrWhiteSpace(FisNo))
+                    {
+                        query = query.Where(u => u.transfer.fis_numarasi == FisNo);
+                    }
+
+                    dgvTransferDetay.DataSource = await query
+                       .Select(u => new
+                       {
+                           id = u.id,
+                           Fis_Numarasi = u.transfer.fis_numarasi,
+                           Urun_Adi = u.urun.urun_adi,
+                           Miktar = u.miktar,
+                           Olusturulma_Zamani = u.olusturulma_zamani
+                       })
+                       .ToListAsync();
+
                 }
-
-                dgvTransferDetay.DataSource = await query
-                   .Select(u => new
-                   {
-                       id = u.id,
-                       Fis_Numarasi = u.transfer.fis_numarasi,
-                       Urun_Adi = u.urun.urun_adi,
-                       Miktar = u.miktar,
-                       Olusturulma_Zamani = u.olusturulma_zamani
-                   })
-                   .ToListAsync();
-
-            }
             }
             catch (Exception ex)
             {
@@ -219,6 +219,11 @@ namespace StokTakipSistemi
         private void cboxVarisDepo_SelectedIndexChanged(object sender, EventArgs e)
         {
             TransferFiltrele();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

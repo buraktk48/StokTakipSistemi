@@ -1,4 +1,4 @@
-﻿using StokTakipSistemi.Services;
+using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +60,17 @@ namespace StokTakipSistemi
 
         private void chkSifreGoster_CheckedChanged(object sender, EventArgs e)
         {
-             SifTxtBox.UseSystemPasswordChar = !chkSifreGoster.Checked;
+            SifTxtBox.UseSystemPasswordChar = !chkSifreGoster.Checked;
+        }
+
+        private void KayitForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

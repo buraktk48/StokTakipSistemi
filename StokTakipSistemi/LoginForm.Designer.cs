@@ -1,4 +1,4 @@
-﻿namespace StokTakipSistemi
+namespace StokTakipSistemi
 {
     partial class LoginForm
     {
@@ -45,53 +45,56 @@
             // 
             // txtGirisKulAd
             // 
-            txtGirisKulAd.Font = new Font("Segoe UI", 10.2F);
-            txtGirisKulAd.Location = new Point(228, 77);
+            txtGirisKulAd.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGirisKulAd.Location = new Point(441, 92);
+            txtGirisKulAd.Margin = new Padding(3, 2, 3, 2);
             txtGirisKulAd.Name = "txtGirisKulAd";
-            txtGirisKulAd.Size = new Size(138, 30);
+            txtGirisKulAd.Size = new Size(211, 33);
             txtGirisKulAd.TabIndex = 0;
             // 
             // txtGirisSifre
             // 
-            txtGirisSifre.Font = new Font("Segoe UI", 10.2F);
-            txtGirisSifre.Location = new Point(228, 151);
+            txtGirisSifre.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGirisSifre.Location = new Point(441, 147);
+            txtGirisSifre.Margin = new Padding(3, 2, 3, 2);
             txtGirisSifre.Name = "txtGirisSifre";
-            txtGirisSifre.Size = new Size(138, 30);
+            txtGirisSifre.Size = new Size(211, 33);
             txtGirisSifre.TabIndex = 1;
             txtGirisSifre.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.2F);
-            label1.Location = new Point(69, 80);
-            label1.Margin = new Padding(5);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label1.Location = new Point(301, 94);
+            label1.Margin = new Padding(4);
             label1.Name = "label1";
-            label1.Size = new Size(103, 23);
+            label1.Size = new Size(117, 25);
             label1.TabIndex = 2;
             label1.Text = "Kullanıcı Adı";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.2F);
-            label2.Location = new Point(69, 158);
-            label2.Margin = new Padding(5);
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label2.Location = new Point(301, 152);
+            label2.Margin = new Padding(4);
             label2.Name = "label2";
-            label2.Size = new Size(43, 23);
+            label2.Size = new Size(50, 25);
             label2.TabIndex = 3;
             label2.Text = "Şifre";
             // 
             // BtnGiris
             // 
-            BtnGiris.BackColor = SystemColors.ControlLight;
+            BtnGiris.BackColor = SystemColors.Control;
             BtnGiris.FlatStyle = FlatStyle.Flat;
-            BtnGiris.Font = new Font("Segoe UI", 10.2F);
+            BtnGiris.Font = new Font("Segoe UI", 14.25F);
             BtnGiris.Image = (Image)resources.GetObject("BtnGiris.Image");
             BtnGiris.ImageAlign = ContentAlignment.TopLeft;
-            BtnGiris.Location = new Point(82, 247);
+            BtnGiris.Location = new Point(301, 245);
+            BtnGiris.Margin = new Padding(3, 2, 3, 2);
             BtnGiris.Name = "BtnGiris";
-            BtnGiris.Size = new Size(158, 40);
+            BtnGiris.Size = new Size(166, 34);
             BtnGiris.TabIndex = 4;
             BtnGiris.Text = "Giriş Yap";
             BtnGiris.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -100,13 +103,14 @@
             // 
             // BtnKayitOl
             // 
-            BtnKayitOl.BackColor = SystemColors.ControlLight;
+            BtnKayitOl.BackColor = SystemColors.Control;
             BtnKayitOl.FlatStyle = FlatStyle.Flat;
-            BtnKayitOl.Font = new Font("Segoe UI", 10.2F);
+            BtnKayitOl.Font = new Font("Segoe UI", 14.25F);
             BtnKayitOl.Image = (Image)resources.GetObject("BtnKayitOl.Image");
-            BtnKayitOl.Location = new Point(305, 247);
+            BtnKayitOl.Location = new Point(523, 245);
+            BtnKayitOl.Margin = new Padding(3, 2, 3, 2);
             BtnKayitOl.Name = "BtnKayitOl";
-            BtnKayitOl.Size = new Size(158, 40);
+            BtnKayitOl.Size = new Size(166, 34);
             BtnKayitOl.TabIndex = 5;
             BtnKayitOl.Text = "Kayıt Ol";
             BtnKayitOl.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -116,10 +120,11 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            checkBox1.Location = new Point(228, 203);
+            checkBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            checkBox1.Location = new Point(460, 194);
+            checkBox1.Margin = new Padding(3, 2, 3, 2);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(176, 27);
+            checkBox1.Size = new Size(192, 29);
             checkBox1.TabIndex = 6;
             checkBox1.Text = "Şifreyi Göster/Gizle";
             checkBox1.UseVisualStyleBackColor = true;
@@ -127,24 +132,25 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(label3);
+            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1114, 90);
+            panel1.Size = new Size(1473, 68);
             panel1.TabIndex = 7;
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(446, 22);
+            label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(214, 41);
+            label3.Size = new Size(1473, 68);
             label3.TabIndex = 0;
             label3.Text = "GİRİŞ EKRANI";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
@@ -155,25 +161,28 @@
             groupBox1.Controls.Add(txtGirisSifre);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtGirisKulAd);
-            groupBox1.Location = new Point(256, 125);
+            groupBox1.Location = new Point(255, 96);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(578, 384);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(1001, 488);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1111, 574);
+            ClientSize = new Size(1473, 640);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
             Text = "Stok Takip Sistemi | Giriş Yap";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

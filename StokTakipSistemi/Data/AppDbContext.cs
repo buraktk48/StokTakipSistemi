@@ -21,7 +21,7 @@ namespace StokTakipSistemi.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=StokTakipDb;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=StokTakipDb;Trusted_Connection=True;TrustServerCertificate=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
