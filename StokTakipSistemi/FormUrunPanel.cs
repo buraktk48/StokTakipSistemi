@@ -54,6 +54,8 @@ namespace StokTakipSistemi
                     })
                     .ToListAsync();
             }
+
+
             }
             catch (Exception ex)
             {

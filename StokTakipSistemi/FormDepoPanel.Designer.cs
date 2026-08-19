@@ -52,13 +52,13 @@
             dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
             dgvDepolar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvDepolar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvDepolar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDepolar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDepolar.Location = new Point(47, 193);
-            dgvDepolar.Margin = new Padding(3, 2, 3, 2);
+            dgvDepolar.Location = new Point(54, 257);
             dgvDepolar.Name = "dgvDepolar";
             dgvDepolar.ReadOnly = true;
             dgvDepolar.RowHeadersWidth = 51;
-            dgvDepolar.Size = new Size(1367, 342);
+            dgvDepolar.Size = new Size(1562, 456);
             dgvDepolar.TabIndex = 0;
             // 
             // panel1
@@ -67,9 +67,8 @@
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1471, 58);
+            panel1.Size = new Size(1681, 77);
             panel1.TabIndex = 1;
             // 
             // label2
@@ -78,7 +77,7 @@
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1471, 58);
+            label2.Size = new Size(1681, 77);
             label2.TabIndex = 5;
             label2.Text = "DEPO YÖNETİMİ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -88,10 +87,9 @@
             btnDepoEkle.FlatStyle = FlatStyle.Flat;
             btnDepoEkle.Font = new Font("Segoe UI", 14.25F);
             btnDepoEkle.Image = (Image)resources.GetObject("btnDepoEkle.Image");
-            btnDepoEkle.Location = new Point(180, 20);
-            btnDepoEkle.Margin = new Padding(3, 2, 3, 2);
+            btnDepoEkle.Location = new Point(206, 27);
             btnDepoEkle.Name = "btnDepoEkle";
-            btnDepoEkle.Size = new Size(200, 38);
+            btnDepoEkle.Size = new Size(229, 51);
             btnDepoEkle.TabIndex = 2;
             btnDepoEkle.Text = "Ekle";
             btnDepoEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -103,10 +101,9 @@
             btnDepoYenile.FlatStyle = FlatStyle.Flat;
             btnDepoYenile.Font = new Font("Segoe UI", 14.25F);
             btnDepoYenile.Image = (Image)resources.GetObject("btnDepoYenile.Image");
-            btnDepoYenile.Location = new Point(1036, 20);
-            btnDepoYenile.Margin = new Padding(3, 2, 3, 2);
+            btnDepoYenile.Location = new Point(1184, 27);
             btnDepoYenile.Name = "btnDepoYenile";
-            btnDepoYenile.Size = new Size(200, 38);
+            btnDepoYenile.Size = new Size(229, 51);
             btnDepoYenile.TabIndex = 3;
             btnDepoYenile.Text = " Yenile";
             btnDepoYenile.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -121,11 +118,9 @@
             groupBox1.Controls.Add(btnDepoYenile);
             groupBox1.Controls.Add(btnDepoEkle);
             groupBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            groupBox1.Location = new Point(9, 558);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Location = new Point(10, 744);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1450, 78);
+            groupBox1.Size = new Size(1657, 104);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "İşlemler";
@@ -135,10 +130,9 @@
             btnDepoSil.FlatStyle = FlatStyle.Flat;
             btnDepoSil.Font = new Font("Segoe UI", 14.25F);
             btnDepoSil.Image = (Image)resources.GetObject("btnDepoSil.Image");
-            btnDepoSil.Location = new Point(759, 20);
-            btnDepoSil.Margin = new Padding(3, 2, 3, 2);
+            btnDepoSil.Location = new Point(867, 27);
             btnDepoSil.Name = "btnDepoSil";
-            btnDepoSil.Size = new Size(200, 38);
+            btnDepoSil.Size = new Size(229, 51);
             btnDepoSil.TabIndex = 5;
             btnDepoSil.Text = "  Sil";
             btnDepoSil.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -150,10 +144,9 @@
             btnDepoGuncelle.FlatStyle = FlatStyle.Flat;
             btnDepoGuncelle.Font = new Font("Segoe UI", 14.25F);
             btnDepoGuncelle.Image = (Image)resources.GetObject("btnDepoGuncelle.Image");
-            btnDepoGuncelle.Location = new Point(448, 20);
-            btnDepoGuncelle.Margin = new Padding(3, 2, 3, 2);
+            btnDepoGuncelle.Location = new Point(512, 27);
             btnDepoGuncelle.Name = "btnDepoGuncelle";
-            btnDepoGuncelle.Size = new Size(200, 38);
+            btnDepoGuncelle.Size = new Size(229, 51);
             btnDepoGuncelle.TabIndex = 4;
             btnDepoGuncelle.Text = " Güncelle";
             btnDepoGuncelle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -165,11 +158,9 @@
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(txtDepoAra);
-            groupBox2.Location = new Point(47, 71);
-            groupBox2.Margin = new Padding(3, 2, 3, 2);
+            groupBox2.Location = new Point(54, 95);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(1367, 102);
+            groupBox2.Size = new Size(1562, 136);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             // 
@@ -177,33 +168,31 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.Location = new Point(464, 18);
+            label1.Location = new Point(530, 24);
             label1.Name = "label1";
-            label1.Size = new Size(95, 25);
+            label1.Size = new Size(119, 32);
             label1.TabIndex = 1;
             label1.Text = "Depo Ara:";
             // 
             // txtDepoAra
             // 
             txtDepoAra.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            txtDepoAra.Location = new Point(464, 58);
-            txtDepoAra.Margin = new Padding(3, 2, 3, 2);
+            txtDepoAra.Location = new Point(530, 77);
             txtDepoAra.Name = "txtDepoAra";
-            txtDepoAra.Size = new Size(427, 33);
+            txtDepoAra.Size = new Size(487, 39);
             txtDepoAra.TabIndex = 2;
             txtDepoAra.TextChanged += txtDepoAra_TextChanged;
             // 
             // FormDepoPanel
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1471, 657);
+            ClientSize = new Size(1681, 876);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Controls.Add(dgvDepolar);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormDepoPanel";
             Text = "Stok Takip Sistemi | Depo Paneli";
             Load += FormDepoPanel_Load;

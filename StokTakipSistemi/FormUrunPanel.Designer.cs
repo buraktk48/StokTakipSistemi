@@ -53,32 +53,31 @@
             dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
             dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvUrunler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvUrunler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvUrunler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUrunler.Location = new Point(18, 144);
-            dgvUrunler.Margin = new Padding(3, 2, 3, 2);
+            dgvUrunler.Location = new Point(21, 192);
             dgvUrunler.Name = "dgvUrunler";
             dgvUrunler.ReadOnly = true;
             dgvUrunler.RowHeadersWidth = 51;
-            dgvUrunler.Size = new Size(1436, 353);
+            dgvUrunler.Size = new Size(1641, 471);
             dgvUrunler.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F);
-            label1.Location = new Point(597, 12);
+            label1.Location = new Point(682, 16);
             label1.Name = "label1";
-            label1.Size = new Size(92, 25);
+            label1.Size = new Size(113, 32);
             label1.TabIndex = 1;
             label1.Text = "Ürün Ara:";
             // 
             // txtAra
             // 
             txtAra.Font = new Font("Segoe UI", 14.25F);
-            txtAra.Location = new Point(597, 39);
-            txtAra.Margin = new Padding(3, 2, 3, 2);
+            txtAra.Location = new Point(682, 52);
             txtAra.Name = "txtAra";
-            txtAra.Size = new Size(274, 33);
+            txtAra.Size = new Size(313, 39);
             txtAra.TabIndex = 2;
             txtAra.TextChanged += txtAra_TextChanged;
             // 
@@ -88,9 +87,8 @@
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1466, 58);
+            panel1.Size = new Size(1675, 77);
             panel1.TabIndex = 3;
             // 
             // label2
@@ -99,7 +97,7 @@
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1466, 58);
+            label2.Size = new Size(1675, 77);
             label2.TabIndex = 4;
             label2.Text = "ÜRÜN YÖNETİMİ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -113,11 +111,9 @@
             groupBox1.Controls.Add(btnUrunGuncelle);
             groupBox1.Controls.Add(btnUrunEkle);
             groupBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            groupBox1.Location = new Point(9, 501);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Location = new Point(10, 668);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1445, 125);
+            groupBox1.Size = new Size(1651, 167);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "İşlemler";
@@ -128,10 +124,9 @@
             btnExcelEkle.FlatStyle = FlatStyle.Flat;
             btnExcelEkle.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             btnExcelEkle.Image = (Image)resources.GetObject("btnExcelEkle.Image");
-            btnExcelEkle.Location = new Point(363, 20);
-            btnExcelEkle.Margin = new Padding(3, 2, 3, 2);
+            btnExcelEkle.Location = new Point(415, 27);
             btnExcelEkle.Name = "btnExcelEkle";
-            btnExcelEkle.Size = new Size(257, 38);
+            btnExcelEkle.Size = new Size(294, 51);
             btnExcelEkle.TabIndex = 4;
             btnExcelEkle.Text = " Excel Üzerinden Ekle";
             btnExcelEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -144,10 +139,9 @@
             btnUrunYenile.FlatStyle = FlatStyle.Flat;
             btnUrunYenile.Font = new Font("Segoe UI", 14.25F);
             btnUrunYenile.Image = (Image)resources.GetObject("btnUrunYenile.Image");
-            btnUrunYenile.Location = new Point(1218, 20);
-            btnUrunYenile.Margin = new Padding(3, 2, 3, 2);
+            btnUrunYenile.Location = new Point(1392, 27);
             btnUrunYenile.Name = "btnUrunYenile";
-            btnUrunYenile.Size = new Size(180, 38);
+            btnUrunYenile.Size = new Size(206, 51);
             btnUrunYenile.TabIndex = 3;
             btnUrunYenile.Text = " Yenile";
             btnUrunYenile.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -160,10 +154,9 @@
             btnUrunSil.FlatStyle = FlatStyle.Flat;
             btnUrunSil.Font = new Font("Segoe UI", 14.25F);
             btnUrunSil.Image = (Image)resources.GetObject("btnUrunSil.Image");
-            btnUrunSil.Location = new Point(967, 20);
-            btnUrunSil.Margin = new Padding(3, 2, 3, 2);
+            btnUrunSil.Location = new Point(1105, 27);
             btnUrunSil.Name = "btnUrunSil";
-            btnUrunSil.Size = new Size(180, 38);
+            btnUrunSil.Size = new Size(206, 51);
             btnUrunSil.TabIndex = 2;
             btnUrunSil.Text = "   Sil";
             btnUrunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -176,10 +169,9 @@
             btnUrunGuncelle.FlatStyle = FlatStyle.Flat;
             btnUrunGuncelle.Font = new Font("Segoe UI", 14.25F);
             btnUrunGuncelle.Image = (Image)resources.GetObject("btnUrunGuncelle.Image");
-            btnUrunGuncelle.Location = new Point(699, 20);
-            btnUrunGuncelle.Margin = new Padding(3, 2, 3, 2);
+            btnUrunGuncelle.Location = new Point(799, 27);
             btnUrunGuncelle.Name = "btnUrunGuncelle";
-            btnUrunGuncelle.Size = new Size(180, 38);
+            btnUrunGuncelle.Size = new Size(206, 51);
             btnUrunGuncelle.TabIndex = 1;
             btnUrunGuncelle.Text = "Güncelle";
             btnUrunGuncelle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -192,10 +184,9 @@
             btnUrunEkle.FlatStyle = FlatStyle.Flat;
             btnUrunEkle.Font = new Font("Segoe UI", 14.25F);
             btnUrunEkle.Image = (Image)resources.GetObject("btnUrunEkle.Image");
-            btnUrunEkle.Location = new Point(87, 20);
-            btnUrunEkle.Margin = new Padding(3, 2, 3, 2);
+            btnUrunEkle.Location = new Point(99, 27);
             btnUrunEkle.Name = "btnUrunEkle";
-            btnUrunEkle.Size = new Size(180, 38);
+            btnUrunEkle.Size = new Size(206, 51);
             btnUrunEkle.TabIndex = 0;
             btnUrunEkle.Text = " Ekle";
             btnUrunEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -206,25 +197,22 @@
             // 
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(txtAra);
-            groupBox2.Location = new Point(18, 63);
-            groupBox2.Margin = new Padding(3, 2, 3, 2);
+            groupBox2.Location = new Point(21, 84);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(1436, 76);
+            groupBox2.Size = new Size(1641, 101);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             // 
             // FormUrunPanel
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1466, 636);
+            ClientSize = new Size(1675, 848);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Controls.Add(dgvUrunler);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormUrunPanel";
             Text = " Stok Takip Sistemi | Ürün Paneli";
             Load += FormUrunListe_Load;

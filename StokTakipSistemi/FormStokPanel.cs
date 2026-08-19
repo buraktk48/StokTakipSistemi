@@ -22,8 +22,10 @@ namespace StokTakipSistemi
             InitializeComponent();
 
             AramaZamanlayici.AramaSinirlayici(txtArama, StokListele);
-            
+
         }
+
+        private bool kontrol_bayrak = true;
         private void FormTemizle()
         {
             txtArama.Clear();
@@ -38,27 +40,27 @@ namespace StokTakipSistemi
         {
             try
             {
-            using (var context = new AppDbContext())
-            {
+                using (var context = new AppDbContext())
+                {
 
-                dgvDepoStok.DataSource = await context.DepoStoklari
-                    .AsNoTracking()
-                    .Where(r => r.depo.ad.Contains(aranan) || r.urun.urun_adi.Contains(aranan))
-                    .Select(u => new
-                    {
-                        id = u.id,
-                        Depo_Adi = u.depo.ad,
-                        Urun_Adi = u.urun.urun_adi,
-                        Miktar = u.miktar,
-                        Birim = u.urun.birim,
-                        Kdv = u.urun.kdv,
-                        Ekleyen_Kullanici = u.olusturan_kullanici != null
-                            ? u.olusturan_kullanici.ad + " " + u.olusturan_kullanici.soyad
-                            : "-",
-                        Olusturulma_Zamani = u.olusturulma_zamani
-                    })
-                    .ToListAsync();
-            }
+                    dgvDepoStok.DataSource = await context.DepoStoklari
+                        .AsNoTracking()
+                        .Where(r => r.depo.ad.Contains(aranan) || r.urun.urun_adi.Contains(aranan))
+                        .Select(u => new
+                        {
+                            id = u.id,
+                            Depo_Adi = u.depo.ad,
+                            Urun_Adi = u.urun.urun_adi,
+                            Miktar = u.miktar,
+                            Birim = u.urun.birim,
+                            Kdv = u.urun.kdv,
+                            Ekleyen_Kullanici = u.olusturan_kullanici != null
+                                ? u.olusturan_kullanici.ad + " " + u.olusturan_kullanici.soyad
+                                : "-",
+                            Olusturulma_Zamani = u.olusturulma_zamani
+                        })
+                        .ToListAsync();
+                }
             }
             catch (Exception ex)
             {
@@ -69,27 +71,35 @@ namespace StokTakipSistemi
 
         private async void FormStokPanel_Load(object sender, EventArgs e)
         {
+
+            kontrol_bayrak = true;
+
             try
             {
 
-            StokListele("");
+                StokListele("");
 
-            using (var context = new AppDbContext())
-            {
-                cboxUrun.DataSource = await context.Urunler
-                .AsNoTracking()
-                .ToListAsync();
+                using (var context = new AppDbContext())
+                {
+                    cboxUrun.DataSource = await context.Urunler
+                    .AsNoTracking()
+                    .ToListAsync();
 
-                cboxUrun.DisplayMember = "urun_bilgisi";
-                cboxUrun.ValueMember = "id";
+                    cboxUrun.DisplayMember = "urun_bilgisi";
+                    cboxUrun.ValueMember = "id";
 
-                cboxDepo.DataSource = await context.Depolar
-                .AsNoTracking()
-                .ToListAsync();
+                    cboxDepo.DataSource = await context.Depolar
+                    .AsNoTracking()
+                    .ToListAsync();
 
-                cboxDepo.DisplayMember = "depo_bilgisi";
-                cboxDepo.ValueMember = "id";
-            }
+                    cboxDepo.DisplayMember = "depo_bilgisi";
+                    cboxDepo.ValueMember = "id";
+                }
+
+                cboxDepo.SelectedIndex = -1;
+                cboxUrun.SelectedIndex = -1;
+
+
             }
             catch (Exception ex)
             {
@@ -115,13 +125,13 @@ namespace StokTakipSistemi
                 return;
             }
 
-            
+
             int secilenDepoId = (int)cboxDepo.SelectedValue;
             int secilenUrunId = (int)cboxUrun.SelectedValue;
             decimal girilenMiktar = numericUpDown1.Value;
             bool isStokEkle = rbtnStokEkle.Checked;
 
-            
+
             var depostokService = new DepoStokService();
             bool basarili = depostokService.StokIslemiYap(
                 secilenDepoId,
@@ -132,25 +142,25 @@ namespace StokTakipSistemi
                 out string mesaj
             );
 
-            
+
             if (basarili)
             {
                 MessageBox.Show(mesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                StokListele(""); 
-                numericUpDown1.Value = 0; 
+                StokListele("");
+                numericUpDown1.Value = 0;
             }
             else
             {
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-      
+
             }
-     
+
         }
 
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             FormTemizle();
-            
+
         }
 
         private void btnYenile_Click(object sender, EventArgs e)
@@ -173,8 +183,8 @@ namespace StokTakipSistemi
 
     }
 
-       
-    
+
+
 
 
 }

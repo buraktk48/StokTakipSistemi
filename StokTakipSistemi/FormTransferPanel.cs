@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace StokTakipSistemi
            
 
         }
+
+        private bool yukleniyor_bayrak = true;
 
         public async void TransferListele(string aranan = "", int? CikisDepoId = null, int? VarisDepoId = null)
         {
@@ -161,6 +164,9 @@ namespace StokTakipSistemi
         private void FormTransferPanel_Load(object sender, EventArgs e)
         {
 
+
+            yukleniyor_bayrak = true;
+
             TransferListele("");
             TransferDetayListele("");
 
@@ -180,7 +186,7 @@ namespace StokTakipSistemi
             cboxCikisDepo.SelectedIndex = -1;
             cboxVarisDepo.SelectedIndex = -1;
 
-
+            yukleniyor_bayrak = false;
         }
 
         private void txtFisNoAra_TextChanged(object sender, EventArgs e)
@@ -216,12 +222,20 @@ namespace StokTakipSistemi
 
         private void cboxCikisDepo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (yukleniyor_bayrak)
+            {
+                return;
+            }
             TransferFiltrele();
 
         }
 
         private void cboxVarisDepo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (yukleniyor_bayrak)
+            {
+                return;
+            }
             TransferFiltrele();
         }
 
