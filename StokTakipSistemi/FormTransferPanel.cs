@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
+using StokTakipSistemi.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,9 @@ namespace StokTakipSistemi
         public FormTransferPanel()
         {
             InitializeComponent();
+
+           
+
         }
 
         public async void TransferListele(string aranan = "", int? CikisDepoId = null, int? VarisDepoId = null)

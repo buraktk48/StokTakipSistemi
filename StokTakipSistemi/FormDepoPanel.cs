@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
@@ -21,15 +22,12 @@ namespace StokTakipSistemi
             
             InitializeComponent();
 
-            zamanlayici = new System.Windows.Forms.Timer();
+            AramaZamanlayici.AramaSinirlayici(txtDepoAra, DepoListele);
 
-            zamanlayici.Interval = 300;
-
-            zamanlayici.Tick += Arayici;
+            
         }
 
-        private System.Windows.Forms.Timer zamanlayici;
-
+        
         public async void DepoListele(string aranan)
         {
             try
@@ -124,16 +122,9 @@ namespace StokTakipSistemi
 
         private void txtDepoAra_TextChanged(object sender, EventArgs e)
         {
-            zamanlayici.Stop();
-            zamanlayici.Start();
+           
 
         }
-
-        private void Arayici(object? sender, EventArgs e)
-        {
-            zamanlayici.Stop();
-
-            DepoListele(txtDepoAra.Text.Trim());
-        }
+      
     }
 }

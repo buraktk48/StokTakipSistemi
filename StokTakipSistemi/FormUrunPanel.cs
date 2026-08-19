@@ -2,6 +2,7 @@ using ClosedXML.Excel;
 using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Migrations;
 using StokTakipSistemi.Services;
 using System;
@@ -23,6 +24,10 @@ namespace StokTakipSistemi
         {
             
             InitializeComponent();
+
+            AramaZamanlayici.AramaSinirlayici(txtAra, UrunListele);
+
+
         }
 
         public async void UrunListele(string aranan)
@@ -63,7 +68,7 @@ namespace StokTakipSistemi
 
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
-            UrunListele(txtAra.Text.Trim());
+            
         }
 
         private void btnUrunEkle_Click(object sender, EventArgs e)

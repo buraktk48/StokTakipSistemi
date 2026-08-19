@@ -20,6 +20,8 @@ namespace StokTakipSistemi
         public FormStokPanel()
         {
             InitializeComponent();
+
+            AramaZamanlayici.AramaSinirlayici(txtArama, StokListele);
             
         }
         private void FormTemizle()
@@ -159,8 +161,6 @@ namespace StokTakipSistemi
 
         private void txtArama_TextChanged(object sender, EventArgs e)
         {
-            StokListele(txtArama.Text.Trim());
-
 
         }
 
