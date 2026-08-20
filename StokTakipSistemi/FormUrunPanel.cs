@@ -19,41 +19,71 @@ namespace StokTakipSistemi
 {
     public partial class FormUrunPanel : Form
     {
-        
+
         public FormUrunPanel()
         {
-            
+
             InitializeComponent();
 
-            AramaZamanlayici.AramaSinirlayici(txtAra, UrunListele);
+            AramaZamanlayici.AramaSinirlayici(txtAra, (aranan) =>
+            {
+
+                suanki_sayfa = 1;
+                UrunListele(aranan);
+            });
 
 
         }
+
+        private int sayfa_boyutu = 10;
+        private int suanki_sayfa = 1;
+        private int toplam_sayfa_sayisi = 1;
 
         public async void UrunListele(string aranan)
         {
             try
             {
-            using (var context = new AppDbContext())
-            {
-
-                dgvUrunler.DataSource = await context.Urunler
+                using (var context = new AppDbContext())
+                {
+                    var sorgu = context.Urunler
                     .AsNoTracking()
-                    .Where(r => r.urun_adi.Contains(aranan) || r.urun_kodu.Contains(aranan))
-                    .Select(u => new
-                    {
-                        id = u.id,
-                        Urun_Kodu = u.urun_kodu,
-                        Urun_Adi = u.urun_adi,
-                        Birim = u.birim,
-                        KDV = u.kdv,
-                        Ekleyen_Kullanici = u.ekleyen_kullanici != null
-                            ? u.ekleyen_kullanici.ad + " " + u.ekleyen_kullanici.soyad
-                            : "-",
-                        Olusturulma_Zamani = u.olusturulma_zamani
-                    })
-                    .ToListAsync();
-            }
+                    .Where(r => r.urun_adi.Contains(aranan) || r.urun_kodu.Contains(aranan));
+
+                    int toplam_kayit = await sorgu.CountAsync();
+
+                    toplam_sayfa_sayisi = (int)Math.Ceiling(toplam_kayit / (double)sayfa_boyutu);
+
+                    if (toplam_sayfa_sayisi == 0) toplam_sayfa_sayisi = 1;
+
+
+                    if (suanki_sayfa > toplam_sayfa_sayisi)
+                        suanki_sayfa = 1;
+
+
+                    dgvUrunler.DataSource = await sorgu
+                        .OrderByDescending(u => u.id)
+                        .Skip((suanki_sayfa - 1) * sayfa_boyutu)
+                        .Take(sayfa_boyutu)
+                        .Select(u => new
+                        {
+                            id = u.id,
+                            Urun_Kodu = u.urun_kodu,
+                            Urun_Adi = u.urun_adi,
+                            Birim = u.birim,
+                            KDV = u.kdv,
+                            Ekleyen_Kullanici = u.ekleyen_kullanici != null
+                                ? u.ekleyen_kullanici.ad + " " + u.ekleyen_kullanici.soyad
+                                : "-",
+                            Olusturulma_Zamani = u.olusturulma_zamani
+                        })
+                        .ToListAsync();
+
+                    lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
+
+                    btnOnceki.Enabled = suanki_sayfa > 1;
+                    btnSonraki.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
+                }
+
 
 
             }
@@ -70,7 +100,7 @@ namespace StokTakipSistemi
 
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnUrunEkle_Click(object sender, EventArgs e)
@@ -140,11 +170,29 @@ namespace StokTakipSistemi
             formExcelUrunEkle.ShowDialog();
 
 
-            
-
-            
 
 
+
+
+
+        }
+
+        private void btnSonraki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa < toplam_sayfa_sayisi)
+            {
+                suanki_sayfa++;
+                UrunListele(txtAra.Text.Trim());
+            }
+        }
+
+        private void btnOnceki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa > 1)
+            {
+                suanki_sayfa--;
+                UrunListele(txtAra.Text.Trim());
+            }
         }
     }
 }

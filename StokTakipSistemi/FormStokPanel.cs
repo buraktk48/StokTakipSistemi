@@ -21,11 +21,20 @@ namespace StokTakipSistemi
         {
             InitializeComponent();
 
-            AramaZamanlayici.AramaSinirlayici(txtArama, StokListele);
+            AramaZamanlayici.AramaSinirlayici(txtArama, (aranan) =>
+            {
+                suanki_sayfa = 1;
+                StokListele(aranan);
+            });
+
 
         }
 
         private bool kontrol_bayrak = true;
+
+        private int sayfa_boyutu = 10;
+        private int suanki_sayfa = 1;
+        private int toplam_sayfa_sayisi = 1;
         private void FormTemizle()
         {
             txtArama.Clear();
@@ -43,9 +52,24 @@ namespace StokTakipSistemi
                 using (var context = new AppDbContext())
                 {
 
-                    dgvDepoStok.DataSource = await context.DepoStoklari
+                    var sorgu = context.DepoStoklari
                         .AsNoTracking()
-                        .Where(r => r.depo.ad.Contains(aranan) || r.urun.urun_adi.Contains(aranan))
+                        .Where(r => r.depo.ad.Contains(aranan) || r.urun.urun_adi.Contains(aranan));
+
+                    int toplam_kayit = await sorgu.CountAsync();
+
+                    toplam_sayfa_sayisi = (int)Math.Ceiling(toplam_kayit / (double)sayfa_boyutu);
+
+                    if (toplam_sayfa_sayisi == 0) toplam_sayfa_sayisi = 1;
+
+
+                    if (suanki_sayfa > toplam_sayfa_sayisi) suanki_sayfa = 1;
+
+
+                    dgvDepoStok.DataSource = await sorgu
+                        .OrderByDescending(u => u.id)
+                        .Skip((suanki_sayfa - 1) * sayfa_boyutu)
+                        .Take(sayfa_boyutu)
                         .Select(u => new
                         {
                             id = u.id,
@@ -60,6 +84,12 @@ namespace StokTakipSistemi
                             Olusturulma_Zamani = u.olusturulma_zamani
                         })
                         .ToListAsync();
+
+                    lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
+
+                    btnOnceki.Enabled = suanki_sayfa > 1;
+                    btnSonraki.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
+
                 }
             }
             catch (Exception ex)
@@ -174,13 +204,25 @@ namespace StokTakipSistemi
 
         }
 
+        private void btnSonraki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa < toplam_sayfa_sayisi)
+            {
+                suanki_sayfa++;
+                StokListele(txtArama.Text.Trim());
+            }
 
+        }
 
+        private void btnOnceki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa > 1)
+            {
+                suanki_sayfa--;
+                StokListele(txtArama.Text.Trim());
+            }
 
-
-
-
-
+        }
     }
 
 
