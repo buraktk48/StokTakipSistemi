@@ -9,6 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using System.Diagnostics;
+
 
 namespace StokTakipSistemi
 {
@@ -122,8 +127,134 @@ namespace StokTakipSistemi
         {
             QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
+            if (dgvRapor.Rows.Count == 0)
+            {
+                MessageBox.Show("Raporlanacak veri bulunamadı!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PDF Dosyası (*.pdf)|*.pdf";
+                saveFileDialog.FileName = $"Transfer_Raporu_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+
+                if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+
+                Document.Create(container =>
+                {
+
+                    container.Page(page =>
+                    {
+                        page.Size(PageSizes.A4.Landscape());
+                        page.Margin(1, Unit.Centimetre);
+                        page.PageColor(Colors.White);
+                        page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Arial"));
+
+                        page.Header().Column(col =>
+                        {
+                            col.Item().Text("STOK TAKİP SİSTEMİ").FontSize(18).Bold().FontColor(Colors.Blue.Darken3);
+                            col.Item().Text("TRANSFER RAPORU").FontSize(14).SemiBold().FontColor(Colors.Grey.Darken2);
+                            col.Item().Text($"Rapor Tarihi: {DateTime.Now:dd.MM.yyyy HH:mm}").FontSize(9).Italic();
+                            col.Item().PaddingTop(5).BorderBottom(1).BorderColor(Colors.Grey.Lighten1);
+
+                        });
+
+
+                        page.Content().PaddingVertical(10).Table(table =>
+                        {
+                            table.ColumnsDefinition(col =>
+                            {
+                                col.RelativeColumn(1.5f);
+                                col.RelativeColumn(2);
+                                col.RelativeColumn(1);
+                                col.RelativeColumn(1);
+                                col.RelativeColumn(1.5f);
+                                col.RelativeColumn(1.5f);
+                                col.RelativeColumn(1.5f);
+                                col.RelativeColumn(1);
+                                col.RelativeColumn(1.5f);
+                            });
+
+                            table.Header(header =>
+                            {
+                                string[] sutunlar = new string[]
+                                {
+                                    "Transfer Fişi",
+                                    "Ürün İsmi",
+                                    "Birimi",
+                                    "KDV Oranı",
+                                    "Çıkış Deposu",
+                                    "Varış Deposu",
+                                    "Miktar",
+                                    "Transfer Girişini Yapan Kullanıcı",
+                                    "Transfer Tarihi",
+                                };
+
+                                foreach (var sutun in sutunlar)
+                                {
+                                    header.Cell().Background(Colors.Grey.Lighten3).Padding(4).Text(sutun).Bold();
+                                }
+                            });
+
+                            foreach (DataGridViewRow row in dgvRapor.Rows)
+                            {
+                                if (row.IsNewRow) continue;
+
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transfer_Fisi"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Urun_Ismi"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Birimi"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["KDV_Orani"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Cikis_Deposu"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Varis_Deposu"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Miktar"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transferi_Yapan_Kullanici"].Value?.ToString() ?? "");
+                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transfer_Tarihi"].Value?.ToString() ?? "");
+
+                                
+
+                            }
+
+
+                        });
+
+                        page.Footer().AlignRight().Text(x =>
+                        {
+                            x.Span("Sayfa ");
+                            x.CurrentPageNumber();
+                            x.Span(" / ");
+                            x.TotalPages();
+                        });
+
+
+
+                    });
+                    
+
+                })
+                .GeneratePdf(saveFileDialog.FileName);
+
+                var cevap = MessageBox.Show("PDF Raporu oluşturuldu! Dosyayı açmak ister misiniz?", "Başarılı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (cevap == DialogResult.Yes)
+                {
+                    Process.Start(new ProcessStartInfo(saveFileDialog.FileName) { UseShellExecute = true });
+                }
+
+            }
+
+           
+
+        
+        
+        
+        
         }
+
+
+
+
 
         private void btnListele_Click(object sender, EventArgs e)
         {

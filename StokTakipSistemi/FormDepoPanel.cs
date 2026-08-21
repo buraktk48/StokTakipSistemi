@@ -180,5 +180,13 @@ namespace StokTakipSistemi
             }
 
         }
+
+        private void btnSonSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = toplam_sayfa_sayisi;
+
+            DepoListele(txtDepoAra.Text.Trim());
+
+        }
     }
 }

@@ -304,6 +304,7 @@
             btnIlkSayfa.Text = "İlk Sayfa";
             btnIlkSayfa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnIlkSayfa.UseVisualStyleBackColor = false;
+            btnIlkSayfa.Click += btnIlkSayfa_Click;
             // 
             // lblSayfa
             // 
@@ -354,6 +355,7 @@
             btnSonSayfa.Text = "Son Sayfa";
             btnSonSayfa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSonSayfa.UseVisualStyleBackColor = false;
+            btnSonSayfa.Click += btnSonSayfa_Click;
             // 
             // FormStokPanel
             // 

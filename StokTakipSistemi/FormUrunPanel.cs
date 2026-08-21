@@ -194,5 +194,20 @@ namespace StokTakipSistemi
                 UrunListele(txtAra.Text.Trim());
             }
         }
+
+        private void btnSonSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = toplam_sayfa_sayisi;
+            UrunListele(txtAra.Text.Trim());
+
+
+        }
+
+        private void btnIlkSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = 1;
+            UrunListele(txtAra.Text.Trim());
+
+        }
     }
 }

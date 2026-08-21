@@ -16,11 +16,11 @@ namespace StokTakipSistemi
 {
     public partial class FormExcelUrunEkle : Form
     {
-        
+
 
         public FormExcelUrunEkle()
         {
-            
+
             InitializeComponent();
         }
         private void ExcelVerileriniGrideYukle(string dosyaYolu)
@@ -74,9 +74,9 @@ namespace StokTakipSistemi
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string secilenDosyaYolu = openFileDialog.FileName;
-                    txtDosyaYolu.Text = secilenDosyaYolu; 
+                    txtDosyaYolu.Text = secilenDosyaYolu;
 
-                    
+
                     ExcelVerileriniGrideYukle(secilenDosyaYolu);
                 }
 
@@ -89,7 +89,7 @@ namespace StokTakipSistemi
 
         private void btnIceAktar_Click(object sender, EventArgs e)
         {
-        
+
             if (dgvExcel.Rows.Count == 0 || dgvExcel.DataSource == null)
             {
                 MessageBox.Show("Lütfen önce geçerli bir Excel dosyası seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -134,7 +134,12 @@ namespace StokTakipSistemi
 
             // İşlem bitince DataGridView'i temizleyebiliriz
             dgvExcel.DataSource = null;
-            
+
+        }
+
+        private void FormExcelUrunEkle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

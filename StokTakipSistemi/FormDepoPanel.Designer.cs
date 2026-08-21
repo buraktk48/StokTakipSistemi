@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepoPanel));
             dgvDepolar = new DataGridView();
             panel1 = new Panel();
@@ -56,8 +56,8 @@
             // 
             // dgvDepolar
             // 
-            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
-            dgvDepolar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvDepolar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvDepolar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvDepolar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDepolar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -266,6 +266,7 @@
             btnSonSayfa.Text = "Son Sayfa";
             btnSonSayfa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSonSayfa.UseVisualStyleBackColor = false;
+            btnSonSayfa.Click += btnSonSayfa_Click;
             // 
             // FormDepoPanel
             // 

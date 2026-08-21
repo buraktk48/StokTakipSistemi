@@ -20,11 +20,19 @@ namespace StokTakipSistemi
         {
             InitializeComponent();
 
-           
+            AramaZamanlayici.AramaSinirlayici(txtFisNoAra, (aranan) =>
+            {
+                suanki_sayfa = 1;
+                TransferListele(txtFisNoAra.Text.Trim());
+            });
 
         }
 
         private bool yukleniyor_bayrak = true;
+
+        private int suanki_sayfa = 1;
+        private int toplam_sayfa_sayisi = 1;
+        private int sayfa_boyutu = 10;
 
         public async void TransferListele(string aranan = "", int? CikisDepoId = null, int? VarisDepoId = null)
         {
@@ -49,6 +57,15 @@ namespace StokTakipSistemi
                         sorgu = sorgu.Where(r => r.varis_depo_id == VarisDepoId);
                     }
 
+                    int toplam_kayit = await sorgu.CountAsync();
+
+                    toplam_sayfa_sayisi = (int)Math.Ceiling(toplam_kayit / (double)sayfa_boyutu);
+
+                    if (toplam_sayfa_sayisi == 0) toplam_sayfa_sayisi = 1;
+
+
+                    if (suanki_sayfa > toplam_sayfa_sayisi) suanki_sayfa = 1;
+
 
                     dgvTransferler.DataSource = await sorgu
                         .Select(u => new
@@ -64,6 +81,12 @@ namespace StokTakipSistemi
 
                         })
                         .ToListAsync();
+
+
+                    lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
+
+                    btnOnceki.Enabled = suanki_sayfa > 1;
+                    btnSonraki.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
 
                 }
             }
@@ -242,6 +265,38 @@ namespace StokTakipSistemi
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSonraki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa < toplam_sayfa_sayisi)
+            {
+                suanki_sayfa++;
+                TransferListele(txtFisNoAra.Text.Trim());
+            }
+        }
+
+        private void btnSonSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = toplam_sayfa_sayisi;
+            TransferListele(txtFisNoAra.Text.Trim());
+
+        }
+
+        private void btnOnceki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa>1)
+            {
+                suanki_sayfa--;
+                TransferListele(txtFisNoAra.Text.Trim());
+            }
+
+        }
+
+        private void btnIlkSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = 1;
+            TransferListele(txtFisNoAra.Text.Trim());
         }
     }
 }
