@@ -1,5 +1,5 @@
 using StokTakipSistemi.Entities;
-using System.Drawing.Text;
+using System.Drawing.Drawing2D;
 using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Data;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +11,27 @@ namespace StokTakipSistemi
         public AnaForm()
         {
             InitializeComponent();
+            ApplyCustomStyles();
+        }
 
+        private void ApplyCustomStyles()
+        {
+            panel2.Paint += CardPanel_Paint;
+            panel3.Paint += CardPanel_Paint;
+            panel4.Paint += CardPanel_Paint;
+        }
+
+        private void CardPanel_Paint(object? sender, PaintEventArgs e)
+        {
+            if (sender is Panel p)
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                using (Pen borderPen = new Pen(Color.FromArgb(226, 232, 240), 1))
+                {
+                    Rectangle rect = new Rectangle(0, 0, p.Width - 1, p.Height - 1);
+                    e.Graphics.DrawRectangle(borderPen, rect);
+                }
+            }
         }
 
         private async void IstatistikleriGetir()
@@ -21,64 +41,61 @@ namespace StokTakipSistemi
                 using (var context = new AppDbContext())
                 {
                     int toplamDepo = await context.Depolar.AsNoTracking().CountAsync();
-                    int toplamStok = await context.DepoStoklari.AsNoTracking().CountAsync();
+                    
+                    
+                    int toplamStokluUrun = await context.DepoStoklari.AsNoTracking().CountAsync();
 
-                    var sonKayit = await context.Transferler.AsNoTracking().OrderByDescending(x => x.id).FirstOrDefaultAsync();
-
-                    var sonDepolar = await context.Transferler
+                    var sonTransfer = await context.Transferler
                         .AsNoTracking()
                         .Include(x => x.cikis_depo)
                         .Include(x => x.varis_depo)
                         .OrderByDescending(x => x.id)
                         .FirstOrDefaultAsync();
 
-                    if (sonDepolar != null)
+                    lblToplamDepo.Text = toplamDepo.ToString("N0");
+                    lblStokluUrun.Text = toplamStokluUrun.ToString("N0");
+
+                    if (sonTransfer != null)
                     {
-                        lblTransferDepo.Text = $"{sonDepolar.cikis_depo.ad}-{sonDepolar.varis_depo.ad}";
+                        string cikis = sonTransfer.cikis_depo?.ad ?? "Depo A";
+                        string varis = sonTransfer.varis_depo?.ad ?? "Depo B";
+                        lblTransferDepo.Text = $"{cikis} -> {varis}";
 
+                        if (sonTransfer.olusturulma_zamani.Date == DateTime.Today)
+                        {
+                            lblSonTransfer.Text = $"Bugün, {sonTransfer.olusturulma_zamani:HH:mm}";
+                        }
+                        else
+                        {
+                            lblSonTransfer.Text = sonTransfer.olusturulma_zamani.ToString("dd MMMM, HH:mm");
+                        }
                     }
-
                     else
                     {
-                        lblTransferDepo.Text = "Son Transfer Bulunamadı";
+                        lblTransferDepo.Text = "Henüz transfer yok";
+                        lblSonTransfer.Text = "-";
                     }
-
-
-                    lblToplamDepo.Text = toplamDepo.ToString();
-                    lblStokluUrun.Text = toplamStok.ToString();
-
-                    if (sonKayit != null)
-                    {
-                        lblSonTransfer.Text = sonKayit.olusturulma_zamani.ToString();
-                    }
-
-                    else
-                    {
-                        lblSonTransfer.Text = "Son Transfer Bulunamadı";
-                    }
-
-
-
-
-
-
-
-
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("İstatistikler yüklenirken hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void AnaForm_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Stok Takip Sistemi | Hoş Geldin, {Session.AktifKullanici.ad} {Session.AktifKullanici.soyad}";
+            label1.Text = "Stok Takip Programı";
+
+            string kullaniciAdi = Session.AktifKullanici != null
+                ? $"{Session.AktifKullanici.ad} {Session.AktifKullanici.soyad}"
+                : "Kullanıcı";
+
+            lblHeaderUser.Text = $"Hoş Geldin, {kullaniciAdi} | {DateTime.Now:dd MMMM yyyy, HH:mm}";
+
+            lblFooter.Text = $"© {DateTime.Now.Year} Kurumsal Yazılım A.Ş.";
 
             IstatistikleriGetir();
-
-
         }
 
         private void btnUrunPanel_Click(object sender, EventArgs e)
