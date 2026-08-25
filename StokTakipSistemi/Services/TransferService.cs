@@ -68,8 +68,7 @@ namespace StokTakipSistemi.Services
                     var cikis_deposu = context.DepoStoklari.FirstOrDefault(s => s.depo_id == item.cikis_depo_id && s.urun_id == item.urun_id);
                     
                     cikis_deposu.miktar -= transferDetay.miktar;
-
-
+                    
 
                     var varis_deposu = context.DepoStoklari.FirstOrDefault(s => s.depo_id == item.varis_depo_id && s.urun_id == item.urun_id);
 

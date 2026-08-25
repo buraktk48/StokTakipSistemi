@@ -37,37 +37,38 @@ namespace StokTakipSistemi
             BtnKayitOl = new Button();
             checkBox1 = new CheckBox();
             panel1 = new Panel();
+            lblSubTitle = new Label();
             label3 = new Label();
-            groupBox1 = new GroupBox();
+            pnlLoginCard = new Panel();
+            lblCardTitle = new Label();
+            lblFooter = new Label();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
+            pnlLoginCard.SuspendLayout();
             SuspendLayout();
             // 
             // txtGirisKulAd
             // 
-            txtGirisKulAd.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            txtGirisKulAd.Location = new Point(441, 92);
-            txtGirisKulAd.Margin = new Padding(3, 2, 3, 2);
+            txtGirisKulAd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGirisKulAd.Location = new Point(45, 103);
             txtGirisKulAd.Name = "txtGirisKulAd";
-            txtGirisKulAd.Size = new Size(211, 33);
+            txtGirisKulAd.Size = new Size(330, 34);
             txtGirisKulAd.TabIndex = 0;
             // 
             // txtGirisSifre
             // 
-            txtGirisSifre.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            txtGirisSifre.Location = new Point(441, 147);
-            txtGirisSifre.Margin = new Padding(3, 2, 3, 2);
+            txtGirisSifre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGirisSifre.Location = new Point(45, 178);
             txtGirisSifre.Name = "txtGirisSifre";
-            txtGirisSifre.Size = new Size(211, 33);
+            txtGirisSifre.Size = new Size(330, 34);
             txtGirisSifre.TabIndex = 1;
             txtGirisSifre.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.Location = new Point(301, 94);
-            label1.Margin = new Padding(4);
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.FromArgb(100, 116, 139);
+            label1.Location = new Point(45, 75);
             label1.Name = "label1";
             label1.Size = new Size(117, 25);
             label1.TabIndex = 2;
@@ -76,9 +77,9 @@ namespace StokTakipSistemi
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.Location = new Point(301, 152);
-            label2.Margin = new Padding(4);
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label2.ForeColor = Color.FromArgb(100, 116, 139);
+            label2.Location = new Point(45, 150);
             label2.Name = "label2";
             label2.Size = new Size(50, 25);
             label2.TabIndex = 3;
@@ -86,33 +87,36 @@ namespace StokTakipSistemi
             // 
             // BtnGiris
             // 
-            BtnGiris.BackColor = SystemColors.Control;
+            BtnGiris.BackColor = Color.FromArgb(30, 41, 59);
+            BtnGiris.Cursor = Cursors.Hand;
+            BtnGiris.FlatAppearance.BorderSize = 0;
             BtnGiris.FlatStyle = FlatStyle.Flat;
-            BtnGiris.Font = new Font("Segoe UI", 14.25F);
+            BtnGiris.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            BtnGiris.ForeColor = Color.White;
             BtnGiris.Image = (Image)resources.GetObject("BtnGiris.Image");
-            BtnGiris.ImageAlign = ContentAlignment.TopLeft;
-            BtnGiris.Location = new Point(301, 245);
-            BtnGiris.Margin = new Padding(3, 2, 3, 2);
+            BtnGiris.Location = new Point(45, 275);
             BtnGiris.Name = "BtnGiris";
-            BtnGiris.Size = new Size(166, 34);
+            BtnGiris.Size = new Size(155, 48);
             BtnGiris.TabIndex = 4;
-            BtnGiris.Text = "Giriş Yap";
+            BtnGiris.Text = "  Giriş Yap";
             BtnGiris.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnGiris.UseVisualStyleBackColor = false;
             BtnGiris.Click += BtnGiris_Click;
             // 
             // BtnKayitOl
             // 
-            BtnKayitOl.BackColor = SystemColors.Control;
+            BtnKayitOl.BackColor = Color.FromArgb(226, 232, 240);
+            BtnKayitOl.Cursor = Cursors.Hand;
+            BtnKayitOl.FlatAppearance.BorderSize = 0;
             BtnKayitOl.FlatStyle = FlatStyle.Flat;
-            BtnKayitOl.Font = new Font("Segoe UI", 14.25F);
+            BtnKayitOl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            BtnKayitOl.ForeColor = Color.FromArgb(30, 41, 59);
             BtnKayitOl.Image = (Image)resources.GetObject("BtnKayitOl.Image");
-            BtnKayitOl.Location = new Point(523, 245);
-            BtnKayitOl.Margin = new Padding(3, 2, 3, 2);
+            BtnKayitOl.Location = new Point(220, 275);
             BtnKayitOl.Name = "BtnKayitOl";
-            BtnKayitOl.Size = new Size(166, 34);
+            BtnKayitOl.Size = new Size(155, 48);
             BtnKayitOl.TabIndex = 5;
-            BtnKayitOl.Text = "Kayıt Ol";
+            BtnKayitOl.Text = "  Kayıt Ol";
             BtnKayitOl.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnKayitOl.UseVisualStyleBackColor = false;
             BtnKayitOl.Click += BtnKayitOl_Click;
@@ -120,11 +124,11 @@ namespace StokTakipSistemi
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            checkBox1.Location = new Point(460, 194);
-            checkBox1.Margin = new Padding(3, 2, 3, 2);
+            checkBox1.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            checkBox1.ForeColor = Color.FromArgb(71, 85, 105);
+            checkBox1.Location = new Point(45, 226);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(192, 29);
+            checkBox1.Size = new Size(183, 29);
             checkBox1.TabIndex = 6;
             checkBox1.Text = "Şifreyi Göster/Gizle";
             checkBox1.UseVisualStyleBackColor = true;
@@ -132,59 +136,94 @@ namespace StokTakipSistemi
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(30, 41, 59);
+            panel1.Controls.Add(lblSubTitle);
             panel1.Controls.Add(label3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1473, 68);
+            panel1.Size = new Size(1280, 70);
             panel1.TabIndex = 7;
+            // 
+            // lblSubTitle
+            // 
+            lblSubTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblSubTitle.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblSubTitle.ForeColor = Color.FromArgb(226, 232, 240);
+            lblSubTitle.Location = new Point(950, 21);
+            lblSubTitle.Name = "lblSubTitle";
+            lblSubTitle.Size = new Size(295, 28);
+            lblSubTitle.TabIndex = 1;
+            lblSubTitle.Text = "Oturum Açma Paneli";
+            lblSubTitle.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label3
             // 
-            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(0, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(35, 16);
             label3.Name = "label3";
-            label3.Size = new Size(1473, 68);
+            label3.Size = new Size(350, 38);
             label3.TabIndex = 0;
-            label3.Text = "GİRİŞ EKRANI";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Text = "Stok Takip Programı";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // groupBox1
+            // pnlLoginCard
             // 
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(BtnGiris);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Controls.Add(BtnKayitOl);
-            groupBox1.Controls.Add(txtGirisSifre);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtGirisKulAd);
-            groupBox1.Location = new Point(255, 96);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1001, 488);
-            groupBox1.TabIndex = 8;
-            groupBox1.TabStop = false;
+            pnlLoginCard.BackColor = Color.White;
+            pnlLoginCard.Controls.Add(lblCardTitle);
+            pnlLoginCard.Controls.Add(label1);
+            pnlLoginCard.Controls.Add(txtGirisKulAd);
+            pnlLoginCard.Controls.Add(label2);
+            pnlLoginCard.Controls.Add(txtGirisSifre);
+            pnlLoginCard.Controls.Add(checkBox1);
+            pnlLoginCard.Controls.Add(BtnGiris);
+            pnlLoginCard.Controls.Add(BtnKayitOl);
+            pnlLoginCard.Location = new Point(430, 140);
+            pnlLoginCard.Name = "pnlLoginCard";
+            pnlLoginCard.Size = new Size(420, 390);
+            pnlLoginCard.TabIndex = 8;
+            // 
+            // lblCardTitle
+            // 
+            lblCardTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblCardTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            lblCardTitle.Location = new Point(10, 25);
+            lblCardTitle.Name = "lblCardTitle";
+            lblCardTitle.Size = new Size(400, 35);
+            lblCardTitle.TabIndex = 7;
+            lblCardTitle.Text = "Oturum Aç";
+            lblCardTitle.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lblFooter
+            // 
+            lblFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblFooter.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblFooter.ForeColor = Color.FromArgb(148, 163, 184);
+            lblFooter.Location = new Point(980, 640);
+            lblFooter.Name = "lblFooter";
+            lblFooter.Size = new Size(270, 22);
+            lblFooter.TabIndex = 9;
+            lblFooter.Text = "© 2026 Dalaman Belediyesi";
+            lblFooter.TextAlign = ContentAlignment.MiddleRight;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(1473, 640);
-            Controls.Add(groupBox1);
+            BackColor = Color.FromArgb(241, 245, 249);
+            ClientSize = new Size(1280, 680);
+            Controls.Add(lblFooter);
+            Controls.Add(pnlLoginCard);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
-            Text = "Stok Takip Sistemi | Giriş Yap";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Stok Takip Programı | Giriş Yap";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            pnlLoginCard.ResumeLayout(false);
+            pnlLoginCard.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -199,6 +238,9 @@ namespace StokTakipSistemi
         private CheckBox checkBox1;
         private Panel panel1;
         private Label label3;
-        private GroupBox groupBox1;
+        private Label lblSubTitle;
+        private Panel pnlLoginCard;
+        private Label lblCardTitle;
+        private Label lblFooter;
     }
-}
+}

@@ -1,4 +1,4 @@
-﻿namespace StokTakipSistemi
+namespace StokTakipSistemi
 {
     partial class FormUrunGuncelle
     {
@@ -31,164 +31,181 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUrunGuncelle));
             panel1 = new Panel();
             label1 = new Label();
-            groupBox1 = new GroupBox();
+            pnlCard = new Panel();
             label2 = new Label();
-            btnUrunGuncelleme = new Button();
             txtGUrunKodu = new TextBox();
-            label4 = new Label();
-            txtGUrunAdi = new TextBox();
-            txtGKdv = new TextBox();
             label3 = new Label();
+            txtGUrunAdi = new TextBox();
             label5 = new Label();
             txtGBirim = new TextBox();
+            label4 = new Label();
+            txtGKdv = new TextBox();
+            btnUrunGuncelleme = new Button();
+            lblFooter = new Label();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
+            pnlCard.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(30, 41, 59);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1471, 64);
+            panel1.Size = new Size(1280, 70);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1471, 64);
+            label1.Size = new Size(1280, 70);
             label1.TabIndex = 0;
-            label1.Text = "ÜRÜN GÜNCELLEME";
+            label1.Text = "Stok Takip Sistemi | Ürün Güncelleme";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // pnlCard
             // 
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(btnUrunGuncelleme);
-            groupBox1.Controls.Add(txtGUrunKodu);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txtGUrunAdi);
-            groupBox1.Controls.Add(txtGKdv);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(txtGBirim);
-            groupBox1.Location = new Point(39, 78);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1282, 495);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
+            pnlCard.BackColor = Color.FromArgb(248, 250, 252);
+            pnlCard.Controls.Add(label2);
+            pnlCard.Controls.Add(txtGUrunKodu);
+            pnlCard.Controls.Add(label3);
+            pnlCard.Controls.Add(txtGUrunAdi);
+            pnlCard.Controls.Add(label5);
+            pnlCard.Controls.Add(txtGBirim);
+            pnlCard.Controls.Add(label4);
+            pnlCard.Controls.Add(txtGKdv);
+            pnlCard.Controls.Add(btnUrunGuncelleme);
+            pnlCard.Location = new Point(390, 140);
+            pnlCard.Name = "pnlCard";
+            pnlCard.Size = new Size(500, 340);
+            pnlCard.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F);
-            label2.Location = new Point(440, 54);
+            label2.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(50, 38);
             label2.Name = "label2";
-            label2.Size = new Size(103, 25);
+            label2.Size = new Size(106, 30);
             label2.TabIndex = 11;
             label2.Text = "Ürün Kodu";
             // 
-            // btnUrunGuncelleme
-            // 
-            btnUrunGuncelleme.FlatStyle = FlatStyle.Flat;
-            btnUrunGuncelleme.Font = new Font("Segoe UI", 14.25F);
-            btnUrunGuncelleme.Location = new Point(576, 237);
-            btnUrunGuncelleme.Margin = new Padding(3, 2, 3, 2);
-            btnUrunGuncelleme.Name = "btnUrunGuncelleme";
-            btnUrunGuncelleme.Size = new Size(237, 36);
-            btnUrunGuncelleme.TabIndex = 17;
-            btnUrunGuncelleme.Text = "Ürünü Güncelle";
-            btnUrunGuncelleme.UseVisualStyleBackColor = true;
-            btnUrunGuncelleme.Click += btnUrunGuncelleme_Click;
-            // 
             // txtGUrunKodu
             // 
-            txtGUrunKodu.Font = new Font("Segoe UI", 14.25F);
-            txtGUrunKodu.Location = new Point(576, 50);
-            txtGUrunKodu.Margin = new Padding(3, 2, 3, 2);
+            txtGUrunKodu.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGUrunKodu.Location = new Point(180, 35);
             txtGUrunKodu.Name = "txtGUrunKodu";
-            txtGUrunKodu.Size = new Size(236, 33);
+            txtGUrunKodu.Size = new Size(270, 35);
             txtGUrunKodu.TabIndex = 9;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 14.25F);
-            label4.Location = new Point(441, 190);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 25);
-            label4.TabIndex = 16;
-            label4.Text = "KDV Oranı";
-            // 
-            // txtGUrunAdi
-            // 
-            txtGUrunAdi.Font = new Font("Segoe UI", 14.25F);
-            txtGUrunAdi.Location = new Point(576, 91);
-            txtGUrunAdi.Margin = new Padding(3, 2, 3, 2);
-            txtGUrunAdi.Name = "txtGUrunAdi";
-            txtGUrunAdi.Size = new Size(236, 33);
-            txtGUrunAdi.TabIndex = 10;
-            // 
-            // txtGKdv
-            // 
-            txtGKdv.Font = new Font("Segoe UI", 14.25F);
-            txtGKdv.Location = new Point(576, 182);
-            txtGKdv.Margin = new Padding(3, 2, 3, 2);
-            txtGKdv.Name = "txtGKdv";
-            txtGKdv.Size = new Size(236, 33);
-            txtGKdv.TabIndex = 15;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14.25F);
-            label3.Location = new Point(440, 99);
+            label3.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label3.ForeColor = Color.FromArgb(30, 41, 59);
+            label3.Location = new Point(50, 88);
             label3.Name = "label3";
-            label3.Size = new Size(87, 25);
+            label3.Size = new Size(95, 30);
             label3.TabIndex = 12;
             label3.Text = "Ürün Adı";
+            // 
+            // txtGUrunAdi
+            // 
+            txtGUrunAdi.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGUrunAdi.Location = new Point(180, 85);
+            txtGUrunAdi.Name = "txtGUrunAdi";
+            txtGUrunAdi.Size = new Size(270, 35);
+            txtGUrunAdi.TabIndex = 10;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14.25F);
-            label5.Location = new Point(440, 143);
+            label5.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.FromArgb(30, 41, 59);
+            label5.Location = new Point(50, 138);
             label5.Name = "label5";
-            label5.Size = new Size(56, 25);
+            label5.Size = new Size(59, 30);
             label5.TabIndex = 14;
             label5.Text = "Birim";
             // 
             // txtGBirim
             // 
-            txtGBirim.Font = new Font("Segoe UI", 14.25F);
-            txtGBirim.Location = new Point(576, 135);
-            txtGBirim.Margin = new Padding(3, 2, 3, 2);
+            txtGBirim.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGBirim.Location = new Point(180, 135);
             txtGBirim.Name = "txtGBirim";
-            txtGBirim.Size = new Size(236, 33);
+            txtGBirim.Size = new Size(270, 35);
             txtGBirim.TabIndex = 13;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label4.ForeColor = Color.FromArgb(30, 41, 59);
+            label4.Location = new Point(50, 188);
+            label4.Name = "label4";
+            label4.Size = new Size(111, 30);
+            label4.TabIndex = 16;
+            label4.Text = "KDV Oranı";
+            // 
+            // txtGKdv
+            // 
+            txtGKdv.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtGKdv.Location = new Point(180, 185);
+            txtGKdv.Name = "txtGKdv";
+            txtGKdv.Size = new Size(270, 35);
+            txtGKdv.TabIndex = 15;
+            // 
+            // btnUrunGuncelleme
+            // 
+            btnUrunGuncelleme.BackColor = Color.FromArgb(30, 41, 59);
+            btnUrunGuncelleme.Cursor = Cursors.Hand;
+            btnUrunGuncelleme.FlatAppearance.BorderSize = 0;
+            btnUrunGuncelleme.FlatStyle = FlatStyle.Flat;
+            btnUrunGuncelleme.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnUrunGuncelleme.ForeColor = Color.White;
+            btnUrunGuncelleme.Location = new Point(180, 245);
+            btnUrunGuncelleme.Name = "btnUrunGuncelleme";
+            btnUrunGuncelleme.Size = new Size(270, 46);
+            btnUrunGuncelleme.TabIndex = 17;
+            btnUrunGuncelleme.Text = "Ürünü Güncelle";
+            btnUrunGuncelleme.UseVisualStyleBackColor = false;
+            btnUrunGuncelleme.Click += btnUrunGuncelleme_Click;
+            // 
+            // lblFooter
+            // 
+            lblFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblFooter.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblFooter.ForeColor = Color.FromArgb(148, 163, 184);
+            lblFooter.Location = new Point(980, 640);
+            lblFooter.Name = "lblFooter";
+            lblFooter.Size = new Size(270, 22);
+            lblFooter.TabIndex = 18;
+            lblFooter.Text = "© 2026 Dalaman Belediyesi";
+            lblFooter.TextAlign = ContentAlignment.MiddleRight;
             // 
             // FormUrunGuncelle
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1471, 641);
-            Controls.Add(groupBox1);
+            BackColor = Color.FromArgb(241, 245, 249);
+            ClientSize = new Size(1280, 680);
+            Controls.Add(lblFooter);
+            Controls.Add(pnlCard);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormUrunGuncelle";
-            Text = "Stok Takip Sistemi | Ürün Güncelle";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Stok Takip Sistemi | Ürün Güncelleme";
+            Load += FormUrunGuncelle_Load;
             panel1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            pnlCard.ResumeLayout(false);
+            pnlCard.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -196,7 +213,7 @@
 
         private Panel panel1;
         private Label label1;
-        private GroupBox groupBox1;
+        private Panel pnlCard;
         private Label label2;
         private Button btnUrunGuncelleme;
         private TextBox txtGUrunKodu;
@@ -206,6 +223,7 @@
         private Label label3;
         private Label label5;
         private TextBox txtGBirim;
+        private Label lblFooter;
     }
 }
 

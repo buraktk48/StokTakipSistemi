@@ -16,22 +16,55 @@ namespace StokTakipSistemi
 
         private void ApplyCustomStyles()
         {
-            panel2.Paint += CardPanel_Paint;
-            panel3.Paint += CardPanel_Paint;
-            panel4.Paint += CardPanel_Paint;
+            panel2.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 12);
+            panel3.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 12);
+            panel4.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 12);
+
+            this.Resize += (s, e) => AutoLayoutControls();
+            AutoLayoutControls();
         }
 
-        private void CardPanel_Paint(object? sender, PaintEventArgs e)
+        private void AutoLayoutControls()
         {
-            if (sender is Panel p)
-            {
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                using (Pen borderPen = new Pen(Color.FromArgb(226, 232, 240), 1))
-                {
-                    Rectangle rect = new Rectangle(0, 0, p.Width - 1, p.Height - 1);
-                    e.Graphics.DrawRectangle(borderPen, rect);
-                }
-            }
+            if (this.ClientSize.Width <= 0) return;
+
+            // 1. Üstteki 3 İstatistik Kartını Ekranın Tam Ortasına Hizala:
+            int cardWidth = 355;
+            int cardGap = 40;
+            int totalCardsWidth = (cardWidth * 3) + (cardGap * 2);
+            int startCardX = Math.Max(20, (this.ClientSize.Width - totalCardsWidth) / 2);
+
+            panel2.Left = startCardX;
+            panel3.Left = startCardX + cardWidth + cardGap;
+            panel4.Left = startCardX + (cardWidth + cardGap) * 2;
+
+            // 2. Buton Sütunlarını Ekranın Tam Ortasına Hizala:
+            int btnWidth = 460;
+            int btnGap = 80;
+            int totalBtnsWidth = (btnWidth * 2) + btnGap;
+            int startBtnX = Math.Max(20, (this.ClientSize.Width - totalBtnsWidth) / 2);
+
+            btnUrunPanel.Left = startBtnX;
+            btnDepoPanel.Left = startBtnX;
+            btnStok.Left = startBtnX;
+
+            btnTransferPanel.Left = startBtnX + btnWidth + btnGap;
+            btnTransferRaporuCikart.Left = startBtnX + btnWidth + btnGap;
+
+            // 3. Çıkış Yap Butonunu Tam Ortala:
+            btnCikisYap.Left = (this.ClientSize.Width - btnCikisYap.Width) / 2;
+
+            // Panellerin ve Butonların köşelerini ovalleştirme:
+            UIHelper.SetRoundedRegion(panel2, 12);
+            UIHelper.SetRoundedRegion(panel3, 12);
+            UIHelper.SetRoundedRegion(panel4, 12);
+
+            UIHelper.SetRoundedRegion(btnUrunPanel, 10);
+            UIHelper.SetRoundedRegion(btnDepoPanel, 10);
+            UIHelper.SetRoundedRegion(btnStok, 10);
+            UIHelper.SetRoundedRegion(btnTransferPanel, 10);
+            UIHelper.SetRoundedRegion(btnTransferRaporuCikart, 10);
+            UIHelper.SetRoundedRegion(btnCikisYap, 10);
         }
 
         private async void IstatistikleriGetir()
@@ -93,7 +126,7 @@ namespace StokTakipSistemi
 
             lblHeaderUser.Text = $"Hoş Geldin, {kullaniciAdi} | {DateTime.Now:dd MMMM yyyy, HH:mm}";
 
-            lblFooter.Text = $"© {DateTime.Now.Year} Kurumsal Yazılım A.Ş.";
+            lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi ";
 
             IstatistikleriGetir();
         }

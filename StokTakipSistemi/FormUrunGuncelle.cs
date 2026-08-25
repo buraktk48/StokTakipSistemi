@@ -1,12 +1,6 @@
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StokTakipSistemi
@@ -18,6 +12,26 @@ namespace StokTakipSistemi
         public FormUrunGuncelle()
         {
             InitializeComponent();
+            ApplyCustomStyles();
+        }
+
+        private void ApplyCustomStyles()
+        {
+            pnlCard.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 14);
+            this.Resize += (s, e) => AutoLayoutControls();
+            AutoLayoutControls();
+        }
+
+        private void AutoLayoutControls()
+        {
+            UIHelper.CenterControl(this, pnlCard, 15);
+            UIHelper.SetRoundedRegion(pnlCard, 14);
+            UIHelper.SetRoundedRegion(btnUrunGuncelleme, 10);
+        }
+
+        private void FormUrunGuncelle_Load(object sender, EventArgs e)
+        {
+            lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi";
         }
 
         public FormUrunGuncelle(int urunId, string urunKodu, string urunAdi, string birim, decimal kdv) : this()

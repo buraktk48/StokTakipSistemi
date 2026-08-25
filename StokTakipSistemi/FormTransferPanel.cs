@@ -19,6 +19,8 @@ namespace StokTakipSistemi
         public FormTransferPanel()
         {
             InitializeComponent();
+            UIHelper.ModernizeDataGridView(dgvTransferler);
+            UIHelper.ModernizeDataGridView(dgvTransferDetay);
 
             AramaZamanlayici.AramaSinirlayici(txtFisNoAra, (aranan) =>
             {

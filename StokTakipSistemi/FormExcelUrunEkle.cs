@@ -105,9 +105,9 @@ namespace StokTakipSistemi
 
             foreach (DataRow row in dt.Rows)
             {
-                string kod = row["urun_kodu"]?.ToString(); // Excel'deki sütun adlarıyla birebir aynı olmalı
-                string ad = row["urun_adi"]?.ToString();
-                string birim = row["birim"]?.ToString();
+                string kod = row["urun_kodu"]?.ToString()??"Sütun İsmi Boş"; // Excel'deki sütun adlarıyla birebir aynı olmalı
+                string ad = row["urun_adi"]?.ToString() ?? "Sütun İsmi Boş";
+                string birim = row["birim"]?.ToString() ?? "Sütun İsmi Boş";
                 string kdvStr = row["kdv"]?.ToString().Replace('.', ',');
 
                 if (!decimal.TryParse(kdvStr, out decimal kdvDecimal))

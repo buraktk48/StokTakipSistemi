@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
+using StokTakipSistemi.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,8 @@ namespace StokTakipSistemi
 
         private async void FormTransferRapor_Load(object sender, EventArgs e)
         {
+            UIHelper.ModernizeDataGridView(dgvRapor);
+
             try
             {
             using (var context = new AppDbContext())

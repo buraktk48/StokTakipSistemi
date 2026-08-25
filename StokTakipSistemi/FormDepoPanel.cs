@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Helpers;
@@ -98,8 +98,8 @@ namespace StokTakipSistemi
 
         private void FormDepoPanel_Load(object sender, EventArgs e)
         {
+            UIHelper.ModernizeDataGridView(dgvDepolar);
             DepoListele("");
-
         }
 
         private void btnDepoEkle_Click(object sender, EventArgs e)

@@ -3,36 +3,53 @@ using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Helpers;
-using StokTakipSistemi.Migrations;
 using StokTakipSistemi.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StokTakipSistemi
 {
     public partial class FormUrunPanel : Form
     {
-
         public FormUrunPanel()
         {
-
             InitializeComponent();
+            ApplyCustomStyles();
 
             AramaZamanlayici.AramaSinirlayici(txtAra, (aranan) =>
             {
-
                 suanki_sayfa = 1;
                 UrunListele(aranan);
             });
+        }
 
+        private void ApplyCustomStyles()
+        {
+            this.Resize += (s, e) => AutoLayoutControls();
+            AutoLayoutControls();
+        }
 
+        private void AutoLayoutControls()
+        {
+            if (this.ClientSize.Width <= 0) return;
+
+            // Sayfalama grubunu ortalama
+            groupBox3.Left = (this.ClientSize.Width - groupBox3.Width) / 2;
+
+            // Alt aksiyon butonlarının ovalleştirilmesi
+            UIHelper.SetRoundedRegion(btnUrunEkle, 8);
+            UIHelper.SetRoundedRegion(btnExcelEkle, 8);
+            UIHelper.SetRoundedRegion(btnUrunGuncelle, 8);
+            UIHelper.SetRoundedRegion(btnUrunSil, 8);
+            UIHelper.SetRoundedRegion(btnUrunYenile, 8);
+
+            UIHelper.SetRoundedRegion(btnIlkSayfa, 6);
+            UIHelper.SetRoundedRegion(btnOnceki, 6);
+            UIHelper.SetRoundedRegion(btnSonraki, 6);
+            UIHelper.SetRoundedRegion(btnSonSayfa, 6);
         }
 
         private int sayfa_boyutu = 10;
@@ -84,6 +101,12 @@ namespace StokTakipSistemi
                     btnSonraki.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
                 }
 
+                dgvUrunler.Columns["Urun_Kodu"].HeaderText = "Ürün Kodu";
+                dgvUrunler.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
+                dgvUrunler.Columns["Birim"].HeaderText = "Birim";
+                dgvUrunler.Columns["KDV"].HeaderText = "KDV (%)";
+                dgvUrunler.Columns["Ekleyen_Kullanici"].HeaderText = "Ekleyen Kullanıcı";
+                dgvUrunler.Columns["Olusturulma_Zamani"].HeaderText = "Oluşturulma Zamanı";
 
 
             }
@@ -95,6 +118,8 @@ namespace StokTakipSistemi
 
         private void FormUrunListe_Load(object sender, EventArgs e)
         {
+            UIHelper.ModernizeDataGridView(dgvUrunler);
+            lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi";
             UrunListele("");
         }
 

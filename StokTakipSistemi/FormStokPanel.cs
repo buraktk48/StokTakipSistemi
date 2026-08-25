@@ -20,6 +20,7 @@ namespace StokTakipSistemi
         public FormStokPanel()
         {
             InitializeComponent();
+            UIHelper.ModernizeDataGridView(dgvDepoStok);
 
             AramaZamanlayici.AramaSinirlayici(txtArama, (aranan) =>
             {
