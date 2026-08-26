@@ -84,6 +84,18 @@ namespace StokTakipSistemi
                         })
                         .ToListAsync();
 
+                    if (dgvTransferler.Columns["id"]!=null)
+                    {
+                        dgvTransferler.Columns["id"].Visible = false;
+                    }
+
+                    dgvTransferler.Columns["Cikis_Depo"].HeaderText = "Çıkış Deposu";
+                    dgvTransferler.Columns["Varis_Depo"].HeaderText = "Varış Deposu";
+                    dgvTransferler.Columns["Fis_Numarasi"].HeaderText = "Fiş Numarası";
+                    dgvTransferler.Columns["Transfer_Yapan_Kullanici"].HeaderText = "Ekleyen Kullanıcı";
+                    dgvTransferler.Columns["Olusturulma_Zamani"].HeaderText = "Oluşturulma Zamanı";
+
+
 
                     lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
 
@@ -116,6 +128,18 @@ namespace StokTakipSistemi
 
                         })
                         .ToListAsync();
+
+
+                    if (dgvTransferDetay.Columns["id"] != null)
+                    {
+                        dgvTransferDetay.Columns["id"].Visible = false;
+                    }
+
+                    dgvTransferDetay.Columns["Fis_Numarasi"].HeaderText = "Fiş Numarası";
+                    dgvTransferDetay.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
+                    dgvTransferDetay.Columns["Olusturulma_Zamani"].HeaderText = "Oluşturulma Zamanı";
+
+
 
 
                 }

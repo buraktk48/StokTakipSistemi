@@ -1,3 +1,4 @@
+using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,21 @@ namespace StokTakipSistemi
         public KayitForm()
         {
             InitializeComponent();
+            ApplyCustomStyles();
+        }
+
+        private void ApplyCustomStyles()
+        {
+            pnlCard.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 14);
+            this.Resize += (s, e) => AutoLayoutControls();
+            AutoLayoutControls();
+        }
+
+        private void AutoLayoutControls()
+        {
+            UIHelper.CenterControl(this, pnlCard, 15);
+            UIHelper.SetRoundedRegion(pnlCard, 14);
+            UIHelper.SetRoundedRegion(BtnKayitOnayla, 10);
         }
 
         private void label4_Click(object sender, EventArgs e)

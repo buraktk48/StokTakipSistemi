@@ -139,7 +139,8 @@ namespace StokTakipSistemi
 
         private void FormExcelUrunEkle_Load(object sender, EventArgs e)
         {
-
+            UIHelper.ModernizeDataGridView(dgvExcel);
+            dgvExcel.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(16, 124, 65);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace StokTakipSistemi
+namespace StokTakipSistemi
 {
     partial class FormTransferGiris
     {
@@ -57,130 +57,139 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(30, 41, 59);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1477, 64);
+            panel1.Size = new Size(1422, 70);
             panel1.TabIndex = 5;
             // 
             // label1
             // 
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1477, 64);
+            label1.Size = new Size(1422, 70);
             label1.TabIndex = 0;
-            label1.Text = "TRANSFER EKLEME";
+            label1.Text = "Stok Takip Sistemi | Transfer Girişi";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtFisNum);
             groupBox1.Controls.Add(cboxVarisDepo);
             groupBox1.Controls.Add(cboxCikisDepo);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(10, 76);
+            groupBox1.Location = new Point(40, 85);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1442, 75);
+            groupBox1.Size = new Size(1342, 95);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 14.25F);
-            label6.Location = new Point(1029, 28);
+            label6.Font = new Font("Segoe UI", 12.5F);
+            label6.ForeColor = Color.FromArgb(71, 85, 105);
+            label6.Location = new Point(770, 38);
             label6.Name = "label6";
-            label6.Size = new Size(129, 25);
+            label6.Size = new Size(143, 30);
             label6.TabIndex = 20;
             label6.Text = "Fiş Numarası: ";
             // 
             // txtFisNum
             // 
-            txtFisNum.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            txtFisNum.Location = new Point(1164, 25);
+            txtFisNum.Font = new Font("Segoe UI", 12.5F);
+            txtFisNum.Location = new Point(918, 38);
             txtFisNum.Margin = new Padding(3, 2, 3, 2);
             txtFisNum.Name = "txtFisNum";
-            txtFisNum.Size = new Size(185, 33);
+            txtFisNum.Size = new Size(220, 35);
             txtFisNum.TabIndex = 19;
             // 
             // cboxVarisDepo
             // 
             cboxVarisDepo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboxVarisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxVarisDepo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cboxVarisDepo.Font = new Font("Segoe UI", 12.5F);
             cboxVarisDepo.FormattingEnabled = true;
-            cboxVarisDepo.Location = new Point(698, 25);
+            cboxVarisDepo.Location = new Point(505, 34);
             cboxVarisDepo.Margin = new Padding(3, 2, 3, 2);
             cboxVarisDepo.Name = "cboxVarisDepo";
-            cboxVarisDepo.Size = new Size(185, 33);
+            cboxVarisDepo.Size = new Size(220, 38);
             cboxVarisDepo.TabIndex = 13;
             // 
             // cboxCikisDepo
             // 
             cboxCikisDepo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboxCikisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxCikisDepo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cboxCikisDepo.Font = new Font("Segoe UI", 12.5F);
             cboxCikisDepo.FormattingEnabled = true;
-            cboxCikisDepo.Location = new Point(206, 28);
+            cboxCikisDepo.Location = new Point(135, 34);
             cboxCikisDepo.Margin = new Padding(3, 2, 3, 2);
             cboxCikisDepo.Name = "cboxCikisDepo";
-            cboxCikisDepo.Size = new Size(185, 33);
+            cboxCikisDepo.Size = new Size(220, 38);
             cboxCikisDepo.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 14.25F);
-            label4.Location = new Point(585, 28);
+            label4.Font = new Font("Segoe UI", 12.5F);
+            label4.ForeColor = Color.FromArgb(71, 85, 105);
+            label4.Location = new Point(400, 38);
             label4.Name = "label4";
-            label4.Size = new Size(107, 25);
+            label4.Size = new Size(117, 30);
             label4.TabIndex = 12;
             label4.Text = "Varış Depo:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14.25F);
-            label3.Location = new Point(62, 28);
+            label3.Font = new Font("Segoe UI", 12.5F);
+            label3.ForeColor = Color.FromArgb(71, 85, 105);
+            label3.Location = new Point(30, 38);
             label3.Name = "label3";
-            label3.Size = new Size(105, 25);
+            label3.Size = new Size(116, 30);
             label3.TabIndex = 10;
             label3.Text = "Çıkış Depo:";
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(btnListeyeEkle);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(numericUpDown1);
             groupBox2.Controls.Add(cboxUrun);
             groupBox2.Controls.Add(label2);
-            groupBox2.Location = new Point(10, 163);
+            groupBox2.Location = new Point(40, 195);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(1442, 75);
+            groupBox2.Size = new Size(1342, 95);
             groupBox2.TabIndex = 14;
             groupBox2.TabStop = false;
             // 
             // btnListeyeEkle
             // 
-            btnListeyeEkle.BackColor = SystemColors.Control;
+            btnListeyeEkle.BackColor = Color.White;
+            btnListeyeEkle.Cursor = Cursors.Hand;
+            btnListeyeEkle.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnListeyeEkle.FlatStyle = FlatStyle.Flat;
-            btnListeyeEkle.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnListeyeEkle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnListeyeEkle.ForeColor = Color.FromArgb(30, 41, 59);
             btnListeyeEkle.Image = (Image)resources.GetObject("btnListeyeEkle.Image");
-            btnListeyeEkle.Location = new Point(1018, 26);
+            btnListeyeEkle.Location = new Point(760, 32);
             btnListeyeEkle.Margin = new Padding(3, 2, 3, 2);
             btnListeyeEkle.Name = "btnListeyeEkle";
-            btnListeyeEkle.Size = new Size(180, 38);
+            btnListeyeEkle.Size = new Size(180, 37);
             btnListeyeEkle.TabIndex = 17;
             btnListeyeEkle.Text = "Listeye Ekle";
             btnListeyeEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -190,41 +199,43 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14.25F);
-            label5.Location = new Point(585, 32);
+            label5.Font = new Font("Segoe UI", 12.5F);
+            label5.ForeColor = Color.FromArgb(71, 85, 105);
+            label5.Location = new Point(460, 38);
             label5.Name = "label5";
-            label5.Size = new Size(70, 25);
+            label5.Size = new Size(77, 30);
             label5.TabIndex = 14;
             label5.Text = "Miktar:";
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            numericUpDown1.Location = new Point(674, 29);
+            numericUpDown1.Font = new Font("Segoe UI", 12.5F);
+            numericUpDown1.Location = new Point(545, 34);
             numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(209, 33);
+            numericUpDown1.Size = new Size(150, 35);
             numericUpDown1.TabIndex = 16;
             // 
             // cboxUrun
             // 
             cboxUrun.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboxUrun.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxUrun.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cboxUrun.Font = new Font("Segoe UI", 12.5F);
             cboxUrun.FormattingEnabled = true;
-            cboxUrun.Location = new Point(213, 29);
+            cboxUrun.Location = new Point(190, 34);
             cboxUrun.Margin = new Padding(3, 2, 3, 2);
             cboxUrun.Name = "cboxUrun";
-            cboxUrun.Size = new Size(178, 33);
+            cboxUrun.Size = new Size(250, 38);
             cboxUrun.TabIndex = 15;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F);
-            label2.Location = new Point(24, 33);
+            label2.Font = new Font("Segoe UI", 12.5F);
+            label2.ForeColor = Color.FromArgb(71, 85, 105);
+            label2.Location = new Point(30, 38);
             label2.Name = "label2";
-            label2.Size = new Size(143, 25);
+            label2.Size = new Size(157, 30);
             label2.TabIndex = 14;
             label2.Text = "Taşınacak Ürün:";
             // 
@@ -232,25 +243,31 @@
             // 
             dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
             dgvListe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dgvListe.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvListe.Location = new Point(10, 261);
+            dgvListe.Location = new Point(40, 305);
             dgvListe.Margin = new Padding(3, 2, 3, 2);
             dgvListe.Name = "dgvListe";
             dgvListe.ReadOnly = true;
             dgvListe.RowHeadersWidth = 51;
-            dgvListe.Size = new Size(1442, 266);
+            dgvListe.Size = new Size(1342, 280);
             dgvListe.TabIndex = 15;
             // 
             // btnTransferiKaydet
             // 
-            btnTransferiKaydet.BackColor = SystemColors.Control;
+            btnTransferiKaydet.Anchor = AnchorStyles.Bottom;
+            btnTransferiKaydet.BackColor = Color.FromArgb(30, 41, 59);
+            btnTransferiKaydet.Cursor = Cursors.Hand;
+            btnTransferiKaydet.FlatAppearance.BorderSize = 0;
             btnTransferiKaydet.FlatStyle = FlatStyle.Flat;
-            btnTransferiKaydet.Font = new Font("Segoe UI", 14.25F);
+            btnTransferiKaydet.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnTransferiKaydet.ForeColor = Color.White;
             btnTransferiKaydet.Image = (Image)resources.GetObject("btnTransferiKaydet.Image");
-            btnTransferiKaydet.Location = new Point(793, 542);
+            btnTransferiKaydet.Location = new Point(700, 605);
             btnTransferiKaydet.Margin = new Padding(3, 2, 3, 2);
             btnTransferiKaydet.Name = "btnTransferiKaydet";
-            btnTransferiKaydet.Size = new Size(226, 38);
+            btnTransferiKaydet.Size = new Size(220, 45);
             btnTransferiKaydet.TabIndex = 18;
             btnTransferiKaydet.Text = "Transferi Kaydet";
             btnTransferiKaydet.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -259,14 +276,18 @@
             // 
             // btnTransferSil
             // 
-            btnTransferSil.BackColor = SystemColors.Control;
+            btnTransferSil.Anchor = AnchorStyles.Bottom;
+            btnTransferSil.BackColor = Color.White;
+            btnTransferSil.Cursor = Cursors.Hand;
+            btnTransferSil.FlatAppearance.BorderColor = Color.FromArgb(225, 29, 72);
             btnTransferSil.FlatStyle = FlatStyle.Flat;
-            btnTransferSil.Font = new Font("Segoe UI", 14.25F);
+            btnTransferSil.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnTransferSil.ForeColor = Color.FromArgb(225, 29, 72);
             btnTransferSil.Image = (Image)resources.GetObject("btnTransferSil.Image");
-            btnTransferSil.Location = new Point(540, 542);
+            btnTransferSil.Location = new Point(480, 605);
             btnTransferSil.Margin = new Padding(3, 2, 3, 2);
             btnTransferSil.Name = "btnTransferSil";
-            btnTransferSil.Size = new Size(208, 38);
+            btnTransferSil.Size = new Size(200, 45);
             btnTransferSil.TabIndex = 19;
             btnTransferSil.Text = "   Sil";
             btnTransferSil.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -275,9 +296,10 @@
             // 
             // FormTransferGiris
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1477, 644);
+            BackColor = Color.FromArgb(241, 245, 249);
+            ClientSize = new Size(1422, 693);
             Controls.Add(btnTransferSil);
             Controls.Add(btnTransferiKaydet);
             Controls.Add(dgvListe);
@@ -286,6 +308,7 @@
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormTransferGiris";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Stok Takip Sistemi | Transfer Girişi";
             Load += FormTransferGiris_Load;
             panel1.ResumeLayout(false);

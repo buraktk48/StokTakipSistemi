@@ -60,23 +60,24 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(30, 41, 59);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1490, 83);
+            panel1.Size = new Size(1422, 70);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1490, 83);
+            label1.Size = new Size(1422, 70);
             label1.TabIndex = 1;
-            label1.Text = "TRANSFER YÖNETİMİ";
+            label1.Text = "Stok Takip Sistemi | Transfer Yönetimi";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox2
@@ -91,43 +92,48 @@
             groupBox2.Controls.Add(btnTransferGirisi);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(txtFisNoAra);
-            groupBox2.Location = new Point(11, 89);
+            groupBox2.Location = new Point(40, 85);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1466, 184);
+            groupBox2.Size = new Size(1342, 95);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             // 
             // btnSifirla
             // 
+            btnSifirla.BackColor = Color.White;
+            btnSifirla.Cursor = Cursors.Hand;
+            btnSifirla.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnSifirla.FlatStyle = FlatStyle.Flat;
-            btnSifirla.Font = new Font("Segoe UI", 14.25F);
-            btnSifirla.Location = new Point(1010, 113);
+            btnSifirla.Font = new Font("Segoe UI", 10F);
+            btnSifirla.ForeColor = Color.FromArgb(30, 41, 59);
+            btnSifirla.Location = new Point(600, 50);
             btnSifirla.Name = "btnSifirla";
-            btnSifirla.Size = new Size(216, 51);
+            btnSifirla.Size = new Size(129, 33);
             btnSifirla.TabIndex = 22;
             btnSifirla.Text = "Sıfırla";
-            btnSifirla.UseVisualStyleBackColor = true;
+            btnSifirla.UseVisualStyleBackColor = false;
             btnSifirla.Click += btnSifirla_Click;
             // 
             // cboxVarisDepo
             // 
             cboxVarisDepo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboxVarisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxVarisDepo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cboxVarisDepo.Font = new Font("Segoe UI", 11F);
             cboxVarisDepo.FormattingEnabled = true;
-            cboxVarisDepo.Location = new Point(1289, 28);
+            cboxVarisDepo.Location = new Point(400, 50);
             cboxVarisDepo.Name = "cboxVarisDepo";
-            cboxVarisDepo.Size = new Size(257, 40);
+            cboxVarisDepo.Size = new Size(180, 33);
             cboxVarisDepo.TabIndex = 9;
             cboxVarisDepo.SelectedIndexChanged += cboxVarisDepo_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 14.25F);
-            label4.Location = new Point(1141, 28);
+            label4.Font = new Font("Segoe UI", 11F);
+            label4.ForeColor = Color.FromArgb(71, 85, 105);
+            label4.Location = new Point(400, 24);
             label4.Name = "label4";
-            label4.Size = new Size(133, 32);
+            label4.Size = new Size(107, 25);
             label4.TabIndex = 8;
             label4.Text = "Varış Depo:";
             // 
@@ -135,34 +141,38 @@
             // 
             cboxCikisDepo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboxCikisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxCikisDepo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cboxCikisDepo.Font = new Font("Segoe UI", 11F);
             cboxCikisDepo.FormattingEnabled = true;
-            cboxCikisDepo.Location = new Point(707, 28);
+            cboxCikisDepo.Location = new Point(200, 50);
             cboxCikisDepo.Name = "cboxCikisDepo";
-            cboxCikisDepo.Size = new Size(257, 40);
+            cboxCikisDepo.Size = new Size(180, 33);
             cboxCikisDepo.TabIndex = 7;
             cboxCikisDepo.SelectedIndexChanged += cboxCikisDepo_SelectedIndexChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14.25F);
-            label3.Location = new Point(566, 29);
+            label3.Font = new Font("Segoe UI", 11F);
+            label3.ForeColor = Color.FromArgb(71, 85, 105);
+            label3.Location = new Point(200, 24);
             label3.Name = "label3";
-            label3.Size = new Size(133, 32);
+            label3.Size = new Size(105, 25);
             label3.TabIndex = 6;
             label3.Text = "Çıkış Depo:";
             label3.Click += label3_Click;
             // 
             // btnTransferYenile
             // 
-            btnTransferYenile.BackColor = SystemColors.Control;
+            btnTransferYenile.BackColor = Color.White;
+            btnTransferYenile.Cursor = Cursors.Hand;
+            btnTransferYenile.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnTransferYenile.FlatStyle = FlatStyle.Flat;
-            btnTransferYenile.Font = new Font("Segoe UI", 14.25F);
+            btnTransferYenile.Font = new Font("Segoe UI", 10F);
+            btnTransferYenile.ForeColor = Color.FromArgb(30, 41, 59);
             btnTransferYenile.Image = (Image)resources.GetObject("btnTransferYenile.Image");
-            btnTransferYenile.Location = new Point(654, 113);
+            btnTransferYenile.Location = new Point(762, 50);
             btnTransferYenile.Name = "btnTransferYenile";
-            btnTransferYenile.Size = new Size(225, 51);
+            btnTransferYenile.Size = new Size(137, 33);
             btnTransferYenile.TabIndex = 5;
             btnTransferYenile.Text = " Yenile";
             btnTransferYenile.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -171,13 +181,16 @@
             // 
             // btnTransferGirisi
             // 
-            btnTransferGirisi.BackColor = SystemColors.Control;
+            btnTransferGirisi.BackColor = Color.FromArgb(30, 41, 59);
+            btnTransferGirisi.Cursor = Cursors.Hand;
+            btnTransferGirisi.FlatAppearance.BorderSize = 0;
             btnTransferGirisi.FlatStyle = FlatStyle.Flat;
-            btnTransferGirisi.Font = new Font("Segoe UI", 14.25F);
+            btnTransferGirisi.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnTransferGirisi.ForeColor = Color.White;
             btnTransferGirisi.Image = (Image)resources.GetObject("btnTransferGirisi.Image");
-            btnTransferGirisi.Location = new Point(274, 113);
+            btnTransferGirisi.Location = new Point(1068, 42);
             btnTransferGirisi.Name = "btnTransferGirisi";
-            btnTransferGirisi.Size = new Size(259, 51);
+            btnTransferGirisi.Size = new Size(252, 45);
             btnTransferGirisi.TabIndex = 3;
             btnTransferGirisi.Text = " Yeni Transfer Girişi";
             btnTransferGirisi.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -187,19 +200,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.Location = new Point(25, 25);
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.ForeColor = Color.FromArgb(71, 85, 105);
+            label2.Location = new Point(20, 24);
             label2.Name = "label2";
-            label2.Size = new Size(128, 32);
+            label2.Size = new Size(102, 25);
             label2.TabIndex = 1;
             label2.Text = "Fiş No Ara:";
             // 
             // txtFisNoAra
             // 
-            txtFisNoAra.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            txtFisNoAra.Location = new Point(159, 25);
+            txtFisNoAra.Font = new Font("Segoe UI", 11F);
+            txtFisNoAra.Location = new Point(20, 50);
             txtFisNoAra.Name = "txtFisNoAra";
-            txtFisNoAra.Size = new Size(243, 39);
+            txtFisNoAra.Size = new Size(160, 32);
             txtFisNoAra.TabIndex = 2;
             txtFisNoAra.TextChanged += txtFisNoAra_TextChanged;
             // 
@@ -207,14 +221,14 @@
             // 
             dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
             dgvTransferler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvTransferler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvTransferler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvTransferler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            dgvTransferler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTransferler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransferler.Location = new Point(11, 305);
+            dgvTransferler.Location = new Point(40, 195);
             dgvTransferler.Name = "dgvTransferler";
             dgvTransferler.ReadOnly = true;
             dgvTransferler.RowHeadersWidth = 51;
-            dgvTransferler.Size = new Size(1447, 263);
+            dgvTransferler.Size = new Size(650, 340);
             dgvTransferler.TabIndex = 9;
             dgvTransferler.CellClick += dgvTransferler_CellClick;
             // 
@@ -223,91 +237,101 @@
             dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
             dgvTransferDetay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvTransferDetay.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvTransferDetay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvTransferDetay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTransferDetay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransferDetay.Location = new Point(11, 696);
+            dgvTransferDetay.Location = new Point(732, 195);
             dgvTransferDetay.Name = "dgvTransferDetay";
             dgvTransferDetay.ReadOnly = true;
             dgvTransferDetay.RowHeadersWidth = 51;
-            dgvTransferDetay.Size = new Size(1447, 303);
+            dgvTransferDetay.Size = new Size(650, 340);
             dgvTransferDetay.TabIndex = 10;
             // 
             // groupBox3
             // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             groupBox3.Controls.Add(btnIlkSayfa);
             groupBox3.Controls.Add(lblSayfa);
             groupBox3.Controls.Add(btnOnceki);
             groupBox3.Controls.Add(btnSonraki);
             groupBox3.Controls.Add(btnSonSayfa);
-            groupBox3.Location = new Point(324, 596);
+            groupBox3.Location = new Point(40, 545);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(900, 65);
+            groupBox3.Size = new Size(650, 60);
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
             // 
             // btnIlkSayfa
             // 
-            btnIlkSayfa.BackColor = SystemColors.Control;
+            btnIlkSayfa.BackColor = Color.White;
+            btnIlkSayfa.Cursor = Cursors.Hand;
+            btnIlkSayfa.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnIlkSayfa.FlatStyle = FlatStyle.Flat;
-            btnIlkSayfa.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnIlkSayfa.Location = new Point(47, 21);
+            btnIlkSayfa.Font = new Font("Segoe UI", 9F);
+            btnIlkSayfa.ForeColor = Color.FromArgb(30, 41, 59);
+            btnIlkSayfa.Location = new Point(10, 18);
             btnIlkSayfa.Name = "btnIlkSayfa";
-            btnIlkSayfa.Size = new Size(109, 32);
+            btnIlkSayfa.Size = new Size(80, 32);
             btnIlkSayfa.TabIndex = 10;
             btnIlkSayfa.Text = "İlk Sayfa";
-            btnIlkSayfa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnIlkSayfa.UseVisualStyleBackColor = false;
             btnIlkSayfa.Click += btnIlkSayfa_Click;
             // 
             // lblSayfa
             // 
-            lblSayfa.AutoSize = true;
-            lblSayfa.Location = new Point(330, 28);
+            lblSayfa.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblSayfa.ForeColor = Color.FromArgb(71, 85, 105);
+            lblSayfa.Location = new Point(190, 24);
             lblSayfa.Name = "lblSayfa";
-            lblSayfa.Size = new Size(79, 20);
+            lblSayfa.Size = new Size(260, 20);
             lblSayfa.TabIndex = 11;
             lblSayfa.Text = "Sayfa 0/10";
+            lblSayfa.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnOnceki
             // 
-            btnOnceki.BackColor = SystemColors.Control;
+            btnOnceki.BackColor = Color.White;
+            btnOnceki.Cursor = Cursors.Hand;
+            btnOnceki.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnOnceki.FlatStyle = FlatStyle.Flat;
-            btnOnceki.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnOnceki.Location = new Point(192, 21);
+            btnOnceki.Font = new Font("Segoe UI", 9F);
+            btnOnceki.ForeColor = Color.FromArgb(30, 41, 59);
+            btnOnceki.Location = new Point(100, 18);
             btnOnceki.Name = "btnOnceki";
-            btnOnceki.Size = new Size(109, 32);
+            btnOnceki.Size = new Size(80, 32);
             btnOnceki.TabIndex = 7;
-            btnOnceki.Text = "<Önceki<";
-            btnOnceki.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnOnceki.Text = "Önceki";
             btnOnceki.UseVisualStyleBackColor = false;
             btnOnceki.Click += btnOnceki_Click;
             // 
             // btnSonraki
             // 
-            btnSonraki.BackColor = SystemColors.Control;
+            btnSonraki.BackColor = Color.White;
+            btnSonraki.Cursor = Cursors.Hand;
+            btnSonraki.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnSonraki.FlatStyle = FlatStyle.Flat;
-            btnSonraki.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnSonraki.Location = new Point(571, 21);
+            btnSonraki.Font = new Font("Segoe UI", 9F);
+            btnSonraki.ForeColor = Color.FromArgb(30, 41, 59);
+            btnSonraki.Location = new Point(460, 18);
             btnSonraki.Name = "btnSonraki";
-            btnSonraki.Size = new Size(109, 32);
+            btnSonraki.Size = new Size(80, 32);
             btnSonraki.TabIndex = 8;
-            btnSonraki.Text = ">Sonraki>";
-            btnSonraki.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSonraki.Text = "Sonraki";
             btnSonraki.UseVisualStyleBackColor = false;
             btnSonraki.Click += btnSonraki_Click;
             // 
             // btnSonSayfa
             // 
-            btnSonSayfa.BackColor = SystemColors.Control;
+            btnSonSayfa.BackColor = Color.White;
+            btnSonSayfa.Cursor = Cursors.Hand;
+            btnSonSayfa.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnSonSayfa.FlatStyle = FlatStyle.Flat;
-            btnSonSayfa.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnSonSayfa.Location = new Point(732, 21);
+            btnSonSayfa.Font = new Font("Segoe UI", 9F);
+            btnSonSayfa.ForeColor = Color.FromArgb(30, 41, 59);
+            btnSonSayfa.Location = new Point(550, 18);
             btnSonSayfa.Name = "btnSonSayfa";
-            btnSonSayfa.Size = new Size(109, 32);
+            btnSonSayfa.Size = new Size(80, 32);
             btnSonSayfa.TabIndex = 9;
             btnSonSayfa.Text = "Son Sayfa";
-            btnSonSayfa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSonSayfa.UseVisualStyleBackColor = false;
             btnSonSayfa.Click += btnSonSayfa_Click;
             // 
@@ -315,7 +339,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1490, 1033);
+            BackColor = Color.FromArgb(241, 245, 249);
+            ClientSize = new Size(1422, 693);
             Controls.Add(groupBox3);
             Controls.Add(dgvTransferDetay);
             Controls.Add(dgvTransferler);
@@ -331,7 +356,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvTransferler).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvTransferDetay).EndInit();
             groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 

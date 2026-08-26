@@ -1,4 +1,4 @@
-﻿namespace StokTakipSistemi
+namespace StokTakipSistemi
 {
     partial class FormManuelUrunGiris
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormManuelUrunGiris));
+            pnlCard = new Panel();
             TxtUrunKodu = new TextBox();
             TxtUrunAdi = new TextBox();
             label1 = new Label();
@@ -38,157 +39,165 @@
             txtKdv = new TextBox();
             label4 = new Label();
             btnUrunGiris = new Button();
-            groupBox1 = new GroupBox();
             panel1 = new Panel();
             label5 = new Label();
-            groupBox1.SuspendLayout();
+            pnlCard.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
+            // pnlCard
+            // 
+            pnlCard.BackColor = Color.FromArgb(248, 250, 252);
+            pnlCard.Controls.Add(label1);
+            pnlCard.Controls.Add(btnUrunGiris);
+            pnlCard.Controls.Add(TxtUrunKodu);
+            pnlCard.Controls.Add(label4);
+            pnlCard.Controls.Add(TxtUrunAdi);
+            pnlCard.Controls.Add(txtKdv);
+            pnlCard.Controls.Add(label2);
+            pnlCard.Controls.Add(label3);
+            pnlCard.Controls.Add(TxtBirim);
+            pnlCard.Location = new Point(390, 110);
+            pnlCard.Name = "pnlCard";
+            pnlCard.Size = new Size(500, 440);
+            pnlCard.TabIndex = 9;
+            // 
             // TxtUrunKodu
             // 
-            TxtUrunKodu.Font = new Font("Segoe UI", 14.25F);
-            TxtUrunKodu.Location = new Point(428, 29);
+            TxtUrunKodu.Font = new Font("Segoe UI", 12.5F);
+            TxtUrunKodu.Location = new Point(50, 50);
             TxtUrunKodu.Margin = new Padding(3, 2, 3, 2);
             TxtUrunKodu.Name = "TxtUrunKodu";
-            TxtUrunKodu.Size = new Size(242, 33);
+            TxtUrunKodu.Size = new Size(400, 35);
             TxtUrunKodu.TabIndex = 0;
             // 
             // TxtUrunAdi
             // 
-            TxtUrunAdi.Font = new Font("Segoe UI", 14.25F);
-            TxtUrunAdi.Location = new Point(428, 70);
+            TxtUrunAdi.Font = new Font("Segoe UI", 12.5F);
+            TxtUrunAdi.Location = new Point(50, 130);
             TxtUrunAdi.Margin = new Padding(3, 2, 3, 2);
             TxtUrunAdi.Name = "TxtUrunAdi";
-            TxtUrunAdi.Size = new Size(242, 33);
+            TxtUrunAdi.Size = new Size(400, 35);
             TxtUrunAdi.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F);
-            label1.Location = new Point(227, 37);
+            label1.Font = new Font("Segoe UI", 12.5F);
+            label1.ForeColor = Color.FromArgb(30, 41, 59);
+            label1.Location = new Point(50, 20);
             label1.Name = "label1";
-            label1.Size = new Size(103, 25);
+            label1.Size = new Size(111, 30);
             label1.TabIndex = 2;
             label1.Text = "Ürün Kodu";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F);
-            label2.Location = new Point(227, 81);
+            label2.Font = new Font("Segoe UI", 12.5F);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(50, 100);
             label2.Name = "label2";
-            label2.Size = new Size(87, 25);
+            label2.Size = new Size(95, 30);
             label2.TabIndex = 3;
             label2.Text = "Ürün Adı";
             // 
             // TxtBirim
             // 
-            TxtBirim.Font = new Font("Segoe UI", 14.25F);
-            TxtBirim.Location = new Point(428, 115);
+            TxtBirim.Font = new Font("Segoe UI", 12.5F);
+            TxtBirim.Location = new Point(50, 210);
             TxtBirim.Margin = new Padding(3, 2, 3, 2);
             TxtBirim.Name = "TxtBirim";
-            TxtBirim.Size = new Size(242, 33);
+            TxtBirim.Size = new Size(400, 35);
             TxtBirim.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14.25F);
-            label3.Location = new Point(227, 125);
+            label3.Font = new Font("Segoe UI", 12.5F);
+            label3.ForeColor = Color.FromArgb(30, 41, 59);
+            label3.Location = new Point(50, 180);
             label3.Name = "label3";
-            label3.Size = new Size(56, 25);
+            label3.Size = new Size(61, 30);
             label3.TabIndex = 5;
             label3.Text = "Birim";
             // 
             // txtKdv
             // 
-            txtKdv.Font = new Font("Segoe UI", 14.25F);
-            txtKdv.Location = new Point(428, 161);
+            txtKdv.Font = new Font("Segoe UI", 12.5F);
+            txtKdv.Location = new Point(50, 290);
             txtKdv.Margin = new Padding(3, 2, 3, 2);
             txtKdv.Name = "txtKdv";
-            txtKdv.Size = new Size(242, 33);
+            txtKdv.Size = new Size(400, 35);
             txtKdv.TabIndex = 6;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 14.25F);
-            label4.Location = new Point(228, 172);
+            label4.Font = new Font("Segoe UI", 12.5F);
+            label4.ForeColor = Color.FromArgb(30, 41, 59);
+            label4.Location = new Point(50, 260);
             label4.Name = "label4";
-            label4.Size = new Size(100, 25);
+            label4.Size = new Size(111, 30);
             label4.TabIndex = 7;
             label4.Text = "KDV Oranı";
             // 
             // btnUrunGiris
             // 
+            btnUrunGiris.BackColor = Color.FromArgb(30, 41, 59);
+            btnUrunGiris.Cursor = Cursors.Hand;
+            btnUrunGiris.FlatAppearance.BorderSize = 0;
             btnUrunGiris.FlatStyle = FlatStyle.Flat;
-            btnUrunGiris.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnUrunGiris.Location = new Point(428, 221);
+            btnUrunGiris.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
+            btnUrunGiris.ForeColor = Color.White;
+            btnUrunGiris.Location = new Point(50, 360);
             btnUrunGiris.Margin = new Padding(3, 2, 3, 2);
             btnUrunGiris.Name = "btnUrunGiris";
-            btnUrunGiris.Size = new Size(182, 35);
+            btnUrunGiris.Size = new Size(400, 45);
             btnUrunGiris.TabIndex = 8;
             btnUrunGiris.Text = "Ürün Girişi Yap";
-            btnUrunGiris.UseVisualStyleBackColor = true;
+            btnUrunGiris.UseVisualStyleBackColor = false;
             btnUrunGiris.Click += btnUrunGiris_Click;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(btnUrunGiris);
-            groupBox1.Controls.Add(TxtUrunKodu);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(TxtUrunAdi);
-            groupBox1.Controls.Add(txtKdv);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(TxtBirim);
-            groupBox1.Location = new Point(290, 91);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(926, 487);
-            groupBox1.TabIndex = 9;
-            groupBox1.TabStop = false;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(30, 41, 59);
             panel1.Controls.Add(label5);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1459, 58);
+            panel1.Size = new Size(1280, 70);
             panel1.TabIndex = 10;
             // 
             // label5
             // 
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.White;
             label5.Location = new Point(0, 0);
             label5.Name = "label5";
-            label5.Size = new Size(1459, 58);
+            label5.Size = new Size(1280, 70);
             label5.TabIndex = 11;
-            label5.Text = "ÜRÜN GİRİŞİ";
+            label5.Text = "Stok Takip Sistemi | Ürün Girişi";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormManuelUrunGiris
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1459, 647);
+            BackColor = Color.FromArgb(241, 245, 249);
+            ClientSize = new Size(1280, 720);
             Controls.Add(panel1);
-            Controls.Add(groupBox1);
+            Controls.Add(pnlCard);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormManuelUrunGiris";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Stok Takip Sistemi | Manuel Ürün Giriş";
             Load += FormManuelUrunGiris_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            pnlCard.ResumeLayout(false);
+            pnlCard.PerformLayout();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -204,7 +213,7 @@
         private TextBox txtKdv;
         private Label label4;
         private Button btnUrunGiris;
-        private GroupBox groupBox1;
+        private Panel pnlCard;
         private Panel panel1;
         private Label label5;
     }

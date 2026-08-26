@@ -86,6 +86,18 @@ namespace StokTakipSistemi
                         })
                         .ToListAsync();
 
+                    if (dgvDepoStok.Columns["id"]!=null)
+                    {
+                        dgvDepoStok.Columns["id"].Visible = false;
+                        
+                    }
+
+                    dgvDepoStok.Columns["Depo_Adi"].HeaderText = "Depo Adı";
+                    dgvDepoStok.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
+                    dgvDepoStok.Columns["Ekleyen_Kullanici"].HeaderText = "Ekleyen Kullanıcı";
+                    dgvDepoStok.Columns["Olusturulma_Zamani"].HeaderText = "Oluşturulma Zamanı";
+
+
                     lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
 
                     btnOnceki.Enabled = suanki_sayfa > 1;

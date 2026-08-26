@@ -1,4 +1,4 @@
-﻿namespace StokTakipSistemi
+namespace StokTakipSistemi
 {
     partial class FormDepoGuncelle
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepoGuncelle));
-            groupBox1 = new GroupBox();
+            pnlCard = new Panel();
             txtGDepoAd = new TextBox();
             btnDepoGuncelle = new Button();
             txtGDepoLok = new TextBox();
@@ -37,125 +37,131 @@
             label1 = new Label();
             panel1 = new Panel();
             label3 = new Label();
-            groupBox1.SuspendLayout();
+            pnlCard.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // pnlCard
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(txtGDepoAd);
-            groupBox1.Controls.Add(btnDepoGuncelle);
-            groupBox1.Controls.Add(txtGDepoLok);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(10, 80);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1291, 426);
-            groupBox1.TabIndex = 6;
-            groupBox1.TabStop = false;
+            pnlCard.BackColor = Color.FromArgb(248, 250, 252);
+            pnlCard.Controls.Add(txtGDepoAd);
+            pnlCard.Controls.Add(btnDepoGuncelle);
+            pnlCard.Controls.Add(txtGDepoLok);
+            pnlCard.Controls.Add(label2);
+            pnlCard.Controls.Add(label1);
+            pnlCard.Location = new Point(390, 150);
+            pnlCard.Name = "pnlCard";
+            pnlCard.Size = new Size(500, 320);
+            pnlCard.TabIndex = 5;
             // 
             // txtGDepoAd
             // 
-            txtGDepoAd.Font = new Font("Segoe UI", 14.25F);
-            txtGDepoAd.Location = new Point(529, 45);
+            txtGDepoAd.Font = new Font("Segoe UI", 12.5F);
+            txtGDepoAd.Location = new Point(50, 75);
             txtGDepoAd.Margin = new Padding(3, 2, 3, 2);
             txtGDepoAd.Name = "txtGDepoAd";
-            txtGDepoAd.Size = new Size(221, 33);
+            txtGDepoAd.Size = new Size(400, 35);
             txtGDepoAd.TabIndex = 0;
             // 
             // btnDepoGuncelle
             // 
+            btnDepoGuncelle.BackColor = Color.FromArgb(30, 41, 59);
+            btnDepoGuncelle.Cursor = Cursors.Hand;
+            btnDepoGuncelle.FlatAppearance.BorderSize = 0;
             btnDepoGuncelle.FlatStyle = FlatStyle.Flat;
-            btnDepoGuncelle.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnDepoGuncelle.Location = new Point(529, 152);
+            btnDepoGuncelle.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
+            btnDepoGuncelle.ForeColor = Color.White;
+            btnDepoGuncelle.Location = new Point(50, 230);
             btnDepoGuncelle.Margin = new Padding(3, 2, 3, 2);
             btnDepoGuncelle.Name = "btnDepoGuncelle";
-            btnDepoGuncelle.Size = new Size(172, 37);
+            btnDepoGuncelle.Size = new Size(400, 45);
             btnDepoGuncelle.TabIndex = 4;
             btnDepoGuncelle.Text = "Depoyu Güncelle";
-            btnDepoGuncelle.UseVisualStyleBackColor = true;
+            btnDepoGuncelle.UseVisualStyleBackColor = false;
             btnDepoGuncelle.Click += btnDepoGuncelle_Click;
             // 
             // txtGDepoLok
             // 
-            txtGDepoLok.Font = new Font("Segoe UI", 14.25F);
-            txtGDepoLok.Location = new Point(529, 92);
+            txtGDepoLok.Font = new Font("Segoe UI", 12.5F);
+            txtGDepoLok.Location = new Point(50, 165);
             txtGDepoLok.Margin = new Padding(3, 2, 3, 2);
             txtGDepoLok.Name = "txtGDepoLok";
-            txtGDepoLok.Size = new Size(221, 33);
+            txtGDepoLok.Size = new Size(400, 35);
             txtGDepoLok.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F);
-            label2.Location = new Point(370, 95);
+            label2.Font = new Font("Segoe UI", 12.5F);
+            label2.ForeColor = Color.FromArgb(30, 41, 59);
+            label2.Location = new Point(50, 130);
             label2.Name = "label2";
-            label2.Size = new Size(133, 25);
+            label2.Size = new Size(147, 30);
             label2.TabIndex = 3;
             label2.Text = "Depo Konumu";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F);
-            label1.Location = new Point(370, 45);
+            label1.Font = new Font("Segoe UI", 12.5F);
+            label1.ForeColor = Color.FromArgb(30, 41, 59);
+            label1.Location = new Point(50, 40);
             label1.Name = "label1";
-            label1.Size = new Size(96, 25);
+            label1.Size = new Size(106, 30);
             label1.TabIndex = 2;
             label1.Text = "Depo İsmi";
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(30, 41, 59);
             panel1.Controls.Add(label3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1408, 62);
+            panel1.Size = new Size(1280, 70);
             panel1.TabIndex = 5;
             // 
             // label3
             // 
             label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(1408, 62);
-            label3.TabIndex = 0;
-            label3.Text = "DEPO GÜNCELLEME";
+            label3.Size = new Size(1280, 70);
+            label3.TabIndex = 6;
+            label3.Text = "Stok Takip Sistemi | Depo Güncelleme";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormDepoGuncelle
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1408, 640);
+            BackColor = Color.FromArgb(241, 245, 249);
+            ClientSize = new Size(1280, 720);
             Controls.Add(panel1);
-            Controls.Add(groupBox1);
+            Controls.Add(pnlCard);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormDepoGuncelle";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Stok Takip Sistemi | Depo Güncelle";
             Load += FormDepoGuncelle_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            pnlCard.ResumeLayout(false);
+            pnlCard.PerformLayout();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
         private TextBox txtGDepoAd;
-        private Button btnDepoGuncelle;
         private TextBox txtGDepoLok;
-        private Label label2;
         private Label label1;
+        private Label label2;
+        private Button btnDepoGuncelle;
+        private Panel pnlCard;
         private Panel panel1;
         private Label label3;
     }

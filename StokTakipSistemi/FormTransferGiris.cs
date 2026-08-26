@@ -1,4 +1,4 @@
-﻿using StokTakipSistemi.Data;
+using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
@@ -25,6 +25,7 @@ namespace StokTakipSistemi
 
         private void FormTransferGiris_Load(object sender, EventArgs e)
         {
+            UIHelper.ModernizeDataGridView(dgvListe);
 
             FormTransferPanel form = Application.OpenForms["FormTransferPanel"] as FormTransferPanel;
 

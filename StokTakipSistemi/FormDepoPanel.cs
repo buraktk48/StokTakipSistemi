@@ -81,6 +81,15 @@ namespace StokTakipSistemi
                     }
                     ).ToListAsync();
 
+                    if (dgvDepolar.Columns["Depo_id"]!=null)
+                    {
+                        dgvDepolar.Columns["Depo_id"].Visible = false;
+                    }
+
+                    dgvDepolar.Columns["Depo_Adi"].HeaderText = "Depo Adı";
+                    dgvDepolar.Columns["Ekleyen_Kullanici"].HeaderText = "Ekleyen Kullanıcı";
+                    dgvDepolar.Columns["Olusturulma_Zamani"].HeaderText = "Oluşturulma Zamanı";
+
 
                     lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
 
@@ -186,6 +195,17 @@ namespace StokTakipSistemi
             suanki_sayfa = toplam_sayfa_sayisi;
 
             DepoListele(txtDepoAra.Text.Trim());
+
+        }
+
+        private void btnIlkSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = 1;
+            DepoListele(txtDepoAra.Text.Trim());
+        }
+
+        private void lblFooter_Click(object sender, EventArgs e)
+        {
 
         }
     }

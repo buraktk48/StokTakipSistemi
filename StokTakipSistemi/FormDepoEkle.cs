@@ -1,4 +1,4 @@
-﻿using StokTakipSistemi.Entities;
+using StokTakipSistemi.Entities;
 using StokTakipSistemi.Helpers;
 using StokTakipSistemi.Services;
 using System;
@@ -24,6 +24,21 @@ namespace StokTakipSistemi
         {
             
             InitializeComponent();
+            ApplyCustomStyles();
+        }
+
+        private void ApplyCustomStyles()
+        {
+            pnlCard.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 14);
+            this.Resize += (s, e) => AutoLayoutControls();
+            AutoLayoutControls();
+        }
+
+        private void AutoLayoutControls()
+        {
+            UIHelper.CenterControl(this, pnlCard, 15);
+            UIHelper.SetRoundedRegion(pnlCard, 14);
+            UIHelper.SetRoundedRegion(btnDepoGiris, 10);
         }
 
         private void FormDepoEkle_Load(object sender, EventArgs e)

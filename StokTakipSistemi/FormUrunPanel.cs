@@ -101,6 +101,11 @@ namespace StokTakipSistemi
                     btnSonraki.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
                 }
 
+                if (dgvUrunler.Columns["id"] != null)
+                {
+                    dgvUrunler.Columns["id"].Visible = false;
+                }
+
                 dgvUrunler.Columns["Urun_Kodu"].HeaderText = "Ürün Kodu";
                 dgvUrunler.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
                 dgvUrunler.Columns["Birim"].HeaderText = "Birim";
