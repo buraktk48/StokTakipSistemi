@@ -37,9 +37,16 @@ namespace StokTakipSistemi
             panel1 = new Panel();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            groupBox3 = new GroupBox();
+            btnIlkSayfa = new Button();
+            btnOnceki = new Button();
+            lblSayfa = new Label();
+            btnSonraki = new Button();
+            btnSonSayfa = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvExcel).BeginInit();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // btnDosyaSec
@@ -77,7 +84,7 @@ namespace StokTakipSistemi
             dgvExcel.Name = "dgvExcel";
             dgvExcel.ReadOnly = true;
             dgvExcel.RowHeadersWidth = 51;
-            dgvExcel.Size = new Size(1342, 380);
+            dgvExcel.Size = new Size(1342, 335);
             dgvExcel.TabIndex = 2;
             // 
             // btnIceAktar
@@ -89,7 +96,7 @@ namespace StokTakipSistemi
             btnIceAktar.FlatStyle = FlatStyle.Flat;
             btnIceAktar.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
             btnIceAktar.ForeColor = Color.White;
-            btnIceAktar.Location = new Point(571, 595);
+            btnIceAktar.Location = new Point(571, 608);
             btnIceAktar.Name = "btnIceAktar";
             btnIceAktar.Size = new Size(280, 48);
             btnIceAktar.TabIndex = 3;
@@ -131,12 +138,102 @@ namespace StokTakipSistemi
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.Bottom;
+            groupBox3.Controls.Add(btnIlkSayfa);
+            groupBox3.Controls.Add(btnOnceki);
+            groupBox3.Controls.Add(lblSayfa);
+            groupBox3.Controls.Add(btnSonraki);
+            groupBox3.Controls.Add(btnSonSayfa);
+            groupBox3.Location = new Point(316, 536);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(800, 58);
+            groupBox3.TabIndex = 13;
+            groupBox3.TabStop = false;
+            // 
+            // btnIlkSayfa
+            // 
+            btnIlkSayfa.BackColor = Color.White;
+            btnIlkSayfa.Cursor = Cursors.Hand;
+            btnIlkSayfa.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnIlkSayfa.FlatStyle = FlatStyle.Flat;
+            btnIlkSayfa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnIlkSayfa.ForeColor = Color.FromArgb(30, 41, 59);
+            btnIlkSayfa.Location = new Point(30, 16);
+            btnIlkSayfa.Name = "btnIlkSayfa";
+            btnIlkSayfa.Size = new Size(110, 32);
+            btnIlkSayfa.TabIndex = 10;
+            btnIlkSayfa.Text = "İlk Sayfa";
+            btnIlkSayfa.UseVisualStyleBackColor = false;
+            btnIlkSayfa.Click += btnIlkSayfa_Click;
+            // 
+            // btnOnceki
+            // 
+            btnOnceki.BackColor = Color.White;
+            btnOnceki.Cursor = Cursors.Hand;
+            btnOnceki.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnOnceki.FlatStyle = FlatStyle.Flat;
+            btnOnceki.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnOnceki.ForeColor = Color.FromArgb(30, 41, 59);
+            btnOnceki.Location = new Point(155, 16);
+            btnOnceki.Name = "btnOnceki";
+            btnOnceki.Size = new Size(110, 32);
+            btnOnceki.TabIndex = 7;
+            btnOnceki.Text = "<Önceki<";
+            btnOnceki.UseVisualStyleBackColor = false;
+            btnOnceki.Click += btnOnceki_Click;
+            // 
+            // lblSayfa
+            // 
+            lblSayfa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblSayfa.ForeColor = Color.FromArgb(71, 85, 105);
+            lblSayfa.Location = new Point(280, 18);
+            lblSayfa.Name = "lblSayfa";
+            lblSayfa.Size = new Size(240, 26);
+            lblSayfa.TabIndex = 11;
+            lblSayfa.Text = "Sayfa 1 / 2 (Toplam Kayıt: 13)";
+            lblSayfa.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnSonraki
+            // 
+            btnSonraki.BackColor = Color.White;
+            btnSonraki.Cursor = Cursors.Hand;
+            btnSonraki.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnSonraki.FlatStyle = FlatStyle.Flat;
+            btnSonraki.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnSonraki.ForeColor = Color.FromArgb(30, 41, 59);
+            btnSonraki.Location = new Point(535, 16);
+            btnSonraki.Name = "btnSonraki";
+            btnSonraki.Size = new Size(110, 32);
+            btnSonraki.TabIndex = 8;
+            btnSonraki.Text = ">Sonraki>";
+            btnSonraki.UseVisualStyleBackColor = false;
+            btnSonraki.Click += btnSonraki_Click;
+            // 
+            // btnSonSayfa
+            // 
+            btnSonSayfa.BackColor = Color.White;
+            btnSonSayfa.Cursor = Cursors.Hand;
+            btnSonSayfa.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnSonSayfa.FlatStyle = FlatStyle.Flat;
+            btnSonSayfa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnSonSayfa.ForeColor = Color.FromArgb(30, 41, 59);
+            btnSonSayfa.Location = new Point(660, 16);
+            btnSonSayfa.Name = "btnSonSayfa";
+            btnSonSayfa.Size = new Size(110, 32);
+            btnSonSayfa.TabIndex = 9;
+            btnSonSayfa.Text = "Son Sayfa";
+            btnSonSayfa.UseVisualStyleBackColor = false;
+            btnSonSayfa.Click += btnSonSayfa_Click;
+            // 
             // FormExcelUrunEkle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 245, 249);
-            ClientSize = new Size(1422, 663);
+            ClientSize = new Size(1422, 676);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Controls.Add(btnIceAktar);
@@ -150,6 +247,7 @@ namespace StokTakipSistemi
             panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -162,5 +260,11 @@ namespace StokTakipSistemi
         private Panel panel1;
         private Label label1;
         private GroupBox groupBox1;
+        private GroupBox groupBox3;
+        private Button btnIlkSayfa;
+        private Button btnOnceki;
+        private Label lblSayfa;
+        private Button btnSonraki;
+        private Button btnSonSayfa;
     }
 }

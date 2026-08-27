@@ -108,15 +108,21 @@ namespace StokTakipSistemi
 
             _sepet.Add(eleman);
 
+          
             // dgv'nin eski bağlantısının koparılması gerek, aynısı zannedip refresh atmıyor"
             dgvListe.DataSource = null;
 
             // güncellenmiş _sepet listesini sıfırdan yeniden bağlamak!"
             dgvListe.DataSource = _sepet;
 
+            dgvListe.Columns["Fis_Numarasi"].HeaderText = "Fiş Numarası";
+            dgvListe.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
+            dgvListe.Columns["Cikis_Depo_Adi"].HeaderText = "Çıkış Deposu";
+            dgvListe.Columns["Varis_Depo_Adi"].HeaderText = "Varış Deposu";
+
+
             cboxCikisDepo.Enabled = false;
             cboxVarisDepo.Enabled = false;
-
 
 
         }

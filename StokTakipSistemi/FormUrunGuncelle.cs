@@ -31,7 +31,6 @@ namespace StokTakipSistemi
 
         private void FormUrunGuncelle_Load(object sender, EventArgs e)
         {
-            lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi";
         }
 
         public FormUrunGuncelle(int urunId, string urunKodu, string urunAdi, string birim, decimal kdv) : this()

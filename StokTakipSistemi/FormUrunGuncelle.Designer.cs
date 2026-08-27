@@ -41,7 +41,6 @@ namespace StokTakipSistemi
             label4 = new Label();
             txtGKdv = new TextBox();
             btnUrunGuncelleme = new Button();
-            lblFooter = new Label();
             panel1.SuspendLayout();
             pnlCard.SuspendLayout();
             SuspendLayout();
@@ -177,25 +176,12 @@ namespace StokTakipSistemi
             btnUrunGuncelleme.UseVisualStyleBackColor = false;
             btnUrunGuncelleme.Click += btnUrunGuncelleme_Click;
             // 
-            // lblFooter
-            // 
-            lblFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lblFooter.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            lblFooter.ForeColor = Color.FromArgb(148, 163, 184);
-            lblFooter.Location = new Point(980, 640);
-            lblFooter.Name = "lblFooter";
-            lblFooter.Size = new Size(270, 22);
-            lblFooter.TabIndex = 18;
-            lblFooter.Text = "© 2026 Dalaman Belediyesi";
-            lblFooter.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // FormUrunGuncelle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 245, 249);
             ClientSize = new Size(1280, 680);
-            Controls.Add(lblFooter);
             Controls.Add(pnlCard);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -223,7 +209,6 @@ namespace StokTakipSistemi
         private Label label3;
         private Label label5;
         private TextBox txtGBirim;
-        private Label lblFooter;
     }
 }
 

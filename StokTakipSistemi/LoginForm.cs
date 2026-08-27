@@ -32,7 +32,6 @@ namespace StokTakipSistemi
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi";
         }
 
         private void BtnKayitOl_Click(object sender, EventArgs e)

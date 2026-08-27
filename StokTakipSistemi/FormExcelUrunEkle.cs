@@ -23,6 +23,53 @@ namespace StokTakipSistemi
 
             InitializeComponent();
         }
+
+        private int sayfa_boyutu = 10;
+        private int suanki_sayfa = 1;
+        private int toplam_sayfa_sayisi = 1;
+        private DataTable? tumExcelVerileri;
+
+        private void ExcelSayfala()
+        {
+            if (tumExcelVerileri == null || tumExcelVerileri.Rows.Count == 0)
+            {
+                dgvExcel.DataSource = null;
+                toplam_sayfa_sayisi = 1;
+                suanki_sayfa = 1;
+                lblSayfa.Text = "Sayfa 1 / 1 (Toplam Kayıt: 0)";
+                btnOnceki.Enabled = false;
+                btnSonraki.Enabled = false;
+                btnIlkSayfa.Enabled = false;
+                btnSonSayfa.Enabled = false;
+                return;
+            }
+
+            int toplam_kayit = tumExcelVerileri.Rows.Count;
+            toplam_sayfa_sayisi = (int)Math.Ceiling(toplam_kayit / (double)sayfa_boyutu);
+            if (toplam_sayfa_sayisi == 0) toplam_sayfa_sayisi = 1;
+
+            if (suanki_sayfa > toplam_sayfa_sayisi) suanki_sayfa = toplam_sayfa_sayisi;
+            if (suanki_sayfa < 1) suanki_sayfa = 1;
+
+            DataTable sayfaDt = tumExcelVerileri.Clone();
+            int baslangic = (suanki_sayfa - 1) * sayfa_boyutu;
+            int bitis = Math.Min(baslangic + sayfa_boyutu, toplam_kayit);
+
+            for (int i = baslangic; i < bitis; i++)
+            {
+                sayfaDt.ImportRow(tumExcelVerileri.Rows[i]);
+            }
+
+            dgvExcel.DataSource = sayfaDt;
+
+            lblSayfa.Text = $"Sayfa {suanki_sayfa} / {toplam_sayfa_sayisi} (Toplam Kayıt: {toplam_kayit})";
+
+            btnOnceki.Enabled = suanki_sayfa > 1;
+            btnSonraki.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
+            btnIlkSayfa.Enabled = suanki_sayfa > 1;
+            btnSonSayfa.Enabled = suanki_sayfa < toplam_sayfa_sayisi;
+        }
+
         private void ExcelVerileriniGrideYukle(string dosyaYolu)
         {
             try
@@ -52,8 +99,10 @@ namespace StokTakipSistemi
                         dt.Rows.Add(dr);
                     }
 
-                    // DataGridView'e veriyi bağlama
-                    dgvExcel.DataSource = dt;
+                    tumExcelVerileri = dt;
+                    suanki_sayfa = 1;
+                    ExcelSayfala();
+
                     MessageBox.Show($"Toplam {dt.Rows.Count} adet ürün Excel'den okundu. Kontrol edip 'İçe Aktar' butonuna basabilirsiniz.",
                                     "Önizleme Hazır", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -89,8 +138,7 @@ namespace StokTakipSistemi
 
         private void btnIceAktar_Click(object sender, EventArgs e)
         {
-
-            if (dgvExcel.Rows.Count == 0 || dgvExcel.DataSource == null)
+            if (tumExcelVerileri == null || tumExcelVerileri.Rows.Count == 0)
             {
                 MessageBox.Show("Lütfen önce geçerli bir Excel dosyası seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -100,12 +148,11 @@ namespace StokTakipSistemi
             int hataliSayac = 0;
             var urunService = new UrunService();
 
-            // DataGridView üzerindeki DataTable satırlarında dönüyoruz
-            DataTable dt = (DataTable)dgvExcel.DataSource;
+            DataTable dt = tumExcelVerileri;
 
             foreach (DataRow row in dt.Rows)
             {
-                string kod = row["urun_kodu"]?.ToString()??"Sütun İsmi Boş"; // Excel'deki sütun adlarıyla birebir aynı olmalı
+                string kod = row["urun_kodu"]?.ToString() ?? "Sütun İsmi Boş"; // Excel'deki sütun adlarıyla birebir aynı olmalı
                 string ad = row["urun_adi"]?.ToString() ?? "Sütun İsmi Boş";
                 string birim = row["birim"]?.ToString() ?? "Sütun İsmi Boş";
                 string kdvStr = row["kdv"]?.ToString().Replace('.', ',');
@@ -132,15 +179,46 @@ namespace StokTakipSistemi
             MessageBox.Show($"Aktarım Tamamlandı!\n\n✅ Başarılı: {basariliSayac} adet\n❌ Hatalı/Zaten Var Olan: {hataliSayac} adet",
                             "İşlem Sonucu", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // İşlem bitince DataGridView'i temizleyebiliriz
-            dgvExcel.DataSource = null;
-
+            // İşlem bitince DataGridView'i ve verileri temizleyebiliriz
+            tumExcelVerileri = null;
+            ExcelSayfala();
         }
 
         private void FormExcelUrunEkle_Load(object sender, EventArgs e)
         {
             UIHelper.ModernizeDataGridView(dgvExcel);
             dgvExcel.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(16, 124, 65);
+            ExcelSayfala();
+        }
+
+        private void btnSonraki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa < toplam_sayfa_sayisi)
+            {
+                suanki_sayfa++;
+                ExcelSayfala();
+            }
+        }
+
+        private void btnSonSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = toplam_sayfa_sayisi;
+            ExcelSayfala();
+        }
+
+        private void btnOnceki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa > 1)
+            {
+                suanki_sayfa--;
+                ExcelSayfala();
+            }
+        }
+
+        private void btnIlkSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = 1;
+            ExcelSayfala();
         }
     }
 }

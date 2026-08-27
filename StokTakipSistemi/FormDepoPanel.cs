@@ -203,10 +203,5 @@ namespace StokTakipSistemi
             suanki_sayfa = 1;
             DepoListele(txtDepoAra.Text.Trim());
         }
-
-        private void lblFooter_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

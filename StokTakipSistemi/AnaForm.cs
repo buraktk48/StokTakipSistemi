@@ -74,8 +74,8 @@ namespace StokTakipSistemi
                 using (var context = new AppDbContext())
                 {
                     int toplamDepo = await context.Depolar.AsNoTracking().CountAsync();
-                    
-                    
+
+
                     int toplamStokluUrun = await context.DepoStoklari.AsNoTracking().CountAsync();
 
                     var sonTransfer = await context.Transferler
@@ -183,6 +183,11 @@ namespace StokTakipSistemi
         {
             FormTransferRapor formTransferRapor = new FormTransferRapor();
             formTransferRapor.ShowDialog();
+
+        }
+
+        private void lblFooter_Click(object sender, EventArgs e)
+        {
 
         }
     }

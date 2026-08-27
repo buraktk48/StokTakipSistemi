@@ -124,7 +124,6 @@ namespace StokTakipSistemi
         private void FormUrunListe_Load(object sender, EventArgs e)
         {
             UIHelper.ModernizeDataGridView(dgvUrunler);
-            lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi";
             UrunListele("");
         }
 

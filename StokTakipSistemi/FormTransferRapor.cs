@@ -116,8 +116,16 @@ namespace StokTakipSistemi
                 })
                 .ToListAsync();
 
+                    dgvRapor.Columns["Transfer_Fisi"].HeaderText = "Transfer Fişi";
+                    dgvRapor.Columns["Urun_Ismi"].HeaderText = "Ürün İsmi";
+                    dgvRapor.Columns["KDV_Orani"].HeaderText = "KDV Oranı";
+                    dgvRapor.Columns["Cikis_Deposu"].HeaderText = "Çıkış Deposu";
+                    dgvRapor.Columns["Varis_Deposu"].HeaderText = "Varış Deposu";
+                    dgvRapor.Columns["Transferi_Yapan_Kullanici"].HeaderText = "Transferi Yapan Kullanıcı";
+                    dgvRapor.Columns["Transfer_Tarihi"].HeaderText = "Transfer Tarihi";
 
-            }
+
+                }
             }
             catch (Exception ex)
             {

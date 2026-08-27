@@ -45,8 +45,8 @@ namespace StokTakipSistemi
             lblStokluUrun = new Label();
             label5 = new Label();
             panel4 = new Panel();
-            lblTransferDepo = new Label();
             lblSonTransfer = new Label();
+            lblTransferDepo = new Label();
             label7 = new Label();
             lblFooter = new Label();
             panel1.SuspendLayout();
@@ -59,12 +59,25 @@ namespace StokTakipSistemi
             // 
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1475, 73);
+            label1.Size = new Size(1463, 93);
             label1.TabIndex = 0;
-            label1.Text = "label1";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Text = "Stok Takip Programı";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblHeaderUser
+            // 
+            lblHeaderUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblHeaderUser.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblHeaderUser.ForeColor = Color.FromArgb(226, 232, 240);
+            lblHeaderUser.Location = new Point(800, 28);
+            lblHeaderUser.Name = "lblHeaderUser";
+            lblHeaderUser.Size = new Size(623, 37);
+            lblHeaderUser.TabIndex = 1;
+            lblHeaderUser.Text = "Hoş Geldin, Kullanıcı | 24 Mayıs 2024, 11:45";
+            lblHeaderUser.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnUrunPanel
             // 
@@ -75,11 +88,9 @@ namespace StokTakipSistemi
             btnUrunPanel.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnUrunPanel.ForeColor = Color.FromArgb(30, 41, 59);
             btnUrunPanel.Image = (Image)resources.GetObject("btnUrunPanel.Image");
-            btnUrunPanel.ImageAlign = ContentAlignment.MiddleCenter;
-            btnUrunPanel.Location = new Point(140, 275);
-            btnUrunPanel.Margin = new Padding(3, 2, 3, 2);
+            btnUrunPanel.Location = new Point(160, 367);
             btnUrunPanel.Name = "btnUrunPanel";
-            btnUrunPanel.Size = new Size(460, 65);
+            btnUrunPanel.Size = new Size(526, 87);
             btnUrunPanel.TabIndex = 7;
             btnUrunPanel.Text = "       Ürün Yönetimi";
             btnUrunPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -95,11 +106,9 @@ namespace StokTakipSistemi
             btnDepoPanel.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnDepoPanel.ForeColor = Color.FromArgb(30, 41, 59);
             btnDepoPanel.Image = (Image)resources.GetObject("btnDepoPanel.Image");
-            btnDepoPanel.ImageAlign = ContentAlignment.MiddleCenter;
-            btnDepoPanel.Location = new Point(140, 355);
-            btnDepoPanel.Margin = new Padding(3, 2, 3, 2);
+            btnDepoPanel.Location = new Point(160, 473);
             btnDepoPanel.Name = "btnDepoPanel";
-            btnDepoPanel.Size = new Size(460, 65);
+            btnDepoPanel.Size = new Size(526, 87);
             btnDepoPanel.TabIndex = 8;
             btnDepoPanel.Text = "       Depo Yönetimi";
             btnDepoPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -113,34 +122,9 @@ namespace StokTakipSistemi
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1280, 70);
+            panel1.Size = new Size(1463, 93);
             panel1.TabIndex = 11;
-            // 
-            // label1
-            // 
-            label1.AutoSize = false;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(35, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(350, 38);
-            label1.TabIndex = 0;
-            label1.Text = "Stok Takip Programı";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblHeaderUser
-            // 
-            lblHeaderUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblHeaderUser.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            lblHeaderUser.ForeColor = Color.FromArgb(226, 232, 240);
-            lblHeaderUser.Location = new Point(700, 21);
-            lblHeaderUser.Name = "lblHeaderUser";
-            lblHeaderUser.Size = new Size(545, 28);
-            lblHeaderUser.TabIndex = 1;
-            lblHeaderUser.Text = "Hoş Geldin, Kullanıcı | 24 Mayıs 2024, 11:45";
-            lblHeaderUser.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnCikisYap
             // 
@@ -151,11 +135,9 @@ namespace StokTakipSistemi
             btnCikisYap.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnCikisYap.ForeColor = Color.FromArgb(225, 29, 72);
             btnCikisYap.Image = (Image)resources.GetObject("btnCikisYap.Image");
-            btnCikisYap.ImageAlign = ContentAlignment.MiddleCenter;
-            btnCikisYap.Location = new Point(490, 530);
-            btnCikisYap.Margin = new Padding(3, 2, 3, 2);
+            btnCikisYap.Location = new Point(560, 707);
             btnCikisYap.Name = "btnCikisYap";
-            btnCikisYap.Size = new Size(300, 58);
+            btnCikisYap.Size = new Size(343, 77);
             btnCikisYap.TabIndex = 12;
             btnCikisYap.Text = "       Çıkış Yap";
             btnCikisYap.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -171,11 +153,9 @@ namespace StokTakipSistemi
             btnStok.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnStok.ForeColor = Color.FromArgb(30, 41, 59);
             btnStok.Image = (Image)resources.GetObject("btnStok.Image");
-            btnStok.ImageAlign = ContentAlignment.MiddleCenter;
-            btnStok.Location = new Point(140, 435);
-            btnStok.Margin = new Padding(3, 2, 3, 2);
+            btnStok.Location = new Point(160, 580);
             btnStok.Name = "btnStok";
-            btnStok.Size = new Size(460, 65);
+            btnStok.Size = new Size(526, 87);
             btnStok.TabIndex = 13;
             btnStok.Text = "       Stok Takip Paneli";
             btnStok.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -191,11 +171,9 @@ namespace StokTakipSistemi
             btnTransferPanel.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnTransferPanel.ForeColor = Color.FromArgb(30, 41, 59);
             btnTransferPanel.Image = (Image)resources.GetObject("btnTransferPanel.Image");
-            btnTransferPanel.ImageAlign = ContentAlignment.MiddleCenter;
-            btnTransferPanel.Location = new Point(680, 275);
-            btnTransferPanel.Margin = new Padding(3, 2, 3, 2);
+            btnTransferPanel.Location = new Point(777, 367);
             btnTransferPanel.Name = "btnTransferPanel";
-            btnTransferPanel.Size = new Size(460, 65);
+            btnTransferPanel.Size = new Size(526, 87);
             btnTransferPanel.TabIndex = 14;
             btnTransferPanel.Text = "       Transfer İşlemleri";
             btnTransferPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -211,11 +189,9 @@ namespace StokTakipSistemi
             btnTransferRaporuCikart.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnTransferRaporuCikart.ForeColor = Color.FromArgb(30, 41, 59);
             btnTransferRaporuCikart.Image = (Image)resources.GetObject("btnTransferRaporuCikart.Image");
-            btnTransferRaporuCikart.ImageAlign = ContentAlignment.MiddleCenter;
-            btnTransferRaporuCikart.Location = new Point(680, 355);
-            btnTransferRaporuCikart.Margin = new Padding(3, 2, 3, 2);
+            btnTransferRaporuCikart.Location = new Point(777, 473);
             btnTransferRaporuCikart.Name = "btnTransferRaporuCikart";
-            btnTransferRaporuCikart.Size = new Size(460, 65);
+            btnTransferRaporuCikart.Size = new Size(526, 87);
             btnTransferRaporuCikart.TabIndex = 15;
             btnTransferRaporuCikart.Text = "       Transfer Raporları";
             btnTransferRaporuCikart.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -228,33 +204,32 @@ namespace StokTakipSistemi
             panel2.Controls.Add(lblToplamDepo);
             panel2.Controls.Add(label2);
             panel2.Font = new Font("Segoe UI", 12F);
-            panel2.Location = new Point(65, 105);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(74, 140);
             panel2.Name = "panel2";
-            panel2.Size = new Size(355, 135);
+            panel2.Size = new Size(406, 180);
             panel2.TabIndex = 16;
-            // 
-            // label2
-            // 
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.ForeColor = Color.FromArgb(100, 116, 139);
-            label2.Location = new Point(10, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(335, 25);
-            label2.TabIndex = 0;
-            label2.Text = "Toplam Depo Sayısı";
-            label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblToplamDepo
             // 
             lblToplamDepo.Font = new Font("Segoe UI", 28F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblToplamDepo.ForeColor = Color.FromArgb(30, 41, 59);
-            lblToplamDepo.Location = new Point(10, 50);
+            lblToplamDepo.Location = new Point(11, 67);
             lblToplamDepo.Name = "lblToplamDepo";
-            lblToplamDepo.Size = new Size(335, 60);
+            lblToplamDepo.Size = new Size(383, 80);
             lblToplamDepo.TabIndex = 1;
             lblToplamDepo.Text = "15";
             lblToplamDepo.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label2.ForeColor = Color.FromArgb(100, 116, 139);
+            label2.Location = new Point(11, 24);
+            label2.Name = "label2";
+            label2.Size = new Size(383, 33);
+            label2.TabIndex = 0;
+            label2.Text = "Toplam Depo Sayısı";
+            label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // panel3
             // 
@@ -262,33 +237,32 @@ namespace StokTakipSistemi
             panel3.Controls.Add(lblStokluUrun);
             panel3.Controls.Add(label5);
             panel3.Font = new Font("Segoe UI", 12F);
-            panel3.Location = new Point(462, 105);
-            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.Location = new Point(528, 140);
             panel3.Name = "panel3";
-            panel3.Size = new Size(355, 135);
+            panel3.Size = new Size(406, 180);
             panel3.TabIndex = 17;
-            // 
-            // label5
-            // 
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label5.ForeColor = Color.FromArgb(100, 116, 139);
-            label5.Location = new Point(10, 18);
-            label5.Name = "label5";
-            label5.Size = new Size(335, 25);
-            label5.TabIndex = 0;
-            label5.Text = "Toplam Stoklu Ürün Sayısı";
-            label5.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblStokluUrun
             // 
             lblStokluUrun.Font = new Font("Segoe UI", 28F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblStokluUrun.ForeColor = Color.FromArgb(30, 41, 59);
-            lblStokluUrun.Location = new Point(10, 50);
+            lblStokluUrun.Location = new Point(11, 67);
             lblStokluUrun.Name = "lblStokluUrun";
-            lblStokluUrun.Size = new Size(335, 60);
+            lblStokluUrun.Size = new Size(383, 80);
             lblStokluUrun.TabIndex = 1;
             lblStokluUrun.Text = "8.450";
             lblStokluUrun.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.FromArgb(100, 116, 139);
+            label5.Location = new Point(11, 24);
+            label5.Name = "label5";
+            label5.Size = new Size(383, 33);
+            label5.TabIndex = 0;
+            label5.Text = "Toplam Stoklu Ürün Sayısı";
+            label5.TextAlign = ContentAlignment.TopCenter;
             // 
             // panel4
             // 
@@ -297,63 +271,63 @@ namespace StokTakipSistemi
             panel4.Controls.Add(lblTransferDepo);
             panel4.Controls.Add(label7);
             panel4.Font = new Font("Segoe UI", 12F);
-            panel4.Location = new Point(860, 105);
-            panel4.Margin = new Padding(3, 2, 3, 2);
+            panel4.Location = new Point(983, 140);
             panel4.Name = "panel4";
-            panel4.Size = new Size(355, 135);
+            panel4.Size = new Size(406, 180);
             panel4.TabIndex = 18;
-            // 
-            // label7
-            // 
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label7.ForeColor = Color.FromArgb(100, 116, 139);
-            label7.Location = new Point(10, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(335, 24);
-            label7.TabIndex = 0;
-            label7.Text = "Son Transfer";
-            label7.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // lblTransferDepo
-            // 
-            lblTransferDepo.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblTransferDepo.ForeColor = Color.FromArgb(71, 85, 105);
-            lblTransferDepo.Location = new Point(10, 44);
-            lblTransferDepo.Name = "lblTransferDepo";
-            lblTransferDepo.Size = new Size(335, 24);
-            lblTransferDepo.TabIndex = 2;
-            lblTransferDepo.Text = "Depo A -> Depo B";
-            lblTransferDepo.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblSonTransfer
             // 
             lblSonTransfer.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblSonTransfer.ForeColor = Color.FromArgb(30, 41, 59);
-            lblSonTransfer.Location = new Point(10, 72);
+            lblSonTransfer.Location = new Point(11, 96);
             lblSonTransfer.Name = "lblSonTransfer";
-            lblSonTransfer.Size = new Size(335, 35);
+            lblSonTransfer.Size = new Size(383, 47);
             lblSonTransfer.TabIndex = 1;
             lblSonTransfer.Text = "Bugün, 09:15";
             lblSonTransfer.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lblTransferDepo
+            // 
+            lblTransferDepo.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblTransferDepo.ForeColor = Color.FromArgb(71, 85, 105);
+            lblTransferDepo.Location = new Point(11, 59);
+            lblTransferDepo.Name = "lblTransferDepo";
+            lblTransferDepo.Size = new Size(383, 32);
+            lblTransferDepo.TabIndex = 2;
+            lblTransferDepo.Text = "Depo A -> Depo B";
+            lblTransferDepo.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label7.ForeColor = Color.FromArgb(100, 116, 139);
+            label7.Location = new Point(11, 20);
+            label7.Name = "label7";
+            label7.Size = new Size(383, 32);
+            label7.TabIndex = 0;
+            label7.Text = "Son Transfer";
+            label7.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblFooter
             // 
             lblFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblFooter.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 162);
             lblFooter.ForeColor = Color.FromArgb(148, 163, 184);
-            lblFooter.Location = new Point(980, 640);
+            lblFooter.Location = new Point(1120, 853);
             lblFooter.Name = "lblFooter";
-            lblFooter.Size = new Size(270, 22);
+            lblFooter.Size = new Size(309, 29);
             lblFooter.TabIndex = 19;
             lblFooter.Text = "© 2024 Kurumsal Yazılım A.Ş.";
             lblFooter.TextAlign = ContentAlignment.MiddleRight;
+            lblFooter.Click += lblFooter_Click;
             // 
             // AnaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 245, 249);
-            ClientSize = new Size(1280, 680);
+            ClientSize = new Size(1463, 907);
             Controls.Add(lblFooter);
             Controls.Add(panel4);
             Controls.Add(panel3);
@@ -366,7 +340,6 @@ namespace StokTakipSistemi
             Controls.Add(btnDepoPanel);
             Controls.Add(btnUrunPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "AnaForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Stok Takip Programı | Ana Sayfa";

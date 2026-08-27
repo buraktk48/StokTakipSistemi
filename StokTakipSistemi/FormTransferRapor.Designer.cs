@@ -92,7 +92,7 @@
             label2.ForeColor = Color.FromArgb(71, 85, 105);
             label2.Location = new Point(20, 24);
             label2.Name = "label2";
-            label2.Size = new Size(125, 25);
+            label2.Size = new Size(121, 25);
             label2.TabIndex = 7;
             label2.Text = "Çıkış Deposu ";
             // 
@@ -121,15 +121,15 @@
             dtpBaslangic.Font = new Font("Segoe UI", 11F);
             dtpBaslangic.Location = new Point(20, 116);
             dtpBaslangic.Name = "dtpBaslangic";
-            dtpBaslangic.Size = new Size(244, 32);
+            dtpBaslangic.Size = new Size(180, 32);
             dtpBaslangic.TabIndex = 10;
             // 
             // dtpBitis
             // 
             dtpBitis.Font = new Font("Segoe UI", 11F);
-            dtpBitis.Location = new Point(306, 116);
+            dtpBitis.Location = new Point(220, 116);
             dtpBitis.Name = "dtpBitis";
-            dtpBitis.Size = new Size(240, 32);
+            dtpBitis.Size = new Size(180, 32);
             dtpBitis.TabIndex = 11;
             // 
             // label4
@@ -139,7 +139,7 @@
             label4.ForeColor = Color.FromArgb(71, 85, 105);
             label4.Location = new Point(20, 94);
             label4.Name = "label4";
-            label4.Size = new Size(143, 25);
+            label4.Size = new Size(142, 25);
             label4.TabIndex = 12;
             label4.Text = "Başlangıç Tarihi";
             // 
@@ -148,9 +148,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F);
             label5.ForeColor = Color.FromArgb(71, 85, 105);
-            label5.Location = new Point(306, 94);
+            label5.Location = new Point(220, 94);
             label5.Name = "label5";
-            label5.Size = new Size(98, 25);
+            label5.Size = new Size(97, 25);
             label5.TabIndex = 13;
             label5.Text = "Bitiş Tarihi";
             // 
@@ -215,7 +215,7 @@
             btnListele.FlatStyle = FlatStyle.Flat;
             btnListele.Font = new Font("Segoe UI", 10F);
             btnListele.ForeColor = Color.FromArgb(30, 41, 59);
-            btnListele.Location = new Point(706, 116);
+            btnListele.Location = new Point(540, 116);
             btnListele.Name = "btnListele";
             btnListele.Size = new Size(110, 33);
             btnListele.TabIndex = 18;
@@ -238,7 +238,7 @@
             label7.ForeColor = Color.FromArgb(71, 85, 105);
             label7.Location = new Point(420, 24);
             label7.Name = "label7";
-            label7.Size = new Size(120, 25);
+            label7.Size = new Size(119, 25);
             label7.TabIndex = 20;
             label7.Text = "Fiş Numarası";
             // 
@@ -250,7 +250,7 @@
             btnSifirla.FlatStyle = FlatStyle.Flat;
             btnSifirla.Font = new Font("Segoe UI", 10F);
             btnSifirla.ForeColor = Color.FromArgb(30, 41, 59);
-            btnSifirla.Location = new Point(576, 116);
+            btnSifirla.Location = new Point(420, 116);
             btnSifirla.Name = "btnSifirla";
             btnSifirla.Size = new Size(110, 33);
             btnSifirla.TabIndex = 21;
