@@ -25,6 +25,7 @@ namespace StokTakipSistemi
             pnlCard.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 14);
             this.Resize += (s, e) => AutoLayoutControls();
             AutoLayoutControls();
+            this.AcceptButton = BtnKayitOnayla;
         }
 
         private void AutoLayoutControls()
@@ -81,7 +82,7 @@ namespace StokTakipSistemi
 
         private void KayitForm_Load(object sender, EventArgs e)
         {
-
+            this.ActiveControl = AdTxtBox;
         }
 
         private void AdTxtBox_TextChanged(object sender, EventArgs e)

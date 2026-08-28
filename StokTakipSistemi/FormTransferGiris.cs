@@ -19,6 +19,7 @@ namespace StokTakipSistemi
         public FormTransferGiris()
         {
             InitializeComponent();
+            this.AcceptButton = btnTransferiKaydet;
         }
 
         public List<TransferListe> _sepet = new List<TransferListe>();

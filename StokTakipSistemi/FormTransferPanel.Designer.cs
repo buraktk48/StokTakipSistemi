@@ -156,7 +156,7 @@
             label3.ForeColor = Color.FromArgb(71, 85, 105);
             label3.Location = new Point(200, 24);
             label3.Name = "label3";
-            label3.Size = new Size(106, 25);
+            label3.Size = new Size(105, 25);
             label3.TabIndex = 6;
             label3.Text = "Çıkış Depo:";
             label3.Click += label3_Click;
@@ -188,9 +188,9 @@
             btnTransferGirisi.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnTransferGirisi.ForeColor = Color.White;
             btnTransferGirisi.Image = (Image)resources.GetObject("btnTransferGirisi.Image");
-            btnTransferGirisi.Location = new Point(1110, 42);
+            btnTransferGirisi.Location = new Point(1086, 42);
             btnTransferGirisi.Name = "btnTransferGirisi";
-            btnTransferGirisi.Size = new Size(210, 45);
+            btnTransferGirisi.Size = new Size(234, 45);
             btnTransferGirisi.TabIndex = 3;
             btnTransferGirisi.Text = " Yeni Transfer Girişi";
             btnTransferGirisi.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -204,7 +204,7 @@
             label2.ForeColor = Color.FromArgb(71, 85, 105);
             label2.Location = new Point(20, 24);
             label2.Name = "label2";
-            label2.Size = new Size(106, 25);
+            label2.Size = new Size(102, 25);
             label2.TabIndex = 1;
             label2.Text = "Fiş No Ara:";
             // 
@@ -356,7 +356,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvTransferler).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvTransferDetay).EndInit();
             groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 

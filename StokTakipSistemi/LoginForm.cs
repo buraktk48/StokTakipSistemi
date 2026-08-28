@@ -20,6 +20,7 @@ namespace StokTakipSistemi
             pnlLoginCard.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 14);
             this.Resize += (s, e) => AutoLayoutControls();
             AutoLayoutControls();
+            this.AcceptButton = BtnGiris; 
         }
 
         private void AutoLayoutControls()
@@ -32,6 +33,7 @@ namespace StokTakipSistemi
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = txtGirisKulAd;
         }
 
         private void BtnKayitOl_Click(object sender, EventArgs e)
@@ -65,12 +67,9 @@ namespace StokTakipSistemi
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Session.AktifKullanici = giris_yapan_kullanici;
-                this.Hide();
-
-                AnaForm anaForm = new AnaForm();
-                anaForm.ShowDialog();
-
-                this.Show();
+                
+                this.DialogResult = DialogResult.OK;
+                this.Close();
 
                 txtGirisKulAd.Clear();
                 txtGirisSifre.Clear();

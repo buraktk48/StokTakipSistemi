@@ -1,3 +1,5 @@
+using StokTakipSistemi.Helpers;
+
 namespace StokTakipSistemi
 {
     internal static class Program
@@ -11,7 +13,42 @@ namespace StokTakipSistemi
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+
+
+            while (true)
+            {
+                using (var loginForm = new LoginForm())
+                {
+                    if (loginForm.ShowDialog() != DialogResult.OK)
+                    {
+                        break;
+                    }
+                }
+
+                Application.Run(new AnaForm());
+
+                if (Session.OturumAcikMi)
+                {
+                    break;
+                }
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            
         }
     }
 }

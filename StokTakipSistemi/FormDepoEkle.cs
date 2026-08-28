@@ -32,6 +32,7 @@ namespace StokTakipSistemi
             pnlCard.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 14);
             this.Resize += (s, e) => AutoLayoutControls();
             AutoLayoutControls();
+            this.AcceptButton = btnDepoGiris;
         }
 
         private void AutoLayoutControls()
