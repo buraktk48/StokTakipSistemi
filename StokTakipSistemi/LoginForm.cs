@@ -51,42 +51,35 @@ namespace StokTakipSistemi
                 return;
             }
 
-            var kullaniciService = new KullaniciService();
-
-
-            bool basariliMi = kullaniciService.GirisYap(
-                txtGirisKulAd.Text.Trim(),
-                txtGirisSifre.Text.Trim(),
-                out string gelenMesaj,
-                out Kullanici giris_yapan_kullanici
-            );
-
-
-            if (basariliMi)
+            try
             {
-                MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var kullaniciService = new KullaniciService();
 
-                Session.AktifKullanici = giris_yapan_kullanici;
-                
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                bool basariliMi = kullaniciService.GirisYap(
+                    txtGirisKulAd.Text.Trim(),
+                    txtGirisSifre.Text.Trim(),
+                    out string gelenMesaj,
+                    out Kullanici giris_yapan_kullanici
+                );
 
-                txtGirisKulAd.Clear();
-                txtGirisSifre.Clear();
+                if (basariliMi)
+                {
+                    MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-
-
+                    Session.AktifKullanici = giris_yapan_kullanici;
+                    
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Beklenmedik bir hata oluştu: " + ex.Message, "Sistem Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
-
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

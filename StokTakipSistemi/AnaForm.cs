@@ -159,11 +159,6 @@ namespace StokTakipSistemi
 
         private void AnaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-            if (Session.OturumAcikMi)
-            {
-                Application.Exit();
-            }
         }
 
         private void btnStok_Click(object sender, EventArgs e)
