@@ -136,6 +136,8 @@ namespace StokTakipSistemi
         {
             FormManuelUrunGiris formManuelUrunGiris = new FormManuelUrunGiris();
             formManuelUrunGiris.ShowDialog();
+
+            UrunListele(txtAra.Text.Trim());
         }
 
         private void btnYenile_Click(object sender, EventArgs e)
@@ -161,12 +163,22 @@ namespace StokTakipSistemi
             FormUrunGuncelle formGuncelle = new FormUrunGuncelle(urunId, urunKodu, urunAdi, birim, kdv);
             formGuncelle.ShowDialog();
 
+            UrunListele(txtAra.Text.Trim());
+
 
         }
 
         private void btnUrunSil_Click(object sender, EventArgs e)
         {
-            int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["ID"].Value?.ToString() ?? "0");
+
+            if (dgvUrunler.CurrentRow == null)
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz ürünü tablodan seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            int urunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
 
             DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -181,6 +193,7 @@ namespace StokTakipSistemi
             if (gelen)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UrunListele("");
 
 
             }
@@ -198,11 +211,7 @@ namespace StokTakipSistemi
             FormExcelUrunEkle formExcelUrunEkle = new FormExcelUrunEkle();
             formExcelUrunEkle.ShowDialog();
 
-
-
-
-
-
+            UrunListele("");
 
         }
 

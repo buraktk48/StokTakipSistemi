@@ -77,9 +77,6 @@ namespace StokTakipSistemi
             if (basariliMi)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormUrunPanel form = Application.OpenForms["FormUrunPanel"] as FormUrunPanel;
-
-                if (form != null) { form.UrunListele(""); }
                 FormTemizle();
                 
 
