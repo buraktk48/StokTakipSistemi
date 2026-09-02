@@ -14,6 +14,10 @@ namespace StokTakipSistemi
             ApplyCustomStyles();
         }
 
+        string kullaniciAdi = Session.AktifKullanici != null
+                ? $"{Session.AktifKullanici.ad} {Session.AktifKullanici.soyad}"
+                : "Kullanıcı";
+
         private void ApplyCustomStyles()
         {
             panel2.Paint += (s, e) => UIHelper.DrawCardBorder(s, e, 12);
@@ -120,10 +124,6 @@ namespace StokTakipSistemi
         {
             label1.Text = "Stok Takip Programı";
 
-            string kullaniciAdi = Session.AktifKullanici != null
-                ? $"{Session.AktifKullanici.ad} {Session.AktifKullanici.soyad}"
-                : "Kullanıcı";
-
             lblHeaderUser.Text = $"Hoş Geldin, {kullaniciAdi} | {DateTime.Now:dd MMMM yyyy, HH:mm}";
 
             lblFooter.Text = $"© {DateTime.Now.Year} Dalaman Belediyesi ";
@@ -141,6 +141,8 @@ namespace StokTakipSistemi
         {
             FormDepoPanel FormDepoPanel = new FormDepoPanel();
             FormDepoPanel.ShowDialog();
+
+            IstatistikleriGetir();
         }
 
         private void btnCikisYap_Click(object sender, EventArgs e)
@@ -165,12 +167,16 @@ namespace StokTakipSistemi
         {
             FormStokPanel formStokPanel = new FormStokPanel();
             formStokPanel.ShowDialog();
+
+            IstatistikleriGetir();
         }
 
         private void btnTransferPanel_Click(object sender, EventArgs e)
         {
             FormTransferPanel formTransferPanel = new FormTransferPanel();
             formTransferPanel.ShowDialog();
+
+            IstatistikleriGetir();
 
         }
 
@@ -183,6 +189,30 @@ namespace StokTakipSistemi
 
         private void lblFooter_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHeaderUser.Text = $"Hoş Geldin, {kullaniciAdi} | {DateTime.Now:dd MMMM yyyy, HH:mm}";
+        }
+
+        private void AnaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Session.OturumAcikMi)
+            {
+                var onay = MessageBox.Show("Programı kapatmak istediğinze emin misiniz?",
+                    "Programdan Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (onay== DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+
+            }
+
+            
+
 
         }
     }

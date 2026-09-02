@@ -28,6 +28,7 @@ namespace StokTakipSistemi
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaForm));
             label1 = new Label();
             lblHeaderUser = new Label();
@@ -49,6 +50,7 @@ namespace StokTakipSistemi
             lblTransferDepo = new Label();
             label7 = new Label();
             lblFooter = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -322,6 +324,10 @@ namespace StokTakipSistemi
             lblFooter.TextAlign = ContentAlignment.MiddleRight;
             lblFooter.Click += lblFooter_Click;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // AnaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -343,6 +349,7 @@ namespace StokTakipSistemi
             Name = "AnaForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Stok Takip Programı | Ana Sayfa";
+            FormClosing += AnaForm_FormClosing;
             Load += AnaForm_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -373,6 +380,7 @@ namespace StokTakipSistemi
         private Label label7;
         private Label lblTransferDepo;
         private Label lblFooter;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

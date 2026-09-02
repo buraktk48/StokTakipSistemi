@@ -87,9 +87,6 @@ namespace StokTakipSistemi
             txtGirisSifre.UseSystemPasswordChar = !checkBox1.Checked;
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
