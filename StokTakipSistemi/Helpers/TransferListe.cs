@@ -25,6 +25,8 @@ namespace StokTakipSistemi.Helpers
         
         public string birim {  get; set; }
 
+        public DateTime tarih { get; set; }
+
 
 
         

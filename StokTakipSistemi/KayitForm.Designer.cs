@@ -149,7 +149,6 @@ namespace StokTakipSistemi
             label4.Size = new Size(54, 30);
             label4.TabIndex = 3;
             label4.Text = "Şifre";
-            label4.Click += label4_Click;
             // 
             // KulAdTxtBox
             // 
@@ -168,7 +167,6 @@ namespace StokTakipSistemi
             AdTxtBox.Name = "AdTxtBox";
             AdTxtBox.Size = new Size(400, 35);
             AdTxtBox.TabIndex = 4;
-            AdTxtBox.TextChanged += AdTxtBox_TextChanged;
             // 
             // SoyadTxtBox
             // 

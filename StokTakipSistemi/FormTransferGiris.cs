@@ -104,7 +104,9 @@ namespace StokTakipSistemi
                 varis_depo_id = varisdepo.id,
                 Varis_Depo_Adi = varisdepo.ad,
 
-                miktar = miktar
+                miktar = miktar,
+
+                tarih = dtpTarih.Value
             };
 
             _sepet.Add(eleman);
@@ -120,6 +122,7 @@ namespace StokTakipSistemi
             dgvListe.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
             dgvListe.Columns["Cikis_Depo_Adi"].HeaderText = "Çıkış Deposu";
             dgvListe.Columns["Varis_Depo_Adi"].HeaderText = "Varış Deposu";
+            dgvListe.Columns["tarih"].HeaderText = "Transfer Tarihi";
 
 
             cboxCikisDepo.Enabled = false;

@@ -48,7 +48,8 @@ namespace StokTakipSistemi.Services
                     cikis_depo_id = sepet[0].cikis_depo_id,
                     varis_depo_id= sepet[0].varis_depo_id,
                     fis_numarasi = sepet[0].Fis_Numarasi,
-                    transfer_kullanici_id = kullanici_id
+                    transfer_kullanici_id = kullanici_id,
+                    olusturulma_zamani = sepet[0].tarih
 
                 };
 
@@ -66,9 +67,12 @@ namespace StokTakipSistemi.Services
                     };
 
                     var cikis_deposu = context.DepoStoklari.FirstOrDefault(s => s.depo_id == item.cikis_depo_id && s.urun_id == item.urun_id);
-                    
-                    cikis_deposu.miktar -= transferDetay.miktar;
-                    
+
+                    if (cikis_deposu!=null)
+                    {
+                        cikis_deposu.miktar -= transferDetay.miktar;
+                    }
+
 
                     var varis_deposu = context.DepoStoklari.FirstOrDefault(s => s.depo_id == item.varis_depo_id && s.urun_id == item.urun_id);
 
