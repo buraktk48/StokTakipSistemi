@@ -75,7 +75,7 @@ namespace StokTakipSistemi
             {
             using (var context = new AppDbContext())
             {
-                var sorgu = context.TransferDetaylari.AsNoTracking().AsQueryable();
+                var sorgu = context.TransferDetaylari.AsNoTracking();
 
                 if (CikisDepoId != null)
                 {

@@ -47,6 +47,8 @@ namespace StokTakipSistemi
             {
                 using (var context = new AppDbContext())
                 {
+                    //Buralarda await yazılmamasının sebebi ortada sorgu hazırlanıyor sql ile ilgili bir şey yok
+
                     var sorgu = context.Depolar
                         .AsNoTracking()
                         .Where(r => r.ad.Contains(aranan));

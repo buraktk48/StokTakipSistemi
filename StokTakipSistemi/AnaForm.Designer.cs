@@ -219,7 +219,7 @@ namespace StokTakipSistemi
             lblToplamDepo.Name = "lblToplamDepo";
             lblToplamDepo.Size = new Size(383, 80);
             lblToplamDepo.TabIndex = 1;
-            lblToplamDepo.Text = "15";
+            lblToplamDepo.Text = "-";
             lblToplamDepo.TextAlign = ContentAlignment.TopCenter;
             // 
             // label2
@@ -252,7 +252,7 @@ namespace StokTakipSistemi
             lblStokluUrun.Name = "lblStokluUrun";
             lblStokluUrun.Size = new Size(383, 80);
             lblStokluUrun.TabIndex = 1;
-            lblStokluUrun.Text = "8.450";
+            lblStokluUrun.Text = "-";
             lblStokluUrun.TextAlign = ContentAlignment.TopCenter;
             // 
             // label5
@@ -286,7 +286,7 @@ namespace StokTakipSistemi
             lblSonTransfer.Name = "lblSonTransfer";
             lblSonTransfer.Size = new Size(383, 47);
             lblSonTransfer.TabIndex = 1;
-            lblSonTransfer.Text = "Bugün, 09:15";
+            lblSonTransfer.Text = "Yükleniyor, --:--";
             lblSonTransfer.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblTransferDepo
@@ -297,7 +297,7 @@ namespace StokTakipSistemi
             lblTransferDepo.Name = "lblTransferDepo";
             lblTransferDepo.Size = new Size(383, 32);
             lblTransferDepo.TabIndex = 2;
-            lblTransferDepo.Text = "Depo A -> Depo B";
+            lblTransferDepo.Text = "Yükleniyor -> Yükleniyor";
             lblTransferDepo.TextAlign = ContentAlignment.TopCenter;
             // 
             // label7

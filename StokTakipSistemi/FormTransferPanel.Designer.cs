@@ -108,7 +108,7 @@
             btnSifirla.ForeColor = Color.FromArgb(30, 41, 59);
             btnSifirla.Location = new Point(600, 50);
             btnSifirla.Name = "btnSifirla";
-            btnSifirla.Size = new Size(100, 33);
+            btnSifirla.Size = new Size(131, 33);
             btnSifirla.TabIndex = 22;
             btnSifirla.Text = "Sıfırla";
             btnSifirla.UseVisualStyleBackColor = false;
@@ -170,9 +170,9 @@
             btnTransferYenile.Font = new Font("Segoe UI", 10F);
             btnTransferYenile.ForeColor = Color.FromArgb(30, 41, 59);
             btnTransferYenile.Image = (Image)resources.GetObject("btnTransferYenile.Image");
-            btnTransferYenile.Location = new Point(710, 50);
+            btnTransferYenile.Location = new Point(758, 50);
             btnTransferYenile.Name = "btnTransferYenile";
-            btnTransferYenile.Size = new Size(110, 33);
+            btnTransferYenile.Size = new Size(143, 33);
             btnTransferYenile.TabIndex = 5;
             btnTransferYenile.Text = " Yenile";
             btnTransferYenile.TextImageRelation = TextImageRelation.ImageBeforeText;

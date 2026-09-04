@@ -42,7 +42,7 @@ namespace StokTakipSistemi
             {
                 using (var context = new AppDbContext())
                 {
-                    var sorgu = context.Transferler.AsNoTracking().AsQueryable();
+                    var sorgu = context.Transferler.AsNoTracking();
 
                     if (!string.IsNullOrWhiteSpace(aranan))
                     {
@@ -170,7 +170,9 @@ namespace StokTakipSistemi
 
                 using (var context = new AppDbContext())
                 {
-                    var query = context.TransferDetaylari.AsNoTracking().AsQueryable();
+                    //Buralarda await yazılmamasının sebebi ortada sorgu hazırlanıyor sql ile ilgili bir şey yok
+
+                    var query = context.TransferDetaylari.AsNoTracking();
 
                     if (!string.IsNullOrWhiteSpace(FisNo))
                     {
