@@ -14,7 +14,7 @@ namespace StokTakipSistemi
             InitializeComponent();
             ApplyCustomStyles();
 
-            AramaZamanlayici.AramaSinirlayici(txtAra,(aranan) => 
+            AramaZamanlayici.AramaSinirlayici(txtAra, (aranan) =>
             {
                 suanki_sayfa = 1;
                 UrunleriListele(aranan);
@@ -89,23 +89,22 @@ namespace StokTakipSistemi
 
 
         }
-        
+
         public int SecilenUrunId { get; private set; }
         public string SecilenUrunKodu { get; private set; } = string.Empty;
         public string SecilenUrunAdi { get; private set; } = string.Empty;
         public string SecilenBirim { get; private set; } = string.Empty;
         public decimal SecilenKdv { get; private set; }
 
-        
+
 
 
 
         private void ApplyCustomStyles()
         {
-            // DataGridView modernizasyonu
+
             UIHelper.ModernizeDataGridView(dgvUrunler);
 
-            // Köşeleri ovalleştirme
             UIHelper.SetRoundedRegion(btnSec, 8);
             UIHelper.SetRoundedRegion(btnIptal, 8);
             UIHelper.SetRoundedRegion(btnIlkSayfa, 6);
@@ -113,12 +112,11 @@ namespace StokTakipSistemi
             UIHelper.SetRoundedRegion(btnSonraki, 6);
             UIHelper.SetRoundedRegion(btnSonSayfa, 6);
 
-            // Klavye kısayolları (Enter = Seç, Esc = Vazgeç)
+
             this.AcceptButton = btnSec;
             this.CancelButton = btnIptal;
 
-            // Form açıldığında doğrudan arama kutusuna odaklan
-            this.Shown += (s, e) => txtAra.Focus();
+            this.ActiveControl = txtAra;
 
             // İptal butonu formu kapatsın
             btnIptal.Click += (s, e) =>
@@ -142,7 +140,22 @@ namespace StokTakipSistemi
 
         }
 
-        
+        private void btnSec_Click(object sender, EventArgs e)
+        {
+            SecilenUrunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
+            SecilenUrunKodu = dgvUrunler.CurrentRow.Cells["Urun_Kodu"].Value?.ToString() ?? "0";
+            SecilenUrunAdi = dgvUrunler.CurrentRow.Cells["urun_adi"].Value?.ToString()?? "0";
+            SecilenBirim = dgvUrunler.CurrentRow.Cells["Birim"].Value?.ToString() ?? "0";
+            SecilenKdv = Convert.ToDecimal( dgvUrunler.CurrentRow.Cells["KDV"].Value?.ToString()?? "0");
+
+            DialogResult = DialogResult.OK;
+            this.Close();
+
+
+
+
+
+        }
     }
 }
 

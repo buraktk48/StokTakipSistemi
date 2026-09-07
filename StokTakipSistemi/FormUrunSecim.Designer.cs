@@ -28,7 +28,7 @@ namespace StokTakipSistemi
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             labelHeader = new Label();
             groupBoxArama = new GroupBox();
@@ -110,8 +110,8 @@ namespace StokTakipSistemi
             // 
             dgvUrunler.AllowUserToAddRows = false;
             dgvUrunler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
-            dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvUrunler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvUrunler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUrunler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -229,12 +229,13 @@ namespace StokTakipSistemi
             btnSec.FlatStyle = FlatStyle.Flat;
             btnSec.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnSec.ForeColor = Color.White;
-            btnSec.Location = new Point(731, 18);
+            btnSec.Location = new Point(329, 18);
             btnSec.Name = "btnSec";
             btnSec.Size = new Size(160, 42);
             btnSec.TabIndex = 0;
             btnSec.Text = "Seç";
             btnSec.UseVisualStyleBackColor = false;
+            btnSec.Click += btnSec_Click;
             // 
             // btnIptal
             // 
@@ -245,14 +246,14 @@ namespace StokTakipSistemi
             btnIptal.FlatStyle = FlatStyle.Flat;
             btnIptal.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnIptal.ForeColor = Color.FromArgb(71, 85, 105);
-            btnIptal.Location = new Point(901, 18);
+            btnIptal.Location = new Point(513, 18);
             btnIptal.Name = "btnIptal";
             btnIptal.Size = new Size(115, 42);
             btnIptal.TabIndex = 1;
             btnIptal.Text = "Vazgeç";
             btnIptal.UseVisualStyleBackColor = false;
             // 
-            // FormUrunSecimModal
+            // FormUrunSecim
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -268,7 +269,7 @@ namespace StokTakipSistemi
             MaximizeBox = false;
             MinimizeBox = false;
             MinimumSize = new Size(800, 500);
-            Name = "FormUrunSecimModal";
+            Name = "FormUrunSecim";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Stok Takip Sistemi | Ürün Seç";
             Load += FormUrunSecimModal_Load;

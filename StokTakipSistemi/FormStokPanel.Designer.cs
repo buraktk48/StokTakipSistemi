@@ -44,15 +44,15 @@ namespace StokTakipSistemi
             btnTemizle = new Button();
             dgvDepoStok = new DataGridView();
             groupBox1 = new GroupBox();
+            btnUrunSecim = new Button();
             btnYenile = new Button();
-            cboxUrun = new ComboBox();
             groupBox2 = new GroupBox();
             label6 = new Label();
             txtArama = new TextBox();
             groupBox3 = new GroupBox();
             btnIlkSayfa = new Button();
-            lblSayfa = new Label();
             btnOnceki = new Button();
+            lblSayfa = new Label();
             btnSonraki = new Button();
             btnSonSayfa = new Button();
             panel1.SuspendLayout();
@@ -62,7 +62,6 @@ namespace StokTakipSistemi
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
-            // 
             // 
             // panel1
             // 
@@ -92,7 +91,7 @@ namespace StokTakipSistemi
             label1.ForeColor = Color.FromArgb(71, 85, 105);
             label1.Location = new Point(40, 30);
             label1.Name = "label1";
-            label1.Size = new Size(62, 30);
+            label1.Size = new Size(63, 30);
             label1.TabIndex = 1;
             label1.Text = "Depo";
             // 
@@ -114,7 +113,7 @@ namespace StokTakipSistemi
             label3.ForeColor = Color.FromArgb(71, 85, 105);
             label3.Location = new Point(820, 30);
             label3.Name = "label3";
-            label3.Size = new Size(74, 30);
+            label3.Size = new Size(72, 30);
             label3.TabIndex = 3;
             label3.Text = "Miktar";
             // 
@@ -125,7 +124,7 @@ namespace StokTakipSistemi
             label4.ForeColor = Color.FromArgb(71, 85, 105);
             label4.Location = new Point(1060, 30);
             label4.Name = "label4";
-            label4.Size = new Size(63, 30);
+            label4.Size = new Size(62, 30);
             label4.TabIndex = 4;
             label4.Text = "İşlem";
             // 
@@ -137,7 +136,7 @@ namespace StokTakipSistemi
             cboxDepo.FormattingEnabled = true;
             cboxDepo.Location = new Point(40, 65);
             cboxDepo.Name = "cboxDepo";
-            cboxDepo.Size = new Size(350, 36);
+            cboxDepo.Size = new Size(350, 38);
             cboxDepo.TabIndex = 5;
             // 
             // numericUpDown1
@@ -156,7 +155,7 @@ namespace StokTakipSistemi
             rbtnStokEkle.ForeColor = Color.FromArgb(30, 41, 59);
             rbtnStokEkle.Location = new Point(1060, 65);
             rbtnStokEkle.Name = "rbtnStokEkle";
-            rbtnStokEkle.Size = new Size(122, 34);
+            rbtnStokEkle.Size = new Size(116, 34);
             rbtnStokEkle.TabIndex = 8;
             rbtnStokEkle.TabStop = true;
             rbtnStokEkle.Text = "Stok Ekle";
@@ -169,7 +168,7 @@ namespace StokTakipSistemi
             rbtnStokDus.ForeColor = Color.FromArgb(30, 41, 59);
             rbtnStokDus.Location = new Point(1190, 65);
             rbtnStokDus.Name = "rbtnStokDus";
-            rbtnStokDus.Size = new Size(120, 34);
+            rbtnStokDus.Size = new Size(115, 34);
             rbtnStokDus.TabIndex = 9;
             rbtnStokDus.TabStop = true;
             rbtnStokDus.Text = "Stok Düş";
@@ -224,8 +223,8 @@ namespace StokTakipSistemi
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(btnUrunSecim);
             groupBox1.Controls.Add(btnYenile);
-            groupBox1.Controls.Add(cboxUrun);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
@@ -242,6 +241,22 @@ namespace StokTakipSistemi
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             // 
+            // btnUrunSecim
+            // 
+            btnUrunSecim.BackColor = Color.White;
+            btnUrunSecim.Cursor = Cursors.Hand;
+            btnUrunSecim.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnUrunSecim.FlatStyle = FlatStyle.Flat;
+            btnUrunSecim.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
+            btnUrunSecim.ForeColor = Color.FromArgb(30, 41, 59);
+            btnUrunSecim.Location = new Point(446, 63);
+            btnUrunSecim.Name = "btnUrunSecim";
+            btnUrunSecim.Size = new Size(283, 48);
+            btnUrunSecim.TabIndex = 14;
+            btnUrunSecim.Text = "Ürün Seçim Paneli";
+            btnUrunSecim.UseVisualStyleBackColor = false;
+            btnUrunSecim.Click += btnUrunSecim_Click;
+            // 
             // btnYenile
             // 
             btnYenile.BackColor = Color.White;
@@ -257,17 +272,6 @@ namespace StokTakipSistemi
             btnYenile.Text = "Yenile";
             btnYenile.UseVisualStyleBackColor = false;
             btnYenile.Click += btnYenile_Click;
-            // 
-            // cboxUrun
-            // 
-            cboxUrun.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cboxUrun.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxUrun.Font = new Font("Segoe UI", 12.5F);
-            cboxUrun.FormattingEnabled = true;
-            cboxUrun.Location = new Point(430, 65);
-            cboxUrun.Name = "cboxUrun";
-            cboxUrun.Size = new Size(350, 36);
-            cboxUrun.TabIndex = 12;
             // 
             // groupBox2
             // 
@@ -288,7 +292,7 @@ namespace StokTakipSistemi
             label6.ForeColor = Color.FromArgb(71, 85, 105);
             label6.Location = new Point(611, 16);
             label6.Name = "label6";
-            label6.Size = new Size(117, 30);
+            label6.Size = new Size(118, 30);
             label6.TabIndex = 1;
             label6.Text = "Arama Yap:";
             // 
@@ -334,17 +338,6 @@ namespace StokTakipSistemi
             btnIlkSayfa.UseVisualStyleBackColor = false;
             btnIlkSayfa.Click += btnIlkSayfa_Click;
             // 
-            // lblSayfa
-            // 
-            lblSayfa.Font = new Font("Segoe UI", 10F);
-            lblSayfa.ForeColor = Color.FromArgb(71, 85, 105);
-            lblSayfa.Location = new Point(280, 18);
-            lblSayfa.Name = "lblSayfa";
-            lblSayfa.Size = new Size(240, 26);
-            lblSayfa.TabIndex = 11;
-            lblSayfa.Text = "Sayfa 0/10";
-            lblSayfa.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // btnOnceki
             // 
             btnOnceki.BackColor = Color.White;
@@ -361,6 +354,17 @@ namespace StokTakipSistemi
             btnOnceki.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnOnceki.UseVisualStyleBackColor = false;
             btnOnceki.Click += btnOnceki_Click;
+            // 
+            // lblSayfa
+            // 
+            lblSayfa.Font = new Font("Segoe UI", 10F);
+            lblSayfa.ForeColor = Color.FromArgb(71, 85, 105);
+            lblSayfa.Location = new Point(280, 18);
+            lblSayfa.Name = "lblSayfa";
+            lblSayfa.Size = new Size(240, 26);
+            lblSayfa.TabIndex = 11;
+            lblSayfa.Text = "Sayfa 0/10";
+            lblSayfa.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnSonraki
             // 
@@ -438,7 +442,6 @@ namespace StokTakipSistemi
         private Button btnTemizle;
         private DataGridView dgvDepoStok;
         private GroupBox groupBox1;
-        private ComboBox cboxUrun;
         private Label label5;
         private Button btnYenile;
         private GroupBox groupBox2;
@@ -450,6 +453,7 @@ namespace StokTakipSistemi
         private Button btnOnceki;
         private Button btnSonraki;
         private Button btnSonSayfa;
+        private Button btnUrunSecim;
     }
 }
 
