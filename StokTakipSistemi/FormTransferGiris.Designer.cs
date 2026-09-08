@@ -29,7 +29,7 @@ namespace StokTakipSistemi
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransferGiris));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -40,16 +40,16 @@ namespace StokTakipSistemi
             label4 = new Label();
             label3 = new Label();
             groupBox2 = new GroupBox();
+            btnUrunSecim = new Button();
+            dtpTarih = new DateTimePicker();
             label7 = new Label();
             btnListeyeEkle = new Button();
             label5 = new Label();
             numericUpDown1 = new NumericUpDown();
-            cboxUrun = new ComboBox();
             label2 = new Label();
             dgvListe = new DataGridView();
             btnTransferiKaydet = new Button();
             btnTransferSil = new Button();
-            dtpTarih = new DateTimePicker();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -166,12 +166,12 @@ namespace StokTakipSistemi
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(btnUrunSecim);
             groupBox2.Controls.Add(dtpTarih);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(btnListeyeEkle);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(numericUpDown1);
-            groupBox2.Controls.Add(cboxUrun);
             groupBox2.Controls.Add(label2);
             groupBox2.Location = new Point(40, 195);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
@@ -180,6 +180,29 @@ namespace StokTakipSistemi
             groupBox2.Size = new Size(1342, 95);
             groupBox2.TabIndex = 14;
             groupBox2.TabStop = false;
+            // 
+            // btnUrunSecim
+            // 
+            btnUrunSecim.BackColor = Color.White;
+            btnUrunSecim.Cursor = Cursors.Hand;
+            btnUrunSecim.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnUrunSecim.FlatStyle = FlatStyle.Flat;
+            btnUrunSecim.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
+            btnUrunSecim.ForeColor = Color.FromArgb(30, 41, 59);
+            btnUrunSecim.Location = new Point(176, 29);
+            btnUrunSecim.Name = "btnUrunSecim";
+            btnUrunSecim.Size = new Size(283, 48);
+            btnUrunSecim.TabIndex = 23;
+            btnUrunSecim.Text = "Ürün Seçim Paneli";
+            btnUrunSecim.UseVisualStyleBackColor = false;
+            btnUrunSecim.Click += btnUrunSecim_Click;
+            // 
+            // dtpTarih
+            // 
+            dtpTarih.Location = new Point(876, 37);
+            dtpTarih.Name = "dtpTarih";
+            dtpTarih.Size = new Size(230, 27);
+            dtpTarih.TabIndex = 22;
             // 
             // label7
             // 
@@ -216,7 +239,7 @@ namespace StokTakipSistemi
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12.5F);
             label5.ForeColor = Color.FromArgb(71, 85, 105);
-            label5.Location = new Point(450, 38);
+            label5.Location = new Point(466, 38);
             label5.Name = "label5";
             label5.Size = new Size(77, 30);
             label5.TabIndex = 14;
@@ -225,23 +248,11 @@ namespace StokTakipSistemi
             // numericUpDown1
             // 
             numericUpDown1.Font = new Font("Segoe UI", 12.5F);
-            numericUpDown1.Location = new Point(535, 34);
+            numericUpDown1.Location = new Point(551, 34);
             numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 35);
             numericUpDown1.TabIndex = 16;
-            // 
-            // cboxUrun
-            // 
-            cboxUrun.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cboxUrun.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cboxUrun.Font = new Font("Segoe UI", 12.5F);
-            cboxUrun.FormattingEnabled = true;
-            cboxUrun.Location = new Point(176, 34);
-            cboxUrun.Margin = new Padding(3, 2, 3, 2);
-            cboxUrun.Name = "cboxUrun";
-            cboxUrun.Size = new Size(250, 38);
-            cboxUrun.TabIndex = 15;
             // 
             // label2
             // 
@@ -256,8 +267,8 @@ namespace StokTakipSistemi
             // 
             // dgvListe
             // 
-            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
-            dgvListe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dgvListe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvListe.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -309,13 +320,6 @@ namespace StokTakipSistemi
             btnTransferSil.UseVisualStyleBackColor = false;
             btnTransferSil.Click += btnTransferSil_Click;
             // 
-            // dtpTarih
-            // 
-            dtpTarih.Location = new Point(876, 37);
-            dtpTarih.Name = "dtpTarih";
-            dtpTarih.Size = new Size(230, 27);
-            dtpTarih.TabIndex = 22;
-            // 
             // FormTransferGiris
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -353,7 +357,6 @@ namespace StokTakipSistemi
         private Label label4;
         private Label label3;
         private GroupBox groupBox2;
-        private ComboBox cboxUrun;
         private Label label2;
         private Label label5;
         private NumericUpDown numericUpDown1;
@@ -365,6 +368,7 @@ namespace StokTakipSistemi
         private Button btnTransferSil;
         private Label label7;
         private DateTimePicker dtpTarih;
+        private Button btnUrunSecim;
     }
 }
 

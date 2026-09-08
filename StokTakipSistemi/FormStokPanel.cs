@@ -169,14 +169,12 @@ namespace StokTakipSistemi
             using (var form = new FormUrunSecim())
             {
 
-
-                if (form.ShowDialog() == DialogResult.OK)
+                if (form.ShowDialog() != DialogResult.OK)
                 {
-                    secilenUrunId = form.SecilenUrunId;
+                  return;
                 }
 
-            }
-
+                secilenUrunId = form.SecilenUrunId;
                 int secilenDepoId = (int)cboxDepo.SelectedValue;
 
                 decimal girilenMiktar = numericUpDown1.Value;
@@ -194,8 +192,6 @@ namespace StokTakipSistemi
                 );
 
 
-
-
                 if (basarili)
                 {
                     MessageBox.Show(mesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,6 +203,16 @@ namespace StokTakipSistemi
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
+
+
+
+
+
+                
+
+            }
+
+               
 
             
 

@@ -252,6 +252,7 @@ namespace StokTakipSistemi
             btnIptal.TabIndex = 1;
             btnIptal.Text = "Vazgeç";
             btnIptal.UseVisualStyleBackColor = false;
+            btnIptal.Click += btnIptal_Click;
             // 
             // FormUrunSecim
             // 

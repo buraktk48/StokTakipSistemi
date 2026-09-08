@@ -36,7 +36,7 @@ namespace StokTakipSistemi
             {
                 cboxCikisDepo.DataSource = context.Depolar.ToList();
                 cboxVarisDepo.DataSource = context.Depolar.ToList();
-                cboxUrun.DataSource = context.Urunler.ToList();
+                
 
                 cboxCikisDepo.DisplayMember = "depo_bilgisi";
                 cboxCikisDepo.ValueMember = "id";
@@ -44,8 +44,7 @@ namespace StokTakipSistemi
                 cboxVarisDepo.DisplayMember = "depo_bilgisi";
                 cboxVarisDepo.ValueMember = "id";
 
-                cboxUrun.DisplayMember = "urun_bilgisi";
-                cboxUrun.ValueMember = "id";
+               
 
 
             }
@@ -53,17 +52,16 @@ namespace StokTakipSistemi
 
         private void btnListeyeEkle_Click(object sender, EventArgs e)
         {
-            if (cboxCikisDepo.SelectedValue == null || cboxVarisDepo.SelectedValue == null || cboxUrun.SelectedValue == null)
+            if (cboxCikisDepo.SelectedValue == null || cboxVarisDepo.SelectedValue == null)
             {
-                MessageBox.Show("Lütfen çıkış-varış depolarını ve ürünü seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen çıkış-varış depolarını seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
 
 
             //CS 8600 uyarı kontrolü
-            if (cboxCikisDepo.SelectedItem is not Depo cikisdepo || cboxVarisDepo.SelectedItem is not Depo varisdepo
-                || cboxUrun.SelectedItem is not Urun secilenurun)
+            if (cboxCikisDepo.SelectedItem is not Depo cikisdepo || cboxVarisDepo.SelectedItem is not Depo varisdepo)
             {
                 MessageBox.Show("Geçersiz seçim.");
                 return;
@@ -86,6 +84,26 @@ namespace StokTakipSistemi
                 MessageBox.Show("Lütfen Fiş Numarası Giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            int secilenUrunId = 0;
+            string secilenUrunAdi = "";
+            string secilenUrunBirim = "";
+
+            using (var form = new FormUrunSecim())
+            {
+                if (form.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+
+                }
+
+                secilenUrunId = form.SecilenUrunId;
+                secilenUrunAdi = form.SecilenUrunAdi;
+                secilenUrunBirim = form.SecilenBirim;
+
+
+
+
+            }
 
 
 
@@ -94,9 +112,9 @@ namespace StokTakipSistemi
             var eleman = new TransferListe
             {
                 Fis_Numarasi = txtFisNum.Text.Trim(),
-                urun_id = secilenurun.id,
-                Urun_Adi = secilenurun.urun_adi,
-                birim = secilenurun.birim,
+                urun_id = secilenUrunId,
+                Urun_Adi = secilenUrunAdi,
+                birim = secilenUrunBirim,
 
                 cikis_depo_id = cikisdepo.id,
                 Cikis_Depo_Adi = cikisdepo.ad,
@@ -111,7 +129,7 @@ namespace StokTakipSistemi
 
             _sepet.Add(eleman);
 
-          
+
             // dgv'nin eski bağlantısının koparılması gerek, aynısı zannedip refresh atmıyor"
             dgvListe.DataSource = null;
 
@@ -180,7 +198,7 @@ namespace StokTakipSistemi
                 return;
             }
 
-            
+
 
             DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -205,13 +223,20 @@ namespace StokTakipSistemi
                     }
 
 
-                    MessageBox.Show("Seçilen Transfer Listeden Başarıyla Silindi","Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Seçilen Transfer Listeden Başarıyla Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }   }
+                }
+            }
 
 
 
 
+        }
+
+        private void btnUrunSecim_Click(object sender, EventArgs e)
+        {
+            FormUrunSecim form = new FormUrunSecim();
+            form.ShowDialog();
         }
     }
 }
