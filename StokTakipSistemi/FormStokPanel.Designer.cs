@@ -102,9 +102,9 @@ namespace StokTakipSistemi
             label2.ForeColor = Color.FromArgb(71, 85, 105);
             label2.Location = new Point(430, 30);
             label2.Name = "label2";
-            label2.Size = new Size(58, 30);
+            label2.Size = new Size(69, 30);
             label2.TabIndex = 2;
-            label2.Text = "Ürün";
+            label2.Text = "Ürün :";
             // 
             // label3
             // 

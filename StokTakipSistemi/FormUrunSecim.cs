@@ -137,7 +137,7 @@ namespace StokTakipSistemi
 
         private void FormUrunSecimModal_Load(object sender, EventArgs e)
         {
-
+            UrunleriListele("");
         }
 
         private void btnSec_Click(object sender, EventArgs e)

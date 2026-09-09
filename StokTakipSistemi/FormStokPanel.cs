@@ -36,6 +36,8 @@ namespace StokTakipSistemi
         private int sayfa_boyutu = 10;
         private int suanki_sayfa = 1;
         private int toplam_sayfa_sayisi = 1;
+        int secilenUrunId = 0;
+        string secilenUrunAdi = "";
         private void FormTemizle()
         {
             txtArama.Clear();
@@ -116,6 +118,8 @@ namespace StokTakipSistemi
         private async void FormStokPanel_Load(object sender, EventArgs e)
         {
 
+            label2.Text = "Ürün : ";
+
             kontrol_bayrak = true;
 
             try
@@ -148,6 +152,10 @@ namespace StokTakipSistemi
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+            if (secilenUrunId==0)
+            {
+                MessageBox.Show("Lütfen bir ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             if (cboxDepo.SelectedValue == null)
             {
                 MessageBox.Show("Lütfen bir depo seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -165,7 +173,7 @@ namespace StokTakipSistemi
             }
 
 
-            int secilenUrunId = 0;
+            
             using (var form = new FormUrunSecim())
             {
 
@@ -269,8 +277,21 @@ namespace StokTakipSistemi
 
         private void btnUrunSecim_Click(object sender, EventArgs e)
         {
-            FormUrunSecim form = new FormUrunSecim();
-            form.ShowDialog();
+            using (var form = new FormUrunSecim())
+            {
+                secilenUrunId = form.SecilenUrunId;
+                secilenUrunAdi = form.SecilenUrunAdi;
+                
+            }
+
+            if (secilenUrunId !=0)
+            {
+                label2.Text = $"Ürün: {secilenUrunAdi}";
+            }
+
+            
+
+
         }
     }
 

@@ -102,7 +102,7 @@ namespace StokTakipSistemi
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12.5F);
             label6.ForeColor = Color.FromArgb(71, 85, 105);
-            label6.Location = new Point(843, 38);
+            label6.Location = new Point(909, 35);
             label6.Name = "label6";
             label6.Size = new Size(143, 30);
             label6.TabIndex = 20;
@@ -111,7 +111,7 @@ namespace StokTakipSistemi
             // txtFisNum
             // 
             txtFisNum.Font = new Font("Segoe UI", 12.5F);
-            txtFisNum.Location = new Point(991, 38);
+            txtFisNum.Location = new Point(1057, 35);
             txtFisNum.Margin = new Padding(3, 2, 3, 2);
             txtFisNum.Name = "txtFisNum";
             txtFisNum.Size = new Size(220, 35);
@@ -123,7 +123,7 @@ namespace StokTakipSistemi
             cboxVarisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboxVarisDepo.Font = new Font("Segoe UI", 12.5F);
             cboxVarisDepo.FormattingEnabled = true;
-            cboxVarisDepo.Location = new Point(564, 35);
+            cboxVarisDepo.Location = new Point(599, 35);
             cboxVarisDepo.Margin = new Padding(3, 2, 3, 2);
             cboxVarisDepo.Name = "cboxVarisDepo";
             cboxVarisDepo.Size = new Size(220, 38);
@@ -135,7 +135,7 @@ namespace StokTakipSistemi
             cboxCikisDepo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboxCikisDepo.Font = new Font("Segoe UI", 12.5F);
             cboxCikisDepo.FormattingEnabled = true;
-            cboxCikisDepo.Location = new Point(135, 34);
+            cboxCikisDepo.Location = new Point(161, 36);
             cboxCikisDepo.Margin = new Padding(3, 2, 3, 2);
             cboxCikisDepo.Name = "cboxCikisDepo";
             cboxCikisDepo.Size = new Size(220, 38);
@@ -146,7 +146,7 @@ namespace StokTakipSistemi
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12.5F);
             label4.ForeColor = Color.FromArgb(71, 85, 105);
-            label4.Location = new Point(441, 39);
+            label4.Location = new Point(476, 39);
             label4.Name = "label4";
             label4.Size = new Size(117, 30);
             label4.TabIndex = 12;
@@ -157,7 +157,7 @@ namespace StokTakipSistemi
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12.5F);
             label3.ForeColor = Color.FromArgb(71, 85, 105);
-            label3.Location = new Point(13, 37);
+            label3.Location = new Point(39, 39);
             label3.Name = "label3";
             label3.Size = new Size(116, 30);
             label3.TabIndex = 10;
@@ -168,8 +168,8 @@ namespace StokTakipSistemi
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(btnUrunSecim);
             groupBox2.Controls.Add(dtpTarih);
-            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(btnListeyeEkle);
+            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(numericUpDown1);
             groupBox2.Controls.Add(label2);
@@ -177,7 +177,7 @@ namespace StokTakipSistemi
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(1342, 95);
+            groupBox2.Size = new Size(1342, 98);
             groupBox2.TabIndex = 14;
             groupBox2.TabStop = false;
             // 
@@ -189,9 +189,9 @@ namespace StokTakipSistemi
             btnUrunSecim.FlatStyle = FlatStyle.Flat;
             btnUrunSecim.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
             btnUrunSecim.ForeColor = Color.FromArgb(30, 41, 59);
-            btnUrunSecim.Location = new Point(176, 29);
+            btnUrunSecim.Location = new Point(47, 46);
             btnUrunSecim.Name = "btnUrunSecim";
-            btnUrunSecim.Size = new Size(283, 48);
+            btnUrunSecim.Size = new Size(287, 43);
             btnUrunSecim.TabIndex = 23;
             btnUrunSecim.Text = "Ürün Seçim Paneli";
             btnUrunSecim.UseVisualStyleBackColor = false;
@@ -199,9 +199,11 @@ namespace StokTakipSistemi
             // 
             // dtpTarih
             // 
-            dtpTarih.Location = new Point(876, 37);
+            dtpTarih.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dtpTarih.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dtpTarih.Location = new Point(863, 37);
             dtpTarih.Name = "dtpTarih";
-            dtpTarih.Size = new Size(230, 27);
+            dtpTarih.Size = new Size(230, 34);
             dtpTarih.TabIndex = 22;
             // 
             // label7
@@ -209,7 +211,7 @@ namespace StokTakipSistemi
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12.5F);
             label7.ForeColor = Color.FromArgb(71, 85, 105);
-            label7.Location = new Point(718, 34);
+            label7.Location = new Point(705, 37);
             label7.Name = "label7";
             label7.Size = new Size(152, 30);
             label7.TabIndex = 21;
@@ -224,10 +226,10 @@ namespace StokTakipSistemi
             btnListeyeEkle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnListeyeEkle.ForeColor = Color.FromArgb(30, 41, 59);
             btnListeyeEkle.Image = (Image)resources.GetObject("btnListeyeEkle.Image");
-            btnListeyeEkle.Location = new Point(1141, 32);
+            btnListeyeEkle.Location = new Point(1129, 30);
             btnListeyeEkle.Margin = new Padding(3, 2, 3, 2);
             btnListeyeEkle.Name = "btnListeyeEkle";
-            btnListeyeEkle.Size = new Size(180, 37);
+            btnListeyeEkle.Size = new Size(185, 45);
             btnListeyeEkle.TabIndex = 17;
             btnListeyeEkle.Text = "Listeye Ekle";
             btnListeyeEkle.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -239,7 +241,7 @@ namespace StokTakipSistemi
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12.5F);
             label5.ForeColor = Color.FromArgb(71, 85, 105);
-            label5.Location = new Point(466, 38);
+            label5.Location = new Point(424, 41);
             label5.Name = "label5";
             label5.Size = new Size(77, 30);
             label5.TabIndex = 14;
@@ -248,7 +250,7 @@ namespace StokTakipSistemi
             // numericUpDown1
             // 
             numericUpDown1.Font = new Font("Segoe UI", 12.5F);
-            numericUpDown1.Location = new Point(551, 34);
+            numericUpDown1.Location = new Point(509, 37);
             numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 35);
@@ -259,7 +261,7 @@ namespace StokTakipSistemi
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12.5F);
             label2.ForeColor = Color.FromArgb(71, 85, 105);
-            label2.Location = new Point(13, 38);
+            label2.Location = new Point(53, 13);
             label2.Name = "label2";
             label2.Size = new Size(157, 30);
             label2.TabIndex = 14;

@@ -24,8 +24,14 @@ namespace StokTakipSistemi
 
         public List<TransferListe> _sepet = new List<TransferListe>();
 
+        int secilenUrunId = 0;
+        string secilenUrunAdi = "";
+        string secilenUrunBirim = "";
+
         private void FormTransferGiris_Load(object sender, EventArgs e)
         {
+            label2.Text = "Ürün : ";
+
             UIHelper.ModernizeDataGridView(dgvListe);
 
             FormTransferPanel form = Application.OpenForms["FormTransferPanel"] as FormTransferPanel;
@@ -58,6 +64,11 @@ namespace StokTakipSistemi
                 return;
             }
 
+            if (secilenUrunId ==0)
+            {
+                MessageBox.Show("Lütfen bir ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
 
             //CS 8600 uyarı kontrolü
@@ -84,26 +95,9 @@ namespace StokTakipSistemi
                 MessageBox.Show("Lütfen Fiş Numarası Giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            int secilenUrunId = 0;
-            string secilenUrunAdi = "";
-            string secilenUrunBirim = "";
+            
 
-            using (var form = new FormUrunSecim())
-            {
-                if (form.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-
-                }
-
-                secilenUrunId = form.SecilenUrunId;
-                secilenUrunAdi = form.SecilenUrunAdi;
-                secilenUrunBirim = form.SecilenBirim;
-
-
-
-
-            }
+            
 
 
 
@@ -235,8 +229,27 @@ namespace StokTakipSistemi
 
         private void btnUrunSecim_Click(object sender, EventArgs e)
         {
-            FormUrunSecim form = new FormUrunSecim();
-            form.ShowDialog();
+            using (var form = new FormUrunSecim())
+            {
+                if (form.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+
+                }
+
+                secilenUrunId = form.SecilenUrunId;
+                secilenUrunAdi = form.SecilenUrunAdi;
+                secilenUrunBirim = form.SecilenBirim;
+
+
+
+
+            }
+
+            if (secilenUrunId != 0)
+            {
+                label2.Text = $"Ürün: {secilenUrunAdi}";
+            }
         }
     }
 }
