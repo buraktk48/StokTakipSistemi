@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StokTakipSistemi.Data;
 using StokTakipSistemi.Entities;
 using StokTakipSistemi.Migrations;
@@ -15,91 +15,134 @@ namespace StokTakipSistemi.Services
 
         public bool DepoEkle(string depoad,string lokasyon,int ekleyen_kullanici_id,out string mesaj)
         {
-            using (var context = new AppDbContext())
+            try
             {
-                //2.Güvenlik Kontrolü
-                if (string.IsNullOrWhiteSpace(depoad) || string.IsNullOrEmpty(lokasyon))
-
+                using (var context = new AppDbContext())
                 {
-                    mesaj = "Ürün bilgileri boş olamaz!";
-                    return false;
+                    //2.Güvenlik Kontrolü
+                    if (string.IsNullOrWhiteSpace(depoad) || string.IsNullOrEmpty(lokasyon))
+
+                    {
+                        mesaj = "Depo bilgileri boş olamaz!";
+                        return false;
+
+                    }
+
+                    //Aynı depodan var mı
+                    bool varMi = context.Depolar.AsNoTracking().Any(u => u.ad == depoad);
+                    if (varMi)
+                    {
+                        mesaj = "Bu depo zaten listede var!";
+                        return false;
+                    }
+
+                    var yeni_depo = new Depo
+                    {
+                        ad = depoad,
+                        lokasyon = lokasyon,
+                        olusturan_kullanici_id = ekleyen_kullanici_id
+
+                    };
+
+                    context.Depolar.Add(yeni_depo);
+                    context.SaveChanges();
+
 
                 }
 
-                //Aynı depodan var mı
-                bool varMi = context.Depolar.AsNoTracking().Any(u => u.ad == depoad);
-                if (varMi)
-                {
-                    mesaj = "Bu depo zaten listede var!";
-                    return false;
-                }
-
-                var yeni_depo = new Depo
-                {
-                    ad = depoad,
-                    lokasyon = lokasyon,
-                    olusturan_kullanici_id = ekleyen_kullanici_id
-
-                };
-
-                context.Depolar.Add(yeni_depo);
-                context.SaveChanges();
-
+                mesaj = "Depo Girişi Başarılı";
+                return true;
 
             }
-
-            mesaj = "Depo Girişi Başarılı";
-            return true;
+            catch (Exception ex)
+            {
+                mesaj = "Veritabanı işlemi sırasında bir hata oluştu: " + ex.Message;
+                return false;
+            }
+            
 
 
         }
         
         public bool DepoGuncelle(int depoid,string depoad, string lokasyon,out string mesaj)
         {
-            using (var context = new AppDbContext())
+            try
             {
-
-                var depo = context.Depolar.FirstOrDefault(u => u.id == depoid);
-                if (depo == null)
+                using (var context = new AppDbContext())
                 {
-                    mesaj = "Güncellenecek depo bulunamadı!";
-                    return false;
+                    bool kontrol = context.Depolar.AsNoTracking().Any(r => r.ad == depoad && r.id != depoid);
+
+                    if (kontrol)
+                    {
+                        mesaj = "Bu depo adı zaten başka bir depoda mevcut!";
+                        return false;
+                    }
+
+                    var depo = context.Depolar.FirstOrDefault(u => u.id == depoid);
+                    if (depo == null)
+                    {
+                        mesaj = "Güncellenecek depo bulunamadı!";
+                        return false;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(depoad) || string.IsNullOrWhiteSpace(lokasyon))
+                    {
+                        mesaj = "Depo bilgileri boş olamaz!";
+                        return false;
+                    }
+
+                    depo.ad = depoad;
+                    depo.lokasyon = lokasyon;
+
+                    context.SaveChanges();
+
+                    mesaj = "Depo bilgileri başarıyla güncellendi!";
+                    return true;
                 }
-
-                if (string.IsNullOrWhiteSpace(depoad) || string.IsNullOrWhiteSpace(lokasyon))
-                {
-                    mesaj = "Depo bilgileri boş olamaz!";
-                    return false;
-                }
-
-                depo.ad = depoad;
-                depo.lokasyon = lokasyon;
-
-                context.SaveChanges();
-
-                mesaj = "Depo bilgileri başarıyla güncellendi!";
-                return true;
-
-
             }
-            
+            catch (Exception ex)
+            {
+                mesaj = "Veritabanı işlemi sırasında bir hata oluştu: " + ex.Message;
+                return false;
+            }
         }
 
-        public bool DepoSil(int urunid,out string gelenMesaj)
+        public bool DepoSil(int depoid, out string mesaj)
         {
-            using (var context = new AppDbContext())
+            try
             {
-                var sonuc = context.Depolar.Find(urunid);
-
-                if (sonuc!=null)
+                using (var context = new AppDbContext())
                 {
+                    var sonuc = context.Depolar.Find(depoid);
+
+                    if (sonuc == null)
+                    {
+                        mesaj = "Silinecek depo bulunamadı!";
+                        return false;
+                    }
+
+                    // Depoya ait stok veya transfer kaydı var mı kontrolü
+                    bool iliskiliKayitVar = context.DepoStoklari.Any(s => s.depo_id == depoid) ||
+                                            context.Transferler.Any(t => t.cikis_depo_id == depoid || t.varis_depo_id == depoid);
+
+                    if (iliskiliKayitVar)
+                    {
+                        mesaj = "Bu depoya ait stok veya transfer hareketi bulunduğu için silinemez!";
+                        return false;
+                    }
+
                     context.Depolar.Remove(sonuc);
                     context.SaveChanges();
                 }
-            }
 
-            gelenMesaj = "Silme İşlemi Başarılı!";
-            return true;
+                mesaj = "Silme İşlemi Başarılı!";
+                return true;
+            }
+            catch (Exception ex)
+            {
+                mesaj = "Veritabanı işlemi sırasında bir hata oluştu: " + ex.Message;
+                return false;
+            }
         }
 
 

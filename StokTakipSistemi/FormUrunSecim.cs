@@ -137,14 +137,14 @@ namespace StokTakipSistemi
         private void btnSec_Click(object sender, EventArgs e)
         {
 
-            if (dgvUrunler.CurrentRow ==null)
+            if (dgvUrunler.CurrentRow == null)
             {
                 MessageBox.Show("Listeden bir ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            
-            
+
+
             SecilenUrunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
             SecilenUrunKodu = dgvUrunler.CurrentRow.Cells["Urun_Kodu"].Value?.ToString() ?? "0";
             SecilenUrunAdi = dgvUrunler.CurrentRow.Cells["Urun_Adi"].Value?.ToString() ?? "0";
@@ -155,7 +155,7 @@ namespace StokTakipSistemi
             this.Close();
 
 
-            
+
 
 
 
@@ -167,7 +167,38 @@ namespace StokTakipSistemi
         private void btnIptal_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            
+
+        }
+
+        private void btnSonraki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa < toplam_sayfa_sayisi)
+            {
+                suanki_sayfa++;
+                UrunleriListele(txtAra.Text.Trim());
+            }
+        }
+
+        private void btnOnceki_Click(object sender, EventArgs e)
+        {
+            if (suanki_sayfa > 1)
+            {
+                suanki_sayfa--;
+                UrunleriListele(txtAra.Text.Trim());
+            }
+        }
+
+        private void btnIlkSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = 1;
+            UrunleriListele(txtAra.Text.Trim());
+
+        }
+
+        private void btnSonSayfa_Click(object sender, EventArgs e)
+        {
+            suanki_sayfa = toplam_sayfa_sayisi;
+            UrunleriListele(txtAra.Text.Trim());
         }
     }
 }

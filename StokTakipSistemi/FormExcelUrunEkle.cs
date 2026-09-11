@@ -144,42 +144,73 @@ namespace StokTakipSistemi
                 return;
             }
 
+            DataTable dt = tumExcelVerileri;
+
+            // Sütun adı kontrolleri
+            bool varKod = dt.Columns.Contains("urun_kodu");
+            bool varAd = dt.Columns.Contains("urun_adi");
+            bool varBirim = dt.Columns.Contains("birim");
+            bool varKdv = dt.Columns.Contains("kdv");
+
+            if (!varKod || !varAd || !varBirim)
+            {
+                MessageBox.Show("Excel dosyasında gerekli sütun başlıkları bulunamadı!\n\nBeklenen Sütunlar: 'urun_kodu', 'urun_adi', 'birim', 'kdv'", 
+                                "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int basariliSayac = 0;
             int hataliSayac = 0;
             var urunService = new UrunService();
 
-            DataTable dt = tumExcelVerileri;
-
             foreach (DataRow row in dt.Rows)
             {
-                string kod = row["urun_kodu"]?.ToString() ?? "Sütun İsmi Boş"; // Excel'deki sütun adlarıyla birebir aynı olmalı
-                string ad = row["urun_adi"]?.ToString() ?? "Sütun İsmi Boş";
-                string birim = row["birim"]?.ToString() ?? "Sütun İsmi Boş";
-                string kdvStr = row["kdv"]?.ToString().Replace('.', ',');
-
-                if (!decimal.TryParse(kdvStr, out decimal kdvDecimal))
+                try
                 {
-                    kdvDecimal = 20; // Dönüşmezse varsayılan KDV %20 olsun
+                    string kod = row["urun_kodu"]?.ToString()?.Trim() ?? "";
+                    string ad = row["urun_adi"]?.ToString()?.Trim() ?? "";
+                    string birim = row["birim"]?.ToString()?.Trim() ?? "";
+                    string kdvStr = varKdv ? row["kdv"]?.ToString()?.Replace('.', ',') ?? "20" : "20";
+
+                    if (string.IsNullOrWhiteSpace(kod) || string.IsNullOrWhiteSpace(ad))
+                    {
+                        hataliSayac++;
+                        continue;
+                    }
+
+                    if (!decimal.TryParse(kdvStr, out decimal kdvDecimal) || kdvDecimal < 0)
+                    {
+                        kdvDecimal = 20; // Dönüşmezse varsayılan KDV %20 olsun
+                    }
+
+                    bool basarili = urunService.ManuelUrunGiris(
+                        kod,
+                        ad,
+                        birim,
+                        Session.AktifKullanici.id,
+                        kdvDecimal,
+                        out string mesaj
+                    );
+
+                    if (basarili) basariliSayac++;
+                    else hataliSayac++;
                 }
-
-                // Servisimizdeki ManuelUrunGiris metodunu çağırıyoruz
-                bool basarili = urunService.ManuelUrunGiris(
-                    kod,
-                    ad,
-                    birim,
-                    Session.AktifKullanici.id, //  Giriş yapan kullanıcının ID'si otomatik ekleniyor
-                    kdvDecimal,
-                    out string mesaj
-                );
-
-                if (basarili) basariliSayac++;
-                else hataliSayac++;
+                catch
+                {
+                    hataliSayac++;
+                }
             }
 
             MessageBox.Show($"Aktarım Tamamlandı!\n\n✅ Başarılı: {basariliSayac} adet\n❌ Hatalı/Zaten Var Olan: {hataliSayac} adet",
                             "İşlem Sonucu", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // İşlem bitince DataGridView'i ve verileri temizleyebiliriz
+            // Ürün paneli açık ise listesini yenile
+            FormUrunPanel form = Application.OpenForms["FormUrunPanel"] as FormUrunPanel;
+            if (form != null)
+            {
+                form.UrunListele("");
+            }
+
             tumExcelVerileri = null;
             ExcelSayfala();
         }

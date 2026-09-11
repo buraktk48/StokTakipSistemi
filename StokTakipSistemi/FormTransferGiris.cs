@@ -67,6 +67,7 @@ namespace StokTakipSistemi
             if (secilenUrunId ==0)
             {
                 MessageBox.Show("Lütfen bir ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
 
@@ -95,11 +96,6 @@ namespace StokTakipSistemi
                 MessageBox.Show("Lütfen Fiş Numarası Giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-
-            
-
-
 
             decimal miktar = (decimal)numericUpDown1.Value;
 
@@ -140,6 +136,9 @@ namespace StokTakipSistemi
             cboxCikisDepo.Enabled = false;
             cboxVarisDepo.Enabled = false;
 
+            secilenUrunId = 0;
+            label2.Text = "Ürün: ";
+
 
         }
 
@@ -171,6 +170,9 @@ namespace StokTakipSistemi
                 {
                     form.TransferListele("");
                 }
+
+                secilenUrunId = 0;
+                label2.Text = "Ürün: ";
             }
             else
             {

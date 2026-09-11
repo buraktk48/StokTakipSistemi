@@ -152,144 +152,131 @@ namespace StokTakipSistemi
                 if (saveFileDialog.ShowDialog() != DialogResult.OK)
                     return;
 
-
-                Document.Create(container =>
+                try
                 {
-
-                    container.Page(page =>
+                    Document.Create(container =>
                     {
-                        page.Size(PageSizes.A4.Landscape());
-                        page.Margin(1, Unit.Centimetre);
-                        page.PageColor(Colors.White);
-                        page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Arial"));
-
-                        page.Header().Column(col =>
+                        container.Page(page =>
                         {
-                            col.Item().Text("STOK TAKİP SİSTEMİ").FontSize(18).Bold().FontColor(Colors.Blue.Darken3);
-                            col.Item().Text("TRANSFER RAPORU").FontSize(14).SemiBold().FontColor(Colors.Grey.Darken2);
-                            col.Item().Text($"Rapor Tarihi: {DateTime.Now:dd.MM.yyyy HH:mm}").FontSize(9).Italic();
-                            col.Item().PaddingTop(5).BorderBottom(1).BorderColor(Colors.Grey.Lighten1);
+                            page.Size(PageSizes.A4.Landscape());
+                            page.Margin(1, Unit.Centimetre);
+                            page.PageColor(Colors.White);
+                            page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Arial"));
 
-                        });
-
-
-                        page.Content().PaddingVertical(10).Table(table =>
-                        {
-                            table.ColumnsDefinition(col =>
+                            page.Header().Column(col =>
                             {
-                                col.RelativeColumn(1.5f);
-                                col.RelativeColumn(2);
-                                col.RelativeColumn(1);
-                                col.RelativeColumn(1);
-                                col.RelativeColumn(1.5f);
-                                col.RelativeColumn(1.5f);
-                                col.RelativeColumn(1.5f);
-                                col.RelativeColumn(1);
-                                col.RelativeColumn(1.5f);
+                                col.Item().Text("STOK TAKİP SİSTEMİ").FontSize(18).Bold().FontColor(Colors.Blue.Darken3);
+                                col.Item().Text("TRANSFER RAPORU").FontSize(14).SemiBold().FontColor(Colors.Grey.Darken2);
+                                col.Item().Text($"Rapor Tarihi: {DateTime.Now:dd.MM.yyyy HH:mm}").FontSize(9).Italic();
+                                col.Item().PaddingTop(5).BorderBottom(1).BorderColor(Colors.Grey.Lighten1);
                             });
 
-                            table.Header(header =>
+                            page.Content().PaddingVertical(10).Table(table =>
                             {
-                                string[] sutunlar = new string[]
+                                table.ColumnsDefinition(col =>
                                 {
-                                    "Transfer Fişi",
-                                    "Ürün İsmi",
-                                    "Birimi",
-                                    "KDV Oranı",
-                                    "Çıkış Deposu",
-                                    "Varış Deposu",
-                                    "Miktar",
-                                    "Transfer Girişini Yapan Kullanıcı",
-                                    "Transfer Tarihi",
-                                };
+                                    col.RelativeColumn(1.5f);
+                                    col.RelativeColumn(2);
+                                    col.RelativeColumn(1);
+                                    col.RelativeColumn(1);
+                                    col.RelativeColumn(1.5f);
+                                    col.RelativeColumn(1.5f);
+                                    col.RelativeColumn(1.5f);
+                                    col.RelativeColumn(1);
+                                    col.RelativeColumn(1.5f);
+                                });
 
-                                foreach (var sutun in sutunlar)
+                                table.Header(header =>
                                 {
-                                    header.Cell().Background(Colors.Grey.Lighten3).Padding(4).Text(sutun).Bold();
+                                    string[] sutunlar = new string[]
+                                    {
+                                        "Transfer Fişi",
+                                        "Ürün İsmi",
+                                        "Birimi",
+                                        "KDV Oranı",
+                                        "Çıkış Deposu",
+                                        "Varış Deposu",
+                                        "Miktar",
+                                        "Transfer Girişini Yapan Kullanıcı",
+                                        "Transfer Tarihi",
+                                    };
+
+                                    foreach (var sutun in sutunlar)
+                                    {
+                                        header.Cell().Background(Colors.Grey.Lighten3).Padding(4).Text(sutun).Bold();
+                                    }
+                                });
+
+                                foreach (DataGridViewRow row in dgvRapor.Rows)
+                                {
+                                    if (row.IsNewRow) continue;
+
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transfer_Fisi"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Urun_Ismi"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Birimi"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["KDV_Orani"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Cikis_Deposu"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Varis_Deposu"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Miktar"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transferi_Yapan_Kullanici"].Value?.ToString() ?? "");
+                                    table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transfer_Tarihi"].Value?.ToString() ?? "");
                                 }
                             });
 
-                            foreach (DataGridViewRow row in dgvRapor.Rows)
+                            page.Footer().AlignRight().Text(x =>
                             {
-                                if (row.IsNewRow) continue;
-
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transfer_Fisi"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Urun_Ismi"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Birimi"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["KDV_Orani"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Cikis_Deposu"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Varis_Deposu"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Miktar"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transferi_Yapan_Kullanici"].Value?.ToString() ?? "");
-                                table.Cell().BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten3).Padding(4).Text(row.Cells["Transfer_Tarihi"].Value?.ToString() ?? "");
-
-                                
-
-                            }
-
-
+                                x.Span("Sayfa ");
+                                x.CurrentPageNumber();
+                                x.Span(" / ");
+                                x.TotalPages();
+                            });
                         });
+                    })
+                    .GeneratePdf(saveFileDialog.FileName);
 
-                        page.Footer().AlignRight().Text(x =>
-                        {
-                            x.Span("Sayfa ");
-                            x.CurrentPageNumber();
-                            x.Span(" / ");
-                            x.TotalPages();
-                        });
+                    var cevap = MessageBox.Show("PDF Raporu oluşturuldu! Dosyayı açmak ister misiniz?", "Başarılı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-
-
-                    });
-                    
-
-                })
-                .GeneratePdf(saveFileDialog.FileName);
-
-                var cevap = MessageBox.Show("PDF Raporu oluşturuldu! Dosyayı açmak ister misiniz?", "Başarılı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (cevap == DialogResult.Yes)
-                {
-                    Process.Start(new ProcessStartInfo(saveFileDialog.FileName) { UseShellExecute = true });
+                    if (cevap == DialogResult.Yes)
+                    {
+                        Process.Start(new ProcessStartInfo(saveFileDialog.FileName) { UseShellExecute = true });
+                    }
                 }
-
+                catch (System.IO.IOException)
+                {
+                    MessageBox.Show("PDF dosyası oluşturulamadı! Kaydedilmeye çalışılan PDF dosyası şu an başka bir programda açık olabilir. Lütfen açık dosyayı kapatıp tekrar deneyin.", "Dosya Kilitli Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("PDF oluşturulurken beklenmeyen bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-           
-
-        
-        
-        
-        
         }
-
-
-
-
 
         private void btnListele_Click(object sender, EventArgs e)
         {
             int? cikisDepoId = cboxCikisDepo.SelectedValue as int?;
             int? varisDepoId = cboxVarisDepo.SelectedValue as int?;
-
             int? urunId = cboxUrun.SelectedValue as int?;
 
-            DateTime baslangicTarihi = dtpBaslangic.Value;
-            DateTime bitisTarihi = dtpBitis.Value;
+            DateTime baslangicTarihi = dtpBaslangic.Value.Date; // Günü 00:00:00 yapar
+            DateTime bitisTarihi = dtpBitis.Value.Date.AddDays(1).AddTicks(-1); // Günün son anı 23:59:59 yapar
+
+            if (baslangicTarihi > bitisTarihi)
+            {
+                MessageBox.Show("Başlangıç tarihi bitiş tarihinden büyük olamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             string fisNumarasi = txtFisNum.Text.Trim();
 
             RaporFiltre(cikisDepoId, varisDepoId, fisNumarasi, urunId, baslangicTarihi, bitisTarihi);
-
         }
 
         private void btnSifirla_Click(object sender, EventArgs e)
         {
             cboxCikisDepo.SelectedIndex = -1;
             cboxVarisDepo.SelectedIndex = -1;
-
             cboxUrun.SelectedIndex = -1;
-
             txtFisNum.Clear();
         } 
     }

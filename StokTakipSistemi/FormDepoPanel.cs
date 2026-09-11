@@ -118,6 +118,8 @@ namespace StokTakipSistemi
             FormDepoEkle formDepoEkle = new FormDepoEkle();
             formDepoEkle.ShowDialog();
 
+            DepoListele(txtDepoAra.Text.Trim());
+
         }
 
         private void btnDepoYenile_Click(object sender, EventArgs e)
@@ -139,11 +141,19 @@ namespace StokTakipSistemi
 
             FormDepoGuncelle formDepoGuncelle = new FormDepoGuncelle(depoId, depoad, lokasyon);
             formDepoGuncelle.ShowDialog();
+
+            DepoListele(txtDepoAra.Text.Trim());
         }
 
         private void btnDepoSil_Click(object sender, EventArgs e)
         {
-            int urunId = Convert.ToInt32(dgvDepolar.CurrentRow.Cells["Depo_id"].Value?.ToString() ?? "0");
+            if (dgvDepolar.CurrentRow ==null)
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz depoyu tablodan seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int depoId = Convert.ToInt32(dgvDepolar.CurrentRow.Cells["Depo_id"].Value?.ToString() ?? "0");
 
             DialogResult sonuc = MessageBox.Show("Bu depoyu silmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -152,7 +162,7 @@ namespace StokTakipSistemi
 
             var depoService = new DepoService();
 
-            bool basariliMi = depoService.DepoSil(urunId, out string gelenMesaj);
+            bool basariliMi = depoService.DepoSil(depoId, out string gelenMesaj);
 
             if (basariliMi)
             {
@@ -164,13 +174,11 @@ namespace StokTakipSistemi
                 MessageBox.Show(gelenMesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
-
-        private void txtDepoAra_TextChanged(object sender, EventArgs e)
-        {
-
+            DepoListele(txtDepoAra.Text.Trim());
 
         }
+
+        
 
         private void btnSonraki_Click(object sender, EventArgs e)
         {

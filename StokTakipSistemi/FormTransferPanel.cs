@@ -87,6 +87,8 @@ namespace StokTakipSistemi
                     if (dgvTransferler.Columns["id"]!=null)
                     {
                         dgvTransferler.Columns["id"].Visible = false;
+                        dgvTransferler.Columns["Olusturulma_Zamani"].Visible = false;
+                        dgvTransferler.Columns["Transfer_Yapan_Kullanici"].Visible=false;
                     }
 
                     dgvTransferler.Columns["Cikis_Depo"].HeaderText = "Çıkış Deposu";
@@ -110,45 +112,7 @@ namespace StokTakipSistemi
             }
         }
 
-        private async void TransferDetayListele(string aranan)
-        {
-            try
-            {
-                using (var context = new AppDbContext())
-                {
-                    dgvTransferDetay.DataSource = await context.TransferDetaylari
-                        .AsNoTracking()
-                        .Select(u => new
-                        {
-                            id = u.id,
-                            Fis_Numarasi = u.transfer.fis_numarasi,
-                            Urun_Adi = u.urun.urun_adi,
-                            Miktar = u.miktar,
-                            Olusturulma_Zamani = u.olusturulma_zamani
-
-                        })
-                        .ToListAsync();
-
-
-                    if (dgvTransferDetay.Columns["id"] != null)
-                    {
-                        dgvTransferDetay.Columns["id"].Visible = false;
-                    }
-
-                    dgvTransferDetay.Columns["Fis_Numarasi"].HeaderText = "Fiş Numarası";
-                    dgvTransferDetay.Columns["Urun_Adi"].HeaderText = "Ürün Adı";
-                    dgvTransferDetay.Columns["Olusturulma_Zamani"].HeaderText = "Oluşturulma Zamanı";
-
-
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
 
         private void TransferFiltrele()

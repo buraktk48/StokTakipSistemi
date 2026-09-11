@@ -31,8 +31,6 @@ namespace StokTakipSistemi
 
         }
 
-        private bool kontrol_bayrak = true;
-
         private int sayfa_boyutu = 10;
         private int suanki_sayfa = 1;
         private int toplam_sayfa_sayisi = 1;
@@ -119,8 +117,6 @@ namespace StokTakipSistemi
         {
 
             label2.Text = "Ürün : ";
-
-            kontrol_bayrak = true;
 
             try
             {

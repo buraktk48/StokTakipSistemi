@@ -28,7 +28,7 @@ namespace StokTakipSistemi
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             labelHeader = new Label();
             groupBoxArama = new GroupBox();
@@ -110,8 +110,8 @@ namespace StokTakipSistemi
             // 
             dgvUrunler.AllowUserToAddRows = false;
             dgvUrunler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
-            dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
+            dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvUrunler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvUrunler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUrunler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -152,6 +152,7 @@ namespace StokTakipSistemi
             btnIlkSayfa.TabIndex = 0;
             btnIlkSayfa.Text = "İlk Sayfa";
             btnIlkSayfa.UseVisualStyleBackColor = false;
+            btnIlkSayfa.Click += btnIlkSayfa_Click;
             // 
             // btnOnceki
             // 
@@ -167,6 +168,7 @@ namespace StokTakipSistemi
             btnOnceki.TabIndex = 1;
             btnOnceki.Text = "< Önceki";
             btnOnceki.UseVisualStyleBackColor = false;
+            btnOnceki.Click += btnOnceki_Click;
             // 
             // lblSayfa
             // 
@@ -193,6 +195,7 @@ namespace StokTakipSistemi
             btnSonraki.TabIndex = 3;
             btnSonraki.Text = "Sonraki >";
             btnSonraki.UseVisualStyleBackColor = false;
+            btnSonraki.Click += btnSonraki_Click;
             // 
             // btnSonSayfa
             // 
@@ -208,6 +211,7 @@ namespace StokTakipSistemi
             btnSonSayfa.TabIndex = 4;
             btnSonSayfa.Text = "Son Sayfa";
             btnSonSayfa.UseVisualStyleBackColor = false;
+            btnSonSayfa.Click += btnSonSayfa_Click;
             // 
             // groupBoxAksiyonlar
             // 

@@ -14,7 +14,7 @@ namespace StokTakipSistemi
 {
     public partial class FormDepoGuncelle : Form
     {
-        private int _guncellenecekUrunId;
+        private int _guncellenecekDepoId;
         public FormDepoGuncelle()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace StokTakipSistemi
 
         public FormDepoGuncelle(int depoid, string ad, string lokasyon) : this()
         {
-            _guncellenecekUrunId = depoid;
+            _guncellenecekDepoId = depoid;
             txtGDepoAd.Text = ad;
             txtGDepoLok.Text = lokasyon;
 
@@ -56,7 +56,7 @@ namespace StokTakipSistemi
             var depoService = new DepoService();
 
             bool basariliMi = depoService.DepoGuncelle(
-                _guncellenecekUrunId,
+                _guncellenecekDepoId,
                 txtGDepoAd.Text.Trim(),
                 txtGDepoLok.Text.Trim(), out string gelenMesaj);
 

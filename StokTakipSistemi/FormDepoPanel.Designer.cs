@@ -206,7 +206,7 @@ namespace StokTakipSistemi
             txtDepoAra.Size = new Size(360, 35);
             txtDepoAra.TabIndex = 2;
             txtDepoAra.TextAlign = HorizontalAlignment.Center;
-            txtDepoAra.TextChanged += txtDepoAra_TextChanged;
+            
             // 
             // groupBox3
             // 

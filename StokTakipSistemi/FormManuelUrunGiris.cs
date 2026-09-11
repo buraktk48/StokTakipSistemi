@@ -62,7 +62,12 @@ namespace StokTakipSistemi
             {
                 MessageBox.Show("Lütfen KDV'yi sadece sayılardan oluşacak şekilde girin!", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
 
+            if (kdv_decimal < 0)
+            {
+                MessageBox.Show("KDV oranı 0'dan küçük olamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             bool basariliMi = urunService.ManuelUrunGiris(
@@ -71,16 +76,18 @@ namespace StokTakipSistemi
                 TxtBirim.Text.Trim(),
                 Session.AktifKullanici.id,
                 kdv_decimal,
-
                 out string gelenMesaj);
 
             if (basariliMi)
             {
                 MessageBox.Show(gelenMesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FormTemizle();
-                
 
-
+                FormUrunPanel form = Application.OpenForms["FormUrunPanel"] as FormUrunPanel;
+                if (form != null)
+                {
+                    form.UrunListele("");
+                }
             }
             else
             {
