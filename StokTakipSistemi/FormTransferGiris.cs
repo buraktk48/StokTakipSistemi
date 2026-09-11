@@ -231,25 +231,25 @@ namespace StokTakipSistemi
         {
             using (var form = new FormUrunSecim())
             {
-                if (form.ShowDialog() != DialogResult.OK)
+                if (form.ShowDialog() == DialogResult.OK)
                 {
-                    return;
+                    secilenUrunId = form.SecilenUrunId;
+                    secilenUrunAdi = form.SecilenUrunAdi;
+                    secilenUrunBirim = form.SecilenBirim;
+
+                    label2.Text = $"Ürün: {secilenUrunAdi}";
 
                 }
 
-                secilenUrunId = form.SecilenUrunId;
-                secilenUrunAdi = form.SecilenUrunAdi;
-                secilenUrunBirim = form.SecilenBirim;
+                
+                
 
 
 
 
             }
 
-            if (secilenUrunId != 0)
-            {
-                label2.Text = $"Ürün: {secilenUrunAdi}";
-            }
+            
         }
     }
 }

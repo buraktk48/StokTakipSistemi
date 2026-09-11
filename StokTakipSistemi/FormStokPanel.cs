@@ -155,6 +155,7 @@ namespace StokTakipSistemi
             if (secilenUrunId==0)
             {
                 MessageBox.Show("Lütfen bir ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             if (cboxDepo.SelectedValue == null)
             {
@@ -172,56 +173,34 @@ namespace StokTakipSistemi
                 return;
             }
 
+            int secilenDepoId = (int)cboxDepo.SelectedValue;
 
-            
-            using (var form = new FormUrunSecim())
+            decimal girilenMiktar = numericUpDown1.Value;
+            bool isStokEkle = rbtnStokEkle.Checked;
+
+
+            var depostokService = new DepoStokService();
+            bool basarili = depostokService.StokIslemiYap(
+                secilenDepoId,
+                secilenUrunId,
+                girilenMiktar,
+                isStokEkle,
+                Session.AktifKullanici.id,
+                out string mesaj
+            );
+
+
+            if (basarili)
             {
-
-                if (form.ShowDialog() != DialogResult.OK)
-                {
-                  return;
-                }
-
-                secilenUrunId = form.SecilenUrunId;
-                int secilenDepoId = (int)cboxDepo.SelectedValue;
-
-                decimal girilenMiktar = numericUpDown1.Value;
-                bool isStokEkle = rbtnStokEkle.Checked;
-
-
-                var depostokService = new DepoStokService();
-                bool basarili = depostokService.StokIslemiYap(
-                    secilenDepoId,
-                    secilenUrunId,
-                    girilenMiktar,
-                    isStokEkle,
-                    Session.AktifKullanici.id,
-                    out string mesaj
-                );
-
-
-                if (basarili)
-                {
-                    MessageBox.Show(mesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    StokListele("");
-                    numericUpDown1.Value = 0;
-                }
-                else
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-
-
-
-
-
-                
+                MessageBox.Show(mesaj, "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                StokListele("");
+                numericUpDown1.Value = 0;
+            }
+            else
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
-               
-
             
 
         }
@@ -279,15 +258,18 @@ namespace StokTakipSistemi
         {
             using (var form = new FormUrunSecim())
             {
-                secilenUrunId = form.SecilenUrunId;
-                secilenUrunAdi = form.SecilenUrunAdi;
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    secilenUrunId = form.SecilenUrunId;
+                    secilenUrunAdi = form.SecilenUrunAdi;
+
+                    label2.Text = $"Ürün: {secilenUrunAdi}";
+                }
+                
                 
             }
 
-            if (secilenUrunId !=0)
-            {
-                label2.Text = $"Ürün: {secilenUrunAdi}";
-            }
+            
 
             
 

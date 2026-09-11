@@ -118,12 +118,6 @@ namespace StokTakipSistemi
 
             this.ActiveControl = txtAra;
 
-            // İptal butonu formu kapatsın
-            btnIptal.Click += (s, e) =>
-            {
-                this.DialogResult = DialogResult.Cancel;
-                this.Close();
-            };
 
             // Tabloda bir satıra çift tıklandığında doğrudan seçme işlemini tetikle
             dgvUrunler.CellDoubleClick += (s, e) =>
@@ -143,19 +137,25 @@ namespace StokTakipSistemi
         private void btnSec_Click(object sender, EventArgs e)
         {
 
-            if (dgvUrunler.CurrentRow != null)
+            if (dgvUrunler.CurrentRow ==null)
             {
-                SecilenUrunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
-                SecilenUrunKodu = dgvUrunler.CurrentRow.Cells["Urun_Kodu"].Value?.ToString() ?? "0";
-                SecilenUrunAdi = dgvUrunler.CurrentRow.Cells["Urun_Adi"].Value?.ToString() ?? "0";
-                SecilenBirim = dgvUrunler.CurrentRow.Cells["Birim"].Value?.ToString() ?? "0";
-                SecilenKdv = Convert.ToDecimal(dgvUrunler.CurrentRow.Cells["KDV"].Value?.ToString() ?? "0");
-
-                DialogResult = DialogResult.OK;
-                this.Close();
-
-
+                MessageBox.Show("Listeden bir ürün seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            
+            
+            SecilenUrunId = Convert.ToInt32(dgvUrunler.CurrentRow.Cells["id"].Value?.ToString() ?? "0");
+            SecilenUrunKodu = dgvUrunler.CurrentRow.Cells["Urun_Kodu"].Value?.ToString() ?? "0";
+            SecilenUrunAdi = dgvUrunler.CurrentRow.Cells["Urun_Adi"].Value?.ToString() ?? "0";
+            SecilenBirim = dgvUrunler.CurrentRow.Cells["Birim"].Value?.ToString() ?? "0";
+            SecilenKdv = Convert.ToDecimal(dgvUrunler.CurrentRow.Cells["KDV"].Value?.ToString() ?? "0");
+
+            DialogResult = DialogResult.OK;
+            this.Close();
+
+
+            
 
 
 
@@ -167,6 +167,7 @@ namespace StokTakipSistemi
         private void btnIptal_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            
         }
     }
 }

@@ -203,23 +203,21 @@ namespace StokTakipSistemi
         {
             FormTransferGiris formTransferGiris = new FormTransferGiris();
             formTransferGiris.ShowDialog();
+            TransferListele(txtFisNoAra.Text.Trim());
         }
 
         private void btnTransferYenile_Click(object sender, EventArgs e)
         {
             TransferListele("");
-            TransferDetayListele("");
-
+            dgvTransferDetay.DataSource = null;
         }
 
         private void FormTransferPanel_Load(object sender, EventArgs e)
         {
-
-
             yukleniyor_bayrak = true;
 
             TransferListele("");
-            TransferDetayListele("");
+            dgvTransferDetay.DataSource = null;
 
             using (var context = new AppDbContext())
             {
@@ -231,7 +229,6 @@ namespace StokTakipSistemi
 
                 cboxVarisDepo.DisplayMember = "depo_bilgisi";
                 cboxVarisDepo.ValueMember = "id";
-
             }
 
             cboxCikisDepo.SelectedIndex = -1;
@@ -242,16 +239,19 @@ namespace StokTakipSistemi
 
         private void txtFisNoAra_TextChanged(object sender, EventArgs e)
         {
-            TransferListele(txtFisNoAra.Text.Trim());
+            
         }
 
         private void dgvTransferler_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvTransferler.CurrentRow != null && e.RowIndex >= 0)
             {
-
                 string secilenFisNo = dgvTransferler.CurrentRow.Cells["Fis_Numarasi"].Value?.ToString() ?? "";
-                TransferDetayFiltre(secilenFisNo);
+
+                if (!string.IsNullOrEmpty(secilenFisNo))
+                {
+                    TransferDetayFiltre(secilenFisNo);
+                }
             }
         }
 
@@ -265,10 +265,7 @@ namespace StokTakipSistemi
             dgvTransferler.ClearSelection();
 
             TransferListele("");
-            TransferDetayListele("");
-
-
-
+            dgvTransferDetay.DataSource = null;
         }
 
         private void cboxCikisDepo_SelectedIndexChanged(object sender, EventArgs e)
